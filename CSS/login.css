@@ -1,11 +1,38 @@
 body{
-    margin: 0;
-    padding: 0;
     font-family: sans-serif;
-    background: url(../Imagens/fundo_login.jpg) no-repeat;
+    background: url(../img/fundo_login.jpg) no-repeat;
     background-size: cover;
 }
 
+/******************
+* Tags Semânticas**
+******************/
+HEADER {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 40%;
+}
+
+/**********************
+* Estilização da logo *
+***********************/
+.logo {
+    height:33px;
+    z-index: 3;
+}
+.logo img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/********************************
+* Estilização do bloco de login *
+*********************************/
 .login-box{
     width: 280px;
     position: absolute;
@@ -80,23 +107,3 @@ body{
   .box input[type = "button"]:hover{
     background: #4caf50;
   }
-
-.flex-container {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-basis: 40%;
-}
-
-.logo {
-    height:33px;
-    z-index: 3;
-}
-.logo img {
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
