@@ -80,3 +80,23 @@ body{
   .box input[type = "button"]:hover{
     background: #4caf50;
   }
+
+.flex-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 40%;
+}
+
+.logo {
+    height:33px;
+    z-index: 3;
+}
+.logo img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
