@@ -1,0 +1,68 @@
+/******************
+* Tags Semânticas**
+******************/
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: #676869;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+/**************************
+* Demais conteúdos gerais *
+**************************/
+div.flex-container {
+    writing-mode: horizontal-tb;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/**********************
+* Estilização do Menu *
+***********************/
+nav img {
+    width: 150px;
+    height: auto;
+}
+
+nav ul {
+    width: calc(100% - 300px);
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+nav ul li {
+    padding: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: white;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+nav div.preenche-final {
+    width: 150px;
+    height: 100%;
+}
