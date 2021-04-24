@@ -18,7 +18,7 @@ header {
 
 main {
     width: 100%;
-    height: calc(100% - 170px); 
+    height: calc(100% - 170px);
     display: flex;
     justify-content: center;
     align-items: center;
