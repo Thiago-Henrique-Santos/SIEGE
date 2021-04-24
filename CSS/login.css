@@ -19,7 +19,7 @@ header {
 * Estilização da logo *
 ***********************/
 .logo {
-    height:100px;
+    height:110px;
     z-index: 3;
 }
 .logo img {
@@ -104,4 +104,13 @@ header {
   }
   .box input[type = "button"]:hover{
     background: #4caf50;
+  }
+
+  #paragrafo_rotulo{
+      text-align: center;
+      font-size: 15px;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 4.5px;
+      font-family: Arial;
   }
