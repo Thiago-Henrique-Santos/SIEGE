@@ -99,7 +99,7 @@ footer {
     border-radius: 20px 20px 20px 20px;
 }
 
-.box input[type = "button"]{
+.box input[type = "submit"]{
     border:0;
     background: none;
     display: block;
@@ -114,7 +114,7 @@ footer {
     cursor: pointer;
 }
 
-.box input[type = "button"]:hover{
+.box input[type = "submit"]:hover{
     background: #4caf50;
 }
 
