@@ -7,10 +7,8 @@ body{
 /******************
 * Tags Semânticas**
 ******************/
-HEADER {
+header {
     display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: flex-start;
@@ -21,7 +19,7 @@ HEADER {
 * Estilização da logo *
 ***********************/
 .logo {
-    height:33px;
+    height:100px;
     z-index: 3;
 }
 .logo img {
