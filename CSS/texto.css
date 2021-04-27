@@ -1,3 +1,13 @@
+/*
+* Classes gerais
+*/
+.centralizar-texto {
+    text-align: center;
+}
+
+/*
+* Títulos - nível 1
+*/
 h1.titulo-principal {
     font-weight: bold;
     font-size: 50px;
