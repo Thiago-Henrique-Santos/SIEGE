@@ -26,8 +26,7 @@ ul#jogo-menu li a:hover {
 }
 
 #recado {
-    float: none;
     width: 100%;
-    height: 70%;
+    height: auto;
     margin: 0px 10px 10px 0px;
 }
