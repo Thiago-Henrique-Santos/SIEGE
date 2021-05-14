@@ -2,10 +2,10 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+    <META charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEGE - Informações para professores </title>
+    <title>SIEGE - Calendário para Supervisores </title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
@@ -15,24 +15,24 @@
 
 <body>
     <nav>
-        <a href="visao_professores.html">
+        <a href="visao_supervisores.php">
             <img src="img/logo_transparente.png" alt="Logo do sistema">
         </a>
         <ul>
-            <li> <a href="boletim.html">Boletins</a> </li>
-            <li> <a href="turmas.html">Turmas</a> </li>
-            <li> <a href="informacao_professor.html">Informações</a> </li>
-            <li> <a href="calendario_professor.html">Calendário</a> </li>
-            <li> <a href="jogo.html">Jogo(maratona)</a> </li>
+            <li> <a href="boletim.php">Boletins</a> </li>
+            <li> <a href="turmas.php">Turmas</a> </li>
+            <li> <a href="informacao_supervisor.php">Informações</a> </li>
+            <li> <a href="calendario_supervisores.php">Calendário</a> </li>
+            <li> <a href="jogo.php">Jogo(maratona)</a> </li>
         </ul>
         <div class="preenche-final"></div>
     </nav>
-    <h1 class="titulo-principal">Informações para professores</h1>
 
-    <p style="margin-top: 25px;">Nesta página irá conter as informações de perfil e informações importantes e principais
-        para os professores</p>
+    <h1 class="titulo-principal"> Calendário para supervisores </h1>
 
+    <p style="margin-top: 25px;"> Nessa página será mostrada os calendários de trabalho dos supervisores e demais
+        calendários, que o supervisor
+        é encarregado de analisar. </p>
 </body>
-
 
 </html>

@@ -17,15 +17,15 @@
 
     <div class="flex-container">
         <nav>
-            <a href="visao_supervisores.html">
+            <a href="visao_supervisores.php">
                 <img src="img/logo_transparente.png" alt="Logo do sistema">
             </a>
             <ul>
-                <li> <a href="boletim.html">Boletins</a> </li>
-                <li> <a href="turmas.html">Turmas</a> </li>
-                <li> <a href="informacao_supervisor.html">Informações</a> </li>
-                <li> <a href="calendario_supervisores.html">Calendário</a> </li>
-                <li> <a href="jogo.html">Jogo(maratona)</a> </li>
+                <li> <a href="boletim.php">Boletins</a> </li>
+                <li> <a href="turmas.php">Turmas</a> </li>
+                <li> <a href="informacao_supervisor.php">Informações</a> </li>
+                <li> <a href="calendario_supervisores.php">Calendário</a> </li>
+                <li> <a href="jogo.php">Jogo(maratona)</a> </li>
             </ul>
             <div class="preenche-final"></div>
         </nav>
