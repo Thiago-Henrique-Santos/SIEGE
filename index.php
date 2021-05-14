@@ -21,7 +21,7 @@
             <ul>
                 <li> <a href="index.php">Início</a> </li>
                 <li> <a href="sobre.php">Sobre</a> </li>
-                <li> <a href="login.html">Entre</a> </li>
+                <li> <a href="login.php">Entre</a> </li>
             </ul>
             <div class="preenche-final"></div>
         </nav>

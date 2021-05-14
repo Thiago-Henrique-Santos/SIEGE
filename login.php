@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="login.html" class="logo">
+        <a href="login.php" class="logo">
             <img src="img/logo_transparente.png" alt="logo do siege">
         </a>
     </header>
