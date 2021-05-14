@@ -24,7 +24,7 @@
                 <h1>Login</h1>
                 <div class="textbox">
                     <img src="img/user.png" alt="Esse é um ícone de usuários">
-                    <input type="text" placeholder="Email:" name="campo_email" value="">
+                    <input type="email" placeholder="Email:" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="campo_email" value="">
                 </div>
 
                 <div class="textbox">
