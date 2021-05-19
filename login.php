@@ -8,6 +8,7 @@
     <title>SIEGE - Login</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/login.css">
+    <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
@@ -20,16 +21,22 @@
 
     <main>
         <div class="login-box">
-            <form class="box" action="visao_diretor.php" method="post">
+            <form class="box" action="Validacoes/validacao_login.php" method="post">
                 <h1>Login</h1>
                 <div class="textbox">
                     <img src="img/user.png" alt="Esse é um ícone de usuários">
                     <input type="email" placeholder="Email:" name="campo_email" value="">
+                    <?php if (isset($_GET["erros_email"]))
+                        echo "<p class=\"msg_erro\"></p>" . $_GET["erros_email"] . "</br>";
+                    ?>
                 </div>
 
                 <div class="textbox">
                     <img src="img/key.png" alt="Esse é um ícone de chave, indicando a senha">
                     <input type="password" placeholder="Senha:" name="campo_senha" value="">
+                    <?php if (isset($_GET["erros_senha"]))
+                        echo "<p class=\"msg_erro\"></p>" . $_GET["erros_senha"] . "</br>";
+                    ?>
                 </div>
 
                 <input class="btn" type="submit" name="botao" value="Acessar">
