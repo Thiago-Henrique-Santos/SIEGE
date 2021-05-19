@@ -28,7 +28,7 @@
                     <input type="email" placeholder="Email:" name="campo_email" value="">
                     <?php
                         if (isset($_GET["erros_email"]))
-                        echo "<p class=\"msg_erro\">" . $_GET["erros_email"] . "</p></br>";
+                        echo "<p class=\"msg_erro\">" . $_GET["erros_email"] . "</p>";
                     ?>
                 </div>
 
@@ -37,7 +37,7 @@
                     <input type="password" placeholder="Senha:" name="campo_senha" value="">
                     <?php
                         if (isset($_GET["erros_senha"]))
-                        echo "<p class=\"msg_erro\">" . $_GET["erros_senha"] . "</p></br>";
+                        echo "<p class=\"msg_erro\">" . $_GET["erros_senha"] . "</p>";
                     ?>
                 </div>
 
