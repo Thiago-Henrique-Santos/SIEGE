@@ -30,6 +30,7 @@
                 <li> <a href="financeiro.php">Financeiro</a> </li>
                 <li> <a href="seletivas.php">Seletiva</a> </li>
                 <li> <a href="jogo.php">Jogo(maratona)</a> </li>
+                <li> <a href="index.php">Sair</a> </li>
             </ul>
             <div class="preenche-final"></div>
         </nav>

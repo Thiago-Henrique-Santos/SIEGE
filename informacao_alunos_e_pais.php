@@ -24,6 +24,7 @@
             <li> <a href="informacao_alunos_e_pais.php">Informações</a> </li>
             <li> <a href="calendario_alunos_e_pais.php">Calendário</a> </li>
             <li> <a href="jogo.php">Jogo(maratona)</a> </li>
+            <li> <a href="index.php">Sair</a> </li>
         </ul>
         <div class="preenche-final"></div>
     </nav>

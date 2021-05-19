@@ -26,6 +26,7 @@
                 <li> <a href="informacao_supervisor.php">Informações</a> </li>
                 <li> <a href="calendario_supervisores.php">Calendário</a> </li>
                 <li> <a href="jogo.php">Jogo(maratona)</a> </li>
+                <li> <a href="index.php">Sair</a> </li>
             </ul>
             <div class="preenche-final"></div>
         </nav>
