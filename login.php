@@ -26,7 +26,8 @@
                 <div class="textbox">
                     <img src="img/user.png" alt="Esse é um ícone de usuários">
                     <input type="email" placeholder="Email:" name="campo_email" value="">
-                    <?php if (isset($_GET["erros_email"]))
+                    <?php
+                        if (isset($_GET["erros_email"]))
                         echo "<p class=\"msg_erro\">" . $_GET["erros_email"] . "</p></br>";
                     ?>
                 </div>
@@ -34,7 +35,8 @@
                 <div class="textbox">
                     <img src="img/key.png" alt="Esse é um ícone de chave, indicando a senha">
                     <input type="password" placeholder="Senha:" name="campo_senha" value="">
-                    <?php if (isset($_GET["erros_senha"]))
+                    <?php
+                        if (isset($_GET["erros_senha"]))
                         echo "<p class=\"msg_erro\">" . $_GET["erros_senha"] . "</p></br>";
                     ?>
                 </div>

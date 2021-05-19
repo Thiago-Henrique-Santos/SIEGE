@@ -47,9 +47,15 @@ footer {
 * Estilização do bloco de login *
 *********************************/
 .login-box{
-    width: 280px;
+    width: 400px;
     color: white;
     text-shadow: 0.1em 0.1em 0.2em black;
+    padding: 20px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #4caf50;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.199);
 }
 
 .login-box h1{
@@ -90,7 +96,6 @@ footer {
     width: 100%;
     background: rgba(255, 253, 253, 0.404);
     border: 2px solid #2ecc71;
-    text-shadow: 0.1em 0.1em 0.2em black;
     color: black;
     padding: 5px;
     font-size: 18px;
@@ -108,7 +113,7 @@ footer {
     border: 2px solid #2ecc71;
     padding: 14px 40px;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 24px;
     transition: 0.5s;
     cursor: pointer;
@@ -116,6 +121,7 @@ footer {
 
 .box input[type = "submit"]:hover{
     background: #4caf50;
+    color: white;
 }
 
 footer p{
