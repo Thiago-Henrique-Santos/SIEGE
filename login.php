@@ -24,12 +24,12 @@
                 <h1>Login</h1>
                 <div class="textbox">
                     <img src="img/user.png" alt="Esse é um ícone de usuários">
-                    <input type="email" placeholder="Email:" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="campo_email" value="" title="O email deve conter @ e . ao final.">
+                    <input type="email" placeholder="Email:" name="campo_email" value="">
                 </div>
 
                 <div class="textbox">
                     <img src="img/key.png" alt="Esse é um ícone de chave, indicando a senha">
-                    <input type="password" required placeholder="Senha:" name="campo_senha" value="">
+                    <input type="password" placeholder="Senha:" name="campo_senha" value="">
                 </div>
 
                 <input class="btn" type="submit" name="botao" value="Acessar">
