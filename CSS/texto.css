@@ -12,6 +12,8 @@
   background: none;
   font-family: "Times New Roman";
   text-shadow: none;
+  position: relative;
+  bottom: 30px;
 }
 
 /*

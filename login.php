@@ -27,20 +27,20 @@
                     <img src="img/user.png" alt="Esse é um ícone de usuários">
                     <input type="email" placeholder="Email:" minlength = "5" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
                     title="O email deve conter @ e . ao final." name="campo_email" value="<?php if (isset($_GET["valor_email"])) echo $_GET["valor_email"]; ?>">
-                    <?php
-                        if (isset($_GET["erros_email"]))
-                        echo "<p class=\"msg_erro\">" . $_GET["erros_email"] . "</p>";
-                    ?>
                 </div>
+                <?php
+                    if (isset($_GET["erros_email"]))
+                    echo "<p class=\"msg_erro\">" . $_GET["erros_email"] . "</p>";
+                ?>
 
                 <div class="textbox">
                     <img src="img/key.png" alt="Esse é um ícone de chave, indicando a senha">
                     <input type="password" minlength = "6" maxlength = "25" required placeholder="Senha:" name="campo_senha" value="">
-                    <?php
-                        if (isset($_GET["erros_senha"]))
-                        echo "<p class=\"msg_erro\">" . $_GET["erros_senha"] . "</p>";
-                    ?>
                 </div>
+                <?php
+                    if (isset($_GET["erros_senha"]))
+                    echo "<p class=\"msg_erro\">" . $_GET["erros_senha"] . "</p>";
+                ?>
 
                 <input class="btn" type="submit" name="botao" value="Acessar">
             </form>
