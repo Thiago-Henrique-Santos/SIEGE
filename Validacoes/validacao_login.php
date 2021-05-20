@@ -2,19 +2,40 @@
     $erros_email="";
     $erros_senha="";
 
+
+    /*******Validações referentes ao campo de email(login)******** */
     if(!isset($_POST["campo_email"]) || $_POST["campo_email"] ==""){
-        $erros_email .= "<br> * O campo de email deve ser preenchido!";
+        $erros_email .= "<br> * Este campo deve ser preenchido";
     }
 
+    if(strlen($_POST["campo_email"]) < 5){
+        $erros_email .= "<br> * O email deve conter, pelo menos, 5 caracteres";
+    }
+
+    $var_email = $_POST["campo_email"];
+    $var_email = filter_var($var_email, FILTER_SANITIZE_EMAIL);
+
+    if(!filter_var($_POST["campo_email"], FILTER_VALIDATE_EMAIL)){
+        $erros_email .= "<br> * O email não está no padrão correto. Confirme se ele possui '@' e '.'";
+    }
+
+
+    /*******Validações referentes ao campo de senha******** */
     if(!isset($_POST["campo_senha"]) || $_POST["campo_senha"] ==""){
-        $erros_senha .= "<br> * O campo de senha deve ser preenchido!";
+        $erros_senha .= "<br> * Este campo deve ser preenchido!";
     }
-    echo $erros_email . $erros_senha;
 
+    if(strlen($_POST["campo_senha"]) < 6){
+        $erros_senha .= "<br> * A senha deve conter, no mínimo, 6 caracteres";
+    }
 
+    if(strlen($_POST["campo_senha"]) > 25){
+        $erros_senha .= "<br> * A senha deve conter, no máximo, 25 caracteres";
+    }
+    
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
-        header("refresh:2;url=visao_diretor.php");
+        header("refresh:0;url=../visao_diretor.php");
     }else{
         header("Location: ../login.php?erros_email=$erros_email&erros_senha=$erros_senha");
     }
