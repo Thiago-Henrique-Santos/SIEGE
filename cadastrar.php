@@ -10,11 +10,14 @@
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/forms.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modal.css">
+    <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
+
     <nav>
         <a href="visao_diretor.php">
             <img src="img/logo_transparente.png" alt="Logo do sistema">
@@ -34,25 +37,25 @@
         <div class="preenche-final"></div>
     </nav>
 
-    <h1 style="margin-bottom: 25px;" class="titulo-principal centralizar-texto">Cadastrar novos funcionários</h1>
+    <main>
+        <h1 style="margin-bottom: 25px;" class="titulo-principal centralizar-texto">Cadastrar novos funcionários</h1>
+        
+        <div class="toRegister-box">
+            <p style="margin-bottom: 25px;">Qual tipo de usuário gostaria de cadastrar?</p>
+            <div class="buttons-group">
+                <button class="option" id="supervisor">Supervisor(a)</button>
+                <button class="option" id="secretario">Secretário(a)</button>
+                <button class="option" id="professor">Professor(a)</button>
+                <button class="option" id="aluno">Aluno(a)</button>
+            </div>
+        </div>
+    </main>
 
-    <form class="user" action="#" method="post">
-        <label>Qual tipo de usuário gostaria de cadastrar?</label> <br><br>
+    <div id="modal-screen">
+        <iframe src="formularios-cadastro.php">
+    </div>
 
-        <input type="radio" id="sup" name="usuario" value="Supervisor">
-        <label for="sup">Supervisor(a)</label>
-
-        <input type="radio" id="secr" name="usuario" value="Secretario">
-        <label for="secr">Secretário(a)</label>
-
-        <input type="radio" id="prof" name="usuario" value="Professor">
-        <label for="prof">Professor(a)</label>
-
-        <input type="radio" id="alu" name="usuario" value="Aluno">
-        <label for="alu">Aluno(a)</label> <br><br>
-    </form>
-    <br><br>
-
+    <script src="JS/modal-cadastrar.js"></script>
 </body>
 
 </html>
