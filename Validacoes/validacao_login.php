@@ -9,7 +9,6 @@
     if(!isset($_POST["campo_senha"]) || $_POST["campo_senha"] ==""){
         $erros_senha .= "<br> O campo de senha deve ser preenchido!";
     }
-    echo $erros_email . $erros_senha;
 
 
 
