@@ -1,5 +1,9 @@
 var options = document.getElementsByClassName('option');
-var iframe = document.querySelector('#modal-screen iframe');
+var modal = window.document.getElementById('modal-screen');
+var iframe = document.querySelector('#modal-block iframe');
+var close = new Array();
+close[0] = document.getElementById('close-button');
+close[1] = document.getElementById('modal-screen');
 
 /**************************
 *         Eventos         *
@@ -10,11 +14,16 @@ for (var i = 0; i < options.length; i++) {
     iframe.src = path;
 }
 
+for (var i = 0; i < close.length; i++) {
+    close[i].addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+}
+
 /**************************
 *         Funções         *
 **************************/
 function loadModal(registerType) {
-    var modal = window.document.getElementById('modal-screen');
     var path = generatePath(registerType);
     modal.style.display = "flex";
     iframe.src = path;

@@ -53,7 +53,12 @@
     </main>
 
     <div id="modal-screen">
-        <iframe src="formularios-cadastro.php?id=default">
+        <div id="modal-block">
+            <div id="close-button">
+                <p>x</p>
+            </div>
+            <iframe src="formularios-cadastro.php?id=default">
+        </div>
     </div>
 </body>
 
