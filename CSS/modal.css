@@ -11,7 +11,7 @@
 }
 
 #modal-block {
-    width: 350px;
+    width: 400px;
     height: 500px;
 }
 
@@ -31,7 +31,7 @@
     border-radius: 50%;
     position: relative;
     bottom: 25px;
-    left: 350px;
+    left: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
