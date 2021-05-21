@@ -58,7 +58,7 @@ if (!isset($_GET['id'])){
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
             
             echo "<label for='opcao_estado'>Estado:</label> <br>";
-                echo "<name='estado'>";
+                echo "<select name='estado'>";
                     echo "<option id='AC' value='AC'>Acre</option>";
                     echo "<option id='AL' value='AL'>Alagoas</option>";
                     echo "<option id='AP' value='AP'>Amapá</option>";
