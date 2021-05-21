@@ -1,0 +1,87 @@
+.success {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  background-color: rgb(106, 168, 126);
+  padding: 20px 40px;
+  border-radius: 5px;
+  border-left: 6px solid rgb(28, 78, 28);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.success.alert {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.check {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: rgb(3, 71, 3);
+}
+
+.msg {
+  font-size: 19px;
+  color: rgb(32, 90, 32);
+  margin: 0 30px;
+  user-select: none;
+}
+
+.crose {
+  padding: 20px 18px;
+  background-color: rgb(47, 112, 47);
+  font-size: 30px;
+  color: rgb(33, 83, 33);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.crose:hover {
+  background-color: rgb(51, 100, 51);
+}
+
+.success.show {
+  animation: show_slide 1s ease forwards;
+}
+
+@keyframes show_slide {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-10%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+.success.hide {
+  animation: hide_slide 1s ease forwards;
+}
+
+@keyframes hide_slide {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
