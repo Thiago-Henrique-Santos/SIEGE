@@ -11,8 +11,8 @@
 }
 
 #modal-block {
-    width: 750px;
-    height: 800px;
+    width: 350px;
+    height: 500px;
 }
 
 #modal-block iframe {
@@ -31,7 +31,7 @@
     border-radius: 50%;
     position: relative;
     bottom: 25px;
-    left: 750px;
+    left: 350px;
     display: flex;
     justify-content: center;
     align-items: center;

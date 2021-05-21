@@ -49,7 +49,7 @@ if (!isset($_GET['id'])){
                 echo "<input type='password' class='form-control' minlength = '6' maxlength = '25' required placeholder='Senha:' id='senha' name='senha' value=''>";
             
             echo "<label for='tel' class='form-label'>Telefone: </label>";
-                echo "<input type='tel' name='tel' id='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' id='tel'> <br>";
+                echo "<input type='tel' name='tel' id='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' id='tel'> <br><br>";
 
             echo "<label for='opcao_s'>Sexo: </label>";
                 echo "<input type='radio' name='campo_s' id='campo_sM' value=''>";
@@ -58,7 +58,7 @@ if (!isset($_GET['id'])){
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
             
             echo "<label for='opcao_estado'>Estado:</label> <br>";
-                echo "<name='estado'>";
+                echo "<select name='estado'>";
                     echo "<option id='AC' value='AC'>Acre</option>";
                     echo "<option id='AL' value='AL'>Alagoas</option>";
                     echo "<option id='AP' value='AP'>Amapá</option>";
@@ -103,7 +103,6 @@ if (!isset($_GET['id'])){
 
             echo "<label for='senha' class='form-label'>Senha: </label>";
                 echo "<input type='password' minlength = '6' maxlength = '25' required name='campo_senha' value=''>";
-            
     }
 
     $formType = $_GET['id'];
