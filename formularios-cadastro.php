@@ -33,44 +33,42 @@ if (!isset($_GET['id'])){
     }
 
     function sup_sec_dir() {
-        echo "<h1 class='titulo_medio'>Cadastro de Supervisores</h1>";
-        
         echo "<form method='POST' action='validacao_cadastros.php'>";
-            echo "<label for='nome_completo' class='form-label'>Nome completo: </label>";
+            echo "<br><label for='nome_completo' class='form-label'>Nome completo: </label>";
                 echo "<input type='text' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
-            echo "<label for='masp' class='form-label'>MASP: </label>";
+            echo "<br><label for='masp' class='form-label'>MASP: </label>";
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
-            echo "<label for='email' class='form-label'>Email: </label>";
+            echo "<br><label for='email' class='form-label'>Email: </label>";
                 echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='senha' name='senha' value=''>";
 
-            echo "<label for='campo_zona'>Local de moradia: </label>";
+            echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
             echo "<label for='campo_zR'>Zona rural</label>";
                 echo "<input type='radio' name='campo_zona' id='campo_zU' value=''>";
             echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
 
-            echo "<label for='tipo_empregado'>Tipo de empregado: </label>";
+            echo "<br><label for='tipo_empregado'>Tipo de empregado: </label><br>";
                 echo "<input type='radio' name='tipo_empregado' id='designado' value=''>";
             echo "<label for='designado'>Designado</label>";
                 echo "<input type='radio' name='tipo_empregado' id='efetivo' value=''>";
             echo "<label for='efetivo'>Efetivo</label> <br><br>";
 
-            echo "<label for='campo_s'>Sexo: </label>";
+            echo "<br><label for='campo_s'>Sexo: </label><br>";
                 echo "<input type='radio' name='campo_s' id='campo_sM' value=''>";
             echo "<label for='campo_sM'>Masculino</label>";
                 echo "<input type='radio' name='campo_s' id='campo_sF' value=''>";
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
 
-            echo "<label for='cargo_funcao' class='form-label'>Cargo ou função: </label>";
+            echo "<br><label for='cargo_funcao' class='form-label'>Cargo ou função: </label>";
                 echo "<input type='text' required class='form-control' id='cargo_funcao' name='cargo_funcao' value=''>";
 
-            echo "<label for='senha' class='form-label'>Senha: </label>";
-                echo "<input type='password' maxlength = '6' required name='senha' value=''>";
+            echo "<br><label for='senha' class='form-label'>Senha: </label>";
+                echo "<input type='password' class='form-control' maxlength = '6' required name='senha' value=''>";
 
-            echo "<label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
-                echo "<input type='password' maxlength = '6' required name='confirm_senha' value=''>";
+            echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
+                echo "<input type='password' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
     }
 
     $formType = $_GET['id'];
@@ -80,8 +78,21 @@ if (!isset($_GET['id'])){
             def();
             break;
         case "supervisor":
+            echo "<h1 class='titulo_medio'>Cadastro de Supervisores</h1>";
             sup_sec_dir();
             break;
+        case "secretario":
+            echo "<h1 class='titulo_medio'>Cadastro de Secretários</h1>";
+            sup_sec_dir();
+            break;
+        case "diretor":
+            echo "<h1 class='titulo_medio'>Cadastro de Diretor</h1>";
+            sup_sec_dir();
+            break;
+        case "professor":
+            echo "<h1 class='titulo_medio'>Cadastro de Professores</h1>";
+            sup_sec_dir();
+            break;    
     }
 ?>
 
