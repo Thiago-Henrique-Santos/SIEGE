@@ -15,21 +15,12 @@
 
 <body>
 
+    <?php
+        include ('componentes/user_nav.php');
+    ?>
+
     <div class="flex-container">
-        <nav>
-            <a href="visao_alunos_pais.php">
-                <img src="img/logo_transparente.png" alt="Logo do sistema">
-            </a>
-            <ul>
-                <li> <a href="boletim.php">Boletins</a> </li>
-                <li> <a href="turmas.php">Turmas</a> </li>
-                <li> <a href="informacao_alunos_e_pais.php">Informações</a> </li>
-                <li> <a href="calendario_alunos_e_pais.php">Calendário</a> </li>
-                <li> <a href="jogo.php">Jogo(maratona)</a> </li>
-                <li> <a href="index.php">Sair</a> </li>
-            </ul>
-            <div class="preenche-final"></div>
-        </nav>
+        
 
         <main>
             <div style="width: 100%; height: 120px; display: flex; 

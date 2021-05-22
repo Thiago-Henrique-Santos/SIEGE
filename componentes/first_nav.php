@@ -12,22 +12,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
-<body>
-    <div class="flex-container">
-        
-        <?php
-            include ('componentes/first_nav.php');
-        ?>
-
-        <main>
-            <div style="width: 100%; height: 50px; display: flex; 
-            flex-flow: row nowrap; justify-content: center;">
-                <h1 class="titulo-principal"> Página principal do site </h1>
-            </div>
-        </main>
-    </div>
-
-
-</body>
-
-</html>
+<?php
+    echo "<nav>";
+        echo "<a href='index.php'>";
+            echo "<img src='img/logo_transparente.png' alt='Logo do sistema'>";
+        echo "</a>";
+        echo "<ul>";
+            echo "<li> <a href='index.php'>Início</a> </li>";
+            echo "<li> <a href='sobre.php'>Sobre</a> </li>";
+            echo "<li> <a href='login.php'>Entre</a> </li>";
+        echo "</ul>";
+    echo "</nav>";
+?>

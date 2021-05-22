@@ -14,20 +14,10 @@
 </head>
 
 <body>
-    <nav>
-        <a href="visao_secretarios.php">
-            <img src="img/logo_transparente.png" alt="Logo do sistema">
-        </a>
-        <ul>
-            <li> <a href="boletim.php">Boletins</a> </li>
-            <li> <a href="turmas.php">Turmas</a> </li>
-            <li> <a href="informacao_secretario.php">Informações</a> </li>
-            <li> <a href="calendario_secretario.php">Calendário</a> </li>
-            <li> <a href="jogo.php">Jogo(maratona)</a> </li>
-            <li> <a href="index.php">Sair</a> </li>
-        </ul>
-        <div class="preenche-final"></div>
-    </nav>
+    
+    <?php
+        include ('componentes/user_nav.php');
+    ?>
 
     <h1 class="titulo-principal"> Calendários para Secretários </h1>
 

@@ -16,17 +16,9 @@
 <body>
 
     <div class="flex-container">
-        <nav>
-            <a href="index.php">
-                <img src="img/logo_transparente.png" alt="Logo do sistema">
-            </a>
-            <ul>
-                <li> <a href="index.php">Início</a> </li>
-                <li> <a href="sobre.php">Sobre</a> </li>
-                <li> <a href="login.php">Entre</a> </li>
-            </ul>
-            <div class="preenche-final"></div>
-        </nav>
+        <?php
+            include ('componentes/first_nav.php');
+        ?>
 
         <main>
             <div style="width: 100%; height: 50px; display: flex; 

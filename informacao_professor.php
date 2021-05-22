@@ -14,20 +14,11 @@
 </head>
 
 <body>
-    <nav>
-        <a href="visao_professores.php">
-            <img src="img/logo_transparente.png" alt="Logo do sistema">
-        </a>
-        <ul>
-            <li> <a href="boletim.php">Boletins</a> </li>
-            <li> <a href="turmas.php">Turmas</a> </li>
-            <li> <a href="informacao_professor.php">Informações</a> </li>
-            <li> <a href="calendario_professor.php">Calendário</a> </li>
-            <li> <a href="jogo.php">Jogo(maratona)</a> </li>
-            <li> <a href="index.php">Sair</a> </li>
-        </ul>
-        <div class="preenche-final"></div>
-    </nav>
+    
+    <?php
+        include ('componentes/user_nav.php');
+    ?>
+
     <h1 class="titulo-principal">Informações para professores</h1>
 
     <p style="margin-top: 25px;">Nesta página irá conter as informações de perfil e informações importantes e principais

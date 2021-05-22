@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <a href="login.php" class="logo">
+        <a href="index.php" class="logo">
             <img src="img/logo_transparente.png" alt="logo do siege">
         </a>
     </header>
