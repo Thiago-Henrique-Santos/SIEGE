@@ -40,7 +40,7 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
             echo "<label for='email' class='form-label'>RG: </label>";
-                echo "<input type='password' class='form-control' minlength = '5' maxlength = '30' required placeholder='Senha:' id='senha' name='senha' value=''>";
+                echo "<input type='password' class='form-control' minlength = '5' required placeholder='Senha:' id='senha' name='senha' value=''>";
 
             echo "<label for='opcao_s'>Sexo: </label>";
                 echo "<input type='radio' name='campo_s' id='campo_sM' value=''>";
