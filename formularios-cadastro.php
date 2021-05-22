@@ -68,10 +68,10 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' required id='senha' name='senha' value=''>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -113,10 +113,10 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -158,10 +158,10 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -203,10 +203,10 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
-                echo "<input type='password' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -221,16 +221,16 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' placeholder='Nome completo' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
             echo "<br><label for='data_nascimento' class='form-label'>Data de Nascimento: </label>";
-                echo "<input type='date' required class='form-control' id='data_nascimento' name='data_nascimento' value='2014-01-01'>";
+                echo "<input type='date' required class='form-control' id='data_nascimento' name='data_nascimento' value=''>";
 
             echo "<br><label for='matricula' class='form-label'>Número da matrícula: </label>";
-                echo "<input type='text' placeholder='Ex: 2021210001' maxlength = '10' required class='form-control' id='matricula' name='matricula' value=''>";
+                echo "<input type='text' required class='form-control' id='matricula' name='matricula' value=''>";
 
             echo "<br><label for='responsavel' class='form-label'>Nome do responsável: </label>";
-                echo "<input type='text' placeholder='Nome completo' required class='form-control' id='responsavel' name='responsavel' value=''>";
+                echo "<input type='text' required class='form-control' id='responsavel' name='responsavel' value=''>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
-                echo "<input type='email' placeholder='exemplo@exp.com' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
+                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
             echo "<br><label for='telefone' class='form-label'>Telefone do responsável: </label>";
                 echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' class='form-control' id='telefone' name='telefone' value=''>";
@@ -248,10 +248,10 @@ if (!isset($_GET['id'])){
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
-                echo "<input type='password' placeholder='••••••' class='form-control' maxlength = '6' required name='senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
-                echo "<input type='password' placeholder='••••••' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
+                echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";

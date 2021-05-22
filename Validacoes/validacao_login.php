@@ -36,7 +36,10 @@
 
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
-        header("refresh:0;url=../visao_diretor.php");
+        echo "Login realizado com sucesso! <br>";
+        echo "Você será redirecionado para o sistema. <br>";
+
+        header("refresh:3;url=../visao_diretor.php");
     }else{
         $valor = $_POST["campo_email"];
         header("Location: ../login.php?erros_email=$erros_email&erros_senha=$erros_senha&valor_email=$valor");
