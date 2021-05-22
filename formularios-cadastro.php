@@ -37,32 +37,40 @@ if (!isset($_GET['id'])){
         
         echo "<form method='POST' action='validacao_cadastros.php'>";
             echo "<label for='nome_completo' class='form-label'>Nome completo: </label>";
-                echo "<input type='text' class='form-control' id='nome_completo' name='nome_completo' value=''>";
+                echo "<input type='text' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
-            echo "<label for='email' class='form-label'>RG: </label>";
-                echo "<input type='password' class='form-control' minlength = '5' required placeholder='Senha:' id='senha' name='senha' value=''>";
+            echo "<label for='masp' class='form-label'>MASP: </label>";
+                echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
-            echo "<label for='opcao_s'>Sexo: </label>";
+            echo "<label for='email' class='form-label'>Email: </label>";
+                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='senha' name='senha' value=''>";
+
+            echo "<label for='campo_zona'>Local de moradia: </label>";
+                echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
+            echo "<label for='campo_zR'>Zona rural</label>";
+                echo "<input type='radio' name='campo_zona' id='campo_zU' value=''>";
+            echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
+
+            echo "<label for='tipo_empregado'>Tipo de empregado: </label>";
+                echo "<input type='radio' name='tipo_empregado' id='designado' value=''>";
+            echo "<label for='designado'>Designado</label>";
+                echo "<input type='radio' name='tipo_empregado' id='efetivo' value=''>";
+            echo "<label for='efetivo'>Efetivo</label> <br><br>";
+
+            echo "<label for='campo_s'>Sexo: </label>";
                 echo "<input type='radio' name='campo_s' id='campo_sM' value=''>";
             echo "<label for='campo_sM'>Masculino</label>";
                 echo "<input type='radio' name='campo_s' id='campo_sF' value=''>";
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
 
-            echo "<label for='cidade' class='form-label'>Cidade: </label>";
-                echo "<input type='text' class='form-control' id='cidade' name='cidade' value=''>";
-
-            echo "<label for='cep' class='form-label'>CEP: </label>";
-                echo "<input type='text' class='form-control' id='cep' name='cep' value=''>";
-
-            echo "<label for='rua' class='form-label'>Rua: </label>";
-                echo "<input type='text' class='form-control' id='rua' name='rua' value=''>";
-            echo "<label for='numero_endereco' class='form-label'>Número: </label>";
-                echo "<input type='text' class='form-control' id='numero_endereco' name='numero_endereco' value=''>";
-            echo "<label for='bairro' class='form-label'>Bairro: </label>";
-                echo "<input type='text' class='form-control' id='bairro' name='bairro' value=''>";
+            echo "<label for='cargo_funcao' class='form-label'>Cargo ou função: </label>";
+                echo "<input type='text' required class='form-control' id='cargo_funcao' name='cargo_funcao' value=''>";
 
             echo "<label for='senha' class='form-label'>Senha: </label>";
                 echo "<input type='password' maxlength = '6' required name='senha' value=''>";
+
+            echo "<label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
+                echo "<input type='password' maxlength = '6' required name='confirm_senha' value=''>";
     }
 
     $formType = $_GET['id'];
