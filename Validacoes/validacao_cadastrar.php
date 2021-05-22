@@ -1,5 +1,6 @@
 <?php
 
+
     if (!isset($_POST['cargo'])) {
         header("Location: ../formularios_cadastro.php?id=weird");
         echo "Ocorreu um erro inesperado! Por favor, tente cadastrar novamente.";
