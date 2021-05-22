@@ -35,7 +35,7 @@
 
                 <div class="textbox">
                     <img src="img/key.png" alt="Esse é um ícone de chave, indicando a senha">
-                    <input type="password" minlength = "6" maxlength = "25" required placeholder="Senha:" name="campo_senha" value="">
+                    <input type="password" maxlength = "6" required placeholder="Senha:" name="campo_senha" value="" title="A senha deve possuir 6 caracteres e apenas números">
                 </div>
                 <?php
                     if (isset($_GET["erros_senha"]))

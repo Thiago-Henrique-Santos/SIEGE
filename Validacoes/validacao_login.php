@@ -25,14 +25,15 @@
         $erros_senha .= "<br> * Este campo deve ser preenchido!";
     }
 
-    if(strlen($_POST["campo_senha"]) < 6){
-        $erros_senha .= "<br> * A senha deve conter, no mínimo, 6 caracteres";
+    if(strlen($_POST["campo_senha"]) != 6){
+        $erros_senha .= "<br> * A senha deve conter 6 caracteres";
     }
 
-    if(strlen($_POST["campo_senha"]) > 25){
-        $erros_senha .= "<br> * A senha deve conter, no máximo, 25 caracteres";
+    if(!is_numeric($_POST["campo_senha"])){
+        $erros_senha .= "<br> * A senha deve conter apenas números";
     }
     
+
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
         header("refresh:0;url=../visao_diretor.php");
