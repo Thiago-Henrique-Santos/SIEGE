@@ -44,7 +44,7 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
-                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='senha' name='senha' value=''>";
+                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -89,7 +89,7 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
-                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='senha' name='senha' value=''>";
+                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -134,7 +134,7 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
-                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='senha' name='senha' value=''>";
+                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -179,7 +179,7 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
-                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='senha' name='senha' value=''>";
+                echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -212,6 +212,51 @@ if (!isset($_GET['id'])){
         echo "</form>";
     }
 
+    function aluno() {
+        echo "<h1 class='titulo_medio'>Cadastro de Alunos</h1>";
+        echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='aluno'>";
+
+            echo "<br><label for='nome_completo' class='form-label'>Nome completo: </label>";
+                echo "<input type='text' placeholder='Nome completo' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
+
+            echo "<br><label for='data_nascimento' class='form-label'>Data de Nascimento: </label>";
+                echo "<input type='date' required class='form-control' id='data_nascimento' name='data_nascimento' value='2014-01-01'>";
+
+            echo "<br><label for='matricula' class='form-label'>Número da matrícula: </label>";
+                echo "<input type='text' placeholder='Ex: 2021210001' maxlength = '10' required class='form-control' id='matricula' name='matricula' value=''>";
+
+            echo "<br><label for='responsavel' class='form-label'>Nome do responsável: </label>";
+                echo "<input type='text' placeholder='Nome completo' required class='form-control' id='responsavel' name='responsavel' value=''>";
+
+            echo "<br><label for='email' class='form-label'>Email: </label>";
+                echo "<input type='email' placeholder='exemplo@exp.com' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
+
+            echo "<br><label for='telefone' class='form-label'>Telefone do responsável: </label>";
+                echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' class='form-control' id='telefone' name='telefone' value=''>";
+
+            echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
+                echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
+            echo "<label for='campo_zR'>Zona rural</label>";
+                echo "<input type='radio' name='campo_zona' id='campo_zU' value=''>";
+            echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
+
+            echo "<br><label for='campo_s'>Sexo: </label><br>";
+                echo "<input type='radio' name='campo_s' id='campo_sM' value=''>";
+            echo "<label for='campo_sM'>Masculino</label>";
+                echo "<input type='radio' name='campo_s' id='campo_sF' value=''>";
+            echo "<label for='campo_sF'>Feminino</label> <br><br>";
+
+            echo "<br><label for='senha' class='form-label'>Senha: </label>";
+                echo "<input type='password' placeholder='••••••' class='form-control' maxlength = '6' required name='senha' value=''>";
+
+            echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
+                echo "<input type='password' placeholder='••••••' class='form-control' maxlength = '6' required name='confirm_senha' value=''>";
+            
+            echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+        echo "</form>";
+    }
+
     $formType = $_GET['id'];
 
     switch ($formType) {
@@ -231,6 +276,7 @@ if (!isset($_GET['id'])){
             professor();
             break;
         case "aluno":
+            aluno();
             break;
     }
 ?>
