@@ -1,10 +1,8 @@
 <?php
 
     if (!isset($_POST['cargo'])) {
-        header("Location: formularios_cadastro.php?id=weird");
-        # Criar o local (na página formularios-cadastros.php) depois, ou criar uma nova página para mostar que deu um erro inesperado.
-        
-        //echo "Ocorreu um erro inesperado! Por favor, tente cadastrar novamente.";
+        header("Location: ../formularios_cadastro.php?id=weird");
+        echo "Ocorreu um erro inesperado! Por favor, tente cadastrar novamente.";
     }
 
     $cadastroCorreto = true;
