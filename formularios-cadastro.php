@@ -65,19 +65,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
                 if (isset($_GET["enm"]))
-                echo "<p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
             echo "<br><label for='masp' class='form-label'>MASP: </label>";
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
                 if (isset($_GET["emp"]))
-                echo "<p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
                 echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
                 if (isset($_GET["eeml"]))
-                echo "<p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -110,19 +110,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
                 if (isset($_GET["efnc"]))
-                echo "<p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
                 if (isset($_GET["epss"]))
-                echo "<p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
                 if (isset($_GET["ecps"]))
-                echo "<p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -137,19 +137,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
                 if (isset($_GET["enm"]))
-                echo "<p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
             echo "<br><label for='masp' class='form-label'>MASP: </label>";
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
                 if (isset($_GET["emp"]))
-                echo "<p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
                 echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
                 if (isset($_GET["eeml"]))
-                echo "<p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -182,19 +182,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
                 if (isset($_GET["efnc"]))
-                echo "<p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
                 if (isset($_GET["epss"]))
-                echo "<p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
                 if (isset($_GET["ecps"]))
-                echo "<p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -209,19 +209,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
                 if (isset($_GET["enm"]))
-                echo "<p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
             echo "<br><label for='masp' class='form-label'>MASP: </label>";
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
                 if (isset($_GET["emp"]))
-                echo "<p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
                 echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
                 if (isset($_GET["eeml"]))
-                echo "<p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -254,19 +254,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
                 if (isset($_GET["efnc"]))
-                echo "<p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
                 if (isset($_GET["epss"]))
-                echo "<p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
                 if (isset($_GET["ecps"]))
-                echo "<p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -281,19 +281,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value=''>";
 
                 if (isset($_GET["enm"]))
-                echo "<p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
             echo "<br><label for='masp' class='form-label'>MASP: </label>";
                 echo "<input type='text' maxlength = '8' required class='form-control' id='masp' name='masp' value=''>";
 
                 if (isset($_GET["emp"]))
-                echo "<p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
             echo "<br><label for='email' class='form-label'>Email: </label>";
                 echo "<input type='email' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value=''>";
 
                 if (isset($_GET["eeml"]))
-                echo "<p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
             echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value=''>";
@@ -326,19 +326,19 @@ if (!isset($_GET['id'])){
                 echo "<input type='text' required class='form-control' id='funcao' name='funcao' value=''>";
 
                 if (isset($_GET["efnc"]))
-                echo "<p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
 
             echo "<br><label for='senha' class='form-label'>Senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
 
                 if (isset($_GET["epss"]))
-                echo "<p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
             echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             
                 if (isset($_GET["ecps"]))
-                echo "<p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";

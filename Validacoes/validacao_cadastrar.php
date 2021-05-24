@@ -424,7 +424,7 @@
             $mp  = $_POST['masp'];
             $tep = $_POST['tipo_empregado'];
             $fnc = $_POST['funcao'];
-            header ("Location: ../formularios-cadastro.php?id=$cg&nm=$nm&mp=$mp&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_aluno[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
+            header ("Location: ../formularios-cadastro.php?id=$cg&nm=$nm&mp=$mp&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
         }
     }
 
