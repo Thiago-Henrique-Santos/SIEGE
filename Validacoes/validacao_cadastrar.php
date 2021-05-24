@@ -172,6 +172,10 @@
                 $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
                 $cadastroCorreto = false;
             }
+            if (!is_numeric($_POST['senha'])){
+                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
+                $cadastroCorreto = false;
+            }
             if (strlen($_POST['senha']) < 6) {
                 $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
                 $cadastroCorreto = false;
@@ -237,6 +241,10 @@
     
             if (!isset($_POST['senha']) || $_POST['senha']=="") {
                 $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
+                $cadastroCorreto = false;
+            }
+            if (!is_numeric($_POST['senha'])){
+                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
                 $cadastroCorreto = false;
             }
             if (strlen($_POST['senha']) < 6) {
@@ -306,6 +314,10 @@
                 $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
                 $cadastroCorreto = false;
             }
+            if (!is_numeric($_POST['senha'])){
+                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
+                $cadastroCorreto = false;
+            }
             if (strlen($_POST['senha']) < 6) {
                 $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
                 $cadastroCorreto = false;
@@ -371,6 +383,10 @@
     
             if (!isset($_POST['senha']) || $_POST['senha']=="") {
                 $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
+                $cadastroCorreto = false;
+            }
+            if (!is_numeric($_POST['senha'])){
+                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
                 $cadastroCorreto = false;
             }
             if (strlen($_POST['senha']) < 6) {
