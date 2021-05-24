@@ -1,7 +1,7 @@
 <?php
 
-    # Verificar sobre caracteres especiais
-    # ctype_alpha() não aceita acentos, então não serve. 
+    # Verificar sobre caracteres especiais.
+    # ctype_alpha() não aceita acentos, então não serve.
     function isJustLetter($string) {
         $size = strlen($string);
         for ($i=0; $i < $size; $i++) { 
