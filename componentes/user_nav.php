@@ -24,8 +24,6 @@
         echo "<li> <a href='informacao_diretores_vice.php'>Informações</a> </li>";
         echo "<li> <a href='cadastros.php'>Cadastros</a> </li>";
         echo "<li> <a href='calendario_diretor_e_vice-diretor.php'>Calendário</a> </li>";
-        echo "<li> <a href='financeiro.php'>Financeiro</a> </li>";
-        echo "<li> <a href='seletivas.php'>Seletiva</a> </li>";
         echo "<li> <a href='jogo.php'>Jogo(maratona)</a> </li>";
         echo "<li> <a href='index.php'>Sair</a> </li>";
     echo "</ul>";
