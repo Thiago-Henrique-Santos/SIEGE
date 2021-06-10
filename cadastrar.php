@@ -29,6 +29,7 @@
         <div class="toRegister-box">
             <p style="margin-bottom: 25px;">Qual tipo de usuário gostaria de cadastrar?</p>
             <div class="buttons-group">
+                <button class="option" id="diretor">Diretor(a) e vice</button>
                 <button class="option" id="supervisor">Supervisor(a)</button>
                 <button class="option" id="secretario">Secretário(a)</button>
                 <button class="option" id="professor">Professor(a)</button>
