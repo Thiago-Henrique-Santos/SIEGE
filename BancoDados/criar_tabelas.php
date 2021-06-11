@@ -26,9 +26,9 @@
             )";
 
     if($conexao->query($sql) === TRUE)
-        echo "Tabela de gerenciadores criado com sucesso!";
+        echo "<br> Tabela de gerenciadores criada com sucesso!";
     else    
-        echo "Erro criando a tabela gerenciadores: " . $conexao->error;
+        echo "<br> Erro criando a tabela gerenciadores: " . $conexao->error;
 
 
 
@@ -40,9 +40,9 @@
             )";
 
     if($conexao->query($sql) === TRUE)
-        echo "Tabela de turma criado com sucesso!";
+        echo "<br> Tabela de turma criada com sucesso!";
     else    
-        echo "Erro criando a tabela turma: " . $conexao->error;
+        echo "<br> Erro criando a tabela turma: " . $conexao->error;
 
 
 
@@ -63,9 +63,9 @@
             )";
 
     if($conexao->query($sql) === TRUE)
-        echo "Tabela de aluno criado com sucesso!";
+        echo "<br> Tabela de aluno criada com sucesso!";
     else    
-        echo "Erro criando a tabela aluno: " . $conexao->error;
+        echo "<br> Erro criando a tabela aluno: " . $conexao->error;
 
 
 
@@ -82,9 +82,41 @@
         senha VARCHAR(6)
         )";
 
-if($conexao->query($sql) === TRUE)
-    echo "Tabela de professor criado com sucesso!";
-else    
-    echo "Erro criando a tabela professor: " . $conexao->error;
+    if($conexao->query($sql) === TRUE)
+        echo "<br> Tabela de professor criado com sucesso!";
+    else    
+        echo "<br> Erro criando a tabela professor: " . $conexao->error;
+
+
+    //Disciplina
+    $sql = "CREATE TABLE IF NOT EXISTS disciplina (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(20)
+        )";
+
+    if($conexao->query($sql) === TRUE)
+        echo "<br> Tabela de disciplina criada com sucesso!";
+    else    
+        echo "<br> Erro criando a tabela disciplina: " . $conexao->error;
+
+
+    //Atividade
+    $sql = "CREATE TABLE IF NOT EXISTS atividade (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(100),
+        descricao VARCHAR(300),
+        valor FLOAT,
+        id_disciplina INT,
+        FOREIGN KEY(id_disciplina) REFERENCES disciplina(id)
+        )";
+
+    if($conexao->query($sql) === TRUE)
+        echo "<br> Tabela de atividade criada com sucesso!";
+    else    
+        echo "<br> Erro criando a tabela atividade: " . $conexao->error;
+
+
+
+    $conexao->close();
 
 ?>
