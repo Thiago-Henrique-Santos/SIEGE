@@ -68,7 +68,7 @@
         echo "Erro criando a tabela aluno: " . $conexao->error;
 
 
-        
+
     //Professor
     $sql = "CREATE TABLE IF NOT EXISTS professor (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -86,3 +86,5 @@ if($conexao->query($sql) === TRUE)
     echo "Tabela de professor criado com sucesso!";
 else    
     echo "Erro criando a tabela professor: " . $conexao->error;
+
+?>
