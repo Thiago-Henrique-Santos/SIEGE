@@ -79,7 +79,7 @@
         tipo_empregado VARCHAR(9),
         sexo VARCHAR(9),
         funcao VARCHAR(20),
-        senha VARCHAR(6),
+        senha VARCHAR(6)
         )";
 
 if($conexao->query($sql) === TRUE)
