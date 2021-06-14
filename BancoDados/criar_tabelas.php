@@ -58,7 +58,7 @@
             local_moradia VARCHAR(11),
             sexo VARCHAR(9),
             senha VARCHAR(6),
-            id_turma INT,
+            id_turma INT UNSIGNED,
             FOREIGN KEY(id_turma) REFERENCES turma(id)
             )";
 
@@ -93,7 +93,7 @@
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(20),
         ano INT,
-        id_professor INT,
+        id_professor INT UNSIGNED,
         FOREIGN KEY(id_professor) REFERENCES professor(id)
         )";
 
@@ -109,7 +109,7 @@
         nome VARCHAR(100),
         descricao VARCHAR(300),
         valor FLOAT,
-        id_disciplina INT,
+        id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id)
         )";
 
@@ -124,7 +124,7 @@
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         dataa date,
         conteudo VARCHAR(300),
-        id_disciplina INT,
+        id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
         )";
 
@@ -137,8 +137,8 @@
     //Aluno_realiza_disciplina
     $sql = "CREATE TABLE IF NOT EXISTS aluno_realiza_disciplina (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        id_aluno INT,
-        id_disciplina INT,
+        id_aluno INT UNSIGNED,
+        id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(id),
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
         )";
@@ -152,8 +152,8 @@
     //Turma_tem_disciplina
     $sql = "CREATE TABLE IF NOT EXISTS turma_tem_disciplina (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        id_turma INT,
-        id_disciplina INT,
+        id_turma INT UNSIGNED,
+        id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_turma) REFERENCES turma(id),
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
         )";
@@ -169,8 +169,8 @@
     $sql = "CREATE TABLE IF NOT EXISTS aluno_faz_aula (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         falta TIME,
-        id_aluno INT,
-        id_aula INT,
+        id_aluno INT UNSIGNED,
+        id_aula INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(id),
         FOREIGN KEY(id_aula) REFERENCES aula(id) 
         )";
@@ -185,8 +185,8 @@
     $sql = "CREATE TABLE IF NOT EXISTS aluno_faz_atividade (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nota FLOAT,
-        id_aluno INT,
-        id_atividade INT,
+        id_aluno INT UNSIGNED,
+        id_atividade INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(id),
         FOREIGN KEY(id_atividade) REFERENCES atividade(id) 
         )";
@@ -197,7 +197,7 @@
         echo "<br> Erro criando a tabela aluno_faz_atividade: " . $conexao->error;
 
 
-
+        
     $conexao->close();
 
 ?>
