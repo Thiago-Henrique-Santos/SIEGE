@@ -19,10 +19,10 @@
         include ('componentes/user_nav.php');
     ?>
 
-    <h1 class="titulo-principal"> Informações para Diretor e Vice-Diretor </h1>
+    <h1 class="titulo-principal"> Ferramentas </h1>
 
-    <p style="margin-top: 25px;"> Nesta página irá conter as informações de perfil e informações importantes e
-        principais para o(a) diretor(a) e o(a) vice-diretor(a) </p>
+    <p style="margin-top: 25px;"> Nesta página irá conter as ferramentas que os professores usam
+    como o google sala de aula, google jamboard e google meet </p>
 </body>
 
 </html>
