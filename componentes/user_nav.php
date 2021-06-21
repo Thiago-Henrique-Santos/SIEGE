@@ -20,8 +20,7 @@
     echo "<ul>";
         echo "<li> <a href='cadastrar.php'>Cadastrar</a> </li>";
         echo "<li> <a href='boletim.php'>Boletins</a> </li>";
-        echo "<li> <a href='turmas.php'>Turmas</a> </li>";
-        echo "<li> <a href='informacao_diretores_vice.php'>Informações</a> </li>";
+        echo "<li> <a href='ferramentas.php'>Ferramentas</a> </li>";
         echo "<li> <a href='cadastros.php'>Cadastros</a> </li>";
         echo "<li> <a href='calendario_diretor_e_vice-diretor.php'>Calendário</a> </li>";
         echo "<li> <a href='jogo.php'>Ranking</a> </li>";
