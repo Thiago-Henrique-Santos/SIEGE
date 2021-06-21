@@ -92,7 +92,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS disciplina (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(20),
-        ano INT,
+        ano YEAR,
         id_professor INT UNSIGNED,
         FOREIGN KEY(id_professor) REFERENCES professor(id)
         )";
