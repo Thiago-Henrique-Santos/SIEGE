@@ -53,7 +53,7 @@ footer {
   padding: 20px;
   border-style: solid;
   border-width: 3px;
-  border-color: #4caf50;
+  border-color: #09116b;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.247);
 }
@@ -61,7 +61,7 @@ footer {
 .login-box h1 {
   float: left;
   font-size: 40px;
-  border-bottom: 6px solid #4caf50;
+  border-bottom: 6px solid #09116b;
   margin-bottom: 50px;
   padding: 13px 0;
 }
@@ -72,7 +72,7 @@ footer {
   font-size: 20px;
   padding: 8px 0;
   margin: 8px 0;
-  border-bottom: 1px solid #2ecc71;
+  border-bottom: 1px solid #09116b;
 }
 
 .textbox i {
@@ -95,7 +95,7 @@ footer {
 .btn {
   width: 100%;
   background: rgba(255, 253, 253, 0.404);
-  border: 2px solid #2ecc71;
+  border: 2px solid #09116b;
   color: black;
   padding: 5px;
   font-size: 18px;
@@ -110,7 +110,7 @@ footer {
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #2ecc71;
+  border: 2px solid #09116b;
   padding: 14px 40px;
   outline: none;
   color: black;
@@ -120,7 +120,7 @@ footer {
 }
 
 .box input[type="submit"]:hover {
-  background: #4caf50;
+  background: #0a3a9b;
   color: white;
 }
 
