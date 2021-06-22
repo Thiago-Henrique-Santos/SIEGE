@@ -35,6 +35,11 @@
                 <button class="option" id="professor">Professor(a)</button>
                 <button class="option" id="aluno">Aluno(a)</button>
             </div>
+            <p style="margin-top:50px;">Outros cadastros:</p>
+            <div class="buttons-group" style="margin-top:25px;">
+                <button class="option" id="turma">Turma</button>
+                <button class="option" id="disciplina">Disciplina</button>
+            </div>
         </div>
     </main>
 

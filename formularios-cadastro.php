@@ -1,8 +1,10 @@
- <?php
+<?php
 
 if (!isset($_GET['id'])){
     echo "Erro!";
 }
+
+date_default_timezone_set('America/Sao_Paulo');
 
 ?>
 
@@ -41,6 +43,12 @@ if (!isset($_GET['id'])){
             break;
         case "aluno":
             aluno();
+            break;
+        case "turma":
+            turma();
+            break;
+        case "disciplina":
+            disciplina();
             break;
         case "validadoOK":
             validacaoOk();
@@ -183,6 +191,70 @@ if (!isset($_GET['id'])){
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+        echo "</form>";
+    }
+
+    function turma() {
+        $valor_salvo = "";
+
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Turma</h1>";
+        echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            
+            echo "<label for='nome_turma' class='form-label'><strong>Nome da turma:</strong></label>";
+                echo "<input type='text' placeholder='A' class='form-control' title='Insira o nome da turma.' name='nome_turma'>";
+            
+            echo "<br><label for='ano' class='form-label'><strong>Ano</strong></label>";
+                echo "<br><input type='radio' name='ano' id='segundo'>";
+                echo "<label for='segundo' class='form-label'>2&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='terceiro'>";
+                echo "<label for='terceiro' class='form-label'>3&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='quarto'>";
+                echo "<label for='quarto' class='form-label'>4&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='quinto'>";
+                echo "<label for='quinto' class='form-label'>5&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='sexto'>";
+                echo "<label for='sexto' class='form-label'>6&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='setimo'>";
+                echo "<label for='setimo' class='form-label'>7&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='oitavo'>";
+                echo "<label for='oitavo' class='form-label'>8&ordm;</label>";
+                echo "<br><input type='radio' name='ano' id='nono'>";
+                echo "<label for='nono' class='form-label'>9&ordm;</label>";
+
+                echo "<br><label for='data_nascimento' class='form-label'>Data de Nascimento: </label>";
+                echo "<input type='date' required class='form-control' id='data_nascimento' name='data_nascimento' value='$valor_salvo'>";
+
+            echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+        echo "</form>";
+    }
+
+    function disciplina() {
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Disciplina</h1>";
+        echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            
+            echo "<label for='nome_disciplina' class='form-label'><strong>Nome da disciplina:</strong></label>";
+                echo "<input type='text' placeholder='Matemática' class='form-control' title='Insira o nome da turma.' name='nome_disciplina'>";
+            
+            echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
+                $anoAtual = date("Y");
+                $proximoAno = ((int)$anoAtual + 1);
+                for ($i=0; $i < 2; $i++) {
+                    if ($i == 0) {
+                        echo "<br><input type='radio' name='ano' id='atual'>";
+                        echo "<label for='atual' class='form-label'>$anoAtual</label>";
+                    } else {
+                        echo "<br><input type='radio' name='ano' id='proximo'>";
+                        echo "<label for='proximo' class='form-label'>$proximoAno</label>";
+                    }
+                }
+
+            echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
+                echo "<br><select name='professor' class='form-select'>";
+                echo "<option selected>--</option>";
+                echo "<option>Professor</option>";
+            echo "</select>";
+
+            echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
     }
 
