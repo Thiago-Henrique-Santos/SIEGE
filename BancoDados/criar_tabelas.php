@@ -11,18 +11,31 @@
         die ("Conexão falhou: " . $conexao->connect_error);
 
 
+    //Usuario
+    $sql = "CREATE TABLE IF NOT EXISTS usuario (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(70),
+        email VARCHAR(55),
+        local_moradia VARCHAR(11),
+        sexo VARCHAR(9),
+        senha VARCHAR(6),
+        tipo_usuario INT
+        )";
+
+    if($conexao->query($sql) === TRUE)
+        echo "<br> Tabela de usuario criada com sucesso!";
+    else    
+        echo "<br> Erro criando a tabela usuario: " . $conexao->error;
+    
+
     //Gerenciadores
     $sql = "CREATE TABLE IF NOT EXISTS gerenciadores (
-            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            nome VARCHAR(70),
+            idGerenciador INT UNSIGNED PRIMARY KEY,
             masp VARCHAR(8),
-            email VARCHAR(55),
-            local_moradia VARCHAR(11),
             tipo_empregado VARCHAR(9),
-            sexo VARCHAR(9),
             funcao VARCHAR(20),
-            senha VARCHAR(6),
-            tipo VARCHAR(15)
+            tipo VARCHAR(15),
+            FOREIGN KEY(idGerenciador) REFERENCES usuario(id)
             )";
 
     if($conexao->query($sql) === TRUE)
@@ -48,17 +61,13 @@
 
     //Aluno
     $sql = "CREATE TABLE IF NOT EXISTS aluno (
-            id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            nome VARCHAR(70),
+            idAluno INT UNSIGNED PRIMARY KEY,
             data_nascimento DATE,
             numero_matricula VARCHAR(10),
             nome_responsavel VARCHAR(70),
-            email VARCHAR(55),
             telefone VARCHAR(15),
-            local_moradia VARCHAR(11),
-            sexo VARCHAR(9),
-            senha VARCHAR(6),
             id_turma INT UNSIGNED,
+            FOREIGN KEY(idAluno) REFERENCES usuario(id),
             FOREIGN KEY(id_turma) REFERENCES turma(id)
             )";
 
@@ -71,7 +80,7 @@
 
     //Professor
     $sql = "CREATE TABLE IF NOT EXISTS professor (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        idProfessor INT UNSIGNED PRIMARY KEY,
         nome VARCHAR(70),
         masp VARCHAR(8),
         email VARCHAR(55),
@@ -79,7 +88,8 @@
         tipo_empregado VARCHAR(9),
         sexo VARCHAR(9),
         funcao VARCHAR(20),
-        senha VARCHAR(6)
+        senha VARCHAR(6),
+        FOREIGN KEY(idProfessor) REFERENCES usuario(id)
         )";
 
     if($conexao->query($sql) === TRUE)
@@ -94,7 +104,7 @@
         nome VARCHAR(20),
         ano YEAR,
         id_professor INT UNSIGNED,
-        FOREIGN KEY(id_professor) REFERENCES professor(id)
+        FOREIGN KEY(id_professor) REFERENCES professor(idProfessor)
         )";
 
     if($conexao->query($sql) === TRUE)
@@ -139,7 +149,7 @@
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         id_aluno INT UNSIGNED,
         id_disciplina INT UNSIGNED,
-        FOREIGN KEY(id_aluno) REFERENCES aluno(id),
+        FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
         )";
 
@@ -171,7 +181,7 @@
         falta TIME,
         id_aluno INT UNSIGNED,
         id_aula INT UNSIGNED,
-        FOREIGN KEY(id_aluno) REFERENCES aluno(id),
+        FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
         FOREIGN KEY(id_aula) REFERENCES aula(id) 
         )";
 
@@ -187,7 +197,7 @@
         nota FLOAT,
         id_aluno INT UNSIGNED,
         id_atividade INT UNSIGNED,
-        FOREIGN KEY(id_aluno) REFERENCES aluno(id),
+        FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
         FOREIGN KEY(id_atividade) REFERENCES atividade(id) 
         )";
 
@@ -195,9 +205,7 @@
         echo "<br> Tabela de aluno_faz_atividade criada com sucesso!";
     else    
         echo "<br> Erro criando a tabela aluno_faz_atividade: " . $conexao->error;
-
-
-        
+   
     $conexao->close();
 
 ?>
