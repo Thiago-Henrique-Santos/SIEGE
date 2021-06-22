@@ -14,7 +14,7 @@
 
 <?php
     echo "<nav>";
-    echo "<a href='visao_diretor.php'>";
+    echo "<a href='pagina_inicial.php'>";
         echo "<img src='img/logo_transparente.png' alt='Logo do sistema'>";
     echo "</a>";
     echo "<ul>";

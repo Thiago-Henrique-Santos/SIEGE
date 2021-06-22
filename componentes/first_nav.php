@@ -21,7 +21,6 @@
             echo "<li> <a href='index.php'>Início</a> </li>";
             echo "<li> <a href='sobre.php'>Sobre a Escola</a> </li>";
             echo "<li> <a href='como_acessar.php'>Como acessar</a> </li>";
-            echo "<li> <a href='sobre.php'>Sobre a Escola</a> </li>";
             echo "<li> <a href='login.php'>Entre</a> </li>";
         echo "</ul>";
     echo "</nav>";

@@ -36,7 +36,7 @@
 
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
-        header("Location: ../visao_diretor.php");
+        header("Location: ../pagina_inicial.php");
     }else{
         $valor = $_POST["campo_email"];
         header("Location: ../login.php?erros_email=$erros_email&erros_senha=$erros_senha&valor_email=$valor");
