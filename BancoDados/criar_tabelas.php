@@ -119,6 +119,7 @@
         nome VARCHAR(100),
         descricao VARCHAR(300),
         valor FLOAT,
+        dataPostagem DATE,
         id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id)
         )";
@@ -132,7 +133,7 @@
     //Aula
     $sql = "CREATE TABLE IF NOT EXISTS aula (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        dataa date,
+        dataRealizacao DATE,
         conteudo VARCHAR(300),
         id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
@@ -142,6 +143,20 @@
         echo "<br> Tabela de aula criada com sucesso!";
     else    
         echo "<br> Erro criando a tabela aula: " . $conexao->error;
+
+
+
+    //Bimestre
+    $sql = "CREATE TABLE IF NOT EXISTS bimestre (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        dataInicio DATE,
+        dataTermino DATE
+        )";
+
+    if($conexao->query($sql) === TRUE)
+        echo "<br> Tabela de bimestre criada com sucesso!";
+    else    
+        echo "<br> Erro criando a tabela bimestre: " . $conexao->error;
 
 
     //Aluno_realiza_disciplina
@@ -195,6 +210,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS aluno_faz_atividade (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nota FLOAT,
+        dataEntrega DATE,
         id_aluno INT UNSIGNED,
         id_atividade INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
