@@ -183,6 +183,12 @@ date_default_timezone_set('America/Sao_Paulo');
                 if (isset($_GET["ecms"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecms"] . "</p>";
 
+            echo "<br><label for='turma' class='form-label'><strong>Turma do aluno:</strong></label>";
+                echo "<br><select name='turma' class='form-select'>";
+                    echo "<option value='none' selected>--</option>";
+                    echo "<option value='valor'>Turma</option>"; //Não esquecer de gerar os valores no PhP, para todos os options gerados com base noBD
+                echo "</select>";
+
             echo "<br><label for='senha' class='form-label'><strong>Senha: </strong></label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
                 if (isset($_GET["epss"]))
@@ -192,12 +198,6 @@ date_default_timezone_set('America/Sao_Paulo');
                 echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
                 if (isset($_GET["ecps"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
-
-            echo "<br><label for='turma' class='form-label'><strong>Turma do aluno:</strong></label>";
-                echo "<br><select name='turma' class='form-select'>";
-                echo "<option selected>--</option>";
-                echo "<option>Turma</option>";
-            echo "</select>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -259,6 +259,30 @@ date_default_timezone_set('America/Sao_Paulo');
                 echo "<option selected>--</option>";
                 echo "<option>Professor</option>";
             echo "</select>";
+
+            echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+        echo "</form>";
+    }
+
+    function bimestre() {
+        $valor_salvo = "";
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Bimestre</h1>";
+        echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            
+            echo "<label for='bimestre' class='form-label'><strong>Bimestre:</strong></label>";
+                echo "<br><select name='bimestre' class='form-select'>";
+                    echo "<option value='none' selected>--</option>";
+                    echo "<option value='1'>1&ordm;</option>";
+                    echo "<option value='2'>2&ordm;</option>";
+                    echo "<option value='3'>3&ordm;</option>";
+                    echo "<option value='4'>4&ordm;</option>";
+                echo "</select>";
+            
+            echo "<br><label for='data_inicial' class='form-label'><strong>Início do bimestre:</strong></label>";
+                echo "<input type='date' required class='form-control' id='data_inicial' name='data_inicial' value='$valor_salvo'>";
+
+            echo "<br><label for='data_final' class='form-label'><strong>Encerramento do bimestre:</strong></label>";
+                echo "<input type='date' required class='form-control' id='data_inicial' name='data_inicial' value='$valor_salvo'>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";

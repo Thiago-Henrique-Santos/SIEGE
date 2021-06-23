@@ -40,7 +40,6 @@
                 <button class="option" id="turma">Turma</button>
                 <button class="option" id="disciplina">Disciplina</button>
                 <button class="option" id="bimestre">Bimestre</button>
-                
             </div>
         </div>
     </main>
