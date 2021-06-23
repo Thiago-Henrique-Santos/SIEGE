@@ -121,288 +121,16 @@
             }
             break;
         case "professor":
-            if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
-                $msgErro_sec_sup_prof_dir[1] = "<br> * Você esqueceu de inserir o nome!";
-                $cadastroCorreto = false;
-            }
-            if (!isJustLetter($_POST['nome_completo'])) {
-                $msgErro_aluno[1] = "<br> * Este campo só aceita letras!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['masp']) || $_POST['masp']=="") {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Você esqueceu de inserir o número do MASP!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['masp']) > 8) {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no máximo 8 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['email']) || $_POST['email']=="") {
-                $msgErro_sec_sup_prof_dir[3] = "<br> * Você esqueceu de inserir o email!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['email']) < 5) {
-                $msgErro_aluno[3] = "<br> * O email deve conter, pelo menos, 5 caracteres";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_zona'])) {
-                $msgErro_sec_sup_prof_dir[4] = "<br> * Você esqueceu de escolher a zona de residência!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['tipo_empregado'])) {
-                $msgErro_sec_sup_prof_dir[5] = "<br> * Você esqueceu de escolher o tipo de empregado!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_s'])) {
-                $msgErro_sec_sup_prof_dir[6] = "<br> * Você esqueceu de escolher o sexo!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['funcao']) || $_POST['funcao']=="") {
-                $msgErro_sec_sup_prof_dir[7] = "<br> * Você esqueceu de inserir a função dessa pessoa!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['senha']) || $_POST['senha']=="") {
-                $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-            if (!is_numeric($_POST['senha'])){
-                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['senha']) < 6) {
-                $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['confirm_senha']) || $_POST['confirm_senha']=="") {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * Você esqueceu de confirmar a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-    
-            if ($_POST['senha'] != $_POST['confirm_senha']) {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * As senhas não coincidem!";
-                $cadastroCorreto = false;
-            }
+            validacao_sec_sup_prof_dir();
             break;
         case "secretario":
-            if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
-                $msgErro_sec_sup_prof_dir[1] = "<br> * Você esqueceu de inserir o nome!";
-                $cadastroCorreto = false;
-            }
-            if (!isJustLetter($_POST['nome_completo'])) {
-                $msgErro_aluno[1] = "<br> * Este campo só aceita letras!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['masp']) || $_POST['masp']=="") {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Você esqueceu de inserir o número do MASP!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['masp']) > 8) {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no máximo 8 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['email']) || $_POST['email']=="") {
-                $msgErro_sec_sup_prof_dir[3] = "<br> * Você esqueceu de inserir o email!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['email']) < 5) {
-                $msgErro_aluno[3] = "<br> * O email deve conter, pelo menos, 5 caracteres";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_zona'])) {
-                $msgErro_sec_sup_prof_dir[4] = "<br> * Você esqueceu de escolher a zona de residência!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['tipo_empregado'])) {
-                $msgErro_sec_sup_prof_dir[5] = "<br> * Você esqueceu de escolher o tipo de empregado!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_s'])) {
-                $msgErro_sec_sup_prof_dir[6] = "<br> * Você esqueceu de escolher o sexo!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['funcao']) || $_POST['funcao']=="") {
-                $msgErro_sec_sup_prof_dir[7] = "<br> * Você esqueceu de inserir a função dessa pessoa!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['senha']) || $_POST['senha']=="") {
-                $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-            if (!is_numeric($_POST['senha'])){
-                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['senha']) < 6) {
-                $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['confirm_senha']) || $_POST['confirm_senha']=="") {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * Você esqueceu de confirmar a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-    
-            if ($_POST['senha'] != $_POST['confirm_senha']) {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * As senhas não coincidem!";
-                $cadastroCorreto = false;
-            }
+            validacao_sec_sup_prof_dir();
             break;
         case "supervisor":
-            if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
-                $msgErro_sec_sup_prof_dir[1] = "<br> * Você esqueceu de inserir o nome!";
-                $cadastroCorreto = false;
-            }
-            if (!isJustLetter($_POST['nome_completo'])) {
-                $msgErro_aluno[1] = "<br> * Este campo só aceita letras!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['masp']) || $_POST['masp']=="") {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Você esqueceu de inserir o número do MASP!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['masp']) > 8) {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no máximo 8 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['email']) || $_POST['email']=="") {
-                $msgErro_sec_sup_prof_dir[3] = "<br> * Você esqueceu de inserir o email!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['email']) < 5) {
-                $msgErro_aluno[3] = "<br> * O email deve conter, pelo menos, 5 caracteres";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_zona'])) {
-                $msgErro_sec_sup_prof_dir[4] = "<br> * Você esqueceu de escolher a zona de residência!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['tipo_empregado'])) {
-                $msgErro_sec_sup_prof_dir[5] = "<br> * Você esqueceu de escolher o tipo de empregado!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_s'])) {
-                $msgErro_sec_sup_prof_dir[6] = "<br> * Você esqueceu de escolher o sexo!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['funcao']) || $_POST['funcao']=="") {
-                $msgErro_sec_sup_prof_dir[7] = "<br> * Você esqueceu de inserir a função dessa pessoa!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['senha']) || $_POST['senha']=="") {
-                $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-            if (!is_numeric($_POST['senha'])){
-                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['senha']) < 6) {
-                $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['confirm_senha']) || $_POST['confirm_senha']=="") {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * Você esqueceu de confirmar a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-    
-            if ($_POST['senha'] != $_POST['confirm_senha']) {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * As senhas não coincidem!";
-                $cadastroCorreto = false;
-            }
+            validacao_sec_sup_prof_dir();
             break;
         case "diretor":
-            if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
-                $msgErro_sec_sup_prof_dir[1] = "<br> * Você esqueceu de inserir o nome!";
-                $cadastroCorreto = false;
-            }
-            if (!isJustLetter($_POST['nome_completo'])) {
-                $msgErro_aluno[1] = "<br> * Este campo só aceita letras!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['masp']) || $_POST['masp']=="") {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Você esqueceu de inserir o número do MASP!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['masp']) > 8) {
-                $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no máximo 8 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['email']) || $_POST['email']=="") {
-                $msgErro_sec_sup_prof_dir[3] = "<br> * Você esqueceu de inserir o email!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['email']) < 5) {
-                $msgErro_aluno[3] = "<br> * O email deve conter, pelo menos, 5 caracteres";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_zona'])) {
-                $msgErro_sec_sup_prof_dir[4] = "<br> * Você esqueceu de escolher a zona de residência!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['tipo_empregado'])) {
-                $msgErro_sec_sup_prof_dir[5] = "<br> * Você esqueceu de escolher o tipo de empregado!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['campo_s'])) {
-                $msgErro_sec_sup_prof_dir[6] = "<br> * Você esqueceu de escolher o sexo!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['funcao']) || $_POST['funcao']=="") {
-                $msgErro_sec_sup_prof_dir[7] = "<br> * Você esqueceu de inserir a função dessa pessoa!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['senha']) || $_POST['senha']=="") {
-                $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-            if (!is_numeric($_POST['senha'])){
-                $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
-                $cadastroCorreto = false;
-            }
-            if (strlen($_POST['senha']) < 6) {
-                $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
-                $cadastroCorreto = false;
-            }
-    
-            if (!isset($_POST['confirm_senha']) || $_POST['confirm_senha']=="") {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * Você esqueceu de confirmar a senha de acesso!";
-                $cadastroCorreto = false;
-            }
-    
-            if ($_POST['senha'] != $_POST['confirm_senha']) {
-                $msgErro_sec_sup_prof_dir[9] = "<br> * As senhas não coincidem!";
-                $cadastroCorreto = false;
-            }
+            validacao_sec_sup_prof_dir();
             break;
     }
 
@@ -432,12 +160,13 @@
     *           Funções           *
     ******************************/
     function validacao_sec_sup_prof_dir() {
+        global $cadastroCorreto, $msgErro_sec_sup_prof_dir;
         if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
             $msgErro_sec_sup_prof_dir[1] = "<br> * Você esqueceu de inserir o nome!";
             $cadastroCorreto = false;
         }
         if (!isJustLetter($_POST['nome_completo'])) {
-            $msgErro_aluno[1] = "<br> * Este campo só aceita letras!";
+            $msgErro_sec_sup_prof_dir[1] = "<br> * Este campo só aceita letras!";
             $cadastroCorreto = false;
         }
 
@@ -455,7 +184,7 @@
             $cadastroCorreto = false;
         }
         if (strlen($_POST['email']) < 5) {
-            $msgErro_aluno[3] = "<br> * O email deve conter, pelo menos, 5 caracteres";
+            $msgErro_sec_sup_prof_dir[3] = "<br> * O email deve conter, pelo menos, 5 caracteres";
             $cadastroCorreto = false;
         }
 
@@ -484,7 +213,7 @@
             $cadastroCorreto = false;
         }
         if (strlen($_POST['senha']) < 6) {
-            $msgErro_aluno[8] = "<br> * A senha deve conter 6 caracteres!";
+            $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve conter 6 caracteres!";
             $cadastroCorreto = false;
         }
 
