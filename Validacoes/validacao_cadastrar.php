@@ -21,6 +21,23 @@
         11 => ""
     );
 
+    $msgErro_turma = array(
+        1 => "",
+        2 => ""
+    );
+
+    $msgErro_disciplina = array(
+        1 => "",
+        2 => "",
+        3 => "",
+    );
+
+    $msgErro_bimestre = array(
+        1 => "",
+        2 => "",
+        3 => "",
+    );
+
     $msgErro_sec_sup_prof_dir = array(
         1 => "",
         2 => "",
@@ -132,6 +149,25 @@
         case "diretor":
             validacao_sec_sup_prof_dir();
             break;
+        case "turma":
+            if(!isset($_POST['nome_turma']) || $_POST['nome_turma']==""){
+                $msgErro_turma[1] = "<br> * Você se esqueceu de colocar o nome da turma!";
+                $cadastroCorreto = false;
+            }
+            if(!isset($_POST['ano']) || $_POST['ano']==""){
+                $msgErro_turma[2] = "<br> * Você se esqueceu de definir o ano da turma!";
+                $cadastroCorreto = false;
+            }
+            if($_POST['ano']=="--"){
+                $msgErro_turma[2] = "<br> * Você não selecionou o ano da turma!";
+                $cadastroCorreto = false;
+            }
+            break;
+        case "disciplina":
+            if(!isset($_POST['nome_disciplina']) || $_POST['nome_disciplina']==""){
+                $msgErro_disciplina[1] = "<br> * Você se esqueceu de colocar o nome da disciplina!";
+                $cadastroCorreto = false;
+            }
     }
 
     if ($cadastroCorreto) {
@@ -141,13 +177,22 @@
         $eml = $_POST['email'];
         $czn = $_POST['campo_zona'];
         $cms = $_POST['campo_s'];
+        
         if ($_POST['cargo'] == "aluno") {
             $dt  = $_POST['data_nascimento'];
             $mt  = $_POST['matricula'];
             $rsp = $_POST['responsavel'];
             $tlf = $_POST['telefone'];
             header ("Location: ../formularios-cadastro.php?id=aluno&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&epss=$msgErro_aluno[9]&ecps=$msgErro_aluno[10]");
-        } else {
+        } 
+        
+        else if ($_POST['cargo'] == "turma") {
+            $nm = $_POST['nome_turma'];
+            $an = $_POST['ano'];
+            header ("Location: ../formularios-cadastro.php?id=turma&nm=$nm&an=$an&enm=$msgErro_turma[1]&ean=$msgErro_turma[2]");
+        }
+        
+        else {
             $cg  = $_POST['cargo'];
             $mp  = $_POST['masp'];
             $tep = $_POST['tipo_empregado'];

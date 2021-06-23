@@ -205,6 +205,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
         echo "<h1 align='center' class='titulo_medio'>Cadastro de Turma</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='turma'>";
             
             echo "<label for='nome_turma' class='form-label'><strong>Nome da turma:</strong></label>";
                 echo "<input type='text' placeholder='A' class='form-control' title='Insira o nome da turma.' name='nome_turma'>";
@@ -229,6 +230,7 @@ date_default_timezone_set('America/Sao_Paulo');
     function disciplina() {
         echo "<h1 align='center' class='titulo_medio'>Cadastro de Disciplina</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='disciplina'>";
             
             echo "<label for='nome_disciplina' class='form-label'><strong>Nome da disciplina:</strong></label>";
                 echo "<input type='text' placeholder='Matemática' class='form-control' title='Insira o nome da turma.' name='nome_disciplina'>";
@@ -260,6 +262,7 @@ date_default_timezone_set('America/Sao_Paulo');
         $valor_salvo = "";
         echo "<h1 align='center' class='titulo_medio'>Cadastro de Bimestre</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
+            echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='bimestre'>";
             
             echo "<label for='bimestre' class='form-label'><strong>Bimestre:</strong></label>";
                 echo "<br><select name='bimestre' class='form-select'>";
@@ -352,7 +355,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function validacaoOk () {
-        echo "<h1>Cadastrado(a) com sucesso!</h1>";
+        echo "<h1 align='center'>Cadastrado(a) com sucesso!</h1>";
     }
 ?>
 
