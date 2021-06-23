@@ -283,7 +283,7 @@ date_default_timezone_set('America/Sao_Paulo');
         echo "<br><label for='email' class='form-label'><strong>Email: </strong></label>";
             if(isset($_GET["eml"]))
                 $valor_salvo = $_GET["eml"];
-            echo "<input type='email' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
+            echo "<input type='email' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' required title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
             if (isset($_GET["eeml"]))
                 echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
