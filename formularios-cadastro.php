@@ -50,6 +50,9 @@ date_default_timezone_set('America/Sao_Paulo');
         case "disciplina":
             disciplina();
             break;
+        case "bimestre":
+            bimestre();
+            break;
         case "validadoOK":
             validacaoOk();
             break;
@@ -65,7 +68,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function diretor() {
-        echo "<h1 class='titulo_medio'>Cadastro de Diretores</h1>";
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Diretores</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='diretor'>";
 
@@ -76,7 +79,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function supervisor() {
-        echo "<h1 class='titulo_medio'>Cadastro de Supervisores</h1>";
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Supervisores</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='supervisor'>";
 
@@ -87,7 +90,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function professor() {
-        echo "<h1 class='titulo_medio'>Cadastro de Professores</h1>";
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Professores</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='professor'>";
 
@@ -98,7 +101,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function secretario() {
-        echo "<h1 class='titulo_medio'>Cadastro de Secretários</h1>";
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Secretários</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='secretario'>";
 
@@ -111,18 +114,18 @@ date_default_timezone_set('America/Sao_Paulo');
     function aluno() {
         $valor_salvo = "";
 
-        echo "<h1 class='titulo_medio'>Cadastro de Alunos</h1>";
+        echo "<h1 align='center' class='titulo_medio'>Cadastro de Alunos</h1>";
         echo "<form method='POST' action='Validacoes/validacao_cadastrar.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='aluno'>";
 
-            echo "<br><label for='nome_completo' class='form-label'>Nome completo: </label>";
+            echo "<br><label for='nome_completo' class='form-label'><strong>Nome completo: </strong></label>";
                 if(isset($_GET["nm"]))
                     $valor_salvo = $_GET["nm"];
                 echo "<input type='text' placeholder='Nome completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
                 if (isset($_GET["enm"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
-            echo "<br><label for='data_nascimento' class='form-label'>Data de Nascimento: </label>";
+            echo "<br><label for='data_nascimento' class='form-label'><strong>Data de Nascimento: </strong></label>";
                 if(isset($_GET["dt"]))
                     $valor_salvo = $_GET["dt"];
                 echo "<input type='date' required class='form-control' id='data_nascimento' name='data_nascimento' value='$valor_salvo'>";
@@ -131,7 +134,7 @@ date_default_timezone_set('America/Sao_Paulo');
 
 
 
-            echo "<br><label for='matricula' class='form-label'>Número da matrícula: </label>";
+            echo "<br><label for='matricula' class='form-label'><strong>Número da matrícula: </strong></label>";
                 if(isset($_GET["mt"]))
                     $valor_salvo = $_GET["mt"];
                 echo "<input type='text' placeholder='12345678' required class='form-control' id='matricula' name='matricula' value='$valor_salvo'>";
@@ -139,28 +142,28 @@ date_default_timezone_set('America/Sao_Paulo');
                     echo "<br><p class=\"msg_erro\">" . $_GET["emt"] . "</p>";
 
 
-            echo "<br><label for='responsavel' class='form-label'>Nome do responsável: </label>";
+            echo "<br><label for='responsavel' class='form-label'><strong>Nome do responsável: </strong></label>";
                 if(isset($_GET["rsp"]))
                     $valor_salvo = $_GET["rsp"];
                 echo "<input type='text' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='responsavel' name='responsavel' value='$valor_salvo'>";
                 if (isset($_GET["ersp"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ersp"] . "</p>";
 
-            echo "<br><label for='email' class='form-label'>Email: </label>";
+            echo "<br><label for='email' class='form-label'><strong>Email: </strong></label>";
                 if(isset($_GET["eml"]))
                     $valor_salvo = $_GET["eml"];
                 echo "<input type='email' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
                 if (isset($_GET["eeml"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
-            echo "<br><label for='telefone' class='form-label'>Telefone do responsável: </label>";
+            echo "<br><label for='telefone' class='form-label'><strong>Telefone do responsável: </strong></label>";
                 if(isset($_GET["tlf"]))
                     $valor_salvo = $_GET["tlf"];
                 echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
                 if (isset($_GET["etlf"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["etlf"] . "</p>";
 
-            echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
+            echo "<br><label for='campo_zona'><strong>Local de moradia: </strong></label><br>";
                 if(isset($_GET["czn"]))
                     $valor_salvo = $_GET["czn"];
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value='R'"; if($valor_salvo=="R"){echo " checked";} echo">";
@@ -170,7 +173,7 @@ date_default_timezone_set('America/Sao_Paulo');
                 if (isset($_GET["eczn"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["eczn"] . "</p>";
 
-            echo "<br><label for='campo_s'>Sexo: </label><br>";
+            echo "<br><label for='campo_s'><strong>Sexo: </strong></label><br>";
                 if(isset($_GET["cms"]))
                     $valor_salvo = $_GET["cms"];
                 echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
@@ -180,15 +183,21 @@ date_default_timezone_set('America/Sao_Paulo');
                 if (isset($_GET["ecms"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecms"] . "</p>";
 
-            echo "<br><label for='senha' class='form-label'>Senha: </label>";
+            echo "<br><label for='senha' class='form-label'><strong>Senha: </strong></label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
                 if (isset($_GET["epss"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
-            echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
+            echo "<br><label for='confirm_senha' class='form-label'><strong>Confirme a senha: </strong></label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
                 if (isset($_GET["ecps"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
+
+            echo "<br><label for='turma' class='form-label'><strong>Turma do aluno:</strong></label>";
+                echo "<br><select name='turma' class='form-select'>";
+                echo "<option selected>--</option>";
+                echo "<option>Turma</option>";
+            echo "</select>";
 
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -220,9 +229,6 @@ date_default_timezone_set('America/Sao_Paulo');
                 echo "<label for='oitavo' class='form-label'>8&ordm;</label>";
                 echo "<br><input type='radio' name='ano' id='nono'>";
                 echo "<label for='nono' class='form-label'>9&ordm;</label>";
-
-                echo "<br><label for='data_nascimento' class='form-label'>Data de Nascimento: </label>";
-                echo "<input type='date' required class='form-control' id='data_nascimento' name='data_nascimento' value='$valor_salvo'>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -260,28 +266,28 @@ date_default_timezone_set('America/Sao_Paulo');
 
     function campos_funcionarios () {
         $valor_salvo = "";
-        echo "<br><label for='nome_completo' class='form-label'>Nome completo: </label>";
+        echo "<br><label for='nome_completo' class='form-label'><strong>Nome completo: </strong></label>";
             if(isset($_GET["nm"]))
                 $valor_salvo = $_GET["nm"];
             echo "<input type='text' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
             if (isset($_GET["enm"]))
                 echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
-        echo "<br><label for='masp' class='form-label'>MASP: </label>";
+        echo "<br><label for='masp' class='form-label'><strong>MASP: </strong></label>";
             if(isset($_GET["mp"]))
                 $valor_salvo = $_GET["mp"];
             echo "<input type='text' placeholder='12345678' maxlength = '8' required class='form-control' id='masp' name='masp' value='$valor_salvo'>";
             if (isset($_GET["emp"]))
                  "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
-        echo "<br><label for='email' class='form-label'>Email: </label>";
+        echo "<br><label for='email' class='form-label'><strong>Email: </strong></label>";
             if(isset($_GET["eml"]))
                 $valor_salvo = $_GET["eml"];
             echo "<input type='email' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
             if (isset($_GET["eeml"]))
                 echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
-        echo "<br><label for='campo_zona'>Local de moradia: </label><br>";
+        echo "<br><label for='campo_zona'><strong>Local de moradia: </strong></label><br>";
             if (isset($_GET["czn"]))
                 $valor_salvo = $_GET["czn"];
             echo "<input type='radio' name='campo_zona' id='campo_zR' value='R'"; if($valor_salvo=="R"){echo " checked";} echo">";
@@ -291,7 +297,7 @@ date_default_timezone_set('America/Sao_Paulo');
             if (isset($_GET["eczn"]))
                 echo "<p class=\"msg_erro\">" . $_GET["eczn"] . "</p>";
 
-        echo "<br><label for='tipo_empregado'>Tipo de empregado: </label><br>";
+        echo "<br><label for='tipo_empregado'><strong>Tipo de empregado: </strong></label><br>";
             if (isset($_GET["tep"]))
                 $valor_salvo = $_GET["tep"];
             echo "<input type='radio' name='tipo_empregado' id='designado' value='D'"; if($valor_salvo=="D"){echo " checked";} echo">";
@@ -301,7 +307,7 @@ date_default_timezone_set('America/Sao_Paulo');
             if (isset($_GET["etep"]))
                 echo "<p class=\"msg_erro\">" . $_GET["etep"] . "</p>";
 
-        echo "<br><label for='campo_s'>Sexo: </label><br>";
+        echo "<br><label for='campo_s'><strong>Sexo: </strong></label><br>";
             if (isset($_GET["cms"]))
                 $valor_salvo = $_GET["cms"];
             echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
@@ -311,19 +317,19 @@ date_default_timezone_set('America/Sao_Paulo');
             if (isset($_GET["ecms"]))
                 echo "<p class=\"msg_erro\">" . $_GET["ecms"] . "</p>";
             
-            echo "<br><label for='funcao' class='form-label'>Função: </label>";
+            echo "<br><label for='funcao' class='form-label'><strong>Função: </strong></label>";
                 if(isset($_GET["fnc"]))
                     $valor_salvo = $_GET["fnc"];
                 echo "<input type='text' placeholder='Função' required class='form-control' id='funcao' name='funcao' value='$valor_salvo'>";
                 if (isset($_GET["efnc"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
 
-        echo "<br><label for='senha' class='form-label'>Senha: </label>";
+        echo "<br><label for='senha' class='form-label'><strong>Senha: </strong></label>";
             echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
             if (isset($_GET["epss"]))
                 echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
-        echo "<br><label for='confirm_senha' class='form-label'>Confirme a senha: </label>";
+        echo "<br><label for='confirm_senha' class='form-label'><strong>Confirme a senha: </strong></label>";
             echo "<input type='password' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
             if (isset($_GET["ecps"]))
                 echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
