@@ -135,7 +135,7 @@
     }
 
     if ($cadastroCorreto) {
-        header ("Location: ../formularios-cadastro.php?id=validadoOK");
+        header ("Location: ../formularios-cadastro.php?id=validadoOK&nome=$varnome");
     } else {
         $nm  = $_POST['nome_completo'];
         $eml = $_POST['email'];
@@ -174,8 +174,8 @@
             $msgErro_sec_sup_prof_dir[2] = "<br> * Você esqueceu de inserir o número do MASP!";
             $cadastroCorreto = false;
         }
-        if (strlen($_POST['masp']) > 8) {
-            $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no máximo 8 caracteres!";
+        if (strlen($_POST['masp']) > 8 || strlen($_POST['masp']) < 7) {
+            $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no mínimo 7 e no máximo 8 caracteres!";
             $cadastroCorreto = false;
         }
 
@@ -214,6 +214,10 @@
         }
         if (strlen($_POST['senha']) < 6) {
             $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve conter 6 caracteres!";
+            $cadastroCorreto = false;
+        }
+        if (!is_numeric($_POST['senha'])){
+            $msgErro_sec_sup_prof_dir[8] = "<br> * A senha deve ser numérica!";
             $cadastroCorreto = false;
         }
 
