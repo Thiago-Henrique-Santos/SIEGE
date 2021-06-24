@@ -181,10 +181,14 @@ date_default_timezone_set('America/Sao_Paulo');
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecms"] . "</p>";
 
             echo "<br><label for='turma' class='form-label'><strong>Turma do aluno:</strong></label>";
+                if(isset($_GET["tur"]) && $_GET["tur"] != "none")
+                    $valor_salvo = $_GET["tur"];
                 echo "<br><select name='turma' class='form-select'>";
-                    echo "<option value='none' selected>--</option>";
-                    echo "<option value='valor'>Turma</option>"; //Não esquecer de gerar os valores no PhP, para todos os options gerados com base noBD **E VALIDAR**
+                    echo "<option value='none'"; if(!isset($_GET['tur']) || $_GET['tur']=="none"){echo " selected";} echo ">--</option>";
+                    echo "<option value='valor'"; if($valor_salvo=="valor"){echo " selected";}; echo ">Turma</option>"; //Não esquecer de gerar os valores no PhP, para todos os options gerados com base noBD **E VALIDAR**
                 echo "</select>";
+                if (isset($_GET["etur"]) && $_GET["etur"] != "")
+                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
 
             echo "<br><label for='senha' class='form-label'><strong>Senha: </strong></label>";
                 echo "<input type='password' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
