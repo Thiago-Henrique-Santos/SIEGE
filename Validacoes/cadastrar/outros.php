@@ -5,7 +5,7 @@
         echo "Ocorreu um erro inesperado! Por favor, tente cadastrar novamente.";
     }
 
-    include ('../modulos/funcoes.php');
+    include ('../../modulos/funcoes.php');
 
     $tipo = $_POST['tipo'];
     $cadastroCorreto = true;

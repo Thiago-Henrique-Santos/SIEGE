@@ -1,5 +1,5 @@
 <?php
-    include ('../modulos/funcoes.php');
+    include ('../../modulos/funcoes.php');
 
     if (!isset($_POST['cargo'])) {
         header("Location: ../formularios-cadastro.php?id=weird");
