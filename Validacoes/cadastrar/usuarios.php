@@ -160,6 +160,7 @@
     $eml = $_POST['email'];
     $czn = $_POST['campo_zona'];
     $cms = $_POST['campo_s'];
+    $pss = $_POST['senha'];
     //Atributos de alunos
     $dt  = "";
     $mt  = "";
@@ -186,9 +187,9 @@
     
     if ($cadastroCorreto) {
         if ($_POST['cargo']=="aluno") {
-            header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur");
+            header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
         } else {
-            header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc");
+            header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
         }
     } else {
         if ($_POST['cargo'] == "aluno") {
