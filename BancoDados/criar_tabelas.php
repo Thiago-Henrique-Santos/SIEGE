@@ -99,7 +99,9 @@
         nome VARCHAR(30),
         ano YEAR,
         id_professor INT UNSIGNED,
-        FOREIGN KEY(id_professor) REFERENCES professor(idProfessor)
+        id_turma INT UNSIGNED,
+        FOREIGN KEY(id_professor) REFERENCES professor(idProfessor),
+        FOREIGN KEY(id_turma) REFERENCES turma(id)
         )";
 
     if($conexao->query($sql) === TRUE)
@@ -168,22 +170,6 @@
         echo "<br> Tabela de aluno_realiza_disciplina criada com sucesso!";
     else    
         echo "<br> Erro criando a tabela aluno_realiza_disciplina: " . $conexao->error;
-
-    
-    //Turma_tem_disciplina
-    $sql = "CREATE TABLE IF NOT EXISTS turma_tem_disciplina (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        id_turma INT UNSIGNED,
-        id_disciplina INT UNSIGNED,
-        FOREIGN KEY(id_turma) REFERENCES turma(id),
-        FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
-        )";
-
-    if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de turma_tem_disciplina criada com sucesso!";
-    else    
-        echo "<br> Erro criando a tabela turma_tem_disciplina: " . $conexao->error;
-
 
     
     //Aluno_faz_aula
