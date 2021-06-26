@@ -115,6 +115,7 @@
         descricao VARCHAR(700),
         valor FLOAT,
         dataPostagem DATE,
+        dataLimiteEntrega DATE,
         id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id)
         )";
@@ -188,7 +189,7 @@
     //Aluno_faz_aula
     $sql = "CREATE TABLE IF NOT EXISTS aluno_faz_aula (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        falta TIME,
+        falta INT,
         id_aluno INT UNSIGNED,
         id_aula INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
