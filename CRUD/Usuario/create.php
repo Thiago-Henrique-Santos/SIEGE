@@ -1,16 +1,17 @@
 <?php
 
+if(!isset($_GET['id']) || $_GET['id']==""){
+    echo "Ocorreu um erro!";
+}
+
 include ("../../BancoDados/conexao_mysql.php");
 
+$nome = $_GET['nm'];
+$email = $_GET['eml'];
+$campo_zona = $_GET['czn'];
+$campo_sexo = $_GET['cms'];
+$senha = $_GET['pss'];
 
-    //Variáveis que ambos possuem
-    $nome = $_GET['nm'];
-    $email = $_GET['eml'];
-    $campo_zona = $_GET['czn'];
-    $campo_sexo = $_GET['cms'];
-    $senha = $_GET['pss'];
-
-//Aluno
 if($_GET['id'] == 'aluno'){
 
     $data_nasc = $_GET['dt'];
@@ -45,12 +46,7 @@ if($_GET['id'] == 'aluno'){
         header ("Location ../../formularios-cadastro.php?id=validadoOK");
     else
         echo "Erro inserindo aluno: " . $conexao->error;
-}
-
-
-
-//Professor
-else if($_GET['id'] == 'professor'){
+}else if($_GET['id'] == 'professor'){
     $masp  = $_GET['mp'];
     $tipo_empregado  = $_GET['tep'];
     $funcao = $_GET['fnc'];
@@ -81,12 +77,7 @@ else if($_GET['id'] == 'professor'){
         header ("Location ../../formularios-cadastro.php?id=validadoOK");
     else
         echo "Erro inserindo professor: " . $conexao->error;
-}
-
-
-//Gerenciadores
-
-else{
+}else{
     $masp  = $_GET['mp'];
     $tipo_empregado  = $_GET['tep'];
     $funcao = $_GET['fnc'];
