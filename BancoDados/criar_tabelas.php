@@ -14,8 +14,8 @@
     //Usuario
     $sql = "CREATE TABLE IF NOT EXISTS usuario (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(70),
-        email VARCHAR(55),
+        nome VARCHAR(80),
+        email VARCHAR(70),
         local_moradia VARCHAR(11),
         sexo VARCHAR(9),
         senha VARCHAR(6),
@@ -33,7 +33,7 @@
             idGerenciador INT UNSIGNED PRIMARY KEY,
             masp VARCHAR(8),
             tipo_empregado VARCHAR(9),
-            funcao VARCHAR(20),
+            funcao VARCHAR(50),
             tipo VARCHAR(15),
             FOREIGN KEY(idGerenciador) REFERENCES usuario(id)
             )";
@@ -63,8 +63,8 @@
     $sql = "CREATE TABLE IF NOT EXISTS aluno (
             idAluno INT UNSIGNED PRIMARY KEY,
             data_nascimento DATE,
-            numero_matricula VARCHAR(10),
-            nome_responsavel VARCHAR(70),
+            numero_matricula VARCHAR(15),
+            nome_responsavel VARCHAR(80),
             telefone VARCHAR(15),
             id_turma INT UNSIGNED,
             FOREIGN KEY(idAluno) REFERENCES usuario(id),
@@ -81,14 +81,9 @@
     //Professor
     $sql = "CREATE TABLE IF NOT EXISTS professor (
         idProfessor INT UNSIGNED PRIMARY KEY,
-        nome VARCHAR(70),
         masp VARCHAR(8),
-        email VARCHAR(55),
-        local_moradia VARCHAR(11),
         tipo_empregado VARCHAR(9),
-        sexo VARCHAR(9),
-        funcao VARCHAR(20),
-        senha VARCHAR(6),
+        funcao VARCHAR(50),
         FOREIGN KEY(idProfessor) REFERENCES usuario(id)
         )";
 
@@ -101,7 +96,7 @@
     //Disciplina
     $sql = "CREATE TABLE IF NOT EXISTS disciplina (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(20),
+        nome VARCHAR(30),
         ano YEAR,
         id_professor INT UNSIGNED,
         FOREIGN KEY(id_professor) REFERENCES professor(idProfessor)
@@ -117,7 +112,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS atividade (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(100),
-        descricao VARCHAR(300),
+        descricao VARCHAR(700),
         valor FLOAT,
         dataPostagem DATE,
         id_disciplina INT UNSIGNED,
@@ -134,7 +129,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS aula (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         dataRealizacao DATE,
-        conteudo VARCHAR(300),
+        conteudo VARCHAR(700),
         id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
         )";

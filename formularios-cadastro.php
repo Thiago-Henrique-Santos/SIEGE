@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_GET['id'])){
+if (!isset($_GET['id']) || $_GET['id'] == ""){
     echo "Erro!";
 }
 

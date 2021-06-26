@@ -2,6 +2,8 @@
 
 include ("../../BancoDados/conexao_mysql.php");
 
+
+    //Variáveis que ambos possuem
     $nome = $_GET['nm'];
     $email = $_GET['eml'];
     $campo_zona = $_GET['czn'];
@@ -36,13 +38,86 @@ if($_GET['id'] == 'aluno'){
     INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES ($idUsuario, '$data_nasc', '$matricula', '$responsavel', '$telefone', 1);
     ";
     }else{
-        echo "<br> Não foram encontrados clientes!";
+        echo "<br> Não foram encontrados alunos!";
     }
 
     if ($conexao->query($sql) === TRUE)
         header ("Location ../../formularios-cadastro.php?id=validadoOK");
     else
         echo "Erro inserindo aluno: " . $conexao->error;
+}
+
+
+
+//Professor
+else if($_GET['id'] == 'professor'){
+    $masp  = $_GET['mp'];
+    $tipo_empregado  = $_GET['tep'];
+    $funcao = $_GET['fnc'];
+
+    $sql = "
+    INSERT INTO usuario (nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES ('$nome', '$email', '$campo_zona', '$campo_sexo', '$senha', 2);
+    ";
+
+    if ($conexao->query($sql) === FALSE)
+        echo "Erro inserindo usuario: " . $conexao->error;
+
+    $idUsuario = "SELECT id FROM usuario WHERE email = '$email'";
+    $resultado = $conexao->query($idUsuario);
+
+    if ($resultado->num_rows > 0){
+        while ($linha = $resultado->fetch_assoc())
+		{
+			$idUsuario = (int) $linha["id"];
+		}
+    $sql = "
+    INSERT INTO professor (idProfessor, masp, tipo_empregado, funcao) VALUES ($idUsuario, '$masp', '$tipo_empregado', '$funcao');
+    ";
+    }else{
+        echo "<br> Não foram encontrados professores!";
+    }
+
+    if ($conexao->query($sql) === TRUE)
+        header ("Location ../../formularios-cadastro.php?id=validadoOK");
+    else
+        echo "Erro inserindo professor: " . $conexao->error;
+}
+
+
+//Gerenciadores
+
+else{
+    $masp  = $_GET['mp'];
+    $tipo_empregado  = $_GET['tep'];
+    $funcao = $_GET['fnc'];
+    $cargo = $_GET['id'];
+
+    $sql = "
+    INSERT INTO usuario (nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES ('$nome', '$email', '$campo_zona', '$campo_sexo', '$senha', 3);
+    ";
+
+    if ($conexao->query($sql) === FALSE)
+        echo "Erro inserindo usuario: " . $conexao->error;
+
+    $idUsuario = "SELECT id FROM usuario WHERE email = '$email'";
+    $resultado = $conexao->query($idUsuario);
+
+    if ($resultado->num_rows > 0){
+        while ($linha = $resultado->fetch_assoc())
+		{
+			$idUsuario = (int) $linha["id"];
+		}
+    $sql = "
+    INSERT INTO gerenciadores (idGerenciador, masp, tipo_empregado, funcao, tipo) VALUES ($idUsuario, '$masp', '$tipo_empregado', '$funcao', '$cargo');
+    ";
+    }else{
+        echo "<br> Não foram encontrados gerenciadores!";
+    }
+
+    if ($conexao->query($sql) === TRUE)
+        header ("Location ../../formularios-cadastro.php?id=validadoOK");
+    else
+        echo "Erro inserindo gerenciador: " . $conexao->error;
 }
 
 
