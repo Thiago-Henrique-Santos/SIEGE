@@ -12,7 +12,8 @@
     $msgErro = array(
         1 => "",
         2 => "",
-        3 => ""
+        3 => "",
+        4 => ""
     );
 
     switch ($tipo) {
@@ -28,6 +29,11 @@
             }
             break;
         case "disciplina":
+            if (!isset($_POST['nome_disciplina'])) {
+                $msgErro[1] = "<br> * Você não inseiriu o nome da disciplina.";
+            }
+
+            //CONTINUAR...
             break;
         case "bimestre":
             break;
