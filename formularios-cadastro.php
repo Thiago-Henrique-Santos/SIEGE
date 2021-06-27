@@ -260,6 +260,14 @@ date_default_timezone_set('America/Sao_Paulo');
                 echo "<option>Professor</option>";
             echo "</select>";
 
+            echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
+                echo "<br><input type='checkbox' name='A' id='A'>";
+                echo "<label for='A' class='form-label'>&nbsp;Turma A (simulando)</label>";
+                echo "<br><input type='checkbox' name='B' id='B'>";
+                echo "<label for='B' class='form-label'>&nbsp;Turma B (simulando)</label>";
+                if (isset($_GET["etur"]) && $_GET["etur"] != "")
+                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
+
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
     }
