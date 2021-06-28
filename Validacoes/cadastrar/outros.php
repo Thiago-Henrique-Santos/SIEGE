@@ -29,11 +29,15 @@
             }
             break;
         case "disciplina":
-            if (!isset($_POST['nome_disciplina'])) {
+            if (!isset($_POST['nome_disciplina']) || $_POST['nome_disciplina']=="") {
                 $msgErro[1] = "<br> * Você não inseiriu o nome da disciplina.";
             }
 
-            //CONTINUAR...
+            if (!isset($_POST['ano'])) {
+                $msgErro[2] = "<br> * Você não inseriu o ano em que será lessionada esta disiciplina.";
+            }
+
+            
             break;
         case "bimestre":
             break;
