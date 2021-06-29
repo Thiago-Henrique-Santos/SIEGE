@@ -36,7 +36,7 @@ if($_GET['id'] == 'aluno'){
 			$idUsuario = (int) $linha["id"];
 		}
     $sql = "
-    INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES ($idUsuario, '$data_nasc', '$matricula', '$responsavel', '$telefone', 1);
+    INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES ($idUsuario, '$data_nasc', '$matricula', '$responsavel', '$telefone', $turma);
     ";
     }else{
         echo "<br> Não foram encontrados alunos!";
