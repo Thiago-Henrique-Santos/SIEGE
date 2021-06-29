@@ -46,7 +46,7 @@
             //CONTINUAR COM VERIFICAÇÂO DE CHECKBOXES...
             break;
         case "bimestre":
-            if (!isset($_POST['bimestre']) || $_POST['bimestre']=="none") {
+            if (!isset($_POST['numero']) || $_POST['numero']=="none") {
                 $msgErro[1] = "<br> * Você não identificou qual bimestre está cadastrando.";
                 $cadastroCorreto = false;
             }
@@ -74,10 +74,10 @@
                 //DESENVOLVER
                 break;
             case "bimestre":
-                $ano = $_POST['ano'];
+                $nmr = $_POST['numero'];
                 $dti = $_POST['data_inicial'];
                 $dtf = $_POST['data_final'];
-                header ("Location: ../../CRUD/Bimestre/create.php?ano=$ano&dti=$dti&dtf=$dtf");
+                header ("Location: ../../CRUD/Bimestre/create.php?nmr=$nmr&dti=$dti&dtf=$dtf");
                 break;
         }
     } else {
@@ -93,7 +93,7 @@
                 $ano = $_POST['ano'];
                 $dti = $_POST['data_inicial'];
                 $dtf = $_POST['data_final'];
-                header ("Location: ../../CRUD/Bimestre/create.php?ano=$ano&dti=$dti&dtf=$dtf");
+                header ("Location: ../../formularios-cadastro.php?id=bimestre&dti=$dti&dtf=$dtf");
                 break;
         }
     }

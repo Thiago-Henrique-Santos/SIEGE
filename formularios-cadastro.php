@@ -184,8 +184,11 @@ date_default_timezone_set('America/Sao_Paulo');
                 if(isset($_GET["tur"]) && $_GET["tur"] != "none")
                     $valor_salvo = $_GET["tur"];
                 echo "<br><select name='turma' class='form-select'>";
-                    echo "<option value='none'"; if(!isset($_GET['tur']) || $_GET['tur']=="none"){echo " selected";} echo ">--</option>";
-                    echo "<option value='valor'"; if($valor_salvo=="valor"){echo " selected";}; echo ">Turma</option>"; //Não esquecer de gerar os valores no PhP, para todos os options gerados com base noBD **E VALIDAR**
+                    $sql = "
+                    SELECT * FROM turma;";
+                    while ($a <= 10) {
+                        # code...
+                    }
                 echo "</select>";
                 if (isset($_GET["etur"]) && $_GET["etur"] != "")
                     echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
@@ -277,8 +280,8 @@ date_default_timezone_set('America/Sao_Paulo');
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='bimestre'>";
             
-            echo "<label for='bimestre' class='form-label'><strong>Bimestre:</strong></label>";
-                echo "<br><select name='bimestre' class='form-select'>";
+            echo "<label for='numero' class='form-label'><strong>Bimestre:</strong></label>";
+                echo "<br><select name='numero' class='form-select'>";
                     echo "<option value='none' selected>--</option>";
                     echo "<option value='1'>1&ordm;</option>";
                     echo "<option value='2'>2&ordm;</option>";
