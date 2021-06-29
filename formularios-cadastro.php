@@ -344,7 +344,7 @@ date_default_timezone_set('America/Sao_Paulo');
                 echo "<p class=\"msg_erro\">" . $_GET["etep"] . "</p>";
 
         echo "<br><label for='campo_s'><strong>Sexo: </strong></label><br>";
-            if (isset($_GET["cms"]) &&!empty($_GET["cms"]!empty))
+            if (isset($_GET["cms"]) &&!empty($_GET["cms"]))
                 $valor_salvo = $_GET["cms"];
             echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
             echo "<label for='campo_sM'>Masculino</label>";
