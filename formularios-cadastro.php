@@ -26,9 +26,6 @@ date_default_timezone_set('America/Sao_Paulo');
     $formType = $_GET['id'];
 
     switch ($formType) {
-        case "default":
-            def();
-            break;
         case "supervisor":
             supervisor();
             break;
@@ -55,6 +52,9 @@ date_default_timezone_set('America/Sao_Paulo');
             break;
         case "validadoOK":
             validacaoOk();
+            break;
+        default:
+            def();
             break;
     }
 
@@ -256,17 +256,15 @@ date_default_timezone_set('America/Sao_Paulo');
 
             echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
                 echo "<br><select name='professor' class='form-select'>";
-                echo "<option selected>--</option>";
-                echo "<option>Professor</option>";
-            echo "</select>";
+                    echo "<option value='none' selected>--</option>";
+                    echo "<option value='professor'>Professor</option>";
+                echo "</select>";
 
             echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
                 echo "<br><input type='checkbox' name='A' id='A'>";
                 echo "<label for='A' class='form-label'>&nbsp;Turma A (simulando)</label>";
                 echo "<br><input type='checkbox' name='B' id='B'>";
                 echo "<label for='B' class='form-label'>&nbsp;Turma B (simulando)</label>";
-                if (isset($_GET["etur"]) && $_GET["etur"] != "")
-                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -287,12 +285,14 @@ date_default_timezone_set('America/Sao_Paulo');
                     echo "<option value='3'>3&ordm;</option>";
                     echo "<option value='4'>4&ordm;</option>";
                 echo "</select>";
+                if (isset($_GET["etur"]) && $_GET["etur"] != "")
+                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
             
             echo "<br><label for='data_inicial' class='form-label'><strong>Início do bimestre:</strong></label>";
                 echo "<input type='date' required class='form-control' id='data_inicial' name='data_inicial' value='$valor_salvo'>";
 
             echo "<br><label for='data_final' class='form-label'><strong>Encerramento do bimestre:</strong></label>";
-                echo "<input type='date' required class='form-control' id='data_inicial' name='data_inicial' value='$valor_salvo'>";
+                echo "<input type='date' required class='form-control' id='data_final' name='data_final' value='$valor_salvo'>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";

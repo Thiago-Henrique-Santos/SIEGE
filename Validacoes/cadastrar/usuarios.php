@@ -134,25 +134,6 @@
         case "diretor":
             validacao_sec_sup_prof_dir();
             break;
-        case "turma":
-            if(!isset($_POST['nome_turma']) || $_POST['nome_turma']==""){
-                $msgErro_turma[1] = "<br> * Você se esqueceu de colocar o nome da turma!";
-                $cadastroCorreto = false;
-            }
-            if(!isset($_POST['ano']) || $_POST['ano']==""){
-                $msgErro_turma[2] = "<br> * Você se esqueceu de definir o ano da turma!";
-                $cadastroCorreto = false;
-            }
-            if($_POST['ano']=="--"){
-                $msgErro_turma[2] = "<br> * Você não selecionou o ano da turma!";
-                $cadastroCorreto = false;
-            }
-            break;
-        case "disciplina":
-            if(!isset($_POST['nome_disciplina']) || $_POST['nome_disciplina']==""){
-                $msgErro_disciplina[1] = "<br> * Você se esqueceu de colocar o nome da disciplina!";
-                $cadastroCorreto = false;
-            }
     }
 
     //Atributos de todos os cargos
