@@ -1,6 +1,6 @@
 <?php
 
-    if (!isset($_POST['tipo'])) {
+    if (!isset($_POST['tipo']) || empty($_POST['tipo'])) {
         header("Location: ../formularios-cadastro.php?id=weird");
         echo "Ocorreu um erro inesperado! Por favor, tente cadastrar novamente.";
     }
@@ -17,7 +17,7 @@
 
     switch ($_POST['tipo']) {
         case "turma":
-            if (!isset($_POST['nome_turma']) || $_POST['nome_turma']=="") {
+            if (!isset($_POST['nome_turma']) || empty($_POST['nome_turma'])) {
                 $msgErro[1] = "<br> * Você não inseriu o nome da turma.";
                 $cadastroCorreto = false;
             }
@@ -28,7 +28,7 @@
             }
             break;
         case "disciplina":
-            if (!isset($_POST['nome_disciplina']) || $_POST['nome_disciplina']=="") {
+            if (!isset($_POST['nome_disciplina']) || empty($_POST['nome_disciplina'])) {
                 $msgErro[1] = "<br> * Você não inseiriu o nome da disciplina.";
                 $cadastroCorreto = false;
             }

@@ -4,7 +4,7 @@
 
 
     /*******Validações referentes ao campo de email(login)******** */
-    if(!isset($_POST["campo_email"]) || $_POST["campo_email"] ==""){
+    if(!isset($_POST["campo_email"]) || empty($_POST["campo_email"])){
         $erros_email .= "<br> * Este campo deve ser preenchido";
     }
 
@@ -21,7 +21,7 @@
 
 
     /*******Validações referentes ao campo de senha******** */
-    if(!isset($_POST["campo_senha"]) || $_POST["campo_senha"] ==""){
+    if(!isset($_POST["campo_senha"]) || empty($_POST["campo_senha"])){
         $erros_senha .= "<br> * Este campo deve ser preenchido!";
     }
 

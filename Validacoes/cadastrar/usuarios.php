@@ -1,7 +1,7 @@
 <?php
     include ('../../modulos/funcoes.php');
 
-    if (!isset($_POST['cargo'])) {
+    if (!isset($_POST['cargo']) || empty($_POST['cargo'])) {
         header("Location: ../formularios-cadastro.php?id=weird");
         echo "Ocorreu um erro inesperado! Por favor, tente cadastrar novamente.";
     }
@@ -35,7 +35,7 @@
 
     switch ($_POST['cargo']) {
         case "aluno":
-            if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
+            if (!isset($_POST['nome_completo']) || empty($_POST['nome_completo'])) {
                 $msgErro_aluno[1] = "<br> * Você esqueceu de inserir o nome do aluno!";
                 $cadastroCorreto = false;
             }
@@ -44,12 +44,12 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['data_nascimento']) || $_POST['data_nascimento']=="") {
+            if (!isset($_POST['data_nascimento']) || empty($_POST['data_nascimento'])) {
                 $msgErro_aluno[2] = "<br> * Você esqueceu de inserir a data de nascimento!";
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['matricula']) || $_POST['matricula']=="") {
+            if (!isset($_POST['matricula']) || empty($_POST['matricula'])) {
                 $msgErro_aluno[3] = "<br> * Você esqueceu de inserir o número da matricula!";
                 $cadastroCorreto = false;
             }
@@ -58,7 +58,7 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['responsavel']) || $_POST['responsavel']=="") {
+            if (!isset($_POST['responsavel']) || empty($_POST['responsavel'])) {
                 $msgErro_aluno[4] = "<br> * Você esqueceu de inserir o nome do responsável pelo aluno!";
                 $cadastroCorreto = false;
             }
@@ -67,7 +67,7 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['email']) || $_POST['email']=="") {
+            if (!isset($_POST['email']) || empty($_POST['email'])) {
                 $msgErro_aluno[5] = "<br> * Você esqueceu de inserir o email!";
                 $cadastroCorreto = false;
             }
@@ -76,7 +76,7 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['telefone']) || $_POST['telefone'] == "") {
+            if (!isset($_POST['telefone']) || empty($_POST['telefone'])) {
                 $msgErro_aluno[6] = "<br> * Você esqueceu de inserir o telefone do responsável!";
                 $cadastroCorreto = false;
             }
@@ -100,7 +100,7 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['senha']) || $_POST['senha']=="") {
+            if (!isset($_POST['senha']) || empty($_POST['senha'])) {
                 $msgErro_aluno[10] = "<br> * Você esqueceu de inserir a senha de acesso do aluno!";
                 $cadastroCorreto = false;
             }
@@ -113,7 +113,7 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['confirm_senha']) || $_POST['confirm_senha']=="") {
+            if (!isset($_POST['confirm_senha']) || empty($_POST['confirm_senha'])) {
                 $msgErro_aluno[11] = "<br> * Você esqueceu de confirmar a senha de acesso do aluno!";
                 $cadastroCorreto = false;
             }
@@ -185,7 +185,7 @@
     ******************************/
     function validacao_sec_sup_prof_dir() {
         global $cadastroCorreto, $msgErro_sec_sup_prof_dir;
-        if (!isset($_POST['nome_completo']) || $_POST['nome_completo']=="") {
+        if (!isset($_POST['nome_completo']) || empty($_POST['nome_completo'])) {
             $msgErro_sec_sup_prof_dir[1] = "<br> * Você esqueceu de inserir o nome!";
             $cadastroCorreto = false;
         }
@@ -194,7 +194,7 @@
             $cadastroCorreto = false;
         }
 
-        if (!isset($_POST['masp']) || $_POST['masp']=="") {
+        if (!isset($_POST['masp']) || empty($_POST['masp'])) {
             $msgErro_sec_sup_prof_dir[2] = "<br> * Você esqueceu de inserir o número do MASP!";
             $cadastroCorreto = false;
         }
@@ -203,7 +203,7 @@
             $cadastroCorreto = false;
         }
 
-        if (!isset($_POST['email']) || $_POST['email']=="") {
+        if (!isset($_POST['email']) || empty($_POST['email'])) {
             $msgErro_sec_sup_prof_dir[3] = "<br> * Você esqueceu de inserir o email!";
             $cadastroCorreto = false;
         }
@@ -227,12 +227,12 @@
             $cadastroCorreto = false;
         }
 
-        if (!isset($_POST['funcao']) || $_POST['funcao']=="") {
+        if (!isset($_POST['funcao']) || empty($_POST['funcao'])) {
             $msgErro_sec_sup_prof_dir[7] = "<br> * Você esqueceu de inserir a função dessa pessoa!";
             $cadastroCorreto = false;
         }
 
-        if (!isset($_POST['senha']) || $_POST['senha']=="") {
+        if (!isset($_POST['senha']) || empty($_POST['senha'])) {
             $msgErro_sec_sup_prof_dir[8] = "<br> * Você esqueceu de inserir a senha de acesso!";
             $cadastroCorreto = false;
         }
@@ -245,7 +245,7 @@
             $cadastroCorreto = false;
         }
 
-        if (!isset($_POST['confirm_senha']) || $_POST['confirm_senha']=="") {
+        if (!isset($_POST['confirm_senha']) || empty($_POST['confirm_senha'])) {
             $msgErro_sec_sup_prof_dir[9] = "<br> * Você esqueceu de confirmar a senha de acesso!";
             $cadastroCorreto = false;
         }
