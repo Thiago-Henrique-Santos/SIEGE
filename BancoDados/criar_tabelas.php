@@ -147,6 +147,7 @@
     //Bimestre
     $sql = "CREATE TABLE IF NOT EXISTS bimestre (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        numero INT,
         dataInicio DATE,
         dataTermino DATE
         )";
