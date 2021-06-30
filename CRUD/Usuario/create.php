@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_GET['id']) || $_GET['id']==""){
+if(!isset($_GET['id']) || empty($_GET['id'])){
     echo "Ocorreu um erro!";
 }
 
@@ -21,7 +21,7 @@ if($_GET['id'] == 'aluno'){
     $turma = $_GET['tur'];
 
     $sql = "
-    INSERT INTO usuario (nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES ('$nome', '$email', '$campo_zona', '$campo_sexo', '$senha', 1);
+    INSERT INTO usuario (nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES ('$nome', '$email', '$campo_zona', '$campo_sexo', '$senha', 1)
     ";
 
     if ($conexao->query($sql) === FALSE)
@@ -35,15 +35,15 @@ if($_GET['id'] == 'aluno'){
 		{
 			$idUsuario = (int) $linha["id"];
 		}
-    $sql = "
-    INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES ($idUsuario, '$data_nasc', '$matricula', '$responsavel', '$telefone', $turma);
-    ";
+        $sql = "
+        INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES ($idUsuario, '$data_nasc', '$matricula', '$responsavel', '$telefone', $turma);
+        ";
     }else{
         echo "<br> Não foram encontrados alunos!";
     }
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location ../../formularios-cadastro.php?id=validadoOK");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK");
     else
         echo "Erro inserindo aluno: " . $conexao->error;
 }else if($_GET['id'] == 'professor'){
@@ -58,7 +58,7 @@ if($_GET['id'] == 'aluno'){
     if ($conexao->query($sql) === FALSE)
         echo "Erro inserindo usuario: " . $conexao->error;
 
-    $idUsuario = "SELECT id FROM usuario WHERE email = '$email'";
+    $idUsuario = "SELECT id FROM usuario WHERE email = '$email';";
     $resultado = $conexao->query($idUsuario);
 
     if ($resultado->num_rows > 0){
@@ -67,14 +67,14 @@ if($_GET['id'] == 'aluno'){
 			$idUsuario = (int) $linha["id"];
 		}
     $sql = "
-    INSERT INTO professor (idProfessor, masp, tipo_empregado, funcao) VALUES ($idUsuario, '$masp', '$tipo_empregado', '$funcao');
+    INSERT INTO professor (idProfessor, masp, tipo_empregado, funcao) VALUES ($idUsuario, '$masp', '$tipo_empregado', '$funcao')
     ";
     }else{
         echo "<br> Não foram encontrados professores!";
     }
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location ../../formularios-cadastro.php?id=validadoOK");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK");
     else
         echo "Erro inserindo professor: " . $conexao->error;
 }else{
@@ -106,7 +106,7 @@ if($_GET['id'] == 'aluno'){
     }
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location ../../formularios-cadastro.php?id=validadoOK");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK");
     else
         echo "Erro inserindo gerenciador: " . $conexao->error;
 }
