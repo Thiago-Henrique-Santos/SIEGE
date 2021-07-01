@@ -258,7 +258,7 @@ include ("modulos/funcoes.php");
             echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
                 echo "<br><select name='ano' class='form-select'>";
                 $anoAtual = date("Y");
-                for ($i=1950; $i <= $anoAtual; $i++) {
+                for ($i=$anoAtual-80; $i <= $anoAtual+1; $i++) {
                     echo "<option value='$i' "; if($i==$anoAtual){echo"selected";} echo">$i</option>";
                 }
                 echo "</select>";
