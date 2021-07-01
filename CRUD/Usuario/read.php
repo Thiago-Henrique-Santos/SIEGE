@@ -70,6 +70,7 @@ SELECT * FROM usuario u ORDER BY u.nome ASC;
 		            }
 	        }
         }
+    }
 	else
 		echo "Não foram encontrados usuários!";	
 
