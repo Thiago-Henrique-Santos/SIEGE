@@ -43,7 +43,11 @@
                 $cadastroCorreto = false;
             }
 
-            //CONTINUAR COM VERIFICAÇÂO DE CHECKBOXES...
+            $turmas = $_POST['turma'];
+            if(!isset($_POST['turma']) || empty($turmas)){
+                $msgErro[4] = "<br> * Você não escolheu nenhuma disciplina para essa matéria.";
+                $cadastroCorreto = false; 
+            }
             break;
         case "bimestre":
             if (!isset($_POST['numero']) || $_POST['numero']=="none") {
@@ -71,7 +75,16 @@
                 header ("Location: ../../CRUD/Turma/create.php?nm=$nm&sr=$sr");
                 break;
             case "disciplina":
-                //DESENVOLVER
+                $nm         = $_POST['nome_disciplina'];
+                $ano        = $_POST['ano'];
+                $prof       = $_POST['professor'];
+                $linkTurmas = "";
+                $i = 1;
+                foreach ($turmas as $turma) {
+                    $linkTurmas .= "&tur[$i]=$turma";
+                    $i++;
+                }
+                header ("Location: ../../CRUD/Disciplina/create.php?nm=$nm&ano=$ano&prf=$prof$linkTurmas");
                 break;
             case "bimestre":
                 $nmr = $_POST['numero'];
@@ -88,6 +101,11 @@
                 header ("Location: ../../formularios-cadastro.php?id=turma&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]");
                 break;
             case "disciplina":
+                $nm    = $_POST['nome_disciplina'];
+                $ano   = $_POST['ano'];
+                $prof  = $_POST['professor'];
+                header ("Location: ../../CRUD/Disciplina/create.php?nm=$nm&ano=$ano&prf=$prof&tur=$turmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]");
+                break;
                 break;
             case "bimestre":
                 $ano = $_POST['ano'];

@@ -5,6 +5,8 @@ if (!isset($_GET['id']) || empty($_GET['id'])){
 }
 
 date_default_timezone_set('America/Sao_Paulo');
+include ("BancoDados/conexao_mysql.php");
+include ("modulos/funcoes.php");
 
 ?>
 
@@ -112,6 +114,7 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function aluno() {
+        global $conexao;
         $valor_salvo = "";
 
         echo "<h1 align='center' class='titulo_medio'>Cadastro de Alunos</h1>";
@@ -183,11 +186,17 @@ date_default_timezone_set('America/Sao_Paulo');
             echo "<br><label for='turma' class='form-label'><strong>Turma do aluno:</strong></label>";
                 if(isset($_GET["tur"]) && $_GET["tur"] != "none")
                     $valor_salvo = $_GET["tur"];
-                echo "<br><select name='turma' class='form-select'>";
+                
+                echo "<br><select name='turma[1]' class='form-select'>";
+                    echo "<option value='none'>--</option>";
                     $sql = "
-                    SELECT * FROM turma;";
-                    while ($a <= 10) {
-                        # code...
+                    SELECT * FROM turma
+                    ";
+                    $resultado = $conexao->query($sql);
+                    if ($resultado->num_rows > 0) {
+                        while ($dados = $resultado->fetch_assoc()){
+                            echo "<option value='".$dados["id"]."'>".$dados["serie"]."&ordm; ano ".$dados["nome"]."</option>";
+                        }
                     }
                 echo "</select>";
                 if (isset($_GET["etur"]) && !empty($_GET["etur"]))
@@ -235,6 +244,9 @@ date_default_timezone_set('America/Sao_Paulo');
     }
 
     function disciplina() {
+        global $conexao;
+        $valor_salvo = "";
+
         echo "<h1 align='center' class='titulo_medio'>Cadastro de Disciplina</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
 
@@ -244,29 +256,42 @@ date_default_timezone_set('America/Sao_Paulo');
                 echo "<input type='text' placeholder='Matemática' class='form-control' title='Insira o nome da turma.' name='nome_disciplina'>";
             
             echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
+                echo "<br><select name='ano' class='form-select'>";
                 $anoAtual = date("Y");
-                $proximoAno = ((int)$anoAtual + 1);
-                for ($i=0; $i < 2; $i++) {
-                    if ($i == 0) {
-                        echo "<br><input type='radio' name='ano' id='atual'>";
-                        echo "<label for='atual' class='form-label'>$anoAtual</label>";
-                    } else {
-                        echo "<br><input type='radio' name='ano' id='proximo'>";
-                        echo "<label for='proximo' class='form-label'>$proximoAno</label>";
-                    }
+                for ($i=1950; $i <= $anoAtual; $i++) {
+                    echo "<option value='$i' "; if($i==$anoAtual){echo"selected";} echo">$i</option>";
                 }
+                echo "</select>";
 
             echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
                 echo "<br><select name='professor' class='form-select'>";
                     echo "<option value='none' selected>--</option>";
-                    echo "<option value='professor'>Professor</option>";
+                    $sql = "
+                    SELECT id, nome FROM usuario 
+                    WHERE tipo_usuario = 2
+                    ";
+                    $resultado = $conexao->query($sql);
+                    if ($resultado->num_rows > 0){
+                        while ($dados = $resultado->fetch_assoc()) {
+                            echo "<option value='".$dados["id"]."'>".$dados["nome"]."</option>";
+                        }
+                    }
+
                 echo "</select>";
 
             echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
-                echo "<br><input type='checkbox' name='A' id='A'>";
-                echo "<label for='A' class='form-label'>&nbsp;Turma A (simulando)</label>";
-                echo "<br><input type='checkbox' name='B' id='B'>";
-                echo "<label for='B' class='form-label'>&nbsp;Turma B (simulando)</label>";
+                $sql = "
+                SELECT * FROM turma
+                ";
+                $resultado = $conexao->query($sql);
+                if ($resultado->num_rows > 0) {
+                    $i = 1;
+                    while ($dados = $resultado->fetch_assoc()) {
+                        echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."'>";
+                        echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ".$dados["nome"]."</label>";
+                        $i++;
+                    }
+                }
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";

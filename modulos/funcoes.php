@@ -12,4 +12,20 @@
         return true;
     }
 
+    //Em manutenção
+    function protectNumericData ($number) {
+        $randomNumber = rand(1000, 9000);
+        $newNumber    = $number + $randomNumber;
+        $firstNum     = rand(1000, 9999);
+        $lastNum      = rand(1000, 9999);
+        $pass         = $firstNum.$newNumber.$lastNum;
+
+        $keys = array(
+            "pass"   => $pass,
+            "random" => $randomNumber
+        );
+
+        return $keys;
+    }
+
 ?>

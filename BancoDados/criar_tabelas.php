@@ -49,7 +49,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS turma (
             id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             nome VARCHAR(10),
-            ano INT
+            serie INT
             )";
 
     if($conexao->query($sql) === TRUE)
