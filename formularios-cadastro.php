@@ -186,16 +186,15 @@ include ("modulos/funcoes.php");
             echo "<br><label for='turma' class='form-label'><strong>Turma do aluno:</strong></label>";
                 if(isset($_GET["tur"]) && $_GET["tur"] != "none")
                     $valor_salvo = $_GET["tur"];
-                
-                echo "<br><select name='turma[1]' class='form-select'>";
-                    echo "<option value='none'>--</option>";
+                echo "<br><select name='turma' class='form-select'>";
+                    echo "<option value='none' selected>--</option>";
                     $sql = "
                     SELECT * FROM turma
                     ";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0) {
                         while ($dados = $resultado->fetch_assoc()){
-                            echo "<option value='".$dados["id"]."'>".$dados["serie"]."&ordm; ano ".$dados["nome"]."</option>";
+                            echo "<option value='".$dados["id"]."' "; if($valor_salvo==$dados["id"]){echo "selected";} echo ">".$dados["serie"]."&ordm; ano ".$dados["nome"]."</option>";
                         }
                     }
                 echo "</select>";
@@ -223,21 +222,29 @@ include ("modulos/funcoes.php");
         echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='turma'>";
             
+            if(isset($_GET['nm']) && !empty($_GET['nm']))
+                $valor_salvo = $_GET['nm'];
             echo "<label for='nome_turma' class='form-label'><strong>Nome da turma:</strong></label>";
-                echo "<input type='text' placeholder='A' class='form-control' title='Insira o nome da turma.' name='nome_turma'>";
+                echo "<input type='text' placeholder='A' class='form-control' required title='Insira o nome da turma.' name='nome_turma' value='$valor_salvo'>";
+            if (isset($_GET['enm']) && !empty($_GET['enm']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
             
+            if(isset($_GET['sr']) && !empty($_GET['sr']))
+                $valor_salvo = $_GET['sr'];
             echo "<br><label for='serie' class='form-label'><strong>Série</strong></label>";
-                echo "<br><select name='serie' class='form-select'>";
+                echo "<br><select name='serie' class='form-select' required>";
                     echo "<option value='none' selected>--</option>";
-                    echo "<option value='2'>2&ordm;</option>";
-                    echo "<option value='3'>3&ordm;</option>";
-                    echo "<option value='4'>4&ordm;</option>";
-                    echo "<option value='5'>5&ordm;</option>";
-                    echo "<option value='6'>6&ordm;</option>";
-                    echo "<option value='7'>7&ordm;</option>";
-                    echo "<option value='8'>8&ordm;</option>";
-                    echo "<option value='9'>9&ordm;</option>";
+                    echo "<option value='2' "; if($valor_salvo==2){echo "selected";} echo ">2&ordm;</option>";
+                    echo "<option value='3' "; if($valor_salvo==3){echo "selected";} echo ">3&ordm;</option>";
+                    echo "<option value='4' "; if($valor_salvo==4){echo "selected";} echo ">4&ordm;</option>";
+                    echo "<option value='5' "; if($valor_salvo==5){echo "selected";} echo ">5&ordm;</option>";
+                    echo "<option value='6' "; if($valor_salvo==6){echo "selected";} echo ">6&ordm;</option>";
+                    echo "<option value='7' "; if($valor_salvo==7){echo "selected";} echo ">7&ordm;</option>";
+                    echo "<option value='8' "; if($valor_salvo==8){echo "selected";} echo ">8&ordm;</option>";
+                    echo "<option value='9' "; if($valor_salvo==9){echo "selected";} echo ">9&ordm;</option>";
                 echo "</select>";
+            if (isset($_GET['esr']) && !empty($_GET['esr']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["esr"] . "</p>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -252,19 +259,29 @@ include ("modulos/funcoes.php");
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='disciplina'>";
             
+            if (isset($_GET['nm']) && !empty($_GET['nm']))
+                $valor_salvo = $_GET['nm'];
             echo "<label for='nome_disciplina' class='form-label'><strong>Nome da disciplina:</strong></label>";
-                echo "<input type='text' placeholder='Matemática' class='form-control' title='Insira o nome da turma.' name='nome_disciplina'>";
-            
+                echo "<input type='text' placeholder='Matemática' class='form-control' title='Insira o nome da turma.' required name='nome_disciplina' value='$valor_salvo'>";
+            if (isset($_GET['enm']) && !empty($_GET['enm']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
+
+            if (isset($_GET['ano']) && !empty($_GET['ano']))
+                $valor_salvo = $_GET['ano'];
             echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
-                echo "<br><select name='ano' class='form-select'>";
+                echo "<br><select name='ano' class='form-select' required>";
                 $anoAtual = date("Y");
                 for ($i=$anoAtual-80; $i <= $anoAtual+1; $i++) {
-                    echo "<option value='$i' "; if($i==$anoAtual){echo"selected";} echo">$i</option>";
+                    echo "<option value='$i' "; if($valor_salvo==$i){echo "selected";$valor_salvo="";}elseif($i==$anoAtual){echo "selected";$valor_salvo="";} echo">$i</option>";
                 }
                 echo "</select>";
+            if (isset($_GET['eano']) && !empty($_GET['eano']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["eano"] . "</p>";
 
+            if (isset($_GET['prf']) && !empty($_GET['prf']))
+                $valor_salvo = $_GET['prf'];
             echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
-                echo "<br><select name='professor' class='form-select'>";
+                echo "<br><select name='professor' class='form-select' required>";
                     echo "<option value='none' selected>--</option>";
                     $sql = "
                     SELECT id, nome FROM usuario 
@@ -273,12 +290,15 @@ include ("modulos/funcoes.php");
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
                         while ($dados = $resultado->fetch_assoc()) {
-                            echo "<option value='".$dados["id"]."'>".$dados["nome"]."</option>";
+                            echo "<option value='".$dados["id"]."' ";if($valor_salvo==$dados['id']){echo "selected";} echo ">".$dados["nome"]."</option>";
                         }
                     }
-
                 echo "</select>";
+            if (isset($_GET['eprf']) && !empty($_GET['eprf']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["eprf"] . "</p>";
 
+            if (isset($_GET['tur']) && !empty($_GET['tur']))
+                $turmas = $_GET['tur'];
             echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
                 $sql = "
                 SELECT * FROM turma
@@ -287,11 +307,13 @@ include ("modulos/funcoes.php");
                 if ($resultado->num_rows > 0) {
                     $i = 1;
                     while ($dados = $resultado->fetch_assoc()) {
-                        echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."'>";
-                        echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ".$dados["nome"]."</label>";
+                        echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."' "; if (isset($_GET['tur']) && !empty($_GET['tur'])){foreach($turmas as $turma){if($turma==$dados["id"]){echo "checked";}}} echo ">";
+                        echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ano ".$dados["nome"]."</label>";
                         $i++;
                     }
                 }
+            if (isset($_GET['etur']) && !empty($_GET['etur']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";
@@ -304,22 +326,32 @@ include ("modulos/funcoes.php");
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='bimestre'>";
             
+            if (isset($_GET['nmr']) && !empty($_GET['nmr']))
+                $valor_salvo = $_GET['nmr'];
             echo "<label for='numero' class='form-label'><strong>Bimestre:</strong></label>";
-                echo "<br><select name='numero' class='form-select'>";
+                echo "<br><select name='numero' class='form-select' required>";
                     echo "<option value='none' selected>--</option>";
-                    echo "<option value='1'>1&ordm;</option>";
-                    echo "<option value='2'>2&ordm;</option>";
-                    echo "<option value='3'>3&ordm;</option>";
-                    echo "<option value='4'>4&ordm;</option>";
+                    echo "<option value='1' "; if($valor_salvo==1){echo "selected";} echo ">1&ordm;</option>";
+                    echo "<option value='2' "; if($valor_salvo==2){echo "selected";} echo ">2&ordm;</option>";
+                    echo "<option value='3' "; if($valor_salvo==3){echo "selected";} echo ">3&ordm;</option>";
+                    echo "<option value='4' "; if($valor_salvo==1){echo "selected";} echo ">4&ordm;</option>";
                 echo "</select>";
-                if (isset($_GET["etur"]) && !empty($_GET["etur"]))
-                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
+                if (isset($_GET["enmr"]) && !empty($_GET["enmr"]))
+                    echo "<br><p class=\"msg_erro\">" . $_GET["enmr"] . "</p>";
             
+            if (isset($_GET['dti']) && !empty($_GET['dti']))
+                $valor_salvo = $_GET['dti'];
             echo "<br><label for='data_inicial' class='form-label'><strong>Início do bimestre:</strong></label>";
                 echo "<input type='date' required class='form-control' id='data_inicial' name='data_inicial' value='$valor_salvo'>";
+            if (isset($_GET['edti']) && !empty($_GET['edti']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["edti"] . "</p>";
 
+            if (isset($_GET['dtf']) && !empty($_GET['dtf']))
+                $valor_salvo = $_GET['dtf'];
             echo "<br><label for='data_final' class='form-label'><strong>Encerramento do bimestre:</strong></label>";
                 echo "<input type='date' required class='form-control' id='data_final' name='data_final' value='$valor_salvo'>";
+            if (isset($_GET['edtf']) && !empty($_GET['edtf']))
+                echo "<br><p class=\"msg_erro\">" . $_GET["edtf"] . "</p>";
 
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
         echo "</form>";

@@ -29,7 +29,7 @@
             break;
         case "disciplina":
             if (!isset($_POST['nome_disciplina']) || empty($_POST['nome_disciplina'])) {
-                $msgErro[1] = "<br> * Você não inseiriu o nome da disciplina.";
+                $msgErro[1] = "<br> * Você não inseriu o nome da disciplina.";
                 $cadastroCorreto = false;
             }
 
@@ -104,14 +104,19 @@
                 $nm    = $_POST['nome_disciplina'];
                 $ano   = $_POST['ano'];
                 $prof  = $_POST['professor'];
-                header ("Location: ../../CRUD/Disciplina/create.php?nm=$nm&ano=$ano&prf=$prof&tur=$turmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]");
-                break;
+                $linkTurmas = "";
+                $i = 1;
+                foreach ($turmas as $turma) {
+                    $linkTurmas .= "&tur[$i]=$turma";
+                    $i++;
+                }
+                header ("Location: ../../formularios-cadastro.php?id=disciplina&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]");
                 break;
             case "bimestre":
-                $ano = $_POST['ano'];
+                $nmr = $_POST['numero'];
                 $dti = $_POST['data_inicial'];
                 $dtf = $_POST['data_final'];
-                header ("Location: ../../formularios-cadastro.php?id=bimestre&dti=$dti&dtf=$dtf");
+                header ("Location: ../../formularios-cadastro.php?id=bimestre&nmr=$nmr&dti=$dti&dtf=$dtf&enmr=$msgErro[1]&edti=$msgErro[2]&edtf=$msgErro[3]");
                 break;
         }
     }
