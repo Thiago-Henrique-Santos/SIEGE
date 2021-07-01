@@ -21,8 +21,8 @@
         echo "<li> <a href='cadastrar.php'>Cadastrar</a> </li>";
         echo "<li> <a href='boletim.php'>Boletins</a> </li>";
         echo "<li> <a href='ferramentas.php'>Ferramentas</a> </li>";
-        echo "<li> <a href='cadastros.php'>Cadastros</a> </li>";
-        echo "<li> <a href='jogo.php'>Ranking</a> </li>";
+        echo "<li> <a href='registros.php'>Registros</a> </li>";
+        echo "<li> <a href='cadastrar_noticias.php'>Notícias</a> </li>";
         echo "<li> <a href='index.php'>Sair</a> </li>";
     echo "</ul>";
     echo "</nav>";

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEGE - Cadastros </title>
+    <title>SIEGE - Registros </title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/forms.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
@@ -24,6 +24,9 @@
 
     <form class="user" action="#" method="post">
         <label>Marque o tipo de funcionário que gostaria de ver os registros:</label> <br><br>
+
+        <input type="checkbox" id="dir" name="dir" value="diretor">
+        <label for="dir"> Diretor(a) e Vice</label>
 
         <input type="checkbox" id="secr" name="secr" value="secretario">
         <label for="secr"> Secretário(a)</label>
