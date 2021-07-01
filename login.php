@@ -48,7 +48,7 @@
     </main>
 
     <footer>
-        <p> SIEGE - Sistema de Incentivo ao Estudo e Gerenciamento Escolar </p>
+        <p> SIEGE - Sistema Informativo E Gerenciamento Escolar </p>
     </footer>
 </body>
 
