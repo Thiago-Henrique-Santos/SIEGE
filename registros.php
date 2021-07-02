@@ -1,3 +1,7 @@
+<?php
+    include ("CRUD/Usuario/read.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

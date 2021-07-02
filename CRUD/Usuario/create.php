@@ -24,8 +24,9 @@ if($_GET['id'] == 'aluno'){
     INSERT INTO usuario (nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES ('$nome', '$email', '$campo_zona', '$campo_sexo', '$senha', 1)
     ";
 
-    if ($conexao->query($sql) === FALSE)
+    if ($conexao->query($sql) === FALSE){
         echo "Erro inserindo usuario: " . $conexao->error;
+    }
 
     $idUsuario = "SELECT id FROM usuario WHERE email = '$email'";
     $resultado = $conexao->query($idUsuario);
@@ -44,8 +45,12 @@ if($_GET['id'] == 'aluno'){
 
     if ($conexao->query($sql) === TRUE)
         header ("Location: ../../formularios-cadastro.php?id=validadoOK");
-    else
+    else{
         echo "Erro inserindo aluno: " . $conexao->error;
+        $sql = "DELETE FROM usuario WHERE email == $email";
+        $resultado = $conexao->query($sql);
+    }
+
 }else if($_GET['id'] == 'professor'){
     $masp  = $_GET['mp'];
     $tipo_empregado  = $_GET['tep'];
@@ -75,8 +80,12 @@ if($_GET['id'] == 'aluno'){
 
     if ($conexao->query($sql) === TRUE)
         header ("Location: ../../formularios-cadastro.php?id=validadoOK");
-    else
+    else{
         echo "Erro inserindo professor: " . $conexao->error;
+        $sql = "DELETE FROM usuario WHERE email == $email";
+        $resultado = $conexao->query($sql);
+    }
+
 }else{
     $masp  = $_GET['mp'];
     $tipo_empregado  = $_GET['tep'];
@@ -107,8 +116,12 @@ if($_GET['id'] == 'aluno'){
 
     if ($conexao->query($sql) === TRUE)
         header ("Location: ../../formularios-cadastro.php?id=validadoOK");
-    else
+    else{
         echo "Erro inserindo gerenciador: " . $conexao->error;
+        $sql = "DELETE FROM usuario WHERE email == $email";
+        $resultado = $conexao->query($sql);
+    }
+
 }
 
 
