@@ -15,7 +15,7 @@
 <?php
     echo "<nav>";
     echo "<a href='pagina_inicial.php'>";
-        echo "<img src='img/logo_transparente.png' alt='Logo do sistema'>";
+        echo "<img src='img/logo_transparente2.png' alt='Logo do sistema'>";
     echo "</a>";
     echo "<ul>";
         echo "<li> <a href='cadastrar.php'>Cadastrar</a> </li>";
