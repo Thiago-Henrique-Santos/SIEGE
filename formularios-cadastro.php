@@ -335,7 +335,7 @@ include ("modulos/funcoes.php");
                     echo "<option value='1' "; if($valor_salvo==1){echo "selected";} echo ">1&ordm;</option>";
                     echo "<option value='2' "; if($valor_salvo==2){echo "selected";} echo ">2&ordm;</option>";
                     echo "<option value='3' "; if($valor_salvo==3){echo "selected";} echo ">3&ordm;</option>";
-                    echo "<option value='4' "; if($valor_salvo==1){echo "selected";} echo ">4&ordm;</option>";
+                    echo "<option value='4' "; if($valor_salvo==4){echo "selected";} echo ">4&ordm;</option>";
                 echo "</select>";
                 if (isset($_GET["enmr"]) && !empty($_GET["enmr"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["enmr"] . "</p>";

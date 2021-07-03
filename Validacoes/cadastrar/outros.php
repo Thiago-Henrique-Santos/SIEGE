@@ -93,8 +93,8 @@
                 $cadastroCorreto = false;
             }
 
-            if($_POST['data_inicial'] > $_POST['data_final']){
-                $msgErro[4] = "A data final do bimestre está antes da data inicial.";
+            if($_POST['data_inicial'] >= $_POST['data_final']){
+                $msgErro[4] = "A data final do bimestre está antes ou no mesmo dia da data inicial.";
                 $cadastroCorreto = false;
             }
 
