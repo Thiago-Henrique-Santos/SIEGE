@@ -60,6 +60,8 @@ SELECT * FROM usuario u ORDER BY u.nome ASC;
 		            }
 	        }
         }
+        echo "<button>Atualizar</button> &emsp;";
+        echo "<button>Remover</button>";
         echo "</div>";
     }
 	else
