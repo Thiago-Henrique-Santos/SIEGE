@@ -13,7 +13,8 @@
         1 => "",
         2 => "",
         3 => "",
-        4 => ""
+        4 => "",
+        5 => ""
     );
 
     switch ($_POST['tipo']) {
@@ -33,7 +34,7 @@
             if ($resultado->num_rows > 0) {
                 while ($dados = $resultado->fetch_assoc()) {
                     if ($_POST['nome_turma']==$dados['nome'] && $_POST['serie']==$dados['serie']) {
-                        $msgErro[3] = "<br> * Esta turma já está cadastrada.";
+                        $msgErro[3] = "Esta turma já está cadastrada.";
                         $cadastroCorreto = false;
                     }
                 }
@@ -59,6 +60,21 @@
             if(!isset($_POST['turma']) || empty($turmas)){
                 $msgErro[4] = "<br> * Você não escolheu nenhuma disciplina para essa matéria.";
                 $cadastroCorreto = false; 
+            }
+
+            $sql = "SELECT nome, ano, id_professor, id_turma FROM disciplina";
+            $resultado = $conexao->query($sql);
+            if ($resultado->num_rows > 0) {
+                while ($dados = $resultado->fetch_assoc()) {
+                    if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano'] && $_POST['professor']==$dados['id_professor']) {
+                        foreach ($turmas as $turma) {
+                            if ($turma == $dados['id_turma']) {
+                                $msgErro[5] = "Já existe um cadastro de disciplina igual ao que você inseriu.";
+                                $cadastroCorreto = false; 
+                            }
+                        }
+                    }
+                }
             }
             break;
         case "bimestre":
@@ -122,7 +138,7 @@
                     $linkTurmas .= "&tur[$i]=$turma";
                     $i++;
                 }
-                header ("Location: ../../formularios-cadastro.php?id=disciplina&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]");
+                header ("Location: ../../formularios-cadastro.php?id=disciplina&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]&jcd=$msgErro[5]");
                 break;
             case "bimestre":
                 $nmr = $_POST['numero'];

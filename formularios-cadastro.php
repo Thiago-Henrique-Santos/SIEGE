@@ -439,8 +439,9 @@ include ("modulos/funcoes.php");
     import componentes from './modulos/componentes.js';
 
     <?php
-    if(isset($_GET['jcd']) || !empty($_GET['jcd'])) {
-        echo "componentes.displayAlert('Cadastro repetido!', 'Esta turma já foi cadastrada.')";
+    if(isset($_GET['jcd']) && !empty($_GET['jcd'])) {
+        $mensagem = $_GET['jcd'];
+        echo "componentes.displayAlert('Cadastro repetido!', '$mensagem')";
     }
     ?>
 
