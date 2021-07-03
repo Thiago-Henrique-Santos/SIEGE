@@ -104,7 +104,7 @@
                 while($dados = $resultado->fetch_assoc()) {
                     if ($dados['numero'] < $_POST['numero']){
                         if ($_POST['data_inicial'] <= $dados['dataTermino']) {
-                            $msgErro[5] = "A data inicial deste bimestre está cruzando com a data de término de um bimestre anterior.";
+                            $msgErro[5] = "A data inicial deste bimestre está interferindo com a data de término de um bimestre anterior.";
                             $cadastroCorreto = false;
                         }
                     }
@@ -117,7 +117,7 @@
                 while($dados = $resultado->fetch_assoc()) {
                     if ($dados['numero'] > $_POST['numero']){
                         if ($_POST['data_final'] >= $dados['dataInicio']) {
-                            $msgErro[6] = "A data final deste bimestre está cruzando com a data incial de um próximo bimestre.";
+                            $msgErro[6] = "A data final deste bimestre está interferindo com a data incial de um próximo bimestre.";
                             $cadastroCorreto = false;
                         }
                     }
