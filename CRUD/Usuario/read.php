@@ -10,22 +10,22 @@
 		while ($linha = $resultado->fetch_assoc())
 		{
             echo "<div style='border: 1px solid black;'>";
-			echo "Nome: " . $linha['nome'] . "<br>";
-			echo "Email: " . $linha['email'] . "<br>";
-			echo "Z. Moradia: " . $linha['local_moradia'] . "<br>";
-            echo "Sexo: " . $linha['sexo'] . "<br>";
+			echo "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
+			echo "<strong>Email:</strong> " . $linha['email'] . "<br>";
+			echo "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
+            echo "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
             
             if($linha["tipo_usuario"] == 1){
                 $sql2 = "SELECT * FROM aluno WHERE idAluno =" . $linha['id'];
-                $resultado2 = $conexao->query($sql2);  
+                $resultado2 = $conexao->query($sql2);
                 if ($resultado2->num_rows > 0)
                 {
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        echo "Data de nascimento: " . $linha2['data_nascimento'] . "<br>";
-                        echo "Matrícula: " . $linha2['numero_matricula'] . "<br>";
-                        echo "Responsável: " . $linha2['nome_responsavel'] . "<br>";
-                        echo "Ocupação: Aluno <br>";
+                        echo "<strong>Data de nascimento:</strong> " . $linha2['data_nascimento'] . "<br>";
+                        echo "<strong>Matrícula:</strong> " . $linha2['numero_matricula'] . "<br>";
+                        echo "<strong>Responsável:</strong> " . $linha2['nome_responsavel'] . "<br>";
+                        echo "<strong>Ocupação:</strong> Aluno <br>";
                     }
                 }
 	        }elseif($linha["tipo_usuario"] == 2){
@@ -35,10 +35,10 @@
                 {
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        echo "MASP: " . $linha2['masp'] . "<br>";
-                        echo "T. empregado: " . $linha2['tipo_empregado'] . "<br>";
-                        echo "Função: " . $linha2['funcao'] . "<br>";
-                        echo "Ocupação: Professor <br>";
+                        echo "<strong>MASP:</strong> " . $linha2['masp'] . "<br>";
+                        echo "<strong>T. empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
+                        echo "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
+                        echo "<strong>Ocupação:</strong> Professor <br>";
                     }
                 }
 	        }else{
@@ -48,14 +48,14 @@
                 {
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        echo "MASP: " . $linha2['masp'] . "<br>";
-                        echo "T. empregado: " . $linha2['tipo_empregado'] . "<br>";
-                        echo "Função: " . $linha2['funcao'] . "<br>";
-                        echo "Ocupação: " . $linha2['tipo'] . "<br>";
+                        echo "<strong>MASP:</strong> " . $linha2['masp'] . "<br>";
+                        echo "<strong>T. empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
+                        echo "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
+                        echo "<strong>Ocupação:</strong> " . $linha2['tipo'] . "<br>";
                     }
                 }
 	        }
-            echo "<button>Atualizar</button> &emsp;";
+            echo "&nbsp;<button>Atualizar</button>&nbsp;&nbsp;";
             echo "<button>Remover</button>";
             echo "</div>";
         }
