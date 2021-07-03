@@ -84,13 +84,29 @@
             }
 
             if (!isset($_POST['data_inicial'])) {
-                $msgErro[2] = "<br> * Você não esepcificou o início do bimestre.";
+                $msgErro[2] = "<br> * Você não especificou o início do bimestre.";
                 $cadastroCorreto = false;
             }
 
             if (!isset($_POST['data_final'])) {
-                $msgErro[3] = "<br> * Você não esepcificou o fim do bimestre.";
+                $msgErro[3] = "<br> * Você não especificou o fim do bimestre.";
                 $cadastroCorreto = false;
+            }
+
+            if($_POST['data_inicial'] > $_POST['data_final']){
+                $msgErro[4] = "A data final do bimestre está antes da data inicial.";
+                $cadastroCorreto = false;
+            }
+
+            $sql = "SELECT numero FROM bimestre";
+            $resultado = $conexao->query($sql);
+            if ($resultado->num_rows > 0) {
+                while ($dados = $resultado->fetch_assoc()) {
+                    if ($_POST['numero']==$dados['numero']) {
+                        $msgErro[5] = "Esse bimestre já foi cadastrado.";
+                        $cadastroCorreto = false;
+                    }
+                }
             }
             break;
     }
@@ -144,7 +160,7 @@
                 $nmr = $_POST['numero'];
                 $dti = $_POST['data_inicial'];
                 $dtf = $_POST['data_final'];
-                header ("Location: ../../formularios-cadastro.php?id=bimestre&nmr=$nmr&dti=$dti&dtf=$dtf&enmr=$msgErro[1]&edti=$msgErro[2]&edtf=$msgErro[3]");
+                header ("Location: ../../formularios-cadastro.php?id=bimestre&nmr=$nmr&dti=$dti&dtf=$dtf&enmr=$msgErro[1]&edti=$msgErro[2]&edtf=$msgErro[3]&dtinv=$msgErro[4]&jcd=$msgErro[5]");
                 break;
         }
     }
