@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEGE - Visão para diretor e vice-diretor </title>
+    <title>SIEGE - Turmas </title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
+    <link rel="stylesheet" type="text/css" href="CSS/forms.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,24 +15,17 @@
 </head>
 
 <body>
+    
+    <?php
+        include ('componentes/user_nav.php');
+    ?>
 
-    <div class="flex-container">
+    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas cadastradas</h1>
 
-        <?php
-            include ('componentes/user_nav.php');
-        ?>
-
-        <main>
-            <div style="width: 100%; height: 120px; display: flex; 
-            flex-flow: row nowrap; justify-content: center;">
-                <h1 class="titulo-principal"> Página principal</h1>
-            </div>
-            <p>Esta página contará com as informações principais e necessárias, a página principal com os
-                menus, avisos, etc.</p>
-        </main>
-    </div>
+    <?php
+        include ("CRUD/Turma/read.php");
+    ?>
 
 </body>
-
 
 </html>
