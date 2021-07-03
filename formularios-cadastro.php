@@ -445,6 +445,12 @@ include ("modulos/funcoes.php");
     }elseif(isset($_GET['dtinv']) && !empty($_GET['dtinv'])){
         $mensagem = $_GET['dtinv'];
         echo "componentes.displayAlert('Datas invertidas!', '$mensagem');";
+    }elseif(isset($_GET['dtic']) && !empty($_GET['dtic'])){
+        $mensagem = $_GET['dtic'];
+        echo "componentes.displayAlert('Datas cruzadas!', '$mensagem');";
+    }elseif(isset($_GET['dtfc']) && !empty($_GET['dtfc'])){
+        $mensagem = $_GET['dtfc'];
+        echo "componentes.displayAlert('Datas cruzadas!', '$mensagem');";
     }
     ?>
 
