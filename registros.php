@@ -1,7 +1,3 @@
-<?php
-    include ("CRUD/Usuario/read.php");
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -45,6 +41,10 @@
         <label for="alu">Aluno(a)</label><br>
     </form>
     <br><br>
+
+    <?php
+        include ("CRUD/Usuario/read.php");
+    ?>
 
 </body>
 
