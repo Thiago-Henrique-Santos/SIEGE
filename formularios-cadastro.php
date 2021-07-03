@@ -18,6 +18,7 @@ include ("modulos/funcoes.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
+    <link rel="stylesheet" type="text/css" href="modulos/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -432,6 +433,18 @@ include ("modulos/funcoes.php");
         echo "<h1 align='center'>Cadastrado(a) com sucesso!</h1>";
     }
 ?>
+
+<script type="module">
+
+    import componentes from './modulos/componentes.js';
+
+    <?php
+    if(isset($_GET['jcd']) || !empty($_GET['jcd'])) {
+        echo "componentes.displayAlert('Cadastro repetido!', 'Esta turma já foi cadastrada.')";
+    }
+    ?>
+
+</script>
 
 </body>
 </html>

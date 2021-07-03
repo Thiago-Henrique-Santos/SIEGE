@@ -6,6 +6,7 @@
     }
 
     include ('../../modulos/funcoes.php');
+    include ('../../BancoDados/conexao_mysql.php');
 
     $cadastroCorreto = true;
     $msgErro = array(
@@ -25,6 +26,17 @@
             if (!isset($_POST['serie']) || $_POST['serie']=="none") {
                 $msgErro[2] = "<br> * Você não escolheu a série.";
                 $cadastroCorreto = false;
+            }
+
+            $sql = "SELECT nome, serie FROM turma";
+            $resultado = $conexao->query($sql);
+            if ($resultado->num_rows > 0) {
+                while ($dados = $resultado->fetch_assoc()) {
+                    if ($_POST['nome_turma']==$dados['nome'] && $_POST['serie']==$dados['serie']) {
+                        $msgErro[3] = "<br> * Esta turma já está cadastrada.";
+                        $cadastroCorreto = false;
+                    }
+                }
             }
             break;
         case "disciplina":
@@ -98,7 +110,7 @@
             case "turma":
                 $nm = $_POST['nome_turma'];
                 $sr = $_POST['serie'];
-                header ("Location: ../../formularios-cadastro.php?id=turma&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]");
+                header ("Location: ../../formularios-cadastro.php?id=turma&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]&jcd=$msgErro[3]");
                 break;
             case "disciplina":
                 $nm    = $_POST['nome_disciplina'];
