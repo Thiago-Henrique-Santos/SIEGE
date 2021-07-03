@@ -441,7 +441,10 @@ include ("modulos/funcoes.php");
     <?php
     if(isset($_GET['jcd']) && !empty($_GET['jcd'])) {
         $mensagem = $_GET['jcd'];
-        echo "componentes.displayAlert('Cadastro repetido!', '$mensagem')";
+        echo "componentes.displayAlert('Cadastro repetido!', '$mensagem');";
+    }elseif(isset($_GET['dtinv']) && !empty($_GET['dtinv'])){
+        $mensagem = $_GET['dtinv'];
+        echo "componentes.displayAlert('Datas invertidas!', '$mensagem');";
     }
     ?>
 
