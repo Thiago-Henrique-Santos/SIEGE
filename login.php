@@ -15,7 +15,7 @@
 <body>
     <header>
         <a href="index.php" class="logo">
-            <img src="img/logo_transparente.png" alt="logo do siege">
+            <img src="img/logo_transparente2.png" alt="logo do siege">
         </a>
     </header>
 
