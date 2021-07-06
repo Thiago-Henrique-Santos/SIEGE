@@ -31,7 +31,7 @@
             echo "<button>Remover</button>";
             echo "</div>";
         }else{
-            echo "Não foram encontradas disciplinas!";
+            echo "&nbsp;Não foram encontradas disciplinas!";
         }
 
         }

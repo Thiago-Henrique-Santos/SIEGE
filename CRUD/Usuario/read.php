@@ -61,7 +61,7 @@
         }
     }
 	else
-		echo "Não foram encontrados usuários!";	
+		echo "&nbsp;Não foram encontrados usuários!";	
 
     $conexao->close();
 

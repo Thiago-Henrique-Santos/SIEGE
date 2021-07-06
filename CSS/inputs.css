@@ -1,0 +1,26 @@
+.box_search {
+  width: 280px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  float: right;
+  margin-right: 2%;
+}
+
+.box_search > i {
+  font-size: 20px;
+  color: #777;
+}
+
+.box_search > input {
+  flex: 1;
+  height: 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  padding-left: 10px;
+}
