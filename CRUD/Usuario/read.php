@@ -16,8 +16,9 @@
             echo "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
             
             if($linha["tipo_usuario"] == 1){
-                $sql2 = "SELECT * FROM aluno WHERE idAluno =" . $linha['id'];
+                $sql2 = "SELECT * FROM aluno, turma WHERE aluno.idAluno =" . $linha['id'] . " AND aluno.id_turma = turma.id";
                 $resultado2 = $conexao->query($sql2);
+                //echo $sql2;
                 if ($resultado2->num_rows > 0)
                 {
                     while ($linha2 = $resultado2->fetch_assoc())
@@ -25,6 +26,7 @@
                         echo "<strong>Data de nascimento:</strong> " . $linha2['data_nascimento'] . "<br>";
                         echo "<strong>Matrícula:</strong> " . $linha2['numero_matricula'] . "<br>";
                         echo "<strong>Responsável:</strong> " . $linha2['nome_responsavel'] . "<br>";
+                        echo "<strong>Turma:</strong> " . $linha2['serie'] . "° ano " . $linha2['nome'] . "<br>";
                         echo "<strong>Ocupação:</strong> Aluno <br>";
                     }
                 }
