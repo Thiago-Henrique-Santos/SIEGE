@@ -26,20 +26,18 @@ for (let i = 0; i < options.length; i++) {
         var checkboxStatus = event.target.checked;
         if (checkboxStatus) {
             url = generatePath(url, checkbox.id, true);
-            console.log(url);
-            // httpRequest.open('GET', url);
-            // httpRequest.responseType = "json";
-            // httpRequest.send();
-            // httpRequest.addEventListener("readystatechange", function () {
+            httpRequest.open('GET', url);
+            httpRequest.responseType = "json";
+            httpRequest.send();
+            httpRequest.addEventListener("readystatechange", function () {
 
-            //     if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-            //         var response = httpRequest.response;
-            //         var
-            //     }
-            // });
+                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                    var response = httpRequest.response;
+                    var
+                }
+            });
         } else {
             url = generatePath(url, checkbox.id, false);
-            console.log(url);
         }
     });
 }
