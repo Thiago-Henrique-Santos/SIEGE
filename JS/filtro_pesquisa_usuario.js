@@ -1,58 +1,45 @@
+import { generatePath } from '../modulos/funcoes.js';
+
+var httpRequest;
+if (window.XMLHttpRequest) {
+    httpRequest = new XMLHttpRequest();
+} else if (window.ActiveXObject) {
+    try {
+        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+        try {
+            httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+        } catch (e) { }
+    }
+}
+if (!httpRequest) {
+    alert("Desistindo: Não é possível criar uma instância XMLHTTP.");
+}
+
 var options = document.getElementsByClassName('cargoFiltro');
 
-var path = "localhost/siege/usuarios.php";
-var relativeCounter = 0;
-var relativeStart = false;
-var relativePath = "";
-var firstRelative = "";
+var url = "CRUD/Usuario/read.php";
 
 for (let i = 0; i < options.length; i++) {
-    let checkbox = options[i].id;
-    options[i].addEventListener("click", () => {
+    let checkbox = options[i];
+    checkbox.addEventListener('change', function (event) {
+        var checkboxStatus = event.target.checked;
+        if (checkboxStatus) {
+            url = generatePath(url, checkbox.id, true);
+            console.log(url);
+            // httpRequest.open('GET', url);
+            // httpRequest.responseType = "json";
+            // httpRequest.send();
+            // httpRequest.addEventListener("readystatechange", function () {
 
-        if (relativeCounter == 0) {
-            if (!relativeStart) {
-                path += "?";
-                relativeStart = true;
-            }
-            relativePath = `${checkbox}=on`;
-            firstRelative = relativePath;
+            //     if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            //         var response = httpRequest.response;
+            //         var
+            //     }
+            // });
         } else {
-            relativePath = `&${checkbox}=on`;
+            url = generatePath(url, checkbox.id, false);
+            console.log(url);
         }
-
-        if (options[i].checked) {
-            path += relativePath;
-            relativeCounter++;
-        } else {
-            var oldPath = path;
-            path = path.replace(relativePath, "");
-            if (oldPath == path) {
-                path = path.replace(firstRelative, "");
-                var relativeStartPoint = path.indexOf('?');
-                if (path[relativeStartPoint + 1] == "&") {
-                    path = path.slice(0, relativeStartPoint + 1) + path.slice(relativeStartPoint + 2);
-                    firstRelative = "";
-                    for (let j = 0; j < path.length; j++) {
-                        if (j > relativeStartPoint) {
-                            if (path[j] == "&") {
-                                break;
-                            } else {
-                                firstRelative += path[j];
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        var lastPosition = path.length - 1;
-        if (path[lastPosition] == '?') {
-            path = path.replace('?', "");
-            relativeCounter = 0;
-            relativeStart = false;
-        }
-        console.log(path);
-
     });
 }
