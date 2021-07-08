@@ -182,7 +182,7 @@
         }
     }
 
-    echo json_encode($teste);
+    echo json_encode($registros);
 
     $conexao->close();
 
