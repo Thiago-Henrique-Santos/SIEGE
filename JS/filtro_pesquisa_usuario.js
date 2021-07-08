@@ -30,10 +30,9 @@ for (let i = 0; i < options.length; i++) {
             httpRequest.responseType = "json";
             httpRequest.send();
             httpRequest.addEventListener("readystatechange", function () {
-
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     var response = httpRequest.response;
-                    console.log(response);
+
                 }
             });
         } else {
@@ -47,4 +46,13 @@ window.onload = () => {
     sessionStorage.setItem('relativeCounter', 0);
     sessionStorage.setItem('relativeStart', false);
     sessionStorage.setItem('firstRelative', "");
+    httpRequest.open('GET', url);
+    httpRequest.responseType = "json";
+    httpRequest.send();
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            var response = httpRequest.response;
+            console.log(response);
+        }
+    }
 }
