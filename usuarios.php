@@ -50,9 +50,8 @@
     </form>
     <br><br>
 
-    <?php
-        include ("CRUD/Usuario/read.php");
-    ?>
+    <div id="busca_resultado">
+    </div>
 
 </body>
 

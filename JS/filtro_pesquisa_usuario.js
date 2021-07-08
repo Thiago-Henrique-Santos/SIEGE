@@ -17,6 +17,7 @@ if (!httpRequest) {
 }
 
 var options = document.getElementsByClassName('cargoFiltro');
+var bloco_resultado = document.getElementById('busca_resultado')
 
 var url = "CRUD/Usuario/read.php";
 
@@ -32,7 +33,7 @@ for (let i = 0; i < options.length; i++) {
             httpRequest.addEventListener("readystatechange", function () {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     var response = httpRequest.response;
-
+                    console.log(response);
                 }
             });
         } else {
@@ -52,7 +53,7 @@ window.onload = () => {
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             var response = httpRequest.response;
-            console.log(response);
+            bloco_resultado.innerHTML = response;
         }
     }
 }
