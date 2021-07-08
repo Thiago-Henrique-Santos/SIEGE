@@ -33,11 +33,18 @@ for (let i = 0; i < options.length; i++) {
 
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     var response = httpRequest.response;
-                    var
+                    console.log(response);
                 }
             });
         } else {
             url = generatePath(url, checkbox.id, false);
         }
     });
+}
+
+window.onload = () => {
+    sessionStorage.setItem('path', url);
+    sessionStorage.setItem('relativeCounter', 0);
+    sessionStorage.setItem('relativeStart', false);
+    sessionStorage.setItem('firstRelative', "");
 }
