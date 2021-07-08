@@ -41,3 +41,19 @@ for (let i = 0; i < options.length; i++) {
         }
     });
 }
+
+window.onload = () => {
+    sessionStorage.setItem('path', url);
+    sessionStorage.setItem('relativeCounter', 0);
+    sessionStorage.setItem('relativeStart', false);
+    sessionStorage.setItem('firstRelative', "");
+    httpRequest.open('GET', url);
+    httpRequest.responseType = "json";
+    httpRequest.send();
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            var response = httpRequest.response;
+            console.log(response);
+        }
+    }
+}
