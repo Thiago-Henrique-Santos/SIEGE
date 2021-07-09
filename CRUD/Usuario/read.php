@@ -5,7 +5,6 @@
     $sql = "";
 
     if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset($_GET['prof']) || isset($_GET['alu'])) {
-        $innerJoin_counter = 0;
         $tipoUsuario_escolhidos = array(
             "aluno"       => false,
             "professor"   => false,
@@ -19,26 +18,21 @@
 
         if (isset($_GET['alu'])) {
             $tipoUsuario_escolhidos['aluno'] = true;
-            $innerJoin_counter++;
         }
         if (isset($_GET['prof'])) {
             $tipoUsuario_escolhidos['professor'] = true;
-            $innerJoin_counter++;
         }
         if (isset($_GET['sup'])) {
             $gerenciadores_escolhidos['supervisor'] = true;
             $tipoUsuario_escolhidos['gerenciador'] = true;
-            $innerJoin_counter++;
         }
         if (isset($_GET['secr'])) {
             $gerenciadores_escolhidos['secretario'] = true;
             $tipoUsuario_escolhidos['gerenciador'] = true;
-            $innerJoin_counter++;
         }
         if (isset($_GET['dir'])) {
             $gerenciadores_escolhidos['diretor'] = true;
             $tipoUsuario_escolhidos['gerenciador'] = true;
-            $innerJoin_counter++;
         }
 
         $tipoUsuario_contador = 0;
@@ -55,14 +49,14 @@
             }
         }
 
-        for ($i=0; $i<=$tipoUsuario_contador; $i++) {
+        for ($i=0; $i<$tipoUsuario_contador; $i++) {
             if ($i>0){
                 $sql .= "; ";
             }
             $sql .= "SELECT * FROM usuario u INNER JOIN ";
             
             if ($tipoUsuario_escolhidos['aluno']) {
-                $sql = "
+                $sql .= "
                 SELECT u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
                 a.data_nascimento, a.numero_matricula, a.nome_responsavel, a.telefone, 
                 t.nome AS 'nome_turma', t.serie FROM usuario u 
@@ -191,7 +185,7 @@
         }
     }
 
-    echo json_encode($registros);
+    echo json_encode($sql);
 
     $conexao->close();
 

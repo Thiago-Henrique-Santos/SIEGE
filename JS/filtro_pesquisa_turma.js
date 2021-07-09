@@ -17,6 +17,7 @@ if (!httpRequest) {
 }
 
 var options = document.getElementsByClassName('serieFiltro');
+var bloco_resultado = document.getElementById('busca_resultado');
 
 var url = "CRUD/Turma/read.php";
 
@@ -33,11 +34,21 @@ for (let i = 0; i < options.length; i++) {
 
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     var response = httpRequest.response;
-
+                    bloco_resultado.innerHTML = response;
                 }
             });
         } else {
             url = generatePath(url, checkbox.id, false);
+            httpRequest.open('GET', url);
+            httpRequest.responseType = "json";
+            httpRequest.send();
+            httpRequest.addEventListener("readystatechange", function () {
+
+                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                    var response = httpRequest.response;
+                    bloco_resultado.innerHTML = response;
+                }
+            });
         }
     });
 }
@@ -53,7 +64,7 @@ window.onload = () => {
     httpRequest.onreadystatechange = function () {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             var response = httpRequest.response;
-            console.log(response);
+            bloco_resultado.innerHTML = response;
         }
     }
 }

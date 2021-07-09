@@ -36,34 +36,33 @@
         <label>Marque o ano da turma que gostaria de ver os registros:</label> <br><br>
 
         <input type="checkbox" class="serieFiltro" id="seg" name="seg" value="segundo">
-        <label for="seg">2° anos</label>
+        <label for="seg">2° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="terc" name="terc" value="terceiro">
-        <label for="sup">3° anos</label>
+        <label for="terc">3° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="quart" name="quart" value="quarto">
-        <label for="quart">4° anos</label>
+        <label for="quart">4° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="quin" name="quin" value="quinto">
-        <label for="quin">5° anos</label>
+        <label for="quin">5° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="sext" name="sext" value="sexto">
-        <label for="sext">6° anos</label>
+        <label for="sext">6° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="seti" name="seti" value="setimo">
-        <label for="seti">7° anos</label>
+        <label for="seti">7° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="oit" name="oit" value="oitavo">
-        <label for="oit">8° anos</label>
+        <label for="oit">8° anos&emsp;</label>
 
         <input type="checkbox" class="serieFiltro" id="non" name="non" value="nono">
-        <label for="non">9° anos</label><br>
+        <label for="non">9° anos&emsp;</label><br>
     </form>
     <br><br>
 
-    <?php
-        include ("CRUD/Turma/read.php");
-    ?>
+    <div id="busca_resultado">
+    </div>
 
 </body>
 

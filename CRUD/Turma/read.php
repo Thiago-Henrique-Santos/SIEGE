@@ -1,7 +1,8 @@
 <?php
 
     include ("C:/xampp/htdocs/SIEGE/BancoDados/conexao_mysql.php");
-
+    $sql = "";
+    $registros = "";
 
     if(isset($_GET['seg']) || isset($_GET['terc']) || isset($_GET['quart']) || isset($_GET['quin']) || isset($_GET['sext']) || isset($_GET['seti']) || isset($_GET['oit']) || isset($_GET['non'])){
         $innerJoin_counter = 0;
@@ -56,7 +57,7 @@
             $series_escolhidas['nono'] = true;
         }
 
-        $sql = "SELECT t.id AS 'id_turma', t.serie AS 'serie', t.nome AS 'nome_turma' FROM turma t WHERE ";
+        $sql .= "SELECT t.id AS 'id_turma', t.serie AS 'serie', t.nome AS 'nome_turma' FROM turma t WHERE ";
         $c = 0;
         foreach ($series_escolhidas as $se => $status) {
             if($status==true){
@@ -93,8 +94,33 @@
                 $series_escolhidas[$se] = false;
             }
         }
-        echo json_encode($sql);
 
+        $resultado = $conexao->query($sql);
+        if ($resultado->num_rows > 0) {
+            while ($linha = $resultado->fetch_assoc()) {
+                $registros .= "<div style='border: 1px solid black;'>";
+                $registros .= "<strong>Turma: </strong>" . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
+                $sql2 = "SELECT d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
+                    
+                $resultado2 = $conexao->query($sql2);
+
+                if ($resultado2->num_rows > 0)
+                {
+                    while ($linha2 = $resultado2->fetch_assoc())
+                    {
+                        $registros .= "&emsp;";
+                        $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'] . "<br>";
+                    }
+                }else{
+                    $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
+                }
+                $registros .= "&nbsp; <button id='atualizar'>Atualizar</button> &nbsp;";
+                $registros .= "<button id='remover'>Remover</button>";
+                $registros .= "</div>";
+            }
+        } else {
+            $registros .= "&emsp;Não foram encontradas turmas desta(s) série(s)!<br>";
+        }
     }else{
         $sql = "
                 SELECT t.id AS 'id_turma', t.serie AS 'serie', t.nome AS 'nome_turma' FROM turma t ORDER BY t.serie ASC;
@@ -106,31 +132,32 @@
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                echo "<div style='border: 1px solid black;'>";
-                echo "<strong>Turma: </strong>" . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
+                $registros .= "<div style='border: 1px solid black;'>";
+                $registros .= "<strong>Turma: </strong>" . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
                 $sql2 = "SELECT d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
                     
-                    $resultado2 = $conexao->query($sql2);
+                $resultado2 = $conexao->query($sql2);
 
-                    if ($resultado2->num_rows > 0)
+                if ($resultado2->num_rows > 0)
+                {
+                    while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        while ($linha2 = $resultado2->fetch_assoc())
-                        {
-                            echo "&emsp;";
-                            echo "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'] . "<br>";
-                        }
-
-                        echo "&nbsp; <button id='atualizar'>Atualizar</button> &nbsp;";
-                        echo "<button id='remover'>Remover</button>";
-                        echo "</div>";
+                        $registros .= "&emsp;";
+                        $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'] . "<br>";
+                    }
                 }else{
-                    echo "&nbsp;Não foram encontradas disciplinas!";
+                    $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
                 }
+                $registros .= "&nbsp; <button id='atualizar'>Atualizar</button> &nbsp;";
+                $registros .= "<button id='remover'>Remover</button>";
+                $registros .= "</div>";
             }
         }
         else
-            echo "Não foram encontradas turmas!";
-    }	
+            $registros .= "Não foram encontradas turmas!";
+    }
+
+    echo json_encode($registros);
 
     $conexao->close();
 
