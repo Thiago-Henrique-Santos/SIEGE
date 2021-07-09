@@ -61,14 +61,15 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 SELECT u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
                 a.data_nascimento, a.numero_matricula, a.nome_responsavel, a.telefone, 
                 t.nome AS 'nome_turma', t.serie FROM usuario u 
-                INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON t.id=a.id_turma
+                INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON t.id=a.id_turma 
+                ORDER BY u.nome ASC
                 ";
             $tipoUsuario_escolhidos['aluno'] = false;
         } elseif ($tipoUsuario_escolhidos['professor']) {
-            $sql .= "professor p ON u.id=p.idProfessor ";
+            $sql .= "professor p ON u.id=p.idProfessor ORDER BY u.nome ASC";
             $tipoUsuario_escolhidos['professor'] = false;
         } elseif ($tipoUsuario_escolhidos['gerenciador']) {
-            $sql .= "gerenciadores g ON u.id=g.idGerenciador";
+            $sql .= "gerenciadores g ON u.id=g.idGerenciador ORDER BY u.nome ASC";
             if (!$gerenciadores_escolhidos['supervisor'] || !$gerenciadores_escolhidos['secretario'] || !$gerenciadores_escolhidos['diretor']) {
                 $sql .= " WHERE ";
                 $c = 0;
@@ -78,7 +79,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         if ($c < $gerenciadores_contador)
                             $sql .= "g.tipo='$gerenciador' OR ";
                         else
-                            $sql .= "g.tipo='$gerenciador'";
+                            $sql .= "g.tipo='$gerenciador' ORDER BY u.nome ASC";
                         $gerenciadores_escolhidos[$gerenciador] = false;
                     }
                 }
