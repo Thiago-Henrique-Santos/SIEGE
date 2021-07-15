@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_GET['id']) || empty($_GET['id'])){
+if (!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['tfm']) || empty($_GET['tfm'])){
     echo "Erro!";
 }
 
@@ -27,6 +27,7 @@ include ("modulos/funcoes.php");
 
 <?php
     $formType = $_GET['id'];
+    $cad_att = $_GET['tfm'];
 
     switch ($formType) {
         case "supervisor":
@@ -71,7 +72,7 @@ include ("modulos/funcoes.php");
     }
 
     function diretor() {
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Diretores</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Diretores</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='diretor'>";
 
@@ -82,7 +83,7 @@ include ("modulos/funcoes.php");
     }
 
     function supervisor() {
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Supervisores</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Supervisores</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='supervisor'>";
 
@@ -93,7 +94,7 @@ include ("modulos/funcoes.php");
     }
 
     function professor() {
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Professores</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Professores</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='professor'>";
 
@@ -104,7 +105,7 @@ include ("modulos/funcoes.php");
     }
 
     function secretario() {
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Secretários</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Secretários</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='secretario'>";
 
@@ -118,7 +119,7 @@ include ("modulos/funcoes.php");
         global $conexao;
         $valor_salvo = "";
 
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Alunos</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Alunos</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='aluno'>";
 
@@ -219,7 +220,7 @@ include ("modulos/funcoes.php");
     function turma() {
         $valor_salvo = "";
 
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Turma</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Turma</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='turma'>";
             
@@ -255,7 +256,7 @@ include ("modulos/funcoes.php");
         global $conexao;
         $valor_salvo = "";
 
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Disciplina</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Disciplina</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='disciplina'>";
@@ -322,7 +323,7 @@ include ("modulos/funcoes.php");
 
     function bimestre() {
         $valor_salvo = "";
-        echo "<h1 align='center' class='titulo_medio'>Cadastro de Bimestre</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Bimestre</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='bimestre'>";
@@ -437,6 +438,16 @@ include ("modulos/funcoes.php");
 <script type="module">
 
     import componentes from './modulos/componentes.js';
+
+    const title = document.getElementById('titulo_formulario');
+
+    <?php
+    if($cad_att == "cadastrar"){
+        echo "title.innerText = 'Cadastrar $formType'";
+    } else{
+        echo "title.innerText = 'Atualizar $formType'";
+    }
+    ?>
 
     <?php
     if(isset($_GET['jcd']) && !empty($_GET['jcd'])) {

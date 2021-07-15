@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEGE - Visão para diretor e vice-diretor </title>
+    <title>SIEGE - Página Inicial </title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">

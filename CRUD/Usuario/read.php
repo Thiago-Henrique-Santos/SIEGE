@@ -114,7 +114,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
                     }
-                    $registros .= "&nbsp;<button id='atualizar'>Atualizar</button>&nbsp;&nbsp;";
+                    $registros .= "&nbsp;<button id='atualizar' onclick='loadModal()'>Atualizar</button>&nbsp;&nbsp;";
                     $registros .= "<button id='remover'>Remover</button>";
                     $registros .= "</div>";
                 }
