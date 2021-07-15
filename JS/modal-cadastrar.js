@@ -10,7 +10,7 @@ close[1] = document.getElementById('modal-screen');
 **************************/
 for (var i = 0; i < options.length; i++) {
     let choice = options[i].id;
-    var path = options[i].addEventListener("click", () => loadModal(choice));
+    var path = options[i].addEventListener("click", () => loadModal(choice, 1));
     iframe.src = path;
 }
 
@@ -23,14 +23,18 @@ for (var i = 0; i < close.length; i++) {
 /**************************
 *         Funções         *
 **************************/
-function loadModal(registerType) {
-    var path = generatePath(registerType);
+function loadModal(registerType, formType) {
+    if (formType == 1)
+        formType = "cadastrar";
+    else
+        formType = "atualizar";
+    var path = generatePath(registerType, formType);
     modal.style.display = "flex";
     iframe.src = path;
 }
 
-function generatePath(ref) {
+function generatePath(ref, ref2) {
     var basePath = "formularios-cadastro.php";
-    var completePath = basePath + "?id=" + ref;
+    var completePath = basePath + "?id=" + ref + "&tfm=" + ref2;
     return completePath;
 }
