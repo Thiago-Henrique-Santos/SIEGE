@@ -179,6 +179,8 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
     }
 }
 
+
+
 echo json_encode($registros);
 
 $conexao->close();
