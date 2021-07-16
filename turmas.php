@@ -11,11 +11,12 @@
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
     <link rel="stylesheet" type="text/css" href="CSS/inputs.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modal.css">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-     <script src="JS/filtro_pesquisa_turma.js" type="module" defer></script>   
+    <script src="JS/filtro_pesquisa_turma.js" type="module" defer></script>
+    <script src="JS/modal-cadastrar.js" async></script>
 </head>
 
 <body>
@@ -62,6 +63,15 @@
     <br><br>
 
     <div id="busca_resultado">
+    </div>
+
+    <div id="modal-screen">
+        <div id="modal-block">
+            <div id="close-button">
+                <p>x</p>
+            </div>
+            <iframe src="formularios-cadastro.php?id=default">
+        </div>
     </div>
 
 </body>
