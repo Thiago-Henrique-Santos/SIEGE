@@ -442,10 +442,12 @@ include ("modulos/funcoes.php");
     const title = document.getElementById('titulo_formulario');
 
     <?php
-    if($cad_att == "cadastrar"){
-        echo "title.innerText = 'Cadastrar $formType'";
-    } else{
-        echo "title.innerText = 'Atualizar $formType'";
+    if($formType != "default"){
+        if($cad_att == "cadastrar"){
+            echo "title.innerText = 'Cadastrar $formType'";
+        } else {
+            echo "title.innerText = 'Atualizar $formType'";
+        }
     }
     ?>
 

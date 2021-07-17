@@ -115,7 +115,7 @@
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
                 }
                 $registros .= "&nbsp; <button id='atualizar' onclick='loadModal(\"turma\", 2)'>Atualizar</button> &nbsp;";
-                $registros .= "<button id='remover'>Remover</button>";
+                $registros .= "<button id='remover' onclick='deleteConfirm(\"Turma\", \"none\")'>Remover</button>";
                 $registros .= "</div>";
             }
         } else {
@@ -149,7 +149,7 @@
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
                 }
                 $registros .= "&nbsp; <button id='atualizar' onclick='loadModal(\"turma\", 2)'>Atualizar</button> &nbsp;";
-                $registros .= "<button id='remover'>Remover</button>";
+                $registros .= "<button id='remover' onclick='deleteConfirm(\"Turma\", \"none\")'>Remover</button>";
                 $registros .= "</div>";
             }
         }
