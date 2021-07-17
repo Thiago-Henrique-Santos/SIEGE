@@ -136,6 +136,8 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
 
             
+
+            
             if ($linha["tipo_usuario"] == 1) {
                 $sql2 = "SELECT * FROM aluno, turma WHERE aluno.idAluno =" . $linha['id'] . " AND aluno.id_turma = turma.id";
                 $resultado2 = $conexao->query($sql2);
