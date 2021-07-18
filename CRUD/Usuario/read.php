@@ -133,10 +133,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
             $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
             $registros .= "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
-            $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
-
-            
-
+            $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>"
             
             if ($linha["tipo_usuario"] == 1) {
                 $sql2 = "SELECT * FROM aluno, turma WHERE aluno.idAluno =" . $linha['id'] . " AND aluno.id_turma = turma.id";
