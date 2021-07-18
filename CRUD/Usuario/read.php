@@ -156,6 +156,8 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>T. empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> Professor <br>";
+
+                        
                     }
                 }
             } else {
