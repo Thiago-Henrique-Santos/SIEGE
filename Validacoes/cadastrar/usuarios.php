@@ -189,9 +189,9 @@
         }
     } else {
         if ($_POST['cargo'] == "aluno") {
-            header ("Location: ../../formularios-cadastro.php?id=aluno&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&tur=$tur&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&etur=$msgErro_aluno[9]&epss=$msgErro_aluno[10]&ecps=$msgErro_aluno[11]");
+            header ("Location: ../../formularios-cadastro.php?id=aluno&tfm=cadastrar&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&tur=$tur&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&etur=$msgErro_aluno[9]&epss=$msgErro_aluno[10]&ecps=$msgErro_aluno[11]");
         } else {
-            header ("Location: ../../formularios-cadastro.php?id=$cg&nm=$nm&mp=$mp&eml=$eml&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
+            header ("Location: ../../formularios-cadastro.php?id=$cg&tfm=cadastrar&nm=$nm&mp=$mp&eml=$eml&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
         }
     }
 

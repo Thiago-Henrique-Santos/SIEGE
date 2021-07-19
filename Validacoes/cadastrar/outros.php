@@ -168,7 +168,7 @@
             case "turma":
                 $nm = $_POST['nome_turma'];
                 $sr = $_POST['serie'];
-                header ("Location: ../../formularios-cadastro.php?id=turma&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]&jcd=$msgErro[3]");
+                header ("Location: ../../formularios-cadastro.php?id=turma&tfm=cadastrar&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]&jcd=$msgErro[3]");
                 break;
             case "disciplina":
                 $nm    = $_POST['nome_disciplina'];
@@ -180,13 +180,13 @@
                     $linkTurmas .= "&tur[$i]=$turma";
                     $i++;
                 }
-                header ("Location: ../../formularios-cadastro.php?id=disciplina&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]&jcd=$msgErro[5]");
+                header ("Location: ../../formularios-cadastro.php?id=&tfm=cadastrar&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]&jcd=$msgErro[5]");
                 break;
             case "bimestre":
                 $nmr = $_POST['numero'];
                 $dti = $_POST['data_inicial'];
                 $dtf = $_POST['data_final'];
-                header ("Location: ../../formularios-cadastro.php?id=bimestre&nmr=$nmr&dti=$dti&dtf=$dtf&enmr=$msgErro[1]&edti=$msgErro[2]&edtf=$msgErro[3]&dtinv=$msgErro[4]&dtic=$msgErro[5]&dtfc=$msgErro[6]&jcd=$msgErro[7]");
+                header ("Location: ../../formularios-cadastro.php?id=bimestre&tfm=cadastrar&nmr=$nmr&dti=$dti&dtf=$dtf&enmr=$msgErro[1]&edti=$msgErro[2]&edtf=$msgErro[3]&dtinv=$msgErro[4]&dtic=$msgErro[5]&dtfc=$msgErro[6]&jcd=$msgErro[7]");
                 break;
         }
     }

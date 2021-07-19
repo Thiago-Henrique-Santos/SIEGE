@@ -114,8 +114,9 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
                     }
+                    $tipo_gerenciador = $linha['tipo_empregado'];
                     $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
-                    $registros .= "<button id='remover'>Remover</button>";
+                    $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_empregado']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\")'>Remover</button>";
                     $registros .= "</div>";
                 }
             }
@@ -133,7 +134,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
             $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
             $registros .= "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
-            $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>"
+            $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
             
             if ($linha["tipo_usuario"] == 1) {
                 $sql2 = "SELECT * FROM aluno, turma WHERE aluno.idAluno =" . $linha['id'] . " AND aluno.id_turma = turma.id";
@@ -171,7 +172,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 }
             }
             $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
-            $registros .= "<button id='remover'>Remover</button>";
+            $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \"aluno\")'>Remover</button>";
             $registros .= "</div>";
         }
     } else {

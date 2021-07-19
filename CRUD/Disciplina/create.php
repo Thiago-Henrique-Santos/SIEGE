@@ -17,7 +17,7 @@ $idTurma = 0;
     }
 
     $prepara->close();
-    header ("Location: ../../formularios-cadastro.php?id=validadoOK");
+    header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar");
 
 $conexao->close();
 
