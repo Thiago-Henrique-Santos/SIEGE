@@ -123,6 +123,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha['data_nascimento']) . "<br>";
                             $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";
                             $registros .= "<strong>Responsável:</strong> " . $linha['nome_responsavel'] . "<br>";
+                            $registros .= "<strong>Telefone:</strong> " . $linha['telefone'] . "<br>";
                             $registros .= "<strong>Turma:</strong> " . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
                             $registros .= "<strong>Ocupação:</strong> Aluno <br>";
                         } elseif ($linha['tipo_usuario'] == 2) {
@@ -150,7 +151,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
                             $tipo_gerenciador = $linha['tipo'];
                         }
-                        $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
+                        $registros .= "&nbsp;<button id='atualizar' onclick='"; if($linha['tipo_usuario']==1){$registros .= "loadStudentModal(".$linha['nome'].", ".$linha['data_nascimento'].", ".$linha['numero_matricula'].", ".$linha['nome_responsavel'].", ".$linha['email'].", ".$linha['telefone'].", ".$linha['local_moradia'].", ".$linha['sexo'].", \"".$linha['serie']."&ordm; ano ".$linha['nome_turma']."\")";} $registros .= "'>Atualizar</button>&nbsp;&nbsp;";
                         $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_empregado']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\")'>Remover</button>";
                         $registros .= "</div>";
                     }
@@ -192,6 +193,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha2['data_nascimento']) . "<br>";
                         $registros .= "<strong>Matrícula:</strong> " . $linha2['numero_matricula'] . "<br>";
                         $registros .= "<strong>Responsável:</strong> " . $linha2['nome_responsavel'] . "<br>";
+                        $registros .= "<strong>Telefone:</strong> " . $linha2['telefone'] . "<br>";
                         $registros .= "<strong>Turma:</strong> " . $linha2['serie'] . "° ano " . $linha2['nome'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> Aluno <br>";
                     }
@@ -234,7 +236,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                     }
                 }
             }
-            $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
+            $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\")'>Atualizar</button>&nbsp;&nbsp;";
             $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \"aluno\")'>Remover</button>";
             $registros .= "</div>";
         }

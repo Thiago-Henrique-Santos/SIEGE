@@ -23,18 +23,14 @@ for (var i = 0; i < close.length; i++) {
 /**************************
 *         Funções         *
 **************************/
-function loadModal(registerType, formType) {
-    if (formType == 1)
-        formType = "cadastrar";
-    else
-        formType = "atualizar";
-    var path = generatePath(registerType, formType);
-    modal.style.display = "flex";
+function loadModal(registerType) {
+    var path = generatePath(registerType);
     iframe.src = path;
+    modal.style.display = "flex";
 }
 
-function generatePath(ref, ref2) {
+function generatePath(ref) {
     var basePath = "formularios-cadastro.php";
-    var completePath = basePath + "?id=" + ref + "&tfm=" + ref2;
+    var completePath = `${basePath}?id=${ref}&tfm=cadastrar`;
     return completePath;
 }
