@@ -134,7 +134,7 @@
             {
                 $registros .= "<div style='border: 1px solid black;'>";
                 $registros .= "<strong>Turma: </strong>" . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
-                $sql2 = "SELECT d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
+                $sql2 = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
 
@@ -143,7 +143,8 @@
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
                         $registros .= "&emsp;";
-                        $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'] . "<br>";
+                        $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
+                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\")'>Desvincular</button> <br>";
                     }
                 }else{
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
