@@ -89,41 +89,49 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
         $sql .= " ORDER BY u.nome ASC";
     }
 
+    $existeRegistros = 0;
     if ($conexao->multi_query($sql)) {
         do {
+            if  (!$existeRegistros) {
+                $registros = "";
+            }
+            
             if ($resultado = $conexao->store_result()) {
-                while ($linha = $resultado->fetch_assoc()) {
-                    $registros .= "<div style='border: 1px solid black;'>";
-                    $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
-                    $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
-                    $registros .= "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
-                    $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
-                    if ($linha['tipo_usuario'] == 1) {
-                        $registros .= "<strong>Data de nascimento:</strong> " . $linha['data_nascimento'] . "<br>";
-                        $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";
-                        $registros .= "<strong>Responsável:</strong> " . $linha['nome_responsavel'] . "<br>";
-                        $registros .= "<strong>Turma:</strong> " . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
-                        $registros .= "<strong>Ocupação:</strong> Aluno <br>";
-                    } elseif ($linha['tipo_usuario'] == 2) {
-                        $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
-                        $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
-                        $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
-                        $registros .= "<strong>Ocupação:</strong> Professor <br>";
-                    } else {
-                        $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
-                        $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
-                        $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
-                        $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
-                        $tipo_gerenciador = $linha['tipo'];
+                if ($resultado->num_rows > 0) {
+                    $existeRegistros++;
+                    while ($linha = $resultado->fetch_assoc()) {
+                        $registros .= "<div style='border: 1px solid black;'>";
+                        $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
+                        $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
+                        $registros .= "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
+                        $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
+                        if ($linha['tipo_usuario'] == 1) {
+                            $registros .= "<strong>Data de nascimento:</strong> " . $linha['data_nascimento'] . "<br>";
+                            $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";
+                            $registros .= "<strong>Responsável:</strong> " . $linha['nome_responsavel'] . "<br>";
+                            $registros .= "<strong>Turma:</strong> " . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
+                            $registros .= "<strong>Ocupação:</strong> Aluno <br>";
+                        } elseif ($linha['tipo_usuario'] == 2) {
+                            $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
+                            $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
+                            $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
+                            $registros .= "<strong>Ocupação:</strong> Professor <br>";
+                        } else {
+                            $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
+                            $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
+                            $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
+                            $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
+                            $tipo_gerenciador = $linha['tipo'];
+                        }
+                        $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
+                        $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_empregado']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\")'>Remover</button>";
+                        $registros .= "</div>";
                     }
-                    $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
-                    $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_empregado']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\")'>Remover</button>";
-                    $registros .= "</div>";
+                } else {
+                    $registros .= "&nbsp;Não foram encontrados usuários!";
                 }
             }
         } while ($conexao->next_result());
-    } else {
-        $registros .= "&nbsp;Ocorreu um erro inesperado!";
     }
 } else {
     $sql .= "SELECT * FROM usuario ORDER BY nome ASC";
