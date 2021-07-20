@@ -3,6 +3,7 @@
 include ("C:/xampp/htdocs/SIEGE/BancoDados/conexao_mysql.php");
 $registros = "";
 $sql = "";
+$tipo_gerenciador = "";
 
 if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset($_GET['prof']) || isset($_GET['alu'])) {
     $tipoUsuario_escolhidos = array(
@@ -113,8 +114,8 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
+                        $tipo_gerenciador = $linha['tipo'];
                     }
-                    $tipo_gerenciador = $linha['tipo_empregado'];
                     $registros .= "&nbsp;<button id='atualizar' onclick='loadModal(\"aluno\", 2)'>Atualizar</button>&nbsp;&nbsp;";
                     $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_empregado']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\")'>Remover</button>";
                     $registros .= "</div>";
@@ -122,7 +123,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             }
         } while ($conexao->next_result());
     } else {
-        $registros .= "&nbsp;Não foram encontrados usuários!";
+        $registros .= "&nbsp;Ocorreu um erro inesperado!";
     }
 } else {
     $sql .= "SELECT * FROM usuario ORDER BY nome ASC";
@@ -168,6 +169,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>T. empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> " . $linha2['tipo'] . "<br>";
+                        $tipo_gerenciador = $linha2['tipo'];
                     }
                 }
             }
