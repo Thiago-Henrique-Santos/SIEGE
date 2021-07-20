@@ -1,6 +1,8 @@
 <?php
 
 include ("C:/xampp/htdocs/SIEGE/BancoDados/conexao_mysql.php");
+include ("C:/xampp/htdocs/SIEGE/modulos/funcoes.php");
+
 $registros = "";
 $sql = "";
 $tipo_gerenciador = "";
@@ -100,25 +102,50 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 if ($resultado->num_rows > 0) {
                     $existeRegistros++;
                     while ($linha = $resultado->fetch_assoc()) {
+                        if($linha['local_moradia'] == 'U'){
+                            $linha['local_moradia'] = 'Urbana';
+                        }else{
+                            $linha['local_moradia'] = 'Rural';
+                        }
+
+                        if($linha['sexo'] == 'F'){
+                            $linha['sexo'] = 'Feminino';
+                        }else{
+                            $linha['sexo'] = 'Masculino';
+                        }
+
                         $registros .= "<div style='border: 1px solid black;'>";
                         $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
                         $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
-                        $registros .= "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
+                        $registros .= "<strong>Zona de moradia:</strong> " . $linha['local_moradia'] . "<br>";
                         $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
                         if ($linha['tipo_usuario'] == 1) {
-                            $registros .= "<strong>Data de nascimento:</strong> " . $linha['data_nascimento'] . "<br>";
+                            $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha['data_nascimento']) . "<br>";
                             $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";
                             $registros .= "<strong>Responsável:</strong> " . $linha['nome_responsavel'] . "<br>";
                             $registros .= "<strong>Turma:</strong> " . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
                             $registros .= "<strong>Ocupação:</strong> Aluno <br>";
                         } elseif ($linha['tipo_usuario'] == 2) {
+
+                            if($linha['tipo_empregado'] == 'D'){
+                                $linha['tipo_empregado'] = 'Designado';
+                            }else{
+                                $linha['tipo_empregado'] = 'Efetivo';
+                            }
+
                             $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
-                            $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
+                            $registros .= "<strong>Tipo de empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
                             $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
                             $registros .= "<strong>Ocupação:</strong> Professor <br>";
                         } else {
+
+                            if($linha['tipo_empregado'] == 'D'){
+                                $linha['tipo_empregado'] = 'Designado';
+                            }else{
+                                $linha['tipo_empregado'] = 'Efetivo';
+                            }
                             $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
-                            $registros .= "<strong>T. empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
+                            $registros .= "<strong>Tipo de empregado:</strong> " . $linha['tipo_empregado'] . "<br>";
                             $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
                             $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "<br>";
                             $tipo_gerenciador = $linha['tipo'];
@@ -139,10 +166,22 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
 
     if ($resultado->num_rows > 0) {
         while ($linha = $resultado->fetch_assoc()) {
+            if($linha['local_moradia'] == 'U'){
+                $linha['local_moradia'] = 'Urbana';
+            }else{
+                $linha['local_moradia'] = 'Rural';
+            }
+
+            if($linha['sexo'] == 'F'){
+                $linha['sexo'] = 'Feminino';
+            }else{
+                $linha['sexo'] = 'Masculino';
+            }
+
             $registros .= "<div style='border: 1px solid black;'>";
             $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
             $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
-            $registros .= "<strong>Z. Moradia:</strong> " . $linha['local_moradia'] . "<br>";
+            $registros .= "<strong>Zona de moradia:</strong> " . $linha['local_moradia'] . "<br>";
             $registros .= "<strong>Sexo:</strong> " . $linha['sexo'] . "<br>";
             
             if ($linha["tipo_usuario"] == 1) {
@@ -150,7 +189,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 $resultado2 = $conexao->query($sql2);
                 if ($resultado2->num_rows > 0) {
                     while ($linha2 = $resultado2->fetch_assoc()) {
-                        $registros .= "<strong>Data de nascimento:</strong> " . $linha2['data_nascimento'] . "<br>";
+                        $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha2['data_nascimento']) . "<br>";
                         $registros .= "<strong>Matrícula:</strong> " . $linha2['numero_matricula'] . "<br>";
                         $registros .= "<strong>Responsável:</strong> " . $linha2['nome_responsavel'] . "<br>";
                         $registros .= "<strong>Turma:</strong> " . $linha2['serie'] . "° ano " . $linha2['nome'] . "<br>";
@@ -162,8 +201,15 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 $resultado2 = $conexao->query($sql2);
                 if ($resultado2->num_rows > 0) {
                     while ($linha2 = $resultado2->fetch_assoc()) {
+
+                        if($linha2['tipo_empregado'] == 'D'){
+                            $linha2['tipo_empregado'] = 'Designado';
+                        }else{
+                            $linha2['tipo_empregado'] = 'Efetivo';
+                        }
+
                         $registros .= "<strong>MASP:</strong> " . $linha2['masp'] . "<br>";
-                        $registros .= "<strong>T. empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
+                        $registros .= "<strong>Tipo de empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> Professor <br>";
                     }
@@ -173,8 +219,15 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 $resultado2 = $conexao->query($sql2);
                 if ($resultado2->num_rows > 0) {
                     while ($linha2 = $resultado2->fetch_assoc()) {
+
+                        if($linha2['tipo_empregado'] == 'D'){
+                            $linha2['tipo_empregado'] = 'Designado';
+                        }else{
+                            $linha2['tipo_empregado'] = 'Efetivo';
+                        }
+
                         $registros .= "<strong>MASP:</strong> " . $linha2['masp'] . "<br>";
-                        $registros .= "<strong>T. empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
+                        $registros .= "<strong>Tipo de empregado:</strong> " . $linha2['tipo_empregado'] . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> " . $linha2['tipo'] . "<br>";
                         $tipo_gerenciador = $linha2['tipo'];
