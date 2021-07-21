@@ -14,17 +14,22 @@
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                $sql = "DELETE FROM disciplina WHERE id=" . $_GET['id'];
+                $sql = "DELETE FROM disciplina WHERE id_turma=" . $_GET['id'];
         
                 if ($conexao->query($sql) === TRUE)
-                    echo "Turma removida com sucesso";
+                    echo "Disciplinas removidas com sucesso";
                 else
-                    echo "Erro removendo turma: " . $conexao->error;
+                    echo "Erro removendo disciplinas: " . $conexao->error;
             }
         }
         else
-            echo "Não foram encontradas turmas!";
+            echo "Não foram encontradas disciplinas!";
 
+    $sql = "DELETE FROM turma WHERE id=" . $_GET['id'];  
+    if ($conexao->query($sql) === TRUE)
+        echo "Turma removidas com sucesso";
+    else
+        echo "Erro removendo turma: " . $conexao->error;
 
     $conexao->close();
 
