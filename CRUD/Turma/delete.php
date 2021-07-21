@@ -6,23 +6,25 @@
 
     include ("../../BancoDados/conexao_mysql.php");
 
-    $sql = "SELECT * FROM disciplina d WHERE d.id_turma=" . $_GET['id'];
+
+    $sql = "SELECT * FROM turma WHERE id=" . $_GET['id'];
     $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                $sql = "DELETE FROM disciplina d WHERE disciplina.id_turma=t.id";
+                $sql = "DELETE FROM disciplina WHERE id=" . $_GET['id'];
         
                 if ($conexao->query($sql) === TRUE)
-                    echo "Disciplina removida com sucesso";
+                    echo "Turma removida com sucesso";
                 else
-                    echo "Erro removendo disciplina: " . $conexao->error;
+                    echo "Erro removendo turma: " . $conexao->error;
             }
         }
         else
-            echo "Não foram encontradas disciplinas!";
+            echo "Não foram encontradas turmas!";
+
 
     $conexao->close();
 

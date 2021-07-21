@@ -303,7 +303,7 @@ include ("modulos/funcoes.php");
                 $turmas = $_GET['tur'];
             echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
                 $sql = "
-                SELECT * FROM turma
+                SELECT * FROM turma ORDER BY serie ASC
                 ";
                 $resultado = $conexao->query($sql);
                 if ($resultado->num_rows > 0) {

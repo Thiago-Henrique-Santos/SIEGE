@@ -180,7 +180,7 @@
                     $linkTurmas .= "&tur[$i]=$turma";
                     $i++;
                 }
-                header ("Location: ../../formularios-cadastro.php?id=&tfm=cadastrar&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]&jcd=$msgErro[5]");
+                header ("Location: ../../formularios-cadastro.php?id=disciplina&tfm=cadastrar&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]&jcd=$msgErro[5]");
                 break;
             case "bimestre":
                 $nmr = $_POST['numero'];

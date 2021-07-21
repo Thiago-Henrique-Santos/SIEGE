@@ -14,7 +14,7 @@ if (!httpRequest) {
     httpRequest = alert("Desistindo: Não é possível criar uma instância XMLHTTP.");
 }
 
-function deleteConfirm(entity, user) {
+function deleteConfirm(entity, user, id) {
     var html = document.querySelector('html');
 
     var screen = document.createElement('div');
@@ -49,9 +49,9 @@ function deleteConfirm(entity, user) {
     confirm.textContent = "Confirmar";
     confirm.addEventListener('click', () => {
         if (entity == "Usuario") {
-            httpRequest.open('GET', `CRUD/Usuario/delete.php?usr=${user}`);
+            httpRequest.open('GET', `CRUD/Usuario/delete.php?usr=${user}&id=${id}`);
         } else {
-            httpRequest.open('GET', `CRUD/${entity}/delete.php`);
+            httpRequest.open('GET', `CRUD/${entity}/delete.php?id=${id}`);
         }
 
         httpRequest.send();
@@ -59,6 +59,10 @@ function deleteConfirm(entity, user) {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     close();
+                    /* Em manutenção...
+                    httpRequest.open('GET', 'JS/filtro_pesquisa_turma.js');
+                    httpRequest.send();
+                    */
                 } else {
                     alert('Houve um problema ao realizar esta ação!');
                 }

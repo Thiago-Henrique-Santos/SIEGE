@@ -144,7 +144,8 @@
                     {
                         $registros .= "&emsp;";
                         $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
-                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\")'>Desvincular</button> <br>";
+                        $registros .= "&emsp;";
+                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button> <br>";
                     }
                 }else{
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
