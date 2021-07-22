@@ -125,7 +125,7 @@
         }
     }else{
         $sql = "
-                SELECT t.id AS 'id_turma', t.serie AS 'serie', t.nome AS 'nome_turma' FROM turma t ORDER BY t.serie ASC;
+                SELECT t.id AS 'id_turma', t.serie AS 'serie', t.nome AS 'nome_turma' FROM turma t ORDER BY t.serie ASC, t.nome ASC;
                ";
             
         $resultado = $conexao->query($sql);

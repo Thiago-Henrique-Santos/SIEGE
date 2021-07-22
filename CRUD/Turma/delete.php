@@ -23,11 +23,11 @@
             }
         }
         else
-            echo "Não foram encontradas disciplinas!";
+            echo "Não foram encontradas disciplinas para remover!";
 
     $sql = "DELETE FROM turma WHERE id=" . $_GET['id'];  
     if ($conexao->query($sql) === TRUE)
-        echo "Turma removidas com sucesso";
+        echo "Turma removida com sucesso";
     else
         echo "Erro removendo turma: " . $conexao->error;
 
