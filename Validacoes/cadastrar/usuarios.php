@@ -1,6 +1,8 @@
 <?php
     include ('../../modulos/funcoes.php');
     include ('../../BancoDados/conexao_mysql.php');
+    date_default_timezone_set('America/Sao_Paulo');
+    $data_atual = date('Y-m-d');
 
     if (!isset($_POST['cargo']) || empty($_POST['cargo'])) {
         header("Location: ../formularios-cadastro.php?id=weird");
@@ -50,6 +52,11 @@
                 $cadastroCorreto = false;
             }
 
+            if ($_POST['data_nascimento'] > $data_atual) {
+                $msgErro_aluno[2] = "<br> * A data de nascimento está maior que a data atual.";
+                $cadastroCorreto = false;
+            }
+
             if (!isset($_POST['matricula']) || empty($_POST['matricula'])) {
                 $msgErro_aluno[3] = "<br> * Você esqueceu de inserir o número da matricula.";
                 $cadastroCorreto = false;
@@ -62,7 +69,7 @@
             $resultado = $conexao->query($sql);
             if ($resultado->num_rows > 0) {
                 while ($dados = $resultado->fetch_assoc()){
-                    if ($masp==$dados['numero_matricula']) {
+                    if ($_POST['matricula']==$dados['numero_matricula']) {
                         $msgErro_aluno[3] = "<br> * Este número de matricula já está cadastrado.";
                         $cadastroCorreto = false;
                     }

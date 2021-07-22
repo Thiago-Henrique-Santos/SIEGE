@@ -6,14 +6,16 @@ if(!isset($_GET['id']) || empty($_GET['id'])){
 
 include ("../../BancoDados/conexao_mysql.php");
 
-$sql = "SELECT * FROM disciplina WHERE id=" . $_GET['id'];
+$pega_id = $_GET['id'];
+
+$sql = "SELECT * FROM disciplina WHERE id=" . $pega_id;
     $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                $sql = "DELETE FROM disciplina WHERE id=" . $_GET['id'];
+                $sql = "DELETE FROM disciplina WHERE id=" . $pega_id;
         
                 if ($conexao->query($sql) === TRUE)
                     echo "Disciplina removida com sucesso";

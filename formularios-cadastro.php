@@ -7,6 +7,8 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['tfm']) || empty($
 date_default_timezone_set('America/Sao_Paulo');
 include ("BancoDados/conexao_mysql.php");
 include ("modulos/funcoes.php");
+date_default_timezone_set('America/Sao_Paulo');
+$data_atual = date('d/m/Y');
 
 ?>
 
@@ -21,6 +23,17 @@ include ("modulos/funcoes.php");
     <link rel="stylesheet" type="text/css" href="modulos/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script>
+        function mascara(telefone){ 
+            if(telefone.value.length == 0)
+                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(telefone.value.length == 3)
+                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+
+            if(telefone.value.length == 10)
+                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+        }
+    </script>
 </head>
 
 <body>
@@ -161,7 +174,7 @@ include ("modulos/funcoes.php");
             echo "<br><label for='telefone' class='form-label'><strong>Telefone do responsável: </strong></label>";
                 if(isset($_GET["tlf"]) && !empty($_GET["tlf"]))
                     $valor_salvo = $_GET["tlf"];
-                echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
+              echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' onkeypress='mascara(this)' title='Insira seu telefone com o DDD e o número precedido de 9.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
                 if (isset($_GET["etlf"]) && !empty($_GET["etlf"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["etlf"] . "</p>";
 
@@ -191,7 +204,7 @@ include ("modulos/funcoes.php");
                 echo "<br><select name='turma' class='form-select'>";
                     echo "<option value='none' selected>--</option>";
                     $sql = "
-                    SELECT * FROM turma
+                    SELECT * FROM turma ORDER BY serie ASC, nome ASC
                     ";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0) {
@@ -434,7 +447,7 @@ include ("modulos/funcoes.php");
         echo "<h1 align='center'>Cadastro realizado com sucesso!</h1>";
         echo "<br>";
         echo "<center>";
-        echo "<img src='img/sucesso.gif' height='250px' width='300px' style='margin-bottom: 10px'>";
+        echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
         echo "</center>";
     }
 ?>
