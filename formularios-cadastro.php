@@ -183,6 +183,7 @@ $data_atual = date('d/m/Y');
                     $valor_salvo = $_GET["czn"];
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value='R'"; if($valor_salvo=="R"){echo " checked";} echo">";
                 echo "<label for='campo_zR'>Zona rural</label>";
+                echo "&emsp;";
                 echo "<input type='radio' name='campo_zona' id='campo_zU' value='U'"; if($valor_salvo=="U"){echo " checked";} echo">";
                 echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
                 if (isset($_GET["eczn"]) && !empty($_GET["eczn"]))
@@ -193,6 +194,7 @@ $data_atual = date('d/m/Y');
                     $valor_salvo = $_GET["cms"];
                 echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
                 echo "<label for='campo_sM'>Masculino</label>";
+                echo "&emsp;";
                 echo "<input type='radio' name='campo_s' id='campo_sF' value='F'"; if($valor_salvo=="F"){echo " checked";} echo">";
                 echo "<label for='campo_sF'>Feminino</label> <br><br>";
                 if (isset($_GET["ecms"]) && !empty($_GET["ecms"]))
@@ -400,6 +402,7 @@ $data_atual = date('d/m/Y');
                 $valor_salvo = $_GET["czn"];
             echo "<input type='radio' name='campo_zona' id='campo_zR' value='R'"; if($valor_salvo=="R"){echo " checked";} echo">";
             echo "<label for='campo_zR'>Zona rural</label>";
+            echo "&emsp;";
             echo "<input type='radio' name='campo_zona' id='campo_zU' value='U'"; if($valor_salvo=="U"){echo " checked";} echo">";
             echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
             if (isset($_GET["eczn"]) && !empty($_GET["eczn"]))
@@ -410,6 +413,7 @@ $data_atual = date('d/m/Y');
                 $valor_salvo = $_GET["tep"];
             echo "<input type='radio' name='tipo_empregado' id='designado' value='D'"; if($valor_salvo=="D"){echo " checked";} echo">";
             echo "<label for='designado'>Designado</label>";
+            echo "&emsp;";
             echo "<input type='radio' name='tipo_empregado' id='efetivo' value='E'"; if($valor_salvo=="E"){echo " checked";} echo">";
             echo "<label for='efetivo'>Efetivo</label> <br><br>";
             if (isset($_GET["etep"]) && !empty($_GET["etep"]))
@@ -420,6 +424,7 @@ $data_atual = date('d/m/Y');
                 $valor_salvo = $_GET["cms"];
             echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
             echo "<label for='campo_sM'>Masculino</label>";
+            echo "&emsp;";
             echo "<input type='radio' name='campo_s' id='campo_sF' value='F'"; if($valor_salvo=="F"){echo " checked";} echo">";
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
             if (isset($_GET["ecms"]) && !empty($_GET["ecms"]))
