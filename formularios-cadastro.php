@@ -303,7 +303,7 @@ include ("modulos/funcoes.php");
                 $turmas = $_GET['tur'];
             echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
                 $sql = "
-                SELECT * FROM turma ORDER BY serie ASC
+                SELECT * FROM turma ORDER BY serie ASC, nome ASC
                 ";
                 $resultado = $conexao->query($sql);
                 if ($resultado->num_rows > 0) {
@@ -434,7 +434,7 @@ include ("modulos/funcoes.php");
         echo "<h1 align='center'>Cadastro realizado com sucesso!</h1>";
         echo "<br>";
         echo "<center>";
-        echo "<img src='img/correto.gif' height='250px' width='300px' style='margin-bottom: 10px'>";
+        echo "<img src='img/sucesso.gif' height='250px' width='300px' style='margin-bottom: 10px'>";
         echo "</center>";
     }
 ?>

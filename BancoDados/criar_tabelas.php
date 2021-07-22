@@ -68,7 +68,7 @@
             telefone VARCHAR(15),
             id_turma INT UNSIGNED,
             FOREIGN KEY(idAluno) REFERENCES usuario(id),
-            FOREIGN KEY(id_turma) REFERENCES turma(id)
+            FOREIGN KEY(id_turma) REFERENCES turma(id) ON DELETE SET NULL
             )";
 
     if($conexao->query($sql) === TRUE)
