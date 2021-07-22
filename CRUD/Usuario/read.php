@@ -116,6 +116,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
                         $registros .= "<strong>Zona de moradia:</strong> " . $local_moradia . "<br>";
                         $registros .= "<strong>Sexo:</strong> " . $sexo . "<br>";
+                        
                         if ($linha['tipo_usuario'] == 1) {
                             $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha['data_nascimento']) . "<br>";
                             $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";

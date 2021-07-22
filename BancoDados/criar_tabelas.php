@@ -204,6 +204,15 @@
         echo "<br> Tabela de aluno_faz_atividade criada com sucesso!";
     else    
         echo "<br> Erro criando a tabela aluno_faz_atividade: " . $conexao->error;
+
+
+    //Criação da turma de id 0 (default)
+    $sql = "INSERT INTO turma (id, nome, serie) VALUES (1, 'Default', 0)";
+
+	if ($conexao->query($sql) === TRUE)
+		echo "<br> Turma 0 criada com sucesso";
+	else
+		echo "<br> Erro criando turma 0: " . $conexao->error;
    
     $conexao->close();
 
