@@ -59,10 +59,7 @@ function deleteConfirm(entity, user, id) {
             if (httpRequest.readyState === 4) {
                 if (httpRequest.status === 200) {
                     close();
-                    /* Em manutenção...
-                    httpRequest.open('GET', 'JS/filtro_pesquisa_turma.js');
-                    httpRequest.send();
-                    */
+                    document.location.reload(true);
                 } else {
                     alert('Houve um problema ao realizar esta ação!');
                 }
