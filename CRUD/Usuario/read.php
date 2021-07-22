@@ -121,14 +121,18 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";
                             $registros .= "<strong>Responsável:</strong> " . $linha['nome_responsavel'] . "<br>";
                             $registros .= "<strong>Telefone:</strong> " . $linha['telefone'] . "<br>";
+
+                            if($linha['id_turma'] == NULL){
+                                $registros .= "<strong>Turma:</strong> " . "Este aluno não está vinculado a uma turma. <br>";
+                            }
                             $registros .= "<strong>Turma:</strong> " . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
                             $registros .= "<strong>Ocupação:</strong> Aluno <br>";
                         } elseif ($linha['tipo_usuario'] == 2) {
 
                             if($linha['tipo_empregado'] == 'D')
-                                $linha['tipo_empregado'] = 'Designado';
+                                $tipo_empregado = 'Designado';
                             else
-                                $linha['tipo_empregado'] = 'Efetivo';
+                                $tipo_empregado = 'Efetivo';
 
                             $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
                             $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
@@ -199,6 +203,10 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Matrícula:</strong> " . $linha2['numero_matricula'] . "<br>";
                         $registros .= "<strong>Responsável:</strong> " . $linha2['nome_responsavel'] . "<br>";
                         $registros .= "<strong>Telefone:</strong> " . $linha2['telefone'] . "<br>";
+                        
+                        if($linha2['id_turma'] == NULL){
+                            $registros .= "<strong>Turma:</strong> " . "Este aluno não está vinculado a uma turma. <br>";
+                        }
                         $registros .= "<strong>Turma:</strong> " . $linha2['serie'] . "° ano " . $linha2['nome'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> Aluno <br>";
                         $registros .= "&nbsp;<button id='atualizar' onclick='loadStudentModal(\"".$linha['nome']."\", \"".$linha2['data_nascimento']."\", \"".$linha2['numero_matricula']."\", \"".$linha2['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha2['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha2['id']."\")'>Atualizar</button>&nbsp;&nbsp;";
