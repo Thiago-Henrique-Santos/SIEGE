@@ -206,7 +206,7 @@ $data_atual = date('d/m/Y');
                 echo "<br><select name='turma' class='form-select'>";
                     echo "<option value='none' selected>--</option>";
                     $sql = "
-                    SELECT * FROM turma ORDER BY serie ASC, nome ASC
+                    SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
                     ";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0) {
@@ -318,7 +318,7 @@ $data_atual = date('d/m/Y');
                 $turmas = $_GET['tur'];
             echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
                 $sql = "
-                SELECT * FROM turma ORDER BY serie ASC, nome ASC
+                SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
                 ";
                 $resultado = $conexao->query($sql);
                 if ($resultado->num_rows > 0) {
