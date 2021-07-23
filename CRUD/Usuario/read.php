@@ -68,7 +68,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 ";
             $tipoUsuario_escolhidos['aluno'] = false;
         } elseif ($tipoUsuario_escolhidos['professor']) {
-            $sql .= "professor p ON u.id=p.idProfessor";
+            $sql .= "professor p ON u.id=p.idProfessor WHERE p.idProfessor != 1";
             $tipoUsuario_escolhidos['professor'] = false;
         } elseif ($tipoUsuario_escolhidos['gerenciador']) {
             $sql .= "gerenciadores g ON u.id=g.idGerenciador";
@@ -172,7 +172,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
         } while ($conexao->next_result());
     }
 } else {
-    $sql .= "SELECT * FROM usuario ORDER BY nome ASC";
+    $sql .= "SELECT * FROM usuario WHERE id != 1 ORDER BY nome ASC";
     $resultado = $conexao->query($sql);
 
     if ($resultado->num_rows > 0) {
@@ -214,7 +214,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                     }
                 }
             } elseif ($linha["tipo_usuario"] == 2) {
-                $sql2 = "SELECT * FROM professor WHERE idProfessor =" . $linha['id'];
+                $sql2 = "SELECT * FROM professor WHERE idProfessor =" . $linha['id'] . " AND idProfessor != 1";
                 $resultado2 = $conexao->query($sql2);
                 if ($resultado2->num_rows > 0) {
                     while ($linha2 = $resultado2->fetch_assoc()) {

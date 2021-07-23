@@ -303,7 +303,7 @@ $data_atual = date('d/m/Y');
                     echo "<option value='none' selected>--</option>";
                     $sql = "
                     SELECT id, nome FROM usuario 
-                    WHERE tipo_usuario = 2
+                    WHERE tipo_usuario = 2 AND id != 1;
                     ";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
@@ -454,7 +454,7 @@ $data_atual = date('d/m/Y');
         echo "<h1 align='center'>Cadastro realizado com sucesso!</h1>";
         echo "<br>";
         echo "<center>";
-        echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
+        echo "<img src='img/confirm.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
         echo "<br><br>";
         echo "<button id='again' onclick='reloadModal($formType)'>Cadastrar novamente</button>";
         echo "</center>";
