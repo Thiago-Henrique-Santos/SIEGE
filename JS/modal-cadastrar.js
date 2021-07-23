@@ -37,6 +37,11 @@ function loadModal(registerType) {
     modal.style.display = "flex";
 }
 
+function reloadModal(registerType) {
+    var path = generatePath(registerType);
+    window.location = path;
+}
+
 function generatePath(ref) {
     var basePath = "formularios-cadastro.php";
     var completePath = `${basePath}?id=${ref}&tfm=cadastrar`;
