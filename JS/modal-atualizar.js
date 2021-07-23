@@ -7,11 +7,18 @@ close[1] = document.getElementById('modal-screen');
 /**************************
  *        Eventos         *
  *************************/
-for (var i = 0; i < close.length; i++) {
-    close[i].addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-}
+// for (var i = 0; i < close.length; i++) {
+//     close[i].addEventListener("click", () => {
+//         modal.style.display = "none";
+//     });
+// }
+
+close[0].addEventListener("click", () => {
+    modal.style.display = "none";
+});
+close[1].addEventListener("dblclick", () => {
+    modal.style.display = "none";
+});
 
 /**************************
 *         Funções         *
