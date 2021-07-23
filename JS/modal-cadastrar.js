@@ -14,11 +14,19 @@ for (var i = 0; i < options.length; i++) {
     iframe.src = path;
 }
 
-for (var i = 0; i < close.length; i++) {
-    close[i].addEventListener("click", () => {
+// for (var i = 0; i < close.length; i++) {
+//     close[i].addEventListener("click", () => {
+//         modal.style.display = "none";
+//     });
+// }
+
+
+    close[0].addEventListener("click", () => {
         modal.style.display = "none";
     });
-}
+    close[1].addEventListener("dblclick", () => {
+        modal.style.display = "none";
+    });
 
 /**************************
 *         Funções         *

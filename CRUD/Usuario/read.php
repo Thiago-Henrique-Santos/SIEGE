@@ -250,7 +250,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                     }
                 }
             }
-            $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \"aluno\")'>Remover</button>";
+            $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_empregado']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\")'>Remover</button>";
             $registros .= "</div>";
         }
     } else {
