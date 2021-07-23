@@ -453,6 +453,8 @@ $data_atual = date('d/m/Y');
         echo "<br>";
         echo "<center>";
         echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
+        echo "<br><br>";
+        echo "<button id='again' onclick='($formType, $cad_att)'>Cadastrar novamente</button>";
         echo "</center>";
     }
 ?>
