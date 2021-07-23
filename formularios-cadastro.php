@@ -23,7 +23,7 @@ $data_atual = date('d/m/Y');
     <link rel="stylesheet" type="text/css" href="modulos/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="JS/modal-cadastrar.js" defer>
+    <script src="JS/modal-cadastrar.js" defer></script>
     <script>
         function mascara(telefone){ 
             if(telefone.value.length == 0)
