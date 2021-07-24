@@ -454,7 +454,7 @@ $data_atual = date('d/m/Y');
         echo "<h1 align='center'>Cadastro realizado com sucesso!</h1>";
         echo "<br>";
         echo "<center>";
-        echo "<img src='img/confirm.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
+        echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
         echo "<br><br>";
         echo "<button id='again' onclick='reloadModal($formType)'>Cadastrar novamente</button>";
         echo "</center>";
