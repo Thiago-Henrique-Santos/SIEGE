@@ -91,8 +91,11 @@ $data_atual = date('d/m/Y');
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='diretor'>";
 
             campos_funcionarios();
-
+            
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -103,7 +106,10 @@ $data_atual = date('d/m/Y');
 
             campos_funcionarios();
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -114,7 +120,10 @@ $data_atual = date('d/m/Y');
 
             campos_funcionarios();
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -125,7 +134,10 @@ $data_atual = date('d/m/Y');
 
             campos_funcionarios();
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -229,7 +241,10 @@ $data_atual = date('d/m/Y');
                 if (isset($_GET["ecps"]) && !empty($_GET["ecps"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -264,7 +279,10 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['esr']) && !empty($_GET['esr']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["esr"] . "</p>";
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -333,7 +351,10 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['etur']) && !empty($_GET['etur']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -371,7 +392,10 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['edtf']) && !empty($_GET['edtf']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["edtf"] . "</p>";
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 

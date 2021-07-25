@@ -109,7 +109,11 @@
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
                         $registros .= "&emsp;";
-                        $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
+
+                        if($linha2['id_professor'] == 1)
+                            $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: Não há um professor vinculado a essa disciplina";
+                        else
+                            $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
                         $registros .= "&emsp;";
                         $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button> <br>";
                     }
@@ -145,7 +149,11 @@
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
                         $registros .= "&emsp;";
-                        $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
+
+                        if($linha2['id_professor'] == 1)
+                            $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: Não há um professor vinculado a essa disciplina";
+                        else
+                            $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
                         $registros .= "&emsp;";
                         $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button> <br>";
                     }
