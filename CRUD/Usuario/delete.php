@@ -11,14 +11,14 @@ $id = $_GET['id'];
 
 
 if($user == 'aluno'){
-    $sql = "SELECT * FROM  $user WHERE idAluno=" . $id;
+    $sql = "SELECT * FROM aluno WHERE idAluno=" . $id;
     $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                $sql = "DELETE FROM $user WHERE idAluno=" . $id;
+                $sql = "DELETE FROM aluno WHERE idAluno=" . $id;
         
                 if ($conexao->query($sql) === TRUE)
                     echo "<br> Aluno removido com sucesso";
@@ -30,14 +30,14 @@ if($user == 'aluno'){
             echo "<br> Não foram encontrados alunos para remover!";
 
 }elseif($user == 'professor'){
-    $sql = "SELECT * FROM  gerenciadores WHERE idProfessor=" . $id;
+    $sql = "SELECT * FROM  professor WHERE idProfessor=" . $id;
     $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                $sql = "DELETE FROM $user WHERE idProfessor=" . $id;
+                $sql = "DELETE FROM professor WHERE idProfessor=" . $id;
         
                 if ($conexao->query($sql) === TRUE)
                     echo "<br> Professor removido com sucesso";
@@ -68,14 +68,14 @@ if($user == 'aluno'){
             echo "<br> Não foram encontradas disciplinas para trocar o id_professor de NULL para 1.";
 
 }else{
-    $sql = "SELECT * FROM  $user WHERE idGerenciador=" . $id;
+    $sql = "SELECT * FROM gerenciadores WHERE idGerenciador=" . $id;
     $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
         {
             while ($linha = $resultado->fetch_assoc())
             {
-                $sql = "DELETE FROM $user WHERE idGerenciador=" . $id;
+                $sql = "DELETE FROM gerenciadores WHERE idGerenciador=" . $id;
         
                 if ($conexao->query($sql) === TRUE)
                     echo "<br> Gerenciador removido com sucesso";

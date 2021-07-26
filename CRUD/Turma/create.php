@@ -10,7 +10,7 @@ $serie = $_GET['sr'];
     ";
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar&rcd=turma");
     else
         echo "Erro inserindo turma: " . $conexao->error;
 

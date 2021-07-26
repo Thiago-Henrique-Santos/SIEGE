@@ -11,7 +11,7 @@ $dataTermino = $_GET['dtf'];
     ";
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar&rcd=bimestre");
     else
         echo "Erro inserindo bimestre: " . $conexao->error;
 
