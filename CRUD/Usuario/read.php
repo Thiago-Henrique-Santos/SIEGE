@@ -61,7 +61,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
 
         if ($tipoUsuario_escolhidos['aluno']) {
             $sql = "
-                SELECT u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
+                SELECT u.id AS 'id_aluno', u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
                 a.data_nascimento, a.numero_matricula, a.nome_responsavel, a.telefone, 
                 t.id AS 'id_turma', t.nome AS 'nome_turma', t.serie FROM usuario u 
                 INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON t.id=a.id_turma
@@ -152,7 +152,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         }
                         $registros .= "&nbsp;<button id='atualizar' onclick='"; 
                         if ($linha['tipo_usuario']==1) {
-                            $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\")";
+                            $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\", \"".$linha['id_aluno']."\")";
                         } else {
                             $registros .= "loadStaffModal(";
                             if ($linha['tipo_usuario']==2) 
