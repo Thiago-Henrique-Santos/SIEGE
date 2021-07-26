@@ -23,8 +23,12 @@ $data_atual = date('d/m/Y');
     <link rel="stylesheet" type="text/css" href="modulos/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="JS/modal-cadastrar.js" defer></script>
     <script>
+        function reloadModal(registerType) {
+            var path = `formularios-cadastro.php?id=${registerType}&tfm=cadastrar`;
+            window.location = path;
+        }
+
         function mascara(telefone){ 
             if(telefone.value.length == 0)
                 telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
@@ -474,13 +478,12 @@ $data_atual = date('d/m/Y');
     }
 
     function validacaoOk () {
-        global $formType;
         echo "<h1 align='center'>Cadastro realizado com sucesso!</h1>";
         echo "<br>";
         echo "<center>";
         echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
         echo "<br><br>";
-        echo "<button id='again' onclick='reloadModal($formType)'>Cadastrar novamente</button>";
+        echo "<button onclick='reloadModal(\"".$_GET['rcd']."\")'>Cadastrar novamente</button>";
         echo "</center>";
     }
 ?>
@@ -491,15 +494,17 @@ $data_atual = date('d/m/Y');
 
     const title = document.getElementById('titulo_formulario');
 
-    <?php
-    if($formType != "default"){
-        if($cad_att == "cadastrar"){
-            echo "title.innerText = 'Cadastrar $formType'";
-        } else {
-            echo "title.innerText = 'Atualizar $formType'";
+    if (title) {
+        <?php
+        if($formType != "default"){
+            if($cad_att == "cadastrar"){
+                echo "title.innerText = 'Cadastrar $formType'";
+            } else {
+                echo "title.innerText = 'Atualizar $formType'";
+            }
         }
+        ?>
     }
-    ?>
 
     <?php
     if(isset($_GET['jcd']) && !empty($_GET['jcd'])) {
