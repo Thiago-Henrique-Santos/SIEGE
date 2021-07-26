@@ -152,7 +152,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         }
                         $registros .= "&nbsp;<button id='atualizar' onclick='"; 
                         if ($linha['tipo_usuario']==1) {
-                            $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\", \"".$linha['id_aluno']."\")";
+                            $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\", \"".$linha['id']."\")";
                         } else {
                             $registros .= "loadStaffModal(";
                             if ($linha['tipo_usuario']==2) 
