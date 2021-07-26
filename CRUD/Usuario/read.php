@@ -61,7 +61,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
 
         if ($tipoUsuario_escolhidos['aluno']) {
             $sql = "
-                SELECT u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
+                SELECT u.id AS 'id', u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
                 a.data_nascimento, a.numero_matricula, a.nome_responsavel, a.telefone, 
                 t.id AS 'id_turma', t.nome AS 'nome_turma', t.serie FROM usuario u 
                 INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON t.id=a.id_turma
@@ -162,7 +162,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros .= ")";
                         }
                         $registros .= "'>Atualizar</button>&nbsp;&nbsp;";
-                        //$registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_usuario']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\", \"".$linha['id']."\")'>Remover</button>";
+                        $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_usuario']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\", \"".$linha['id']."\")'>Remover</button>";
                         $registros .= "</div>";
                     }
                 } else {
