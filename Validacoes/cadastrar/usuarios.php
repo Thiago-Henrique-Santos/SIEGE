@@ -208,13 +208,14 @@
             if ($_POST['cargo']=="aluno") {
                 header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
             } else {
-                header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+                header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
             }
         } else {
+            $idtf = $_GET['idtf'];
             if ($_POST['cargo']=="aluno") {
-                header ("Location: ../../CRUD/Usuario/update.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
+                header ("Location: ../../CRUD/Usuario/update.php?idtf=$idtf&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
             } else {
-                header ("Location: ../../CRUD/Usuario/update.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+                header ("Location: ../../CRUD/Usuario/update.php?idtf=$idtf&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
             }
         }
     } else {
