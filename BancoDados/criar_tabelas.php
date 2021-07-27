@@ -210,9 +210,9 @@
     $sql = "INSERT INTO turma (id, nome, serie) VALUES (1, 'Default', 0)";
 
 	if ($conexao->query($sql) === TRUE)
-		echo "<br> Turma 0 criada com sucesso";
+		echo "<br> Turma 1 criada com sucesso";
 	else
-		echo "<br> Erro criando turma 0: " . $conexao->error;
+		echo "<br> Erro criando turma 1: " . $conexao->error;
 
     
     //Criação do usuário de id 1 (default) -> professor

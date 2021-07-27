@@ -24,19 +24,25 @@
     <br>
 
     <div class="buttons-group" style="margin-top:25px;">
-        <button href="https://classroom.google.com/" target="area">Google Classroom</button>
-        <button href="https://jamboard.google.com/" target="area">Google Jamboard</button>
-        <button href="https://meet.google.com/" target="area">Google Meet</button>
-        <button href="https://mail.google.com/" target="area">Gmail</button>
+        <a href="https://classroom.google.com/" target="area"><button>Google Classroom</button></a>
+        <a href="https://jamboard.google.com/" target="area"><button>Google Jamboard</button></a>
+        <a href="https://meet.google.com/" target="area"><button>Google Meet</button></a>
+        <a href="https://mail.google.com/" target="area"><button>Gmail</button></a>
     </div>
 
-    <div class="buttons-group" style="margin-top:25px;">
-        <button href="https://simave.educacao.mg.gov.br/#!/pagina-inicial" target="area">Simave</button>
-        <button href="https://www2.educacao.mg.gov.br/" target="area">Secretaria Educação MG</button>
+    <div class="buttons-group" style="margin-top:30px;">
+        <a href="https://simave.educacao.mg.gov.br/#!/pagina-inicial" target="area"><button>Simave</button></a>
+        <a href="https://www2.educacao.mg.gov.br/" target="area"><button>Secretaria de Educação - MG</button></a>
+    </div>
+
+    <div class="buttons-group" style="margin-top:30px;">
+        <a href="https://www.facebook.com/" target="area"><button>Facebook</button></a>
+        <a href="https://www.instagram.com/" target="area"><button>Instagram</button></a>
+        <a href="https://web.whatsapp.com/" target="area"><button>WhatsApp Web</button></a>
     </div>
 
     <center>
-	<iframe name="area" src="https://www.extreme-e.com/" height="750px" width="98%" style="margin-top: 30px;"></iframe>
+	<iframe name="area" src="https://www.extreme-e.com/" height="750px" width="95%" style="margin-top: 30px; border:2px solid black;"></iframe>
     </center>
 </body>
 
