@@ -204,19 +204,19 @@
     }
     
     if ($cadastroCorreto) {
-        // if(!isset($_GET['att'])){
-        //     if ($_POST['cargo']=="aluno") {
-        //         header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
-        //     } else {
-        //         header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
-        //     }
-        // } else {
-        //     if ($_POST['cargo']=="aluno") {
-        //         header ("Location: ../../CRUD/Usuario/update.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
-        //     } else {
-        //         header ("Location: ../../CRUD/Usuario/update.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
-        //     }
-        // }
+        if(!isset($_GET['att'])){
+            if ($_POST['cargo']=="aluno") {
+                header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
+            } else {
+                header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+            }
+        } else {
+            if ($_POST['cargo']=="aluno") {
+                header ("Location: ../../CRUD/Usuario/update.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
+            } else {
+                header ("Location: ../../CRUD/Usuario/update.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+            }
+        }
     } else {
         $idtf = $_GET['idtf'];
         if ($cad_att != "atualizar") {
@@ -331,7 +331,6 @@
                 } else {
                     $sql2 = "SELECT email FROM usuario WHERE id=".$_GET['idtf'];
                     $resultado2 = $conexao->query($sql2);
-                    var_dump($resultado2);
                     if ($resultado2->num_rows > 0) {
                         while($info = $resultado2->fetch_assoc()){
                             $emailAtual = $info['email'];
@@ -364,9 +363,9 @@
                 } else {
                     $sql2 = "";
                     if ($cargo=="professor") {
-                        $sql2 = "SELECT maso FROM professor WHERE id=".$_GET['idtf'];
+                        $sql2 = "SELECT masp FROM professor WHERE idProfessor=".$_GET['idtf'];
                     } else {
-                        $sql2 = "SELECT maso FROM gerenciadores WHERE id=".$_GET['idtf'];
+                        $sql2 = "SELECT masp FROM gerenciadores WHERE idGerenciador=".$_GET['idtf'];
                     }
                     $resultado2 = $conexao->query($sql2);
                     if ($resultado2->num_rows > 0) {

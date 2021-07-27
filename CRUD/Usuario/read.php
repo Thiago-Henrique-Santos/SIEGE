@@ -156,9 +156,9 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         } else {
                             $registros .= "loadStaffModal(";
                             if ($linha['tipo_usuario']==2) 
-                                $registros .= "\"professor\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\"";
+                                $registros .= "\"professor\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
                             else
-                                $registros .= "\"".$linha['tipo']."\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\"";
+                                $registros .= "\"".$linha['tipo']."\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
                             $registros .= ")";
                         }
                         $registros .= "'>Atualizar</button>&nbsp;&nbsp;";
@@ -228,7 +228,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> Professor <br>";
-                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStaffModal(\"professor\", \"".$linha['nome']."\", \"".$linha2['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha2['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha2['funcao']."\")'>Atualizar</button>&nbsp;&nbsp;";
+                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStaffModal(\"professor\", \"".$linha['nome']."\", \"".$linha2['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha2['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha2['funcao']."\", \"".$linha['id']."\")'>Atualizar</button>&nbsp;&nbsp;";
                     }
                 }
             } else {
@@ -246,7 +246,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
                         $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
                         $registros .= "<strong>Ocupação:</strong> " . $linha2['tipo'] . "<br>";
-                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStaffModal(\"".$linha2['tipo']."\", \"".$linha['nome']."\", \"".$linha2['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha2['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha2['funcao']."\")'>Atualizar</button>&nbsp;&nbsp;";
+                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStaffModal(\"".$linha2['tipo']."\", \"".$linha['nome']."\", \"".$linha2['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha2['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha2['funcao']."\", \"".$linha['id']."\")'>Atualizar</button>&nbsp;&nbsp;";
                     }
                 }
             }

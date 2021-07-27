@@ -105,7 +105,7 @@ $data_atual = date('d/m/Y');
 
     function supervisor() {
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='supervisor'>";
 
             campos_funcionarios();
@@ -119,7 +119,7 @@ $data_atual = date('d/m/Y');
 
     function professor() {
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='professor'>";
 
             campos_funcionarios();
@@ -133,7 +133,7 @@ $data_atual = date('d/m/Y');
 
     function secretario() {
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='secretario'>";
 
             campos_funcionarios();
@@ -150,7 +150,7 @@ $data_atual = date('d/m/Y');
         $valor_salvo = "";
 
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='aluno'>";
 
             echo "<br><label for='nome_completo' class='form-label'><strong>Nome completo: </strong></label>";
