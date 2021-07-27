@@ -120,7 +120,7 @@
                 }else{
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
                 }
-                $registros .= "&nbsp; <button id='atualizar' onclick='loadModal(\"turma\", 2)'>Atualizar</button> &nbsp;";
+                $registros .= "&nbsp; <button id='atualizar' onclick='loadClassModal(\"".$linha['nome_turma']."\", ".$linha['serie'].", ". $linha['id_turma'] . ")'>Atualizar</button> &nbsp;";
                 $registros .= "<button id='remover' onclick='deleteConfirm(\"Turma\", \"none\", " . $linha['id_turma'] . ")'>Remover</button>";
                 $registros .= "</div>";
             }
@@ -160,7 +160,7 @@
                 }else{
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
                 }
-                $registros .= "&nbsp; <button id='atualizar' onclick='loadModal(\"turma\")'>Atualizar</button> &nbsp;";
+                $registros .= "&nbsp; <button id='atualizar' onclick='loadClassModal(\"".$linha['nome_turma']."\", ".$linha['serie'].", ". $linha['id_turma'] . ")'>Atualizar</button> &nbsp;";
                 $registros .= "<button id='remover' onclick='deleteConfirm(\"Turma\", \"none\", " . $linha['id_turma'] . ")'>Remover</button>";
                 $registros .= "</div>";
             }

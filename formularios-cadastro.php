@@ -24,7 +24,11 @@ $data_atual = date('d/m/Y');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script>
-        function reloadModal(registerType) {
+        function toggleSubject () {
+            var hidden = true;
+        }
+
+        function reloadModal (registerType) {
             var path = `formularios-cadastro.php?id=${registerType}&tfm=cadastrar`;
             window.location = path;
         }
@@ -253,6 +257,7 @@ $data_atual = date('d/m/Y');
     }
 
     function turma() {
+        global $cad_att, $conexao;
         $valor_salvo = "";
 
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
@@ -283,9 +288,26 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['esr']) && !empty($_GET['esr']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["esr"] . "</p>";
 
+            if($cad_att=="atualizar"){
+                $sql = "SELECT * FROM disciplina WHERE id_turma =" . $_GET['idtf'];
+	            $resultado = $conexao->query($sql);
+                
+                if ($resultado->num_rows > 0)
+                {
+                    echo "<ul>";
+                    while ($linha = $resultado->fetch_assoc())
+                    {
+                        echo "<li onclick='toggleSubject()'>".$linha['nome']."</li>";    
+                    }
+                    echo "</ul>";
+                }
+                else
+                    echo "Não foram encontradas turmas!";	
+            }
+
             echo "<br><br>";
             echo "<center>";
-            echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+                echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
             echo "</center>";
         echo "</form>";
     }
