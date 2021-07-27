@@ -42,7 +42,7 @@
     </div>
 
     <center>
-	<iframe name="area" src="https://www.extreme-e.com/" height="750px" width="95%" style="margin-top: 30px; border:2px solid black;"></iframe>
+	    <iframe name="area" src="https://www.extreme-e.com/" height="750px" width="95%" style="margin-top: 30px; border:2px solid black;"></iframe>
     </center>
 </body>
 
