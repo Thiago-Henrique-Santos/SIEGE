@@ -79,6 +79,9 @@ $data_atual = date('d/m/Y');
         case "validadoOK":
             validacaoOk();
             break;
+        case "erro":
+            alertaErro();
+            break;
         default:
             def();
             break;
@@ -500,13 +503,28 @@ $data_atual = date('d/m/Y');
     }
 
     function validacaoOk () {
-        echo "<h1 align='center'>Cadastro realizado com sucesso!</h1>";
+        global $cad_att;
+        echo "<h1 align='center'>"; if($cad_att=="cadastrar"){echo "Cadastro realizado ";}else{echo "Atualização realizada ";} echo "com sucesso!</h1>";
         echo "<br>";
         echo "<center>";
         echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
-        echo "<br><br>";
-        echo "<button onclick='reloadModal(\"".$_GET['rcd']."\")'>Cadastrar novamente</button>";
+        if (isset($_GET['rcd']) && !empty($_GET['rcd'])) {
+            echo "<br><br>";
+            echo "<button onclick='reloadModal(\"".$_GET['rcd']."\")'>Cadastrar novamente</button>";
+        }
         echo "</center>";
+    }
+
+    function alertaErro () {
+        echo "<h1 align='center'>Ocorreu um erro inesperado!</h1>";
+        echo "<br>";
+        echo "<center>";
+            echo "<img src='img/erro.gif' style='margin-bottom: 10px; width: 350px; height: auto;'>";
+        echo "<br><br>";
+        echo "<div id='mostra erro' style='width:100%; display: flex; justify-content: center; align-items: center;'>";
+            echo "<img src='img/atencao.png' style='height: 20px; width: auto;'>";
+            echo "<font style='font-size: 20px;'>".$_GET['info']."</font>";
+        echo "</div>";
     }
 ?>
 
