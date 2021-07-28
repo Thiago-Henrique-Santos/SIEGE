@@ -220,7 +220,7 @@
         }
     } else {
         $idtf = $_GET['idtf'];
-        if ($cad_att != "atualizar") {
+        if (!isset($_GET['att'])) {
             if ($_POST['cargo'] == "aluno") {
                 header ("Location: ../../formularios-cadastro.php?id=aluno&tfm=cadastrar&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&tur=$tur&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&etur=$msgErro_aluno[9]&epss=$msgErro_aluno[10]&ecps=$msgErro_aluno[11]");
             } else {

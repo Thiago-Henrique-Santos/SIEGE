@@ -41,9 +41,9 @@ switch ($tipo_usuario) {
     case 2:
         $masp           = $_GET['mp'];
         $tipo_empregado = $_GET['tep'];
-        $funcao         = $_GET['funcao'];
+        $funcao         = $_GET['fnc'];
         $sql = "UPDATE professor 
-        SET masp = $masp, tipo_empregado = $tipo_empregado, funcao = $funcao 
+        SET masp = '$masp', tipo_empregado = '$tipo_empregado', funcao = '$funcao' 
         WHERE idProfessor = $id";
         break;
 
@@ -51,17 +51,17 @@ switch ($tipo_usuario) {
         $cargo          = $_GET['cg'];
         $masp           = $_GET['mp'];
         $tipo_empregado = $_GET['tep'];
-        $funcao         = $_GET['funcao'];
+        $funcao         = $_GET['fnc'];
         $sql = "UPDATE gerenciadores 
-        SET masp = $masp, tipo_empregado = $tipo_empregado, funcao = $funcao, tipo = $cargo 
-        WHERE idProfessor = $id";
+        SET masp = '$masp', tipo_empregado = '$tipo_empregado', funcao = '$funcao', tipo = '$cargo' 
+        WHERE idGerenciador = $id";
         break;
 }
 
 if ($conexao->query($sql))
-    header("Location: ../../formularios-cadastro.php?id=validadoOK");
+    header("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=atualizar");
 else
-    header("location: ../../formularios-cadastro.php?id=erro&info=" . $conexao->error);
+    header("location: ../../formularios-cadastro.php?id=erro&tfm=atualizar&info=" . $conexao->error);
 
 $conexao->close();
 
