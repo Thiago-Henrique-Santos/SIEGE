@@ -1,11 +1,67 @@
 <?php
 
 include ("../../BancoDados/conexao_mysql.php");
+
+$id            = $_GET['idtf'];
+$nome          = $_GET['nm'];
+$email         = $_GET['eml'];
+$sexo          = $_GET['cms'];
+$senha         = $_GET['pss'];
+$local_moradia = $_GET['czn'];
+
+$sql = "UPDATE usuario SET nome = '$nome', email = '$email', sexo = '$sexo', local_moradia = '$local_moradia', senha = '$senha' WHERE id=$id";
+if ($conexao->query($sql) === TRUE)
+    echo "Usuario atualiado com sucesso!";
+else
+    echo "Erro ao atualizar cliente: " . $conexao->error;
+
+$tipo_usuario = 0;
+$sql = "SELECT tipo_usuario FROM usuario WHERE id = $id";
+$resultado = $conexao->query($sql);
+if ($resultado->num_rows > 0) {
+    while ($info = $resultado->fetch_assoc()) {
+        $tipo_usuario = $info['tipo_usuario'];
+    }
+}
+
+switch ($tipo_usuario) {
+    case 1:
+        // Aluno:  dt | mt | rsp | tlf | tur
+        $data_nascimento = $_GET['dt'];
+        $matricula       = $_GET['mt'];
+        $responsavel     = $_GET['rsp'];
+        $telefone        = $_GET['tlf'];
+        $turma           = $_GET['tur'];
+        $sql = "UPDATE aluno 
+        SET data_nascimento = '$data_nascimento', numero_matricula ='$matricula', 
+        nome_responsavel = '$responsavel', telefone = '$telefone', id_turma=$turma 
+        WHERE idAluno = $id";
+        break;
     
-//Aluno: idtf| nm | eml | czn | cms | dt | mt | rsp | tlf | tur | pss
-//Staff: idtf | nm | eml | czn | cms | cg | mp | tep | fnc | pss
+    case 2:
+        $masp           = $_GET['mp'];
+        $tipo_empregado = $_GET['tep'];
+        $funcao         = $_GET['funcao'];
+        $sql = "UPDATE professor 
+        SET masp = $masp, tipo_empregado = $tipo_empregado, funcao = $funcao 
+        WHERE idProfessor = $id";
+        break;
 
+    case 3:
+        $cargo          = $_GET['cg'];
+        $masp           = $_GET['mp'];
+        $tipo_empregado = $_GET['tep'];
+        $funcao         = $_GET['funcao'];
+        $sql = "UPDATE gerenciadores 
+        SET masp = $masp, tipo_empregado = $tipo_empregado, funcao = $funcao, tipo = $cargo 
+        WHERE idProfessor = $id";
+        break;
+}
 
+if ($conexao->query($sql))
+    header("Location: ../../formularios-cadastro.php?id=validadoOK");
+else
+    header("location: ../../formularios-cadastro.php?id=erro&info=" . $conexao->error);
 
 $conexao->close();
 
