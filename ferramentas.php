@@ -24,26 +24,22 @@
     <br>
 
     <div class="buttons-group" style="margin-top:25px;">
-        <a href="https://classroom.google.com/" target="area"><button>Google Classroom</button></a>
-        <a href="https://jamboard.google.com/" target="area"><button>Google Jamboard</button></a>
-        <a href="https://meet.google.com/" target="area"><button>Google Meet</button></a>
-        <a href="https://mail.google.com/" target="area"><button>Gmail</button></a>
+        <a href="https://classroom.google.com/" target="_blank"><button>Google Classroom</button></a>
+        <a href="https://jamboard.google.com/" target="_blank"><button>Google Jamboard</button></a>
+        <a href="https://meet.google.com/" target="_blank"><button>Google Meet</button></a>
+        <a href="https://mail.google.com/" target="_blank"><button>Gmail</button></a>
     </div>
 
     <div class="buttons-group" style="margin-top:30px;">
-        <a href="https://simave.educacao.mg.gov.br/#!/pagina-inicial" target="area"><button>Simave</button></a>
-        <a href="https://www2.educacao.mg.gov.br/" target="area"><button>Secretaria de Educação - MG</button></a>
+        <a href="https://simave.educacao.mg.gov.br/#!/pagina-inicial" target="_blank"><button>Simave</button></a>
+        <a href="https://www2.educacao.mg.gov.br/" target="_blank"><button>Secretaria de Educação - MG</button></a>
     </div>
 
     <div class="buttons-group" style="margin-top:30px;">
-        <a href="https://www.facebook.com/" target="area"><button>Facebook</button></a>
-        <a href="https://www.instagram.com/" target="area"><button>Instagram</button></a>
-        <a href="https://web.whatsapp.com/" target="area"><button>WhatsApp Web</button></a>
+        <a href="https://www.facebook.com/" target="_blank"><button>Facebook</button></a>
+        <a href="https://www.instagram.com/" target="_blank"><button>Instagram</button></a>
+        <a href="https://web.whatsapp.com/" target="_blank"><button>WhatsApp Web</button></a>
     </div>
-
-    <center>
-	    <iframe name="area" src="https://www.extreme-e.com/" height="750px" width="95%" style="margin-top: 30px; border:2px solid black;"></iframe>
-    </center>
 </body>
 
 </html>

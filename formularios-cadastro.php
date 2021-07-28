@@ -25,7 +25,17 @@ $data_atual = date('d/m/Y');
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script>
         function toggleSubject () {
-            var hidden = true;
+            var botoes = document.querySelectorAll('li.att_disciplina');
+            var div = window.document.querySelectorAll('div.sh');
+
+            for (var i = 0; i < botoes.length; i++) {
+                botoes[i].addEventListener("click", ()=>{
+                    if (div[i].style.display == "none") 
+                        div[i].style.display = "table-row";
+                    else
+                        div[i].style.display = "none";
+                });
+            }
         }
 
         function reloadModal (registerType) {
@@ -273,7 +283,7 @@ $data_atual = date('d/m/Y');
             
             if(isset($_GET['sr']) && !empty($_GET['sr']))
                 $valor_salvo = $_GET['sr'];
-            echo "<br><label for='serie' class='form-label'><strong>Série</strong></label>";
+            echo "<br><label for='serie' class='form-label'><strong>Série:</strong></label>";
                 echo "<br><select name='serie' class='form-select' required>";
                     echo "<option value='none' selected>--</option>";
                     echo "<option value='2' "; if($valor_salvo==2){echo "selected";} echo ">2&ordm;</option>";
@@ -288,16 +298,28 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['esr']) && !empty($_GET['esr']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["esr"] . "</p>";
 
-            if($cad_att=="atualizar"){
-                $sql = "SELECT * FROM disciplina WHERE id_turma =" . $_GET['idtf'];
+           if($cad_att=="atualizar"){
+                $sql = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', d.id_professor AS 'id_professor', 
+                        d.id_turma AS 'id_turma', u.id AS 'id_usuario', u.nome AS 'nome_professor' 
+                        FROM disciplina d, usuario u WHERE id_turma =" . $_GET['idtf'] . " AND d.id_professor = u.id
+                        ORDER BY d.nome ASC";
 	            $resultado = $conexao->query($sql);
                 
                 if ($resultado->num_rows > 0)
                 {
+                    echo "<br><label class='form-label'><strong>Disciplinas:</strong></label>";
                     echo "<ul>";
+                    $i = 0;
                     while ($linha = $resultado->fetch_assoc())
                     {
-                        echo "<li onclick='toggleSubject()'>".$linha['nome']."</li>";    
+                            echo "<li class='att_disciplina' style='cursor: pointer;'><button>".$linha['nome_disciplina']."</button></li>";
+                            echo "<div class='sh' style='display: none;'>";
+                                echo "&emsp;<label for='disciplina_$i' class='form-label'><u>Nome</u>:</label>";
+                                    echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='" . $linha['nome_disciplina'] . "'><br>";
+                                echo "&emsp;<label for='professor_$i' class='form-label'><u>Professor</u>:</label>";
+                                    echo "&nbsp;<input type='text' id='professor_$i' name='professor_$i' required title='Preencha o nome do professor' value='" . $linha['nome_professor'] . "'><br>";
+                            echo "</div><br><br>";
+                        $i++;
                     }
                     echo "</ul>";
                 }
@@ -305,7 +327,6 @@ $data_atual = date('d/m/Y');
                     echo "Não foram encontradas turmas!";	
             }
 
-            echo "<br><br>";
             echo "<center>";
                 echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
             echo "</center>";
