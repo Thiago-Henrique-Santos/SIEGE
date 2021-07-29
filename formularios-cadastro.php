@@ -24,35 +24,18 @@ $data_atual = date('d/m/Y');
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script>
-
-        function toggleSubject (id_botao) {
-            // var botoes = document.querySelectorAll('li.att_disciplina');
-            // var div = window.document.querySelectorAll('div.sh');
-
-            // for (var i = 0; i < botoes.length; i++) {
-            //     botoes[i].addEventListener("click", ()=>{
-            //         if (div[i].style.display == "none") 
-            //             div[i].style.display = "table-row";
-            //         else
-            //             div[i].style.display = "none";
-            //     });
-            // }
-
-
-            //var botao = window.document.querySelector('button#disc_compl');
-            var divi = window.document.querySelector('div.sh');
-
-            var status = false;
-
-            //botao.addEventListener('click', ()=>{
-                if (status) {
-                    divi.style.display = "none";
-                    status = false;
-                } else {
-                    divi.style.display = "table-row";
-                    status = true;
+        function toggleSubject (id) {
+            var buttons = document.querySelectorAll('button.att_disciplina');
+            
+            for (let i = 0; i < buttons.length; i++) {
+                let div = document.querySelectorAll('div.sh')[i];
+                if (buttons[i].id == id) {
+                    if (div.style.display == "none")
+                        div.style.display = "table-row";
+                    else
+                        div.style.display = "none";
                 }
-            //});
+            }
         }
 
         function reloadModal (registerType) {
@@ -332,7 +315,7 @@ $data_atual = date('d/m/Y');
                     $i = 0;
                     while ($linha = $resultado->fetch_assoc())
                     {
-                            echo "<li><button id='d_$i' onclick='toggleSubject(this.id)' type='button'>".$linha['nome_disciplina']."</button></li>";
+                            echo "<li><button id='$i' onclick='toggleSubject(this.id)' class='att_disciplina' type='button'>".$linha['nome_disciplina']."</button></li>";
                             echo "<div class='sh' style='display: none;'>";
                                echo "&emsp;<label for='disciplina_$i' class='form-label'><u>Nome</u>:</label>";
                                     echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='" . $linha['nome_disciplina'] . "'><br>";
