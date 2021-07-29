@@ -64,28 +64,28 @@
                 $sql .= "t.serie = ";
                 $c++;
                 if ($se == "segundo") {
-                    $sql .= "2 ORDER BY nome_turma ASC";
+                    $sql .= "2";
                 }
                 if ($se == "terceiro") {
-                    $sql .= "3 ORDER BY nome_turma ASC";
+                    $sql .= "3";
                 }
                 if ($se == "quarto") {
-                    $sql .= "4 ORDER BY nome_turma ASC";
+                    $sql .= "4";
                 }
                 if ($se == "quinto") {
-                    $sql .= "5 ORDER BY nome_turma ASC";
+                    $sql .= "5";
                 }
                 if ($se == "sexto") {
-                    $sql .= "6 ORDER BY nome_turma ASC";
+                    $sql .= "6";
                 }
                 if ($se == "setimo") {
-                    $sql .= "7 ORDER BY nome_turma ASC";
+                    $sql .= "7";
                 }
                 if ($se == "oitavo") {
-                    $sql .= "8 ORDER BY nome_turma ASC";
+                    $sql .= "8";
                 }
                 if ($se == "nono") {
-                    $sql .= "9 ORDER BY nome_turma ASC";
+                    $sql .= "9";
                 }
 
                 if ($c < ($innerJoin_counter)) {
@@ -93,7 +93,10 @@
                 }
                 $series_escolhidas[$se] = false;
             }
+
         }
+
+        $sql .= " ORDER BY t.serie ASC, t.nome ASC";
 
         $resultado = $conexao->query($sql);
         if ($resultado->num_rows > 0) {
