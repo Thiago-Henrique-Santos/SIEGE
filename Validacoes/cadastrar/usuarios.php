@@ -348,25 +348,25 @@
 
     function jaExisteMasp ($masp, $cargo) {
         global $conexao;
-        $sql = "";
+        $sql = "SELECT masp FROM ";
         if ($cargo=="professor") {
-            $sql = "SELECT masp FROM professor";
+            $sql .= "professor";
         } else {
-            $sql = "SELECT masp FROM gerenciadores";
+            $sql .= "gerenciadores";
         }
         $resultado = $conexao->query($sql);
         if ($resultado->num_rows > 0) {
             while ($dados = $resultado->fetch_assoc()) {
                 if(!isset($_GET['att'])){
-                    if ($masp==$dados['masp']) {
+                    if ($_POST['masp']==$dados['masp']) {
                         return true;
                     }
                 } else {
-                    $sql2 = "";
+                    $sql2 = "SELECT masp FROM ";
                     if ($cargo=="professor") {
-                        $sql2 = "SELECT masp FROM professor WHERE idProfessor=".$_GET['idtf'];
+                        $sql2 .= "professor WHERE idProfessor=".$_GET['idtf'];
                     } else {
-                        $sql2 = "SELECT masp FROM gerenciadores WHERE idGerenciador=".$_GET['idtf'];
+                        $sql2 .= "gerenciadores WHERE idGerenciador=".$_GET['idtf'];
                     }
                     $resultado2 = $conexao->query($sql2);
                     if ($resultado2->num_rows > 0) {
