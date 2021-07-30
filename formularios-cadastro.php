@@ -274,7 +274,7 @@ $data_atual = date('d/m/Y');
         $valor_salvo = "";
 
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
+        echo "<form method='POST' action='Validacoes/cadastrar/outros.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='turma'>";
             
             if(isset($_GET['nm']) && !empty($_GET['nm']))
@@ -321,10 +321,13 @@ $data_atual = date('d/m/Y');
                                     echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='" . $linha['nome_disciplina'] . "'><br>";
                                 echo "&emsp;<label for='professor_$i' class='form-label'><u>Professor</u>:</label>";
                                     echo "&nbsp;<input type='text' id='professor_$i' name='professor_$i' required title='Preencha o nome do professor' value='" . $linha['nome_professor'] . "'><br>";
+                                
+                                echo "<input type='text' name='didtf_$i' style='display: none;' value='".$linha['id_disciplina']."'>";
                             echo "</div><br><br>";
                         $i++;
                     }
                     echo "</ul>";
+                    echo "<input type='text' name='quant_disciplina' style='display: none;' value='$i'>";
                 }
                 else
                     echo "<br>&emsp; Não foram encontradas disciplinas!";	
