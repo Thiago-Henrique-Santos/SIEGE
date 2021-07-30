@@ -327,7 +327,7 @@ $data_atual = date('d/m/Y');
                     echo "</ul>";
                 }
                 else
-                    echo "Não foram encontradas turmas!";	
+                    echo "<br>&emsp; Não foram encontradas disciplinas!";	
             }
 
             echo "<center>";

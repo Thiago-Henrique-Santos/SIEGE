@@ -58,7 +58,7 @@
             }
 
             if (!isset($_POST['matricula']) || empty($_POST['matricula'])) {
-                $msgErro_aluno[3] = "<br> * Você esqueceu de inserir o número da matricula.";
+                $msgErro_aluno[3] = "<br> * Você esqueceu de inserir o número da matrícula.";
                 $cadastroCorreto = false;
             }
             if (!is_numeric($_POST['matricula'])) {
@@ -72,17 +72,17 @@
                 while ($dados = $resultado->fetch_assoc()){
                     if (!isset($_GET['att'])) {
                         if ($_POST['matricula']==$dados['numero_matricula']) {
-                            $msgErro_aluno[3] = "<br> * Este número de matricula já está cadastrado.";
+                            $msgErro_aluno[3] = "<br> * Este número de matrícula já está cadastrado.";
                             $cadastroCorreto = false;
                         }
                     } else {
-                        $sql2 = "SELECT numero_matricula FROM aluno WHERE id=".$_GET['idtf'];
+                        $sql2 = "SELECT numero_matricula FROM aluno WHERE idAluno=".$_GET['idtf'];
                         $resultado2 = $conexao->query($sql2);
                         if ($resultado2->num_rows > 0) {
                             while($info = $resultado2->fetch_assoc()){
                                 $matriculaAtual = $info['numero_matricula'];
                                 if ($_POST['matricula']==$dados['numero_matricula'] && $dados['numero_matricula']!=$matriculaAtual) {
-                                    $msgErro_aluno[3] = "<br> * Este número de matricula já está cadastrado.";
+                                    $msgErro_aluno[3] = "<br> * Este número de matrícula já está cadastrado.";
                                     $cadastroCorreto = false;
                                 }
                             }
@@ -348,12 +348,12 @@
 
     function jaExisteMasp ($masp, $cargo) {
         global $conexao;
-        $sql = "SELECT masp FROM ";
-        if ($cargo=="professor") {
-            $sql .= "professor";
-        } else {
-            $sql .= "gerenciadores";
-        }
+        $sql = "SELECT p.masp AS 'masp_p', g.masp AS 'masp_g' FROM professor p, gerenciadores g";
+        // if ($cargo=="professor") {
+        //     $sql .= "professor";
+        // } else {
+        //     $sql .= "gerenciadores";
+        // }
         $resultado = $conexao->query($sql);
         if ($resultado->num_rows > 0) {
             while ($dados = $resultado->fetch_assoc()) {
@@ -362,12 +362,13 @@
                         return true;
                     }
                 } else {
-                    $sql2 = "SELECT masp FROM ";
-                    if ($cargo=="professor") {
-                        $sql2 .= "professor WHERE idProfessor=".$_GET['idtf'];
-                    } else {
-                        $sql2 .= "gerenciadores WHERE idGerenciador=".$_GET['idtf'];
-                    }
+                    // $sql2 = "SELECT masp FROM ";
+                    $sql2 = "SELECT p.masp AS 'masp_p', g.masp AS 'masp_g' FROM professor p, gerenciadores g WHERE idProfessor=" . $_GET['idtf'] . " AND idGerenciador=".$_GET['idtf'];
+                    // if ($cargo=="professor") {
+                    //     $sql2 .= "professor WHERE idProfessor=".$_GET['idtf'];
+                    // } else {
+                    //     $sql2 .= "gerenciadores WHERE idGerenciador=".$_GET['idtf'];
+                    // }
                     $resultado2 = $conexao->query($sql2);
                     if ($resultado2->num_rows > 0) {
                         while($info = $resultado2->fetch_assoc()){
