@@ -203,6 +203,7 @@
         $fnc = $_POST['funcao'];
     }
     
+    /*
     if ($cadastroCorreto) {
         if(!isset($_GET['att'])){
             if ($_POST['cargo']=="aluno") {
@@ -233,7 +234,7 @@
                 header ("Location: ../../formularios-cadastro.php?id=$cg&tfm=atualizar&idtf=$idtf&nm=$nm&mp=$mp&eml=$eml&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
             }
         }
-    }
+    }*/
 
     /******************************
     *           Funções           *
@@ -348,39 +349,78 @@
 
     function jaExisteMasp ($masp, $cargo) {
         global $conexao;
-        $sql = "SELECT p.masp AS 'masp_p', g.masp AS 'masp_g' FROM professor p, gerenciadores g";
+        $sql = "SELECT masp FROM professor;";
+        $sql .= "SELECT masp FROM gerenciadores;";
+
+        if($conexao -> multi_query($sql)){
+            do{
+                if($resultado = $conexao -> store_result()){
+                    while($linha = $resultado -> fetch_row()){
+                        echo $linha[0] . "<br>";
+                    }
+                    $resultado -> free_result();
+                }
+                if($conexao -> more_results()){
+                    if(!isset($_GET['att'])){
+                            if($_POST['masp']==$linha['masp']){
+                                return true;
+                            }
+                        }else{
+                            $sql2 = "SELECT masp FROM ";
+                            if($cargo=='professor'){
+                                 $sql2 .= "professor WHERE idProfessor=".$_GET['idtf'];
+                            }else{
+                                $sql2 .= "gerenciadores WHERE idGerenciador=".$_GET['idtf'];
+                            }
+                            $resultado2 = $conexao->query($sql2);
+                            if ($resultado2->num_rows > 0) {
+                                while($info = $resultado2->fetch_assoc()){
+                                    $maspAtual = $info['masp'];
+                                    if ($_POST['masp']==$linha['masp'] && $linha['masp']!=$maspAtual) {
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    echo "-------------------------<br>";
+                }
+                
+            } while($conexao -> next_result());
+        }
         // if ($cargo=="professor") {
         //     $sql .= "professor";
         // } else {
         //     $sql .= "gerenciadores";
         // }
-        $resultado = $conexao->query($sql);
-        if ($resultado->num_rows > 0) {
-            while ($dados = $resultado->fetch_assoc()) {
-                if(!isset($_GET['att'])){
-                    if ($_POST['masp']==$dados['masp']) {
-                        return true;
-                    }
-                } else {
-                    // $sql2 = "SELECT masp FROM ";
-                    $sql2 = "SELECT p.masp AS 'masp_p', g.masp AS 'masp_g' FROM professor p, gerenciadores g WHERE idProfessor=" . $_GET['idtf'] . " AND idGerenciador=".$_GET['idtf'];
-                    // if ($cargo=="professor") {
-                    //     $sql2 .= "professor WHERE idProfessor=".$_GET['idtf'];
-                    // } else {
-                    //     $sql2 .= "gerenciadores WHERE idGerenciador=".$_GET['idtf'];
-                    // }
-                    $resultado2 = $conexao->query($sql2);
-                    if ($resultado2->num_rows > 0) {
-                        while($info = $resultado2->fetch_assoc()){
-                            $maspAtual = $info['masp'];
-                            if ($_POST['masp']==$dados['masp'] && $dados['masp']!=$maspAtual) {
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return false;
+        // $resultado = $conexao->query($sql);
+        // if ($resultado->num_rows > 0) {
+        //     while ($dados = $resultado->fetch_assoc()) {
+        //         if(!isset($_GET['att'])){
+        //             if ($_POST['masp']==$dados['masp']) {
+        //                 return true;
+        //             }
+        //         } else {
+        //             // $sql2 = "SELECT masp FROM ";
+        //             $sql2 = "SELECT masp AS 'masp_p' FROM professor WHERE idProfessor=" . $_GET['idtf'];
+        //             $sql2 .= " SELECT masp AS 'masp_g' FROM gerenciadores WHERE idGerenciador=".$_GET['idtf'];
+        //             // if ($cargo=="professor") {
+        //             //     $sql2 .= "professor WHERE idProfessor=".$_GET['idtf'];
+        //             // } else {
+        //             //     $sql2 .= "gerenciadores WHERE idGerenciador=".$_GET['idtf'];
+        //             // }
+        //             $resultado2 = $conexao->query($sql2);
+        //             if ($resultado2->num_rows > 0) {
+        //                 while($info = $resultado2->fetch_assoc()){
+        //                     $maspAtual = $info['masp'];
+        //                     if ($_POST['masp']==$dados['masp'] && $dados['masp']!=$maspAtual) {
+        //                         return true;
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // return false;
     }
+    $conexao->close();
 ?>
