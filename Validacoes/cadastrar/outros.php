@@ -29,13 +29,26 @@
                 $cadastroCorreto = false;
             }
 
-            $sql = "SELECT nome, serie FROM turma";
+            $sql = "SELECT id, nome, serie FROM turma";
             $resultado = $conexao->query($sql);
             if ($resultado->num_rows > 0) {
                 while ($dados = $resultado->fetch_assoc()) {
-                    if ($_POST['nome_turma']==$dados['nome'] && $_POST['serie']==$dados['serie']) {
-                        $msgErro[3] = "Esta turma já está cadastrada.";
-                        $cadastroCorreto = false;
+                    if (!isset($_GET['att'])) {
+                        if ($_POST['nome_turma']==$dados['nome'] && $_POST['serie']==$dados['serie']) {
+                            $msgErro[3] = "Esta turma já está cadastrada.";
+                            $cadastroCorreto = false;
+                        }
+                    } else {
+                        $sql2 = "SELECT nome, serie FROM turma WHERE id = ".$_GET['idtf'];
+                        $resultado2 = $conexao->query($sql2);
+                        if ($resultado2->num_rows > 0) {
+                            while ($info = $resultado2->fetch_assoc()) {
+                                if (($_POST['nome_turma']==$dados['nome'] && $_POST['serie']==$dados['serie']) && ($_POST['nome_turma']!=$info['nome'] || $_POST['serie']!=$info['serie'])) {
+                                    $msgErro[3] = "Esta turma já está cadastrada.";
+                                    $cadastroCorreto = false;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -185,7 +198,24 @@
             case "turma":
                 $nm = $_POST['nome_turma'];
                 $sr = $_POST['serie'];
-                header ("Location: ../../formularios-cadastro.php?id=turma&tfm=cadastrar&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]&jcd=$msgErro[3]");
+                if (!isset($_GET['att'])) {
+                    header ("Location: ../../formularios-cadastro.php?id=turma&tfm=cadastrar&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]&jcd=$msgErro[3]");
+                } else {
+                    $linkagem  = "Location: ../../formularios-cadastro.php?id=turma&tfm=atualizar&nm=$nm&sr=$sr&enm=$msgErro[1]&esr=$msgErro[2]&jcd=$msgErro[3]";
+                    if (isset($_POST['quant_disciplina'])) {
+                        $quantidade = (int) $_POST['quant_disciplina'];
+                        for ($i = 0; $i < $quantidade; $i++){
+                            $getName   = "didtf_$i";
+                            $linkagem .= "&didtf$i=".$_POST[$getName];
+                            $getName   = "disciplina_$i";
+                            $linkagem .= "&dsc$i=".$_POST[$getName];
+                            $getName   = "professor_$i";
+                            $linkagem .= "&prf$i=".$_POST[$getName];
+                        }
+                        $linkagem .= "&quant=$i&idtf=".$_GET['idtf'];
+                    }
+                    header($linkagem);
+                }
                 break;
             case "disciplina":
                 $nm    = $_POST['nome_disciplina'];

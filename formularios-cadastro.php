@@ -318,12 +318,17 @@ $data_atual = date('d/m/Y');
                             echo "<li><button id='$i' onclick='toggleSubject(this.id)' class='att_disciplina' type='button'>".$linha['nome_disciplina']."</button></li>";
                             echo "<div class='sh' style='display: none;'>";
                                echo "&emsp;<label for='disciplina_$i' class='form-label'><u>Nome</u>:</label>";
-                                    echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='" . $linha['nome_disciplina'] . "'><br>";
+                                    $getName = "dsc$i";
+                                    if (isset($_GET[$getName]) && !empty($_GET[$getName]))
+                                        $valor_salvo = $_GET[$getName];
+                                    echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['nome_disciplina'];} echo "'><br>";
                                 echo "&emsp;<label for='professor_$i' class='form-label'><u>Professor</u>:</label>";
                                     //echo "&nbsp;<input type='text' id='professor_$i' name='professor_$i' required title='Selecione o nome do professor' value='" . $linha['nome_professor'] . "'><br>";
-                                
+                                $getName = "prf$i";
+                                if (isset($_GET[$getName]) && !empty($_GET[$getName]))
+                                    $valor_salvo = $_GET[$getName];
                                 echo "&nbsp;<select name='professor_$i' title='Selecione o nome do professor da disciplina' required>";
-                                    echo "<option value='" . $linha['id_professor'] . "' selected>" .$linha['nome_professor']. "</option>";
+                                    echo "<option value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['id_professor'];} echo "' selected>" .$linha['nome_professor']. "</option>";
                                     $sql2 = "
                                     SELECT id, nome FROM usuario 
                                     WHERE tipo_usuario = 2 AND id != 1;

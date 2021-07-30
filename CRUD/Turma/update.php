@@ -30,7 +30,7 @@ if (isset($_GET['quant'])) {
     }
 }
 
-// header("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=atualizar");
+header("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=atualizar");
 
 $conexao->close();
 
