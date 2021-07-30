@@ -43,6 +43,12 @@ function loadClassModal(nm, sr, idtf) {
     modal.style.display = "flex";
 }
 
+function loadSubjectModal(nm, idprf, idtf) {
+    var path = generateSubjectPath(nm, idprf, idtf);
+    iframe.src = path;
+    modal.style.display = "flex";
+}
+
 var basePath = "formularios-cadastro.php";
 function generateStudentPath(nm, dt, mt, rsp, eml, tlf, czn, cms, tur, idtf) {
     var completePath = `${basePath}?id=aluno&tfm=atualizar&nm=${nm}&dt=${dt}&mt=${mt}&rsp=${rsp}&eml=${eml}&tlf=${tlf}&czn=${czn}&cms=${cms}&tur=${tur}&idtf=${idtf}`;
@@ -56,5 +62,10 @@ function generateStaffPath(crg, nm, mp, eml, czn, tep, cms, fnc, idtf) {
 
 function generateClassPath(nm, sr, idtf) {
     var completePath = `${basePath}?id=turma&tfm=atualizar&nm=${nm}&sr=${sr}&idtf=${idtf}`;
+    return completePath;
+}
+
+function generateSubjectPath(nm, idprf, idtf) {
+    var completePath = `${basePath}?id=disciplina&tfm=atualizar&nm=${nm}&sr=${idprf}&idtf=${idtf}`;
     return completePath;
 }

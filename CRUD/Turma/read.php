@@ -118,7 +118,9 @@
                         else
                             $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
                         $registros .= "&emsp;";
-                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button> <br>";
+                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button>";
+                        $registros .= "&nbsp;<button onclick='loadSubjectModal(\"".$linha2['nome_disciplina']."\", \"".$linha2['id_professor']."\", \"".$linha2['id_disciplina']."\")'>Atualizar</button>";
+                        $registros .= "<br>";
                     }
                 }else{
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
@@ -158,7 +160,9 @@
                         else
                             $registros .= "<u>" . $linha2['nome_disciplina'] . "</u>: " . $linha2['professor'];
                         $registros .= "&emsp;";
-                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button> <br>";
+                        $registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button>";
+                        $registros .= "&nbsp;<button onclick='loadSubjectModal(\"".$linha2['nome_disciplina']."\", \"".$linha2['id_professor']."\", \"".$linha2['id_disciplina']."\")'>Atualizar</button>";
+                        $registros .= "<br>";
                     }
                 }else{
                     $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";

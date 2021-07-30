@@ -360,11 +360,11 @@ $data_atual = date('d/m/Y');
     }
 
     function disciplina() {
-        global $conexao;
+        global $conexao, $cad_att;
         $valor_salvo = "";
 
         echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
+        echo "<form method='POST' action='Validacoes/cadastrar/outros.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='disciplina'>";
             
@@ -375,23 +375,49 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['enm']) && !empty($_GET['enm']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
-            if (isset($_GET['ano']) && !empty($_GET['ano']))
-                $valor_salvo = $_GET['ano'];
-            echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
-                echo "<br><select name='ano' class='form-select' required>";
-                $anoAtual = date("Y");
-                for ($i=$anoAtual-80; $i <= $anoAtual+1; $i++) {
-                    echo "<option value='$i' "; if($valor_salvo==$i){echo "selected";$valor_salvo="";}elseif($i==$anoAtual){echo "selected";$valor_salvo="";} echo">$i</option>";
-                }
-                echo "</select>";
-            if (isset($_GET['eano']) && !empty($_GET['eano']))
-                echo "<br><p class=\"msg_erro\">" . $_GET["eano"] . "</p>";
-
+            if($cad_att != "atualizar"){
+                if (isset($_GET['ano']) && !empty($_GET['ano']))
+                    $valor_salvo = $_GET['ano'];
+                echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
+                    echo "<br><select name='ano' class='form-select' required>";
+                    $anoAtual = date("Y");
+                    for ($i=$anoAtual-80; $i <= $anoAtual+1; $i++) {
+                        echo "<option value='$i' "; if($valor_salvo==$i){echo "selected";$valor_salvo="";}elseif($i==$anoAtual){echo "selected";$valor_salvo="";} echo">$i</option>";
+                    }
+                    echo "</select>";
+                if (isset($_GET['eano']) && !empty($_GET['eano']))
+                    echo "<br><p class=\"msg_erro\">" . $_GET["eano"] . "</p>";
+            }
+            
             if (isset($_GET['prf']) && !empty($_GET['prf']))
                 $valor_salvo = $_GET['prf'];
             echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
                 echo "<br><select name='professor' class='form-select' required>";
-                    echo "<option value='none' selected>--</option>";
+                    echo "<option value='";
+                        if($cad_att == "atualizar"){
+                            $sql = "SELECT u.id FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
+                            $resultado = $conexao->query($sql);
+                            if($resultado -> num_rows > 0){
+                                while($linha = $resultado->fetch_assoc()){
+                                    echo $linha['id'];
+                                }
+                            }
+                        } else {
+                            echo "none";
+                        }
+                    echo "' selected>";
+                        if($cad_att == "atualizar"){
+                            $sql = "SELECT u.nome FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
+                            $resultado = $conexao->query($sql);
+                            if($resultado -> num_rows > 0){
+                                while($linha = $resultado->fetch_assoc()){
+                                    echo $linha['nome'];
+                                }
+                            }
+                        } else {
+                            echo "--";
+                        }
+                    echo "</option>";
                     $sql = "
                     SELECT id, nome FROM usuario 
                     WHERE tipo_usuario = 2 AND id != 1;
@@ -406,23 +432,25 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['eprf']) && !empty($_GET['eprf']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["eprf"] . "</p>";
 
-            if (isset($_GET['tur']) && !empty($_GET['tur']))
-                $turmas = $_GET['tur'];
-            echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
-                $sql = "
-                SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
-                ";
-                $resultado = $conexao->query($sql);
-                if ($resultado->num_rows > 0) {
-                    $i = 1;
-                    while ($dados = $resultado->fetch_assoc()) {
-                        echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."' "; if (isset($_GET['tur']) && !empty($_GET['tur'])){foreach($turmas as $turma){if($turma==$dados["id"]){echo "checked";}}} echo ">";
-                        echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ano ".$dados["nome"]."</label>";
-                        $i++;
+            if($cad_att != "atualizar"){
+                if (isset($_GET['tur']) && !empty($_GET['tur']))
+                    $turmas = $_GET['tur'];
+                echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
+                    $sql = "
+                    SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
+                    ";
+                    $resultado = $conexao->query($sql);
+                    if ($resultado->num_rows > 0) {
+                        $i = 1;
+                        while ($dados = $resultado->fetch_assoc()) {
+                            echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."' "; if (isset($_GET['tur']) && !empty($_GET['tur'])){foreach($turmas as $turma){if($turma==$dados["id"]){echo "checked";}}} echo ">";
+                            echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ano ".$dados["nome"]."</label>";
+                            $i++;
+                        }
                     }
-                }
-            if (isset($_GET['etur']) && !empty($_GET['etur']))
-                echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
+                if (isset($_GET['etur']) && !empty($_GET['etur']))
+                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
+            }
 
             echo "<br><br>";
             echo "<center>";
