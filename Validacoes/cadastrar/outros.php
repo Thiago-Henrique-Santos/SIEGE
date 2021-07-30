@@ -59,9 +59,11 @@
                 $cadastroCorreto = false;
             }
 
-            if (!isset($_POST['ano'])) {
-                $msgErro[2] = "<br> * Você não inseriu o ano em que será lessionada esta disiciplina.";
-                $cadastroCorreto = false;
+            if (!isset($_GET['att'])) {
+                if (!isset($_POST['ano'])) {
+                    $msgErro[2] = "<br> * Você não inseriu o ano em que será lessionada esta disiciplina.";
+                    $cadastroCorreto = false;
+                }
             }
 
             if (!isset($_POST['professor']) || $_POST['professor']=="none"){
@@ -69,21 +71,23 @@
                 $cadastroCorreto = false;
             }
 
-            $turmas = $_POST['turma'];
-            if(!isset($_POST['turma']) || empty($turmas)){
-                $msgErro[4] = "<br> * Você não escolheu nenhuma disciplina para essa matéria.";
-                $cadastroCorreto = false; 
-            }
+            if (!isset($_GET['att'])) {
+                $turmas = $_POST['turma'];
+                if(!isset($_POST['turma']) || empty($turmas)){
+                    $msgErro[4] = "<br> * Você não escolheu nenhuma disciplina para essa matéria.";
+                    $cadastroCorreto = false; 
+                }
 
-            $sql = "SELECT nome, ano, id_professor, id_turma FROM disciplina";
-            $resultado = $conexao->query($sql);
-            if ($resultado->num_rows > 0) {
-                while ($dados = $resultado->fetch_assoc()) {
-                    if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano'] && $_POST['professor']==$dados['id_professor']) {
-                        foreach ($turmas as $turma) {
-                            if ($turma == $dados['id_turma']) {
-                                $msgErro[5] = "Já existe um cadastro de disciplina igual ao que você inseriu.";
-                                $cadastroCorreto = false; 
+                $sql = "SELECT nome, ano, id_professor, id_turma FROM disciplina";
+                $resultado = $conexao->query($sql);
+                if ($resultado->num_rows > 0) {
+                    while ($dados = $resultado->fetch_assoc()) {
+                        if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano'] && $_POST['professor']==$dados['id_professor']) {
+                            foreach ($turmas as $turma) {
+                                if ($turma == $dados['id_turma']) {
+                                    $msgErro[5] = "Já existe um cadastro de disciplina igual ao que você inseriu.";
+                                    $cadastroCorreto = false; 
+                                }
                             }
                         }
                     }
@@ -184,7 +188,12 @@
                     $linkTurmas .= "&tur[$i]=$turma";
                     $i++;
                 }
-                header ("Location: ../../CRUD/Disciplina/create.php?nm=$nm&ano=$ano&prf=$prof$linkTurmas");
+                if (!isset($_GET['att'])) {
+                    header ("Location: ../../CRUD/Disciplina/create.php?nm=$nm&ano=$ano&prf=$prof$linkTurmas");
+                } else {
+                    $idtf = $_GET['idtf'];
+                    header ("Location: ../../CRUD/Disciplina/update.php?nm=$nm&prf=$prof&idtf=$idtf");
+                }
                 break;
             case "bimestre":
                 $nmr = $_POST['numero'];
