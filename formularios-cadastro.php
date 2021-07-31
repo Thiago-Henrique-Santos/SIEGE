@@ -323,16 +323,13 @@ $data_atual = date('d/m/Y');
                                         $valor_salvo = $_GET[$getName];
                                     echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['nome_disciplina'];} echo "'><br>";
                                 echo "&emsp;<label for='professor_$i' class='form-label'><u>Professor</u>:</label>";
-                                    //echo "&nbsp;<input type='text' id='professor_$i' name='professor_$i' required title='Selecione o nome do professor' value='" . $linha['nome_professor'] . "'><br>";
+
                                 $getName = "prf$i";
                                 if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                                     $valor_salvo = $_GET[$getName];
                                 echo "&nbsp;<select name='professor_$i' title='Selecione o nome do professor da disciplina' required>";
                                     echo "<option value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['id_professor'];} echo "' selected>" .$linha['nome_professor']. "</option>";
-                                    $sql2 = "
-                                    SELECT id, nome FROM usuario 
-                                    WHERE tipo_usuario = 2 AND id != 1;
-                                    ";
+                                    $sql2 = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1";
                                     $resultado2 = $conexao->query($sql2);
                                     if ($resultado2->num_rows > 0){
                                         while ($dados = $resultado2->fetch_assoc()) {
@@ -418,10 +415,7 @@ $data_atual = date('d/m/Y');
                             echo "--";
                         }
                     echo "</option>";
-                    $sql = "
-                    SELECT id, nome FROM usuario 
-                    WHERE tipo_usuario = 2 AND id != 1;
-                    ";
+                    $sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
                         while ($dados = $resultado->fetch_assoc()) {
