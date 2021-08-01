@@ -416,7 +416,6 @@ $data_atual = date('d/m/Y');
                         }
                     echo "</option>";
                     $sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 ORDER BY nome ASC";
-                    //$sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 AND id != "; if(isset($_GET['prf']) && !empty($_GET['prf'])){$sql .= $valor_salvo;}else{$sql .= $linha['id_professor'];}
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
                         while ($dados = $resultado->fetch_assoc()) {
