@@ -7,6 +7,8 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['tfm']) || empty($
 date_default_timezone_set('America/Sao_Paulo');
 include ("BancoDados/conexao_mysql.php");
 include ("modulos/funcoes.php");
+date_default_timezone_set('America/Sao_Paulo');
+$data_atual = date('d/m/Y');
 
 ?>
 
@@ -21,6 +23,36 @@ include ("modulos/funcoes.php");
     <link rel="stylesheet" type="text/css" href="modulos/estilo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script>
+        function toggleSubject (id) {
+            var buttons = document.querySelectorAll('button.att_disciplina');
+            
+            for (let i = 0; i < buttons.length; i++) {
+                let div = document.querySelectorAll('div.sh')[i];
+                if (buttons[i].id == id) {
+                    if (div.style.display == "none")
+                        div.style.display = "table-row";
+                    else
+                        div.style.display = "none";
+                }
+            }
+        }
+
+        function reloadModal (registerType) {
+            var path = `formularios-cadastro.php?id=${registerType}&tfm=cadastrar`;
+            window.location = path;
+        }
+
+        function mascara(telefone){ 
+            if(telefone.value.length == 0)
+                telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
+            if(telefone.value.length == 3)
+                telefone.value = telefone.value + ') '; //quando o campo já tiver 3 caracteres (um parênteses e 2 números) o script irá inserir mais um parênteses, fechando assim o código de área.
+
+            if(telefone.value.length == 10)
+                telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
+        }
+    </script>
 </head>
 
 <body>
@@ -57,6 +89,9 @@ include ("modulos/funcoes.php");
         case "validadoOK":
             validacaoOk();
             break;
+        case "erro":
+            alertaErro();
+            break;
         default:
             def();
             break;
@@ -72,46 +107,58 @@ include ("modulos/funcoes.php");
     }
 
     function diretor() {
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Diretores</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='diretor'>";
 
             campos_funcionarios();
-
+            
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
     function supervisor() {
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Supervisores</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='supervisor'>";
 
             campos_funcionarios();
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
     function professor() {
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Professores</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='professor'>";
 
             campos_funcionarios();
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
     function secretario() {
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Secretários</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='secretario'>";
 
             campos_funcionarios();
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -119,8 +166,8 @@ include ("modulos/funcoes.php");
         global $conexao;
         $valor_salvo = "";
 
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Alunos</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/usuarios.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='cargo' name='cargo' value='aluno'>";
 
             echo "<br><label for='nome_completo' class='form-label'><strong>Nome completo: </strong></label>";
@@ -161,7 +208,7 @@ include ("modulos/funcoes.php");
             echo "<br><label for='telefone' class='form-label'><strong>Telefone do responsável: </strong></label>";
                 if(isset($_GET["tlf"]) && !empty($_GET["tlf"]))
                     $valor_salvo = $_GET["tlf"];
-                echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' title='Insira seu telefone com o DDD e o número. Não se esqueça que, após digitar os 5 primeiros dígitos, colocar um hífen para digitar os 4 dígitos restantes.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
+              echo "<input type='tel' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' onkeypress='mascara(this)' title='Insira seu telefone com o DDD e o número precedido de 9.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
                 if (isset($_GET["etlf"]) && !empty($_GET["etlf"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["etlf"] . "</p>";
 
@@ -170,6 +217,7 @@ include ("modulos/funcoes.php");
                     $valor_salvo = $_GET["czn"];
                 echo "<input type='radio' name='campo_zona' id='campo_zR' value='R'"; if($valor_salvo=="R"){echo " checked";} echo">";
                 echo "<label for='campo_zR'>Zona rural</label>";
+                echo "&emsp;";
                 echo "<input type='radio' name='campo_zona' id='campo_zU' value='U'"; if($valor_salvo=="U"){echo " checked";} echo">";
                 echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
                 if (isset($_GET["eczn"]) && !empty($_GET["eczn"]))
@@ -180,6 +228,7 @@ include ("modulos/funcoes.php");
                     $valor_salvo = $_GET["cms"];
                 echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
                 echo "<label for='campo_sM'>Masculino</label>";
+                echo "&emsp;";
                 echo "<input type='radio' name='campo_s' id='campo_sF' value='F'"; if($valor_salvo=="F"){echo " checked";} echo">";
                 echo "<label for='campo_sF'>Feminino</label> <br><br>";
                 if (isset($_GET["ecms"]) && !empty($_GET["ecms"]))
@@ -191,7 +240,7 @@ include ("modulos/funcoes.php");
                 echo "<br><select name='turma' class='form-select'>";
                     echo "<option value='none' selected>--</option>";
                     $sql = "
-                    SELECT * FROM turma
+                    SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
                     ";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0) {
@@ -213,15 +262,19 @@ include ("modulos/funcoes.php");
                 if (isset($_GET["ecps"]) && !empty($_GET["ecps"]))
                     echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
     function turma() {
+        global $cad_att, $conexao;
         $valor_salvo = "";
 
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Turma</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/outros.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='turma'>";
             
             if(isset($_GET['nm']) && !empty($_GET['nm']))
@@ -233,7 +286,7 @@ include ("modulos/funcoes.php");
             
             if(isset($_GET['sr']) && !empty($_GET['sr']))
                 $valor_salvo = $_GET['sr'];
-            echo "<br><label for='serie' class='form-label'><strong>Série</strong></label>";
+            echo "<br><label for='serie' class='form-label'><strong>Série:</strong></label>";
                 echo "<br><select name='serie' class='form-select' required>";
                     echo "<option value='none' selected>--</option>";
                     echo "<option value='2' "; if($valor_salvo==2){echo "selected";} echo ">2&ordm;</option>";
@@ -248,16 +301,67 @@ include ("modulos/funcoes.php");
             if (isset($_GET['esr']) && !empty($_GET['esr']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["esr"] . "</p>";
 
-            echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+           if($cad_att=="atualizar"){
+                $sql = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', d.id_professor AS 'id_professor', 
+                        d.id_turma AS 'id_turma', u.id AS 'id_usuario', u.nome AS 'nome_professor' 
+                        FROM disciplina d, usuario u WHERE id_turma =" . $_GET['idtf'] . " AND d.id_professor = u.id
+                        ORDER BY d.nome ASC";
+	            $resultado = $conexao->query($sql);
+                
+                if ($resultado->num_rows > 0)
+                {
+                    echo "<br><label class='form-label'><strong>Disciplinas:</strong></label>";
+                    echo "<ul>";
+                    $i = 0;
+                    while ($linha = $resultado->fetch_assoc())
+                    {
+                            echo "<li><button id='$i' onclick='toggleSubject(this.id)' class='att_disciplina' type='button'>".$linha['nome_disciplina']."</button></li>";
+                            echo "<div class='sh' style='display: none;'>";
+                               echo "&emsp;<label for='disciplina_$i' class='form-label'><u>Nome</u>:</label>";
+                                    $getName = "dsc$i";
+                                    if (isset($_GET[$getName]) && !empty($_GET[$getName]))
+                                        $valor_salvo = $_GET[$getName];
+                                    echo "&nbsp;<input type='text' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['nome_disciplina'];} echo "'><br>";
+                                echo "&emsp;<label for='professor_$i' class='form-label'><u>Professor</u>:</label>";
+
+                                $getName = "prf$i";
+                                if (isset($_GET[$getName]) && !empty($_GET[$getName]))
+                                    $valor_salvo = $_GET[$getName];
+                                echo "&nbsp;<select name='professor_$i' title='Selecione o nome do professor da disciplina' required>";
+                                    echo "<option value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['id_professor'];} echo "' selected>" .$linha['nome_professor']. "</option>";
+                                    $sql2 = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 AND id != "; if(isset($_GET[$getName]) && !empty($_GET[$getName])){$sql2 .= $valor_salvo;}else{$sql2 .= $linha['id_professor'];} $sql2 .= " ORDER BY nome ASC";
+                                    $resultado2 = $conexao->query($sql2);
+                                    if ($resultado2->num_rows > 0){
+                                        while ($dados = $resultado2->fetch_assoc()) {
+                                            echo "<option value='".$dados["id"]."' ";if($valor_salvo==$dados['id']){echo "selected";} echo ">".$dados["nome"]."</option>";
+                                        }
+                                    }
+                                echo "</select>";
+
+
+                                echo "<input type='text' name='didtf_$i' style='display: none;' value='".$linha['id_disciplina']."'>";
+                            echo "</div><br><br>";
+                        $i++;
+                    }
+                    echo "</ul>";
+                    echo "<input type='text' name='quant_disciplina' style='display: none;' value='$i'>";
+                }
+                else
+                    echo "<br>&emsp; Não foram encontradas disciplinas!";	
+            }
+
+            echo "<center>";
+                echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
     function disciplina() {
-        global $conexao;
+        global $conexao, $cad_att;
         $valor_salvo = "";
 
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Disciplina</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
+        echo "<form method='POST' action='Validacoes/cadastrar/outros.php"; if($_GET['tfm']=="atualizar"){echo "?att=on&idtf=" . $_GET['idtf'];} echo "'>";
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='disciplina'>";
             
@@ -268,27 +372,50 @@ include ("modulos/funcoes.php");
             if (isset($_GET['enm']) && !empty($_GET['enm']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
-            if (isset($_GET['ano']) && !empty($_GET['ano']))
-                $valor_salvo = $_GET['ano'];
-            echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
-                echo "<br><select name='ano' class='form-select' required>";
-                $anoAtual = date("Y");
-                for ($i=$anoAtual-80; $i <= $anoAtual+1; $i++) {
-                    echo "<option value='$i' "; if($valor_salvo==$i){echo "selected";$valor_salvo="";}elseif($i==$anoAtual){echo "selected";$valor_salvo="";} echo">$i</option>";
-                }
-                echo "</select>";
-            if (isset($_GET['eano']) && !empty($_GET['eano']))
-                echo "<br><p class=\"msg_erro\">" . $_GET["eano"] . "</p>";
-
+            if($cad_att != "atualizar"){
+                if (isset($_GET['ano']) && !empty($_GET['ano']))
+                    $valor_salvo = $_GET['ano'];
+                echo "<br><label for='ano' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
+                    echo "<br><select name='ano' class='form-select' required>";
+                    $anoAtual = date("Y");
+                    for ($i=$anoAtual-80; $i <= $anoAtual+1; $i++) {
+                        echo "<option value='$i' "; if($valor_salvo==$i){echo "selected";$valor_salvo="";}elseif($i==$anoAtual){echo "selected";$valor_salvo="";} echo">$i</option>";
+                    }
+                    echo "</select>";
+                if (isset($_GET['eano']) && !empty($_GET['eano']))
+                    echo "<br><p class=\"msg_erro\">" . $_GET["eano"] . "</p>";
+            }
+            
             if (isset($_GET['prf']) && !empty($_GET['prf']))
                 $valor_salvo = $_GET['prf'];
             echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
                 echo "<br><select name='professor' class='form-select' required>";
-                    echo "<option value='none' selected>--</option>";
-                    $sql = "
-                    SELECT id, nome FROM usuario 
-                    WHERE tipo_usuario = 2
-                    ";
+                    echo "<option value='";
+                        if($cad_att == "atualizar"){
+                            $sql = "SELECT u.id FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
+                            $resultado = $conexao->query($sql);
+                            if($resultado -> num_rows > 0){
+                                while($linha = $resultado->fetch_assoc()){
+                                    echo $linha['id'];
+                                }
+                            }
+                        } else {
+                            echo "none";
+                        }
+                    echo "' selected>";
+                        if($cad_att == "atualizar"){
+                            $sql = "SELECT u.nome FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
+                            $resultado = $conexao->query($sql);
+                            if($resultado -> num_rows > 0){
+                                while($linha = $resultado->fetch_assoc()){
+                                    echo $linha['nome'];
+                                }
+                            }
+                        } else {
+                            echo "--";
+                        }
+                    echo "</option>";
+                    $sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 ORDER BY nome ASC";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
                         while ($dados = $resultado->fetch_assoc()) {
@@ -299,31 +426,36 @@ include ("modulos/funcoes.php");
             if (isset($_GET['eprf']) && !empty($_GET['eprf']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["eprf"] . "</p>";
 
-            if (isset($_GET['tur']) && !empty($_GET['tur']))
-                $turmas = $_GET['tur'];
-            echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
-                $sql = "
-                SELECT * FROM turma
-                ";
-                $resultado = $conexao->query($sql);
-                if ($resultado->num_rows > 0) {
-                    $i = 1;
-                    while ($dados = $resultado->fetch_assoc()) {
-                        echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."' "; if (isset($_GET['tur']) && !empty($_GET['tur'])){foreach($turmas as $turma){if($turma==$dados["id"]){echo "checked";}}} echo ">";
-                        echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ano ".$dados["nome"]."</label>";
-                        $i++;
+            if($cad_att != "atualizar"){
+                if (isset($_GET['tur']) && !empty($_GET['tur']))
+                    $turmas = $_GET['tur'];
+                echo "<br><label class='form-label'><strong>Turmas em que haverá esta disciplina:</strong></label>";
+                    $sql = "
+                    SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
+                    ";
+                    $resultado = $conexao->query($sql);
+                    if ($resultado->num_rows > 0) {
+                        $i = 1;
+                        while ($dados = $resultado->fetch_assoc()) {
+                            echo "<br><input type='checkbox' name='turma[$i]' id='".$dados["id"]."' value='".$dados["id"]."' "; if (isset($_GET['tur']) && !empty($_GET['tur'])){foreach($turmas as $turma){if($turma==$dados["id"]){echo "checked";}}} echo ">";
+                            echo "<label for='".$dados["id"]."' class='form-label'>&nbsp;".$dados["serie"]."&ordm; ano ".$dados["nome"]."</label>";
+                            $i++;
+                        }
                     }
-                }
-            if (isset($_GET['etur']) && !empty($_GET['etur']))
-                echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
+                if (isset($_GET['etur']) && !empty($_GET['etur']))
+                    echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
+            }
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
     function bimestre() {
         $valor_salvo = "";
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastro de Bimestre</h1>";
+        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
         echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
 
             echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='bimestre'>";
@@ -355,7 +487,10 @@ include ("modulos/funcoes.php");
             if (isset($_GET['edtf']) && !empty($_GET['edtf']))
                 echo "<br><p class=\"msg_erro\">" . $_GET["edtf"] . "</p>";
 
+            echo "<br><br>";
+            echo "<center>";
             echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
+            echo "</center>";
         echo "</form>";
     }
 
@@ -373,7 +508,7 @@ include ("modulos/funcoes.php");
                 $valor_salvo = $_GET["mp"];
             echo "<input type='text' placeholder='12345678' minlength='7' maxlength='8' required class='form-control' id='masp' name='masp' value='$valor_salvo'>";
             if (isset($_GET["emp"]) && !empty($_GET["emp"]))
-                 "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
+                 echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
         echo "<br><label for='email' class='form-label'><strong>Email: </strong></label>";
             if(isset($_GET["eml"]) && !empty($_GET["eml"]))
@@ -387,6 +522,7 @@ include ("modulos/funcoes.php");
                 $valor_salvo = $_GET["czn"];
             echo "<input type='radio' name='campo_zona' id='campo_zR' value='R'"; if($valor_salvo=="R"){echo " checked";} echo">";
             echo "<label for='campo_zR'>Zona rural</label>";
+            echo "&emsp;";
             echo "<input type='radio' name='campo_zona' id='campo_zU' value='U'"; if($valor_salvo=="U"){echo " checked";} echo">";
             echo "<label for='campo_zU'>Zona urbana</label> <br><br>";
             if (isset($_GET["eczn"]) && !empty($_GET["eczn"]))
@@ -397,6 +533,7 @@ include ("modulos/funcoes.php");
                 $valor_salvo = $_GET["tep"];
             echo "<input type='radio' name='tipo_empregado' id='designado' value='D'"; if($valor_salvo=="D"){echo " checked";} echo">";
             echo "<label for='designado'>Designado</label>";
+            echo "&emsp;";
             echo "<input type='radio' name='tipo_empregado' id='efetivo' value='E'"; if($valor_salvo=="E"){echo " checked";} echo">";
             echo "<label for='efetivo'>Efetivo</label> <br><br>";
             if (isset($_GET["etep"]) && !empty($_GET["etep"]))
@@ -407,6 +544,7 @@ include ("modulos/funcoes.php");
                 $valor_salvo = $_GET["cms"];
             echo "<input type='radio' name='campo_s' id='campo_sM' value='M'"; if($valor_salvo=="M"){echo " checked";} echo">";
             echo "<label for='campo_sM'>Masculino</label>";
+            echo "&emsp;";
             echo "<input type='radio' name='campo_s' id='campo_sF' value='F'"; if($valor_salvo=="F"){echo " checked";} echo">";
             echo "<label for='campo_sF'>Feminino</label> <br><br>";
             if (isset($_GET["ecms"]) && !empty($_GET["ecms"]))
@@ -431,7 +569,28 @@ include ("modulos/funcoes.php");
     }
 
     function validacaoOk () {
-        echo "<h1 align='center'>Cadastrado(a) com sucesso!</h1>";
+        global $cad_att;
+        echo "<h1 align='center'>"; if($cad_att=="cadastrar"){echo "Cadastro realizado ";}else{echo "Atualização realizada ";} echo "com sucesso!</h1>";
+        echo "<br>";
+        echo "<center>";
+        echo "<img src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
+        if (isset($_GET['rcd']) && !empty($_GET['rcd'])) {
+            echo "<br><br>";
+            echo "<button onclick='reloadModal(\"".$_GET['rcd']."\")'>Cadastrar novamente</button>";
+        }
+        echo "</center>";
+    }
+
+    function alertaErro () {
+        echo "<h1 align='center'>Ocorreu um erro inesperado!</h1>";
+        echo "<br>";
+        echo "<center>";
+            echo "<img src='img/erro.gif' style='margin-bottom: 10px; width: 350px; height: auto;'>";
+        echo "<br><br>";
+        echo "<div id='mostra erro' style='width:100%; display: flex; justify-content: center; align-items: center;'>";
+            echo "<img src='img/atencao.png' style='height: 20px; width: auto;'>";
+            echo "<font style='font-size: 20px;'>".$_GET['info']."</font>";
+        echo "</div>";
     }
 ?>
 
@@ -441,13 +600,17 @@ include ("modulos/funcoes.php");
 
     const title = document.getElementById('titulo_formulario');
 
-    <?php
-    if($cad_att == "cadastrar"){
-        echo "title.innerText = 'Cadastrar $formType'";
-    } else{
-        echo "title.innerText = 'Atualizar $formType'";
+    if (title) {
+        <?php
+        if($formType != "default"){
+            if($cad_att == "cadastrar"){
+                echo "title.innerText = 'Cadastrar $formType'";
+            } else {
+                echo "title.innerText = 'Atualizar $formType'";
+            }
+        }
+        ?>
     }
-    ?>
 
     <?php
     if(isset($_GET['jcd']) && !empty($_GET['jcd'])) {

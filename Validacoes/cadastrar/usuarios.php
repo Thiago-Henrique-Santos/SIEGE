@@ -1,6 +1,8 @@
 <?php
     include ('../../modulos/funcoes.php');
     include ('../../BancoDados/conexao_mysql.php');
+    date_default_timezone_set('America/Sao_Paulo');
+    $data_atual = date('Y-m-d');
 
     if (!isset($_POST['cargo']) || empty($_POST['cargo'])) {
         header("Location: ../formularios-cadastro.php?id=weird");
@@ -50,21 +52,41 @@
                 $cadastroCorreto = false;
             }
 
+            if ($_POST['data_nascimento'] > $data_atual) {
+                $msgErro_aluno[2] = "<br> * A data de nascimento está maior que a data atual.";
+                $cadastroCorreto = false;
+            }
+
             if (!isset($_POST['matricula']) || empty($_POST['matricula'])) {
-                $msgErro_aluno[3] = "<br> * Você esqueceu de inserir o número da matricula.";
+                $msgErro_aluno[3] = "<br> * Você esqueceu de inserir o número da matrícula.";
                 $cadastroCorreto = false;
             }
             if (!is_numeric($_POST['matricula'])) {
                 $msgErro_aluno[3] = "<br> * Este campo só permite número.";
                 $cadastroCorreto = false;
             }
+
             $sql = "SELECT numero_matricula FROM aluno";
             $resultado = $conexao->query($sql);
             if ($resultado->num_rows > 0) {
                 while ($dados = $resultado->fetch_assoc()){
-                    if ($masp==$dados['numero_matricula']) {
-                        $msgErro_aluno[3] = "<br> * Este número de matricula já está cadastrado.";
-                        $cadastroCorreto = false;
+                    if (!isset($_GET['att'])) {
+                        if ($_POST['matricula']==$dados['numero_matricula']) {
+                            $msgErro_aluno[3] = "<br> * Este número de matrícula já está cadastrado.";
+                            $cadastroCorreto = false;
+                        }
+                    } else {
+                        $sql2 = "SELECT numero_matricula FROM aluno WHERE idAluno=".$_GET['idtf'];
+                        $resultado2 = $conexao->query($sql2);
+                        if ($resultado2->num_rows > 0) {
+                            while($info = $resultado2->fetch_assoc()){
+                                $matriculaAtual = $info['numero_matricula'];
+                                if ($_POST['matricula']==$dados['numero_matricula'] && $dados['numero_matricula']!=$matriculaAtual) {
+                                    $msgErro_aluno[3] = "<br> * Este número de matrícula já está cadastrado.";
+                                    $cadastroCorreto = false;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -181,17 +203,36 @@
         $fnc = $_POST['funcao'];
     }
     
+
     if ($cadastroCorreto) {
-        if ($_POST['cargo']=="aluno") {
-            header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
+        if(!isset($_GET['att'])){
+            if ($_POST['cargo']=="aluno") {
+                header ("Location: ../../CRUD/Usuario/create.php?id=aluno&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
+            } else {
+                header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+            }
         } else {
-            header ("Location: ../../CRUD/Usuario/create.php?id=$cg&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+            $idtf = $_GET['idtf'];
+            if ($_POST['cargo']=="aluno") {
+                header ("Location: ../../CRUD/Usuario/update.php?idtf=$idtf&nm=$nm&eml=$eml&czn=$czn&cms=$cms&dt=$dt&mt=$mt&rsp=$rsp&tlf=$tlf&tur=$tur&pss=$pss");
+            } else {
+                header ("Location: ../../CRUD/Usuario/update.php?idtf=$idtf&nm=$nm&eml=$eml&czn=$czn&cms=$cms&cg=$cg&mp=$mp&tep=$tep&fnc=$fnc&pss=$pss");
+            }
         }
     } else {
-        if ($_POST['cargo'] == "aluno") {
-            header ("Location: ../../formularios-cadastro.php?id=aluno&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&tur=$tur&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&etur=$msgErro_aluno[9]&epss=$msgErro_aluno[10]&ecps=$msgErro_aluno[11]");
+        $idtf = $_GET['idtf'];
+        if (!isset($_GET['att'])) {
+            if ($_POST['cargo'] == "aluno") {
+                header ("Location: ../../formularios-cadastro.php?id=aluno&tfm=cadastrar&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&tur=$tur&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&etur=$msgErro_aluno[9]&epss=$msgErro_aluno[10]&ecps=$msgErro_aluno[11]");
+            } else {
+                header ("Location: ../../formularios-cadastro.php?id=$cg&tfm=cadastrar&nm=$nm&mp=$mp&eml=$eml&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
+            }
         } else {
-            header ("Location: ../../formularios-cadastro.php?id=$cg&nm=$nm&mp=$mp&eml=$eml&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
+            if ($_POST['cargo'] == "aluno") {
+                header ("Location: ../../formularios-cadastro.php?id=aluno&tfm=atualizar&idtf=$idtf&nm=$nm&dt=$dt&mt=$mt&rsp=$rsp&eml=$eml&tlf=$tlf&czn=$czn&cms=$cms&tur=$tur&enm=$msgErro_aluno[1]&edt=$msgErro_aluno[2]&emt=$msgErro_aluno[3]&ersp=$msgErro_aluno[4]&eeml=$msgErro_aluno[5]&etlf=$msgErro_aluno[6]&eczn=$msgErro_aluno[7]&ecms=$msgErro_aluno[8]&etur=$msgErro_aluno[9]&epss=$msgErro_aluno[10]&ecps=$msgErro_aluno[11]");
+            } else {
+                header ("Location: ../../formularios-cadastro.php?id=$cg&tfm=atualizar&idtf=$idtf&nm=$nm&mp=$mp&eml=$eml&tep=$tep&fnc=$fnc&czn=$czn&cms=$cms&enm=$msgErro_sec_sup_prof_dir[1]&emp=$msgErro_sec_sup_prof_dir[2]&eeml=$msgErro_sec_sup_prof_dir[3]&eczn=$msgErro_sec_sup_prof_dir[4]&etep=$msgErro_sec_sup_prof_dir[5]&ecms=$msgErro_sec_sup_prof_dir[6]&efnc=$msgErro_sec_sup_prof_dir[7]&epss=$msgErro_sec_sup_prof_dir[8]&ecps=$msgErro_sec_sup_prof_dir[9]");
+            }
         }
     }
 
@@ -217,7 +258,7 @@
             $msgErro_sec_sup_prof_dir[2] = "<br> * Este campo deve conter no mínimo 7 e no máximo 8 caracteres.";
             $cadastroCorreto = false;
         }
-        if(jaExisteMasp($_POST['masp'], $_POST['cargo'])){
+        if(jaExisteMasp($_POST['masp'])){
             $msgErro_sec_sup_prof_dir[2] = "<br> * Este MASP já está cadastrado.";
             $cadastroCorreto = false;
         }
@@ -284,31 +325,42 @@
         $sql = "SELECT email FROM usuario";
         $resultado = $conexao->query($sql);
         if ($resultado->num_rows > 0) {
-            while ($dados = $resultado->fetch_assoc()){
-                if ($_POST['email']==$dados['email']) {
-                    return true;
+            while ($dados = $resultado->fetch_assoc()) {
+                if (!isset($_GET['att'])) {
+                    if ($_POST['email']==$dados['email']) {
+                        return true;
+                    }
+                } else {
+                    $sql2 = "SELECT email FROM usuario WHERE id=".$_GET['idtf'];
+                    $resultado2 = $conexao->query($sql2);
+                    if ($resultado2->num_rows > 0) {
+                        while($info = $resultado2->fetch_assoc()){
+                            $emailAtual = $info['email'];
+                            if ($_POST['email']==$dados['email'] && $dados['email']!=$emailAtual) {
+                                return true;
+                            }
+                        }
+                    }
                 }
             }
         }
         return false;
     }
 
-    function jaExisteMasp ($masp, $cargo) {
+    function jaExisteMasp ($masp) {
         global $conexao;
-        $sql = "";
-        if ($cargo=="professor") {
-            $sql = "SELECT masp FROM professor";
-        } else {
-            $sql = "SELECT masp FROM gerenciadores";
-        }
+        $sql = "SELECT * FROM professor WHERE masp='" . $masp . "' AND idProfessor != " . $_GET['idtf'];
         $resultado = $conexao->query($sql);
-        if ($resultado->num_rows > 0) {
-            while ($dados = $resultado->fetch_assoc()){
-                if ($masp==$dados['masp']) {
-                    return true;
-                }
-            }
+        if($resultado->num_rows > 0){
+            return true;
+        }
+
+        $sql = "SELECT * FROM gerenciadores WHERE masp='" . $masp . "' AND idGerenciador != " . $_GET['idtf'];
+        $resultado = $conexao->query($sql);
+        if($resultado->num_rows > 0){
+            return true;
         }
         return false;
     }
+    $conexao->close();
 ?>
