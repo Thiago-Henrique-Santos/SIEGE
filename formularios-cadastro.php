@@ -508,7 +508,7 @@ $data_atual = date('d/m/Y');
                 $valor_salvo = $_GET["mp"];
             echo "<input type='text' placeholder='12345678' minlength='7' maxlength='8' required class='form-control' id='masp' name='masp' value='$valor_salvo'>";
             if (isset($_GET["emp"]) && !empty($_GET["emp"]))
-                 "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
+                echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
         echo "<br><label for='email' class='form-label'><strong>Email: </strong></label>";
             if(isset($_GET["eml"]) && !empty($_GET["eml"]))
