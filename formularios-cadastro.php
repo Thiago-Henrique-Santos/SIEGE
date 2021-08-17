@@ -289,6 +289,33 @@ include ("modulos/funcoes.php");
                     SELECT id, nome FROM usuario 
                     WHERE tipo_usuario = 2
                     ";
+                    echo "<option value='";
+                        if($cad_att == "atualizar"){
+                            $sql = "SELECT u.id FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
+                            $resultado = $conexao->query($sql);
+                            if($resultado -> num_rows > 0){
+                                while($linha = $resultado->fetch_assoc()){
+                                    echo $linha['id'];
+                                }
+                            }
+                        } else {
+                            echo "none";
+                        }
+                    echo "' selected>";
+                        if($cad_att == "atualizar"){
+                            $sql = "SELECT u.nome FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
+                            $resultado = $conexao->query($sql);
+                            if($resultado -> num_rows > 0){
+                                while($linha = $resultado->fetch_assoc()){
+                                    echo $linha['nome'];
+                                }
+                            }
+                        } else {
+                            echo "--";
+                        }
+                    echo "</option>";
+                    $sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 ORDER BY nome ASC";
+                    //$sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 AND id != "; if(isset($_GET['prf']) && !empty($_GET['prf'])){$sql .= $valor_salvo;}else{$sql .= $linha['id_professor'];}
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
                         while ($dados = $resultado->fetch_assoc()) {
