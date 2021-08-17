@@ -15,11 +15,11 @@ close[1] = document.getElementById('modal-screen');
 
 close[0].addEventListener("click", () => {
     modal.style.display = "none";
-    document.location.reload(true);
+    //document.location.reload(true);
 });
 close[1].addEventListener("dblclick", () => {
     modal.style.display = "none";
-    document.location.reload(true);
+    //document.location.reload(true);
 });
 
 /**************************
