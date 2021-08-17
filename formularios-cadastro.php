@@ -603,9 +603,6 @@ $data_atual = date('d/m/Y');
     if (title) {
         <?php
         if($formType != "default"){
-            if($formType == "secretario"){
-                $formType = "secretário";
-            }
             if($cad_att == "cadastrar"){
                 echo "title.innerText = 'Cadastrar $formType'";
             } else {
