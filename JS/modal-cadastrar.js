@@ -14,27 +14,24 @@ for (var i = 0; i < options.length; i++) {
     iframe.src = path;
 }
 
-for (var i = 0; i < close.length; i++) {
-    close[i].addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-}
+close[0].addEventListener("click", () => {
+    modal.style.display = "none";
+});
+close[1].addEventListener("dblclick", () => {
+    modal.style.display = "none";
+});
 
 /**************************
 *         Funções         *
 **************************/
-function loadModal(registerType, formType) {
-    if (formType == 1)
-        formType = "cadastrar";
-    else
-        formType = "atualizar";
-    var path = generatePath(registerType, formType);
-    modal.style.display = "flex";
+function loadModal(registerType) {
+    var path = generatePath(registerType);
     iframe.src = path;
+    modal.style.display = "flex";
 }
 
-function generatePath(ref, ref2) {
+function generatePath(ref) {
     var basePath = "formularios-cadastro.php";
-    var completePath = basePath + "?id=" + ref + "&tfm=" + ref2;
+    var completePath = `${basePath}?id=${ref}&tfm=cadastrar`;
     return completePath;
 }

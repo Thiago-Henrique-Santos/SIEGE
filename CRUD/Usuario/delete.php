@@ -1,6 +1,11 @@
 <?php
 
+if(!isset($_GET['id']) || empty($_GET['id'])){
+    echo "Ocorreu um erro!";
+}
+
 include ("../../BancoDados/conexao_mysql.php");
+
 $user = $_GET['usr'];
 $id = $_GET['id'];
 
@@ -88,8 +93,7 @@ if($user == 'aluno'){
     else
         echo "<br> Erro removendo usuário: " . $conexao->error;
 
-    
+        
 $conexao->close();
 
 ?>
-
