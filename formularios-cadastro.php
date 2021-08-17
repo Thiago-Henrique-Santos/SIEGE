@@ -496,7 +496,7 @@ $data_atual = date('d/m/Y');
 
     function campos_funcionarios () {
         $valor_salvo = "";
-        echo "<br><label for='nome_completo' class='form-label'><strong>Nome completo:</strong></label>";
+        echo "<br><label for='nome_completo' class='form-label'><strong>Nome completo: </strong></label>";
             if(isset($_GET["nm"]) && !empty($_GET["nm"]))
                 $valor_salvo = $_GET["nm"];
             echo "<input type='text' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
