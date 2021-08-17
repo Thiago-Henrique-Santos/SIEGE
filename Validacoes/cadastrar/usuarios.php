@@ -349,13 +349,13 @@
 
     function jaExisteMasp ($masp) {
         global $conexao;
-        $sql = "SELECT * FROM professor WHERE masp='" . $masp . "'"; if (isset($_GET['idtf'])) {$sql .= " AND idProfessor != " . $_GET['idtf'];}
+        $sql = "SELECT * FROM professor WHERE masp='" . $masp . "' AND idProfessor != " . $_GET['idtf'];
         $resultado = $conexao->query($sql);
         if($resultado->num_rows > 0){
             return true;
         }
 
-        $sql = "SELECT * FROM gerenciadores WHERE masp='" . $masp . "'"; if (isset($_GET['idtf'])) {$sql .= " AND idGerenciador != " . $_GET['idtf'];}
+        $sql = "SELECT * FROM gerenciadores WHERE masp='" . $masp . "' AND idGerenciador != " . $_GET['idtf'];
         $resultado = $conexao->query($sql);
         if($resultado->num_rows > 0){
             return true;
