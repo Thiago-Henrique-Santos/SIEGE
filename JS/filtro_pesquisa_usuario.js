@@ -17,7 +17,7 @@ if (!httpRequest) {
 }
 
 var options = document.getElementsByClassName('cargoFiltro');
-var bloco_resultado = document.getElementById('busca_resultado');
+var bloco_resultado = document.getElementById('busca_resultado')
 
 var url = "CRUD/Usuario/read.php";
 

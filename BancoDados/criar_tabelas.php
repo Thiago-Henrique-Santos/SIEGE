@@ -68,7 +68,7 @@
             telefone VARCHAR(15),
             id_turma INT UNSIGNED,
             FOREIGN KEY(idAluno) REFERENCES usuario(id),
-            FOREIGN KEY(id_turma) REFERENCES turma(id) ON DELETE SET NULL
+            FOREIGN KEY(id_turma) REFERENCES turma(id)
             )";
 
     if($conexao->query($sql) === TRUE)
@@ -100,7 +100,7 @@
         ano YEAR,
         id_professor INT UNSIGNED,
         id_turma INT UNSIGNED,
-        FOREIGN KEY(id_professor) REFERENCES professor(idProfessor) ON DELETE SET NULL,
+        FOREIGN KEY(id_professor) REFERENCES professor(idProfessor),
         FOREIGN KEY(id_turma) REFERENCES turma(id)
         )";
 
@@ -204,33 +204,6 @@
         echo "<br> Tabela de aluno_faz_atividade criada com sucesso!";
     else    
         echo "<br> Erro criando a tabela aluno_faz_atividade: " . $conexao->error;
-
-
-    //Criação da turma de id 1 (default)
-    $sql = "INSERT INTO turma (id, nome, serie) VALUES (1, 'Default', 0)";
-
-	if ($conexao->query($sql) === TRUE)
-		echo "<br> Turma 1 criada com sucesso";
-	else
-		echo "<br> Erro criando turma 1: " . $conexao->error;
-
-    
-    //Criação do usuário de id 1 (default) -> professor
-    $sql = "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (1, 'Default', 'default@email.com', 'U', 'M', '000000', 2)";
-
-	if ($conexao->query($sql) === TRUE)
-		echo "<br> Usuário 1 criado com sucesso";
-	else
-		echo "<br> Erro criando usuário 1: " . $conexao->error;
-
-    
-    //Criação do professor de id 1 (default)
-    $sql = "INSERT INTO professor (idProfessor, masp, tipo_empregado, funcao) VALUES (1, '00000001', 'D', 'Guardar disciplinas não vinculadas a um professor')";
-
-	if ($conexao->query($sql) === TRUE)
-		echo "<br> Professor 1 criado com sucesso";
-	else
-		echo "<br> Erro criando professor 1: " . $conexao->error;
    
     $conexao->close();
 

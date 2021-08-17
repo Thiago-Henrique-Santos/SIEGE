@@ -28,10 +28,4 @@
         return $keys;
     }
 
-
-    //Formatar data
-    function formata_data($data){
-        return date("d/m/Y", strtotime($data));
-    }
-
 ?>

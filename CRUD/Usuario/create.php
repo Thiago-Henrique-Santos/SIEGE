@@ -44,7 +44,7 @@ if($_GET['id'] == 'aluno'){
     }
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar&rcd=aluno");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK");
     else{
         echo "Erro inserindo aluno: " . $conexao->error;
         $sql = "DELETE FROM usuario WHERE email == $email";
@@ -79,7 +79,7 @@ if($_GET['id'] == 'aluno'){
     }
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar&rcd=professor");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK");
     else{
         echo "Erro inserindo professor: " . $conexao->error;
         $sql = "DELETE FROM usuario WHERE email == $email";
@@ -115,7 +115,7 @@ if($_GET['id'] == 'aluno'){
     }
 
     if ($conexao->query($sql) === TRUE)
-        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar&rcd=$cargo");
+        header ("Location: ../../formularios-cadastro.php?id=validadoOK");
     else{
         echo "Erro inserindo gerenciador: " . $conexao->error;
         $sql = "DELETE FROM usuario WHERE email == $email";

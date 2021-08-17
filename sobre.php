@@ -27,7 +27,8 @@
             </div>
             
             <p style="margin-top: 50px;">
-                Nesta página, iremos contar um pouco sobre os desenvolvedores do SIEGE, sobre a escola e algumas informações da equipe
+                Nesta página, iremos contar um pouco sobre os desenvolvedores do SIEGE, a escola e todas as informações pessoais
+                da equipe
             </p>
         </main>
     </div>
