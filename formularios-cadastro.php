@@ -509,14 +509,10 @@ $data_atual = date('d/m/Y');
             echo "<input type='text' placeholder='12345678' minlength='7' maxlength='8' required class='form-control' id='masp' name='masp' value='$valor_salvo'>";
             if (isset($_GET["emp"]) && !empty($_GET["emp"]))
 <<<<<<< HEAD
-<<<<<<< HEAD
                 echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 =======
                  echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 >>>>>>> parent of 43ead25 (Revert "Coloquei o echo que estava faltando para o msg_erro  para a parte de masp")
-=======
-                 "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
->>>>>>> parent of 29ad1e9 (Coloquei o echo que estava faltando para o msg_erro  para a parte de masp)
 
         echo "<br><label for='email' class='form-label'><strong>Email: </strong></label>";
             if(isset($_GET["eml"]) && !empty($_GET["eml"]))
