@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIEGE - Home </title>
-    <link rel="stylesheet" type="text/css" href="CSS/reset.css">
-    <link rel="stylesheet" type="text/css" href="CSS/main.css">
-    <link rel="stylesheet" type="text/css" href="CSS/texto.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-</head>
-
-<?php
-    echo "<nav>";
-        echo "<a href='index.php'>";
-            echo "<img src='img/logo_transparente2.png' alt='Logo do sistema'>";
-        echo "</a>";
-        echo "<ul>";
-            echo "<li> <a href='index.php'>Início</a> </li>";
-            echo "<li> <a href='sobre.php'>Sobre</a> </li>";
-            echo "<li> <a href='como_acessar.php'>Como acessar</a> </li>";
-            echo "<li> <a href='login.php'>Entre</a> </li>";
-        echo "</ul>";
-    echo "</nav>";
-?>
+    <header>
+        <nav class="navbar fixed-top navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+            <img src="adicionar logo do juvenal" alt="" width="30" height="24">
+            Escola Estadual Professor Juvenal Brandão
+            <button class="btn btn-sm btn-outline-secondary" style="background-color: #B40404" type="button">ACESSE O SIEGE</button>
+            </a>
+        </div>
+        </nav>
+    </header>
+    <br><br>
+    
+    <section>
+      <div>
+        <ul class="nav justify-content-right" style="background-color:#191970" >
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Notícias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Boas Práticas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Editais</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Como acessar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Sobre nós</a>
+          </li>
+        </ul>
+      </div>
+    </section>
