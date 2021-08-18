@@ -328,7 +328,10 @@ $data_atual = date('d/m/Y');
                                 if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                                     $valor_salvo = $_GET[$getName];
                                 echo "&nbsp;<select name='professor_$i' title='Selecione o nome do professor da disciplina' required>";
-                                    echo "<option value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['id_professor'];} echo "' selected>" .$linha['nome_professor']. "</option>";
+                                    
+                                if($linha['nome_professor'] == 'Default')
+                                    $linha['nome_professor'] = "--";
+                                echo "<option value='"; if(isset($_GET[$getName]) && !empty($_GET[$getName])){echo $valor_salvo;}else{echo $linha['id_professor'];} echo "' selected>" .$linha['nome_professor']. "</option>";
                                     $sql2 = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 AND id != "; if(isset($_GET[$getName]) && !empty($_GET[$getName])){$sql2 .= $valor_salvo;}else{$sql2 .= $linha['id_professor'];} $sql2 .= " ORDER BY nome ASC";
                                     $resultado2 = $conexao->query($sql2);
                                     if ($resultado2->num_rows > 0){
@@ -408,6 +411,8 @@ $data_atual = date('d/m/Y');
                             $resultado = $conexao->query($sql);
                             if($resultado -> num_rows > 0){
                                 while($linha = $resultado->fetch_assoc()){
+                                    if($linha['nome'] == 'Default')
+                                        $linha['nome'] = "--";
                                     echo $linha['nome'];
                                 }
                             }
