@@ -162,7 +162,7 @@
                 if (!isset($_GET['att'])) {
                     header ("Location: ../../CRUD/Turma/create.php?nm=$nm&sr=$sr");
                 } else {
-                    $linkagem  = "Location: ../../CRUD/Turma/update.php?nm=$nm&sr=$sr";
+                    $linkagem  = "Location: ../../CRUD/Turma/update.php?idtf=" . $_GET['idtf'] . "&nm=$nm&sr=$sr";
                     if (isset($_POST['quant_disciplina'])) {
                         $quantidade = (int) $_POST['quant_disciplina'];
                         for ($i = 0; $i < $quantidade; $i++){
@@ -173,7 +173,7 @@
                             $getName   = "professor_$i";
                             $linkagem .= "&prf$i=".$_POST[$getName];
                         }
-                        $linkagem .= "&quant=$i&idtf=".$_GET['idtf'];
+                        $linkagem .= "&quant=$i";
                     }
                     header($linkagem);
                 }
