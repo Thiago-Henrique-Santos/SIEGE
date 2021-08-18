@@ -26,7 +26,7 @@
         include ('componentes/user_nav.php');
     ?>
 
-    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas e Disciplinas cadastradas</h1>
+    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas e Alunos cadastrados</h1>
 
 
     <div class="box_search">
@@ -65,6 +65,10 @@
     <br><br>
 
     <div id="busca_resultado">
+        //Temporário
+        <?php
+            include ("C:/xampp/htdocs/SIEGE/CRUD/Turma/read2.php");
+        ?>
     </div>
 
     <div id="modal-screen">
