@@ -393,6 +393,7 @@ $data_atual = date('d/m/Y');
                 $valor_salvo = $_GET['prf'];
             echo "<br><label for='professor' class='form-label'><strong>Professor da disciplina:</strong></label>";
                 echo "<br><select name='professor' class='form-select' required>";
+                    $opcaoSelecionada_id = 0;
                     echo "<option value='";
                         if($cad_att == "atualizar"){
                             $sql = "SELECT u.id FROM usuario u INNER JOIN disciplina d ON d.id_professor=u.id WHERE d.id=" . $_GET['idtf'];
@@ -400,6 +401,7 @@ $data_atual = date('d/m/Y');
                             if($resultado -> num_rows > 0){
                                 while($linha = $resultado->fetch_assoc()){
                                     echo $linha['id'];
+                                    $opcaoSelecionada_id = $linha['id'];
                                 }
                             }
                         } else {
@@ -420,7 +422,7 @@ $data_atual = date('d/m/Y');
                             echo "--";
                         }
                     echo "</option>";
-                    $sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 ORDER BY nome ASC";
+                    $sql = "SELECT id, nome FROM usuario WHERE tipo_usuario = 2 AND id != 1 AND id != $opcaoSelecionada_id ORDER BY nome ASC";
                     $resultado = $conexao->query($sql);
                     if ($resultado->num_rows > 0){
                         while ($dados = $resultado->fetch_assoc()) {

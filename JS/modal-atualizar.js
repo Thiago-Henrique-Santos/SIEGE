@@ -66,6 +66,6 @@ function generateClassPath(nm, sr, idtf) {
 }
 
 function generateSubjectPath(nm, idprf, idtf) {
-    var completePath = `${basePath}?id=disciplina&tfm=atualizar&nm=${nm}&sr=${idprf}&idtf=${idtf}`;
+    var completePath = `${basePath}?id=disciplina&tfm=atualizar&nm=${nm}&idprf=${idprf}&idtf=${idtf}`;
     return completePath;
 }
