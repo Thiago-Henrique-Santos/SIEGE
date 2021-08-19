@@ -102,7 +102,7 @@
         if ($resultado->num_rows > 0) {
             $i = 0;
             while ($linha = $resultado->fetch_assoc()) {
-                $registros['turma'][$i] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                $registros['turma'][$i]['nome'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
                 $sql2 = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
@@ -112,19 +112,18 @@
                     $j = 0;
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        $indexName = "disciplina_professor_$j";
                         if($linha2['id_professor'] == 1){
-                            $registros['disciplina_professor'][$i]['disciplina'][$j] = $linha2['nome_disciplina'];
-                            $registros['disciplina_professor'][$i]['professor'][$j]  = false;
+                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']  = false;
                         }
                         else{
-                            $registros['disciplina_professor'][$i]['disciplina'][$j] = $linha2['nome_disciplina'];
-                            $registros['disciplina_professor'][$i]['professor'][$j]  = $linha2['professor'];
+                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor'] = $linha2['professor'];
                         }
                         $j++;
                     }
                 }else{
-                    $registros['disciplina_professor_0'] = false;
+                    $registros['turma'][$i]['disciplina'] = false;
                 }
                 $i++;
             }
@@ -142,7 +141,7 @@
             $i = 0;
             while ($linha = $resultado->fetch_assoc())
             {
-                $registros['turma'][$i] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                $registros['turma'][$i]['nome'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
                 $sql2 = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
@@ -152,19 +151,18 @@
                     $j = 0;
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        $indexName = "disciplina_professor_$j";
                         if($linha2['id_professor'] == 1){
-                            $registros['disciplina_professor'][$i]['disciplina'][$j] = $linha2['nome_disciplina'];
-                            $registros['disciplina_professor'][$i]['professor'][$j]  = false;
+                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']  = false;
                         }
                         else{
-                            $registros['disciplina_professor'][$i]['disciplina'][$j] = $linha2['nome_disciplina'];
-                            $registros['disciplina_professor'][$i]['professor'][$j]  = $linha2['professor'];
+                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor'] = $linha2['professor'];
                         }
                         $j++;
                     }
                 }else{
-                    $registros["disciplina_professor"] = false;
+                    $registros['turma'][$i]['disciplina'] = false;
                 }
                 $i++;
             }
