@@ -2,7 +2,7 @@
 
     include ("C:/xampp/htdocs/SIEGE/BancoDados/conexao_mysql.php");
     $sql = "";
-    $registros = "";
+    $registros = array();
 
     if(isset($_GET['seg']) || isset($_GET['terc']) || isset($_GET['quart']) || isset($_GET['quin']) || isset($_GET['sext']) || isset($_GET['seti']) || isset($_GET['oit']) || isset($_GET['non'])){
         $innerJoin_counter = 0;
@@ -100,36 +100,29 @@
 
         $resultado = $conexao->query($sql);
         if ($resultado->num_rows > 0) {
+            $i = 0;
             while ($linha = $resultado->fetch_assoc()) {
-                $registros .= "<div style='border: 1px solid black;'>";
-                $registros .= "<strong>Turma: </strong>" . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
-                $sql2 = "SELECT a.idAluno AS 'id_aluno', u.nome AS 'nome_aluno' FROM usuario u WHERE a.idAluno=u.id AND a.id_turma=$linha[id_turma]";
+                $registros['turma'][$i]['nome'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                $sql2 = "SELECT a.idAluno AS 'id_aluno', u.nome AS 'nome_aluno' FROM usuario u WHERE a.idAluno=u.id AND a.id_turma=$linha[id_turma] ORDER BY u.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
 
-
                 if ($resultado2->num_rows > 0)
                 {
-                    $c_al=1;
+                    $j=0;
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        $registros .= "&emsp;";
-                        $registros .= "<u>" . $c_al . "</u>: " . $linha2['nome_aluno'];
-                        //$registros .= "&emsp;";
-                        //$registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button>";
-                        // $registros .= "&nbsp;<button onclick='loadSubjectModal(\"".$linha2['nome_disciplina']."\", \"".$linha2['id_professor']."\", \"".$linha2['id_disciplina']."\")'>Atualizar</button>";
-                        $registros .= "<br>";
-                        $c_al++;
+                        $registros['turma'][$i]['aluno'][$j]['numero_chamada'] = $j + 1;
+                        $registros['turma'][$i]['aluno'][$j]['nome'] = $linha2['nome_aluno'];
+                        $j++;
                     }
                 }else{
-                    $registros .= "&nbsp;Não foram encontrados alunos!<br>";
+                    $registros['turma'][$i]['aluno'] = false;
                 }
-                $registros .= "&nbsp; <button id='atualizar' onclick='loadClassModal(\"".$linha['nome_turma']."\", ".$linha['serie'].", ". $linha['id_turma'] . ")'>Atualizar</button> &nbsp;";
-                $registros .= "<button id='remover' onclick='deleteConfirm(\"Turma\", \"none\", " . $linha['id_turma'] . ")'>Remover</button>";
-                $registros .= "</div>";
+                $i++;
             }
         } else {
-            $registros .= "&emsp;Não foram encontradas turmas desta(s) série(s)!<br>";
+            $registros['turma'] = false;
         }
     }else{
         $sql = "
@@ -140,37 +133,31 @@
         
         if ($resultado->num_rows > 0)
         {
-            $c_al=1;
+            $i = 0;
             while ($linha = $resultado->fetch_assoc())
             {
-                $registros .= "<div style='border: 1px solid black;'>";
-                $registros .= "<strong>Turma: </strong>" . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
-                $sql2 = "SELECT a.idAluno AS 'id_aluno', u.nome AS 'nome_aluno' FROM usuario u, aluno a WHERE a.idAluno=u.id AND a.id_turma=$linha[id_turma]";
+                $registros['turma'][$i]['nome'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                $sql2 = "SELECT a.idAluno AS 'id_aluno', u.nome AS 'nome_aluno' FROM usuario u, aluno a WHERE a.idAluno=u.id AND a.id_turma=$linha[id_turma] ORDER BY u.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
 
                 if ($resultado2->num_rows > 0)
                 {
+                    $j = 0;
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
-                        $registros .= "&emsp;";
-                        $registros .= "<u>" . $c_al . "</u>: " . $linha2['nome_aluno'];
-                        //$registros .= "&emsp;";
-                        //$registros .= "<button id='" . $linha2['id_disciplina'] . "' onclick='deleteConfirm(\"Disciplina\", \"none\", " . $linha2['id_disciplina'] . ")'>Desvincular</button>";
-                        //$registros .= "&nbsp;<button onclick='loadSubjectModal(\"".$linha2['nome_disciplina']."\", \"".$linha2['id_professor']."\", \"".$linha2['id_disciplina']."\")'>Atualizar</button>";
-                        $registros .= "<br>";
-                        $c_al++;
+                        $registros['turma'][$i]['aluno'][$j]['numero_chamada'] = $j + 1;
+                        $registros['turma'][$i]['aluno'][$j]['nome'] = $linha2['nome_aluno'];
+                        $j++;
                     }
                 }else{
-                    $registros .= "&nbsp;Não foram encontradas disciplinas!<br>";
+                    $registros['turma'][$i]['aluno'] = false;
                 }
-                $registros .= "&nbsp; <button id='atualizar' onclick='loadClassModal(\"".$linha['nome_turma']."\", ".$linha['serie'].", ". $linha['id_turma'] . ")'>Atualizar</button> &nbsp;";
-                $registros .= "<button id='remover' onclick='deleteConfirm(\"Turma\", \"none\", " . $linha['id_turma'] . ")'>Remover</button>";
-                $registros .= "</div>";
+                $i++;
             }
         }
         else
-            $registros .= "Não foram encontradas turmas!";
+        $registros['turma'] = false;
     }
 
     echo json_encode($registros);
