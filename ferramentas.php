@@ -33,11 +33,13 @@
     <div class="buttons-group" style="margin-top:30px;">
         <a href="https://simave.educacao.mg.gov.br/#!/pagina-inicial" target="_blank"><button>Simave</button></a>
         <a href="https://www2.educacao.mg.gov.br/" target="_blank"><button>Secretaria de Educação - MG</button></a>
+        <a href="https://www.gov.br/pt-br" target="_blank"><button>Governo Federal</button></a>
+        
     </div>
 
     <div class="buttons-group" style="margin-top:30px;">
-        <a href="https://www.facebook.com/" target="_blank"><button>Facebook</button></a>
-        <a href="https://www.instagram.com/" target="_blank"><button>Instagram</button></a>
+        <a href="https://www.facebook.com/escolajuvenalbrandao" target="_blank"><button>Facebook</button></a>
+        <a href="https://www.instagram.com/escolajuvenalbrandao/" target="_blank"><button>Instagram</button></a>
         <a href="https://web.whatsapp.com/" target="_blank"><button>WhatsApp Web</button></a>
     </div>
 </body>

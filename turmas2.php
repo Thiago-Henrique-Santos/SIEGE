@@ -12,8 +12,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
     <link rel="stylesheet" type="text/css" href="CSS/inputs.css">
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
-    <link rel="stylesheet" type="text/css" href="CSS/consultas.css">
-    <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
+    <link rel="stylesheet" type="text/css" href="modulos/estilo.css">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -27,7 +26,7 @@
         include ('componentes/user_nav.php');
     ?>
 
-    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas e Disciplinas cadastradas</h1>
+    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas e Alunos cadastrados</h1>
 
 
     <div class="box_search">
@@ -66,6 +65,10 @@
     <br><br>
 
     <div id="busca_resultado">
+        //Temporário
+        <?php
+            include ("C:/xampp/htdocs/SIEGE/CRUD/Turma/read2.php");
+        ?>
     </div>
 
     <div id="modal-screen">

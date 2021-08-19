@@ -82,7 +82,7 @@
                 $resultado = $conexao->query($sql);
                 if ($resultado->num_rows > 0) {
                     while ($dados = $resultado->fetch_assoc()) {
-                        if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano'] && $_POST['professor']==$dados['id_professor']) {
+                        if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano']) {
                             foreach ($turmas as $turma) {
                                 if ($turma == $dados['id_turma']) {
                                     $msgErro[5] = "Já existe um cadastro de disciplina igual ao que você inseriu.";
