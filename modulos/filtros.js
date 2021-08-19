@@ -113,9 +113,11 @@ function makeResultPrint(response, resultBlock) {
         var subjects = response['turma'][j]['disciplinas'];
         var subjectsNames = [];
         var subjectsTeachers = [];
-        for (let k = 0; k < subjects.length; k++) {
-            subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
-            subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
+        if (subjects) {
+            for (let k = 0; k < subjects.length; k++) {
+                subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
+                subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
+            }
         }
         classHTMLResult(resultBlock, className, subjectsNames, subjectsTeachers);
     }
