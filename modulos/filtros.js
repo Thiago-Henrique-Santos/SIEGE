@@ -12,12 +12,8 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
             httpRequest.addEventListener("readystatechange", function () {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     var response = httpRequest.response;
-                    for (let j = 0; j < response['turma'].length; j++) {
-                        const className = response['turma'][j];
-                        const subjects = response['disciplina_professor'][j]['disciplina'];
-                        const teachers = response['disciplina_professor'][j]['professor'];
-                        classHTMLResult(resultBlock, className, subjects, teachers);
-                    }
+                    console.log(response);
+                    makeResultPrint(response, resultBlock);
                 }
             });
         } else {
@@ -28,12 +24,8 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
             httpRequest.addEventListener("readystatechange", function () {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     var response = httpRequest.response;
-                    for (let j = 0; j < response['turma'].length; j++) {
-                        const className = response['turma'][j];
-                        const subjects = response['disciplina_professor'][j]['disciplina'];
-                        const teachers = response['disciplina_professor'][j]['professor'];
-                        classHTMLResult(resultBlock, className, subjects, teachers);
-                    }
+                    console.log(response);
+                    makeResultPrint(response, resultBlock);
                 }
             });
         }
@@ -44,12 +36,8 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
         httpRequest.addEventListener("readystatechange", function () {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                 var response = httpRequest.response;
-                for (let j = 0; j < response['turma'].length; j++) {
-                    const className = response['turma'][j];
-                    const subjects = response['disciplina_professor'][j]['disciplina'];
-                    const teachers = response['disciplina_professor'][j]['professor'];
-                    classHTMLResult(resultBlock, className, subjects, teachers);
-                }
+                console.log(response);
+                makeResultPrint(response, resultBlock);
             }
         });
     }
@@ -117,6 +105,20 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
     deleteClassButton.setAttribute('class', 'button');
     deleteClassButton.innerText = "Excluir";
     buttonsBlock.appendChild(deleteClassButton);
+}
+
+function makeResultPrint(response, resultBlock) {
+    for (let j = 0; j < response['turma'].length; j++) {
+        const className = response['turma'][j]['nome'];
+        var subjects = response['turma'][j]['disciplinas'];
+        var subjectsNames = [];
+        var subjectsTeachers = [];
+        for (let k = 0; k < subjects.length; k++) {
+            subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
+            subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
+        }
+        classHTMLResult(resultBlock, className, subjectsNames, subjectsTeachers);
+    }
 }
 
 export { classAsyncQuery };
