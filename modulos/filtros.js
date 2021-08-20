@@ -46,7 +46,6 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
 function classHTMLResult(parentBox, className, subjects, teachers) {
     const classContainer = document.createElement('div');
     classContainer.setAttribute('class', 'classContainer');
-    parentBox.appendChild(classContainer);
 
     const title = document.createElement('div');
     title.setAttribute('class', 'classTitle');
@@ -55,13 +54,10 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
 
     const subjectsBlock = document.createElement('div');
     subjectsBlock.setAttribute('class', 'subjectsBlock');
-    classContainer.appendChild(subjectsBlock);
-
     if (subjects != false) {
         for (var i = 0; i < subjects.length; i++) {
             const subjectLine = document.createElement('div');
             subjectLine.setAttribute('class', 'subjectLine');
-            subjectsBlock.appendChild(subjectLine);
 
             const namesPart = document.createElement('div');
             namesPart.setAttribute('class', 'namesPart');
@@ -74,7 +70,6 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
 
             const buttonsPart = document.createElement('div');
             buttonsPart.setAttribute('class', 'buttonsPart');
-            subjectLine.appendChild(buttonsPart);
 
             if (teachers[i] != false) {
                 const withdrawSubjectButton = document.createElement('button');
@@ -87,14 +82,17 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
             updateSubjectButton.setAttribute('class', 'button');
             updateSubjectButton.innerText = "Atualizar";
             buttonsPart.appendChild(updateSubjectButton);
+
+            subjectLine.appendChild(buttonsPart);
+            subjectsBlock.appendChild(subjectLine);
         }
     } else {
         subjectsBlock.innerHTML = "<p>Não foram encontradas disciplinas!</p>";
     }
+    classContainer.appendChild(subjectsBlock);
 
     const buttonsBlock = document.createElement('div');
     buttonsBlock.setAttribute('class', 'classButtonsBlock');
-    classContainer.appendChild(buttonsBlock);
 
     const updateClassButton = document.createElement('button');
     updateClassButton.setAttribute('class', 'button');
@@ -105,6 +103,10 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
     deleteClassButton.setAttribute('class', 'button');
     deleteClassButton.innerText = "Excluir";
     buttonsBlock.appendChild(deleteClassButton);
+
+    classContainer.appendChild(buttonsBlock);
+
+    parentBox.appendChild(classContainer);
 }
 
 function makeResultPrint(response, resultBlock) {
