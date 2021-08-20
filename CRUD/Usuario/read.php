@@ -3,7 +3,7 @@
 include ("C:/xampp/htdocs/SIEGE/BancoDados/conexao_mysql.php");
 include ("C:/xampp/htdocs/SIEGE/modulos/funcoes.php");
 
-$registros = "";
+$registros = array();
 $sql = "";
 $tipo_gerenciador = "";
 
@@ -95,10 +95,11 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
     if ($conexao->multi_query($sql)) {
         do {
             if  (!$existeRegistros)
-                $registros = "";
+                $registros['usuario'] = false;
             
             if ($resultado = $conexao->store_result()) {
                 if ($resultado->num_rows > 0) {
+                    $i = 0;
                     $existeRegistros++;
                     while ($linha = $resultado->fetch_assoc()) {
                         if($linha['local_moradia'] == 'U')
@@ -111,23 +112,23 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         else
                             $sexo = 'Masculino';
 
-                        $registros .= "<div style='border: 1px solid black;'>";
-                        $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
-                        $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
-                        $registros .= "<strong>Zona de moradia:</strong> " . $local_moradia . "<br>";
-                        $registros .= "<strong>Sexo:</strong> " . $sexo . "<br>";
+                        $registros['usuario'][$i]['nome'] = $linha['nome'];
+                        $registros['usuario'][$i]['email'] = $linha['email'];
+                        $registros['usuario'][$i]['local_moradia'] = $local_moradia;
+                        $registros['usuario'][$i]['sexo'] = $sexo;
                         
                         if ($linha['tipo_usuario'] == 1) {
-                            $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha['data_nascimento']) . "<br>";
-                            $registros .= "<strong>Matrícula:</strong> " . $linha['numero_matricula'] . "<br>";
-                            $registros .= "<strong>Responsável:</strong> " . $linha['nome_responsavel'] . "<br>";
-                            $registros .= "<strong>Telefone:</strong> " . $linha['telefone'] . "<br>";
+                            $registros['usuario'][$i]['cargo_info']['data_nascimento'] = formata_data($linha['data_nascimento']);
+                            $registros['usuario'][$i]['cargo_info']['matricula'] = $linha['numero_matricula'];
+                            $registros['usuario'][$i]['cargo_info']['responsavel'] = $linha['nome_responsavel'];
+                            $registros['usuario'][$i]['cargo_info']['telefone'] = $linha['telefone'];
 
                             if($linha['id_turma'] == 1)
-                                $registros .= "<strong>Turma:</strong> " . "Este aluno não está vinculado a uma turma. <br>";
+                                $registros['usuario'][$i]['cargo_info']['turma'] = "Este aluno não está vinculado a uma turma";
                             else
-                                $registros .= "<strong>Turma:</strong> " . $linha['serie'] . "° ano " . $linha['nome_turma'] . "<br>";
-                            $registros .= "<strong>Ocupação:</strong> Aluno(a) <br>";
+                                $registros['usuario'][$i]['cargo_info']['turma'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                            
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno(a)";
                         } elseif ($linha['tipo_usuario'] == 2) {
 
                             if($linha['tipo_empregado'] == 'D')
@@ -135,38 +136,37 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             else
                                 $tipo_empregado = 'Efetivo';
 
-                            $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
-                            $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
-                            $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
-                            $registros .= "<strong>Ocupação:</strong> Professor(a) <br>";
+                            $registros['usuario'][$i]['cargo_info']['masp'] = $linha['masp'];
+                            $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
+                            $registros['usuario'][$i]['cargo_info']['funcao'] = $linha['funcao'];
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor(a)";
                         } else {
 
                             if($linha['tipo_empregado'] == 'D')
                                 $tipo_empregado = 'Designado';
                             else
                                 $tipo_empregado = 'Efetivo';
-                            $registros .= "<strong>MASP:</strong> " . $linha['masp'] . "<br>";
-                            $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
-                            $registros .= "<strong>Função:</strong> " . $linha['funcao'] . "<br>";
-                            $registros .= "<strong>Ocupação:</strong> " . $linha['tipo'] . "(a) <br>";
+                            $registros['usuario'][$i]['cargo_info']['masp'] = $linha['masp'];
+                            $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
+                            $registros['usuario'][$i]['cargo_info']['funcao'] = $linha['funcao'];
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = $linha['tipo'] . "(a)";
                         }
-                        $registros .= "&nbsp;<button id='atualizar' onclick='"; 
-                        if ($linha['tipo_usuario']==1) {
-                            $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\", \"".$linha['id']."\")";
-                        } else {
-                            $registros .= "loadStaffModal(";
-                            if ($linha['tipo_usuario']==2) 
-                                $registros .= "\"professor\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
-                            else
-                                $registros .= "\"".$linha['tipo']."\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
-                            $registros .= ")";
-                        }
-                        $registros .= "'>Atualizar</button>&nbsp;&nbsp;";
-                        $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_usuario']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\", \"".$linha['id']."\")'>Remover</button>";
-                        $registros .= "</div>";
+                         
+                        // if ($linha['tipo_usuario']==1) {
+                        //     $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\", \"".$linha['id']."\")";
+                        // } else {
+                        //     $registros .= "loadStaffModal(";
+                        //     if ($linha['tipo_usuario']==2) 
+                        //         $registros .= "\"professor\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
+                        //     else
+                        //         $registros .= "\"".$linha['tipo']."\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
+                        //     $registros .= ")";
+                        // }
+                            
+                        $i++;
                     }
                 } else {
-                    $registros .= "&nbsp;Não foram encontrados usuários!";
+                    $registros['usuario'] = "Não foram encontrados usuários!";
                 }
             }
         } while ($conexao->next_result());
@@ -176,6 +176,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
     $resultado = $conexao->query($sql);
 
     if ($resultado->num_rows > 0) {
+        $i = 0;
 
         while ($linha = $resultado->fetch_assoc()) {
             if($linha['local_moradia'] == 'U')
@@ -188,11 +189,10 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             else
                 $sexo = 'Masculino';
 
-            $registros .= "<div style='border: 1px solid black;'>";
-            $registros .= "<strong>Nome:</strong> " . $linha['nome'] . "<br>";
-            $registros .= "<strong>Email:</strong> " . $linha['email'] . "<br>";
-            $registros .= "<strong>Zona de moradia:</strong> " . $local_moradia . "<br>";
-            $registros .= "<strong>Sexo:</strong> " . $sexo . "<br>";
+            $registros['usuario'][$i]['nome'] = $linha['nome'];
+            $registros['usuario'][$i]['email'] = $linha['email'];
+            $registros['usuario'][$i]['local_moradia'] = $local_moradia;
+            $registros['usuario'][$i]['sexo'] = $sexo;
             
             
             if ($linha["tipo_usuario"] == 1) {
@@ -200,17 +200,17 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                 $resultado2 = $conexao->query($sql2);
                 if ($resultado2->num_rows > 0) {
                     while ($linha2 = $resultado2->fetch_assoc()) {
-                        $registros .= "<strong>Data de nascimento:</strong> " . formata_data($linha2['data_nascimento']) . "<br>";
-                        $registros .= "<strong>Matrícula:</strong> " . $linha2['numero_matricula'] . "<br>";
-                        $registros .= "<strong>Responsável:</strong> " . $linha2['nome_responsavel'] . "<br>";
-                        $registros .= "<strong>Telefone:</strong> " . $linha2['telefone'] . "<br>";
+                        $registros['usuario'][$i]['cargo_info']['data_nascimento'] = formata_data($linha2['data_nascimento']);
+                        $registros['usuario'][$i]['cargo_info']['matricula'] = $linha2['numero_matricula'];
+                        $registros['usuario'][$i]['cargo_info']['responsavel'] = $linha2['nome_responsavel'];
+                        $registros['usuario'][$i]['cargo_info']['telefone'] = $linha2['telefone'];
                         
                         if($linha2['id_turma'] == 1)
-                            $registros .= "<strong>Turma:</strong> " . "Este aluno não está vinculado a uma turma. <br>";
+                            $registros['usuario'][$i]['cargo_info']['turma'] = "Este aluno não está vinculado a uma turma.";
                         else
-                            $registros .= "<strong>Turma:</strong> " . $linha2['serie'] . "° ano " . $linha2['nome'] . "<br>";
-                        $registros .= "<strong>Ocupação:</strong> Aluno(a) <br>";
-                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStudentModal(\"".$linha['nome']."\", \"".$linha2['data_nascimento']."\", \"".$linha2['numero_matricula']."\", \"".$linha2['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha2['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha2['id']."\", \"" . $linha['id'] . "\")'>Atualizar</button>&nbsp;&nbsp;";
+                            $registros['usuario'][$i]['cargo_info']['turma'] = $linha2['serie'] . "° ano " . $linha2['nome'];
+                        
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno(a)";
                     }
                 }
             } elseif ($linha["tipo_usuario"] == 2) {
@@ -224,11 +224,10 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         else
                             $tipo_empregado = 'Efetivo';
 
-                        $registros .= "<strong>MASP:</strong> " . $linha2['masp'] . "<br>";
-                        $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
-                        $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
-                        $registros .= "<strong>Ocupação:</strong> Professor(a) <br>";
-                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStaffModal(\"professor\", \"".$linha['nome']."\", \"".$linha2['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha2['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha2['funcao']."\", \"".$linha['id']."\")'>Atualizar</button>&nbsp;&nbsp;";
+                        $registros['usuario'][$i]['cargo_info']['masp'] = $linha2['masp'];
+                        $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
+                        $registros['usuario'][$i]['cargo_info']['funcao'] = $linha2['funcao'];
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor(a)";
                     }
                 }
             } else {
@@ -242,19 +241,17 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         else
                             $tipo_empregado = 'Efetivo';
 
-                        $registros .= "<strong>MASP:</strong> " . $linha2['masp'] . "<br>";
-                        $registros .= "<strong>Tipo de empregado:</strong> " . $tipo_empregado . "<br>";
-                        $registros .= "<strong>Função:</strong> " . $linha2['funcao'] . "<br>";
-                        $registros .= "<strong>Ocupação:</strong> " . $linha2['tipo'] . "(a) <br>";
-                        $registros .= "&nbsp;<button id='atualizar' onclick='loadStaffModal(\"".$linha2['tipo']."\", \"".$linha['nome']."\", \"".$linha2['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha2['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha2['funcao']."\", \"".$linha['id']."\")'>Atualizar</button>&nbsp;&nbsp;";
+                        $registros['usuario'][$i]['cargo_info']['masp'] = $linha2['masp'];
+                        $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
+                        $registros['usuario'][$i]['cargo_info']['funcao'] = $linha2['funcao'];
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = $linha2['tipo'] . "(a)";
                     }
                 }
             }
-            $registros .= "<button id='remover' onclick='deleteConfirm(\"Usuario\", \""; if($linha['tipo_usuario']==1){$registros.="aluno";}elseif($linha['tipo_usuario']==2){$registros.="professor";}else{$registros.="$tipo_gerenciador";} $registros.="\", \"".$linha['id']."\")'>Remover</button>";
-            $registros .= "</div>";
+            $i++;
         }
     } else {
-        $registros .= "&nbsp;Não foram encontrados usuários!";
+        $registros['usuario'] = "Não foram encontrados usuários!";
     }
 }
 
