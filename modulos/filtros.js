@@ -2,7 +2,7 @@ import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
 
 function classAsyncQuery(url, resultBlock, option, optionStatus) {
-    var httpRequest = startRequest();
+    let httpRequest = startRequest();
     if (option != null && optionStatus != null) {
         if (optionStatus) {
             url = generatePath(url, option, true);
@@ -11,7 +11,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
             httpRequest.send();
             httpRequest.addEventListener("readystatechange", function () {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                    var response = httpRequest.response;
+                    let response = httpRequest.response;
                     console.log(response);
                     makeResultPrint(response, resultBlock);
                 }
@@ -23,7 +23,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
             httpRequest.send();
             httpRequest.addEventListener("readystatechange", function () {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                    var response = httpRequest.response;
+                    let response = httpRequest.response;
                     console.log(response);
                     makeResultPrint(response, resultBlock);
                 }
@@ -35,7 +35,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
         httpRequest.send();
         httpRequest.addEventListener("readystatechange", function () {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                var response = httpRequest.response;
+                let response = httpRequest.response;
                 console.log(response);
                 makeResultPrint(response, resultBlock);
             }
@@ -43,43 +43,43 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
     }
 }
 
-function classHTMLResult(parentBox, className, subjects, teachers) {
+function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, teachers) {
     const classContainer = document.createElement('div');
     classContainer.setAttribute('class', 'classContainer');
 
     const title = document.createElement('div');
     title.setAttribute('class', 'classTitle');
-    title.innerHTML = `<strong>Turma:</strong> ${className}`;
+    title.innerHTML = `<strong>Turma:</strong> ${classGrade}º ano ${className}`;
     classContainer.appendChild(title);
 
     const subjectsBlock = document.createElement('div');
     subjectsBlock.setAttribute('class', 'subjectsBlock');
-    if (!subjects) {
-        for (var i = 0; i < subjects.length; i++) {
+    if (subjects) {
+        for (let i = 0; i < subjects.length; i++) {
             const subjectLine = document.createElement('div');
             subjectLine.setAttribute('class', 'subjectLine');
 
             const namesPart = document.createElement('div');
             namesPart.setAttribute('class', 'namesPart');
             namesPart.innerHTML = `<u>${subjects[i]}</u>: `;
-            if (!teachers[i])
+            if (teachers[i])
                 namesPart.innerHTML += teachers[i];
             else
-                namesPart.innerText += "Não há professor disponível nesta disciplina, nesta turma.";
+                namesPart.innerText += "Nesta turma, não há professor vinculado a essa disciplina.";
             subjectLine.appendChild(namesPart);
 
             const buttonsPart = document.createElement('div');
             buttonsPart.setAttribute('class', 'buttonsPart');
 
-            if (!teachers[i]) {
+            if (teachers[i]) {
                 const withdrawSubjectButton = document.createElement('button');
-                withdrawSubjectButton.setAttribute('class', 'button');
+                withdrawSubjectButton.setAttribute('class', 'buttons-queries');
                 withdrawSubjectButton.innerText = "Desvincular";
                 buttonsPart.appendChild(withdrawSubjectButton);
             }
 
             const updateSubjectButton = document.createElement('button');
-            updateSubjectButton.setAttribute('class', 'button');
+            updateSubjectButton.setAttribute('class', 'buttons-queries');
             updateSubjectButton.innerText = "Atualizar";
             buttonsPart.appendChild(updateSubjectButton);
 
@@ -95,13 +95,15 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
     buttonsBlock.setAttribute('class', 'classButtonsBlock');
 
     const updateClassButton = document.createElement('button');
-    updateClassButton.setAttribute('class', 'button');
+    updateClassButton.setAttribute('class', 'buttons-queries');
     updateClassButton.innerText = "Atualizar";
+    updateClassButton.onclick = () => loadClassModal(className, classGrade, classIdtf);
     buttonsBlock.appendChild(updateClassButton);
 
     const deleteClassButton = document.createElement('button');
-    deleteClassButton.setAttribute('class', 'button');
+    deleteClassButton.setAttribute('class', 'buttons-queries');
     deleteClassButton.innerText = "Excluir";
+    deleteClassButton.onclick = () => deleteConfirm("turma", "none", classIdtf);
     buttonsBlock.appendChild(deleteClassButton);
 
     classContainer.appendChild(buttonsBlock);
@@ -115,17 +117,19 @@ function makeResultPrint(response, resultBlock) {
         resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
     } else {
         for (let j = 0; j < response['turma'].length; j++) {
-            const className = response['turma'][j]['nome'];
-            var subjects = response['turma'][j]['disciplinas'];
-            var subjectsNames = [];
-            var subjectsTeachers = [];
+            let classIdtf = response['turma'][j]['idtf'];
+            let className = response['turma'][j]['nome'];
+            let classGrade = response['turma'][j]['serie'];
+            let subjects = response['turma'][j]['disciplinas'];
+            let subjectsNames = [];
+            let subjectsTeachers = [];
             if (subjects) {
                 for (let k = 0; k < subjects.length; k++) {
                     subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
                     subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
                 }
             }
-            classHTMLResult(resultBlock, className, subjectsNames, subjectsTeachers);
+            classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsNames, subjectsTeachers);
         }
     }
 }
