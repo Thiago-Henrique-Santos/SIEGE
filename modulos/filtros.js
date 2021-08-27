@@ -17,7 +17,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
                 }
             });
         } else {
-            url = generatePath(url, checkbox.id, false);
+            url = generatePath(url, option, false);
             httpRequest.open('GET', url);
             httpRequest.responseType = "json";
             httpRequest.send();

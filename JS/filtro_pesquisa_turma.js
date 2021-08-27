@@ -6,9 +6,11 @@ var url = "CRUD/Turma/read.php";
 
 for (let i = 0; i < options.length; i++) {
     let checkbox = options[i];
-    checkbox.addEventListener('change', function (event) {
+    checkbox.addEventListener("change", function (event) {
         var checkboxStatus = event.target.checked;
         if (checkboxStatus) {
+            classAsyncQuery(url, resultBlock, checkbox.id, checkboxStatus);
+        } else {
             classAsyncQuery(url, resultBlock, checkbox.id, checkboxStatus);
         }
     });
