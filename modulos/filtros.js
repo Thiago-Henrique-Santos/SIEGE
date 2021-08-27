@@ -54,7 +54,7 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
 
     const subjectsBlock = document.createElement('div');
     subjectsBlock.setAttribute('class', 'subjectsBlock');
-    if (subjects != false) {
+    if (!subjects) {
         for (var i = 0; i < subjects.length; i++) {
             const subjectLine = document.createElement('div');
             subjectLine.setAttribute('class', 'subjectLine');
@@ -62,7 +62,7 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
             const namesPart = document.createElement('div');
             namesPart.setAttribute('class', 'namesPart');
             namesPart.innerHTML = `<u>${subjects[i]}</u>: `;
-            if (teachers[i] != false)
+            if (!teachers[i])
                 namesPart.innerHTML += teachers[i];
             else
                 namesPart.innerText += "Não há professor disponível nesta disciplina, nesta turma.";
@@ -71,7 +71,7 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
             const buttonsPart = document.createElement('div');
             buttonsPart.setAttribute('class', 'buttonsPart');
 
-            if (teachers[i] != false) {
+            if (!teachers[i]) {
                 const withdrawSubjectButton = document.createElement('button');
                 withdrawSubjectButton.setAttribute('class', 'button');
                 withdrawSubjectButton.innerText = "Desvincular";
