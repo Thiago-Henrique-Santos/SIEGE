@@ -124,9 +124,11 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros['usuario'][$i]['cargo_info']['telefone'] = $linha['telefone'];
 
                             if($linha['id_turma'] == 1)
-                                $registros['usuario'][$i]['cargo_info']['turma'] = "Este aluno não está vinculado a uma turma";
-                            else
-                                $registros['usuario'][$i]['cargo_info']['turma'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                                $registros['usuario'][$i]['cargo_info']['turma']['nome'] = "Este aluno não está vinculado a uma turma";
+                            else{
+                                $registros['usuario'][$i]['cargo_info']['turma']['serie'] = $linha['serie'];
+                                $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha['nome_turma'];
+                            }
                             
                             $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno(a)";
                         } elseif ($linha['tipo_usuario'] == 2) {
@@ -206,9 +208,11 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros['usuario'][$i]['cargo_info']['telefone'] = $linha2['telefone'];
                         
                         if($linha2['id_turma'] == 1)
-                            $registros['usuario'][$i]['cargo_info']['turma'] = "Este aluno não está vinculado a uma turma.";
-                        else
-                            $registros['usuario'][$i]['cargo_info']['turma'] = $linha2['serie'] . "° ano " . $linha2['nome'];
+                            $registros['usuario'][$i]['cargo_info']['turma']['nome'] = "Este aluno não está vinculado a uma turma.";
+                        else{
+                            $registros['usuario'][$i]['cargo_info']['turma']['serie'] = $linha2['serie'];
+                            $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha2['nome'];
+                        }
                         
                         $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno(a)";
                     }

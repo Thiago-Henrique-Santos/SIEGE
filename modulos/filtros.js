@@ -134,4 +134,15 @@ function makeResultPrint(response, resultBlock) {
     }
 }
 
+function makeUserResultPrint(response, resultBlock) {
+    resultBlock.innerHTML = "";
+    if (!response['usuario']) {
+        resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontrados usuários!</p>";
+    } else {
+        for (let i = 0; i < response['usuario'].length; i++) {
+            //comeco
+        }
+    }
+}
+
 export { classAsyncQuery };
