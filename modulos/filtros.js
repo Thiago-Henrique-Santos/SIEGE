@@ -110,18 +110,23 @@ function classHTMLResult(parentBox, className, subjects, teachers) {
 }
 
 function makeResultPrint(response, resultBlock) {
-    for (let j = 0; j < response['turma'].length; j++) {
-        const className = response['turma'][j]['nome'];
-        var subjects = response['turma'][j]['disciplinas'];
-        var subjectsNames = [];
-        var subjectsTeachers = [];
-        if (subjects) {
-            for (let k = 0; k < subjects.length; k++) {
-                subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
-                subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
+    resultBlock.innerHTML = "";
+    if (!response['turma']) {
+        resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
+    } else {
+        for (let j = 0; j < response['turma'].length; j++) {
+            const className = response['turma'][j]['nome'];
+            var subjects = response['turma'][j]['disciplinas'];
+            var subjectsNames = [];
+            var subjectsTeachers = [];
+            if (subjects) {
+                for (let k = 0; k < subjects.length; k++) {
+                    subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
+                    subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
+                }
             }
+            classHTMLResult(resultBlock, className, subjectsNames, subjectsTeachers);
         }
-        classHTMLResult(resultBlock, className, subjectsNames, subjectsTeachers);
     }
 }
 
