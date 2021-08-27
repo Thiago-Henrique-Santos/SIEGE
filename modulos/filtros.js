@@ -1,4 +1,4 @@
-import { generatePath } from '../modulos/funcoes.js';
+import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
 
 function classAsyncQuery(url, resultBlock, option, optionStatus) {
