@@ -102,7 +102,8 @@
         if ($resultado->num_rows > 0) {
             $i = 0;
             while ($linha = $resultado->fetch_assoc()) {
-                $registros['turma'][$i]['nome'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                $registros['turma'][$i]['serie'] = $linha['serie'];
+                $registros['turma'][$i]['nome'] = $linha['nome_turma'];
                 $sql2 = "SELECT a.idAluno AS 'id_aluno', u.nome AS 'nome_aluno' FROM usuario u WHERE a.idAluno=u.id AND a.id_turma=$linha[id_turma] ORDER BY u.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
@@ -136,7 +137,8 @@
             $i = 0;
             while ($linha = $resultado->fetch_assoc())
             {
-                $registros['turma'][$i]['nome'] = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                $registros['turma'][$i]['serie'] = $linha['serie'];
+                $registros['turma'][$i]['nome'] = $linha['nome_turma'];
                 $sql2 = "SELECT a.idAluno AS 'id_aluno', u.nome AS 'nome_aluno' FROM usuario u, aluno a WHERE a.idAluno=u.id AND a.id_turma=$linha[id_turma] ORDER BY u.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
