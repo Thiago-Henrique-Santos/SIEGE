@@ -110,57 +110,17 @@
         echo "<br> Erro criando a tabela disciplina: " . $conexao->error;
 
 
-    //Atividade
-    $sql = "CREATE TABLE IF NOT EXISTS atividade (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(100),
-        descricao VARCHAR(700),
-        valor FLOAT,
-        dataPostagem DATE,
-        dataLimiteEntrega DATE,
-        id_disciplina INT UNSIGNED,
-        FOREIGN KEY(id_disciplina) REFERENCES disciplina(id)
-        )";
-
-    if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de atividade criada com sucesso!";
-    else    
-        echo "<br> Erro criando a tabela atividade: " . $conexao->error;
-
-    
-    //Aula
-    $sql = "CREATE TABLE IF NOT EXISTS aula (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        dataRealizacao DATE,
-        conteudo VARCHAR(700),
-        id_disciplina INT UNSIGNED,
-        FOREIGN KEY(id_disciplina) REFERENCES disciplina(id) 
-        )";
-
-    if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de aula criada com sucesso!";
-    else    
-        echo "<br> Erro criando a tabela aula: " . $conexao->error;
-
-
-
-    //Bimestre
-    $sql = "CREATE TABLE IF NOT EXISTS bimestre (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        numero INT,
-        dataInicio DATE,
-        dataTermino DATE
-        )";
-
-    if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de bimestre criada com sucesso!";
-    else    
-        echo "<br> Erro criando a tabela bimestre: " . $conexao->error;
-
-
     //Aluno_realiza_disciplina
     $sql = "CREATE TABLE IF NOT EXISTS aluno_realiza_disciplina (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        nota1bim FLOAT,
+        nota2bim FLOAT,
+        nota3bim FLOAT,
+        nota4bim FLOAT,
+        falta1bim INT,
+        falta2bim INT,
+        falta3bim INT,
+        falta4bim INT,
         id_aluno INT UNSIGNED,
         id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
@@ -171,39 +131,6 @@
         echo "<br> Tabela de aluno_realiza_disciplina criada com sucesso!";
     else    
         echo "<br> Erro criando a tabela aluno_realiza_disciplina: " . $conexao->error;
-
-    
-    //Aluno_faz_aula
-    $sql = "CREATE TABLE IF NOT EXISTS aluno_faz_aula (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        falta INT,
-        id_aluno INT UNSIGNED,
-        id_aula INT UNSIGNED,
-        FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
-        FOREIGN KEY(id_aula) REFERENCES aula(id) 
-        )";
-
-    if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de aluno_faz_aula criada com sucesso!";
-    else    
-        echo "<br> Erro criando a tabela aluno_faz_aula: " . $conexao->error;
-
-
-    //Aluno_faz_atividade
-    $sql = "CREATE TABLE IF NOT EXISTS aluno_faz_atividade (
-        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nota FLOAT,
-        dataEntrega DATE,
-        id_aluno INT UNSIGNED,
-        id_atividade INT UNSIGNED,
-        FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
-        FOREIGN KEY(id_atividade) REFERENCES atividade(id) 
-        )";
-
-    if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de aluno_faz_atividade criada com sucesso!";
-    else    
-        echo "<br> Erro criando a tabela aluno_faz_atividade: " . $conexao->error;
 
 
     //Criação da turma de id 1 (default)
