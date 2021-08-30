@@ -82,6 +82,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             const updateSubjectButton = document.createElement('button');
             updateSubjectButton.setAttribute('class', 'buttons-queries');
             updateSubjectButton.innerText = "Atualizar";
+            updateSubjectButton.onclick = () => loadSubjectModal(subjects[i]['nome'], teachers[i]['idtf'], subjects[i]['idtf']);
             buttonsPart.appendChild(updateSubjectButton);
 
             subjectLine.appendChild(buttonsPart);
@@ -130,7 +131,6 @@ function makeResultPrint(response, resultBlock) {
                     subjectsTeachers.push(response['turma'][j]['disciplinas'][k]['professor']);
                 }
             }
-            console.log(subjectsTeachers);
             classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsInfo, subjectsTeachers);
         }
     }
