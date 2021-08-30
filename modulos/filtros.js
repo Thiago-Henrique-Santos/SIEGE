@@ -61,9 +61,9 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
             const namesPart = document.createElement('div');
             namesPart.setAttribute('class', 'namesPart');
-            namesPart.innerHTML = `<u>${subjects[i]}</u>: `;
+            namesPart.innerHTML = `<u>${subjects[i]['nome']}</u>: `;
             if (teachers[i])
-                namesPart.innerHTML += teachers[i];
+                namesPart.innerHTML += teachers[i]['nome'];
             else
                 namesPart.innerText += "Nesta turma, não há professor vinculado a essa disciplina.";
             subjectLine.appendChild(namesPart);
@@ -75,6 +75,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
                 const withdrawSubjectButton = document.createElement('button');
                 withdrawSubjectButton.setAttribute('class', 'buttons-queries');
                 withdrawSubjectButton.innerText = "Desvincular";
+                withdrawSubjectButton.onclick = () => deleteConfirm("Disciplina", "none", subjects[i]['idtf']);
                 buttonsPart.appendChild(withdrawSubjectButton);
             }
 
@@ -121,15 +122,16 @@ function makeResultPrint(response, resultBlock) {
             let className = response['turma'][j]['nome'];
             let classGrade = response['turma'][j]['serie'];
             let subjects = response['turma'][j]['disciplinas'];
-            let subjectsNames = [];
+            let subjectsInfo = [];
             let subjectsTeachers = [];
             if (subjects) {
                 for (let k = 0; k < subjects.length; k++) {
-                    subjectsNames[k] = response['turma'][j]['disciplinas'][k]['disciplina'];
-                    subjectsTeachers[k] = response['turma'][j]['disciplinas'][k]['professor'];
+                    subjectsInfo.push(response['turma'][j]['disciplinas'][k]['materia']);
+                    subjectsTeachers.push(response['turma'][j]['disciplinas'][k]['professor']);
                 }
             }
-            classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsNames, subjectsTeachers);
+            console.log(subjectsTeachers);
+            classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsInfo, subjectsTeachers);
         }
     }
 }

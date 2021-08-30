@@ -115,12 +115,15 @@
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
                         if($linha2['id_professor'] == 1){
-                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf'] = $linha2['id_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['nome'] = $linha2['nome_disciplina'];
                             $registros['turma'][$i]['disciplinas'][$j]['professor']  = false;
                         }
                         else{
-                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
-                            $registros['turma'][$i]['disciplinas'][$j]['professor']  = $linha2['professor'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf'] = $linha2['id_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['nome'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']['idtf']  = $linha2['id_professor'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']['nome']  = $linha2['professor'];
                         }
                         $j++;
                     }
@@ -156,12 +159,15 @@
                     while ($linha2 = $resultado2->fetch_assoc())
                     {
                         if($linha2['id_professor'] == 1){
-                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf'] = $linha2['id_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['nome'] = $linha2['nome_disciplina'];
                             $registros['turma'][$i]['disciplinas'][$j]['professor']  = false;
                         }
                         else{
-                            $registros['turma'][$i]['disciplinas'][$j]['disciplina'] = $linha2['nome_disciplina'];
-                            $registros['turma'][$i]['disciplinas'][$j]['professor'] = $linha2['professor'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf'] = $linha2['id_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['nome'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']['idtf']  = $linha2['id_professor'];
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']['nome']  = $linha2['professor'];
                         }
                         $j++;
                     }
