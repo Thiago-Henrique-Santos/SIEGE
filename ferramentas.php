@@ -30,6 +30,10 @@
         <a href="https://mail.google.com/" target="_blank"><button>Gmail</button></a>
     </div>
 
+    <div class="buttons-group" style="margin-top:25px;">
+        <a href="https://wordwall.net/pt" target="_blank"><button>Wordwall</button></a>
+    </div>
+
     <div class="buttons-group" style="margin-top:30px;">
         <a href="https://simave.educacao.mg.gov.br/#!/pagina-inicial" target="_blank"><button>Simave</button></a>
         <a href="https://www2.educacao.mg.gov.br/" target="_blank"><button>Secretaria de Educação - MG</button></a>
