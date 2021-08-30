@@ -54,7 +54,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
     const subjectsBlock = document.createElement('div');
     subjectsBlock.setAttribute('class', 'subjectsBlock');
-    if (subjects) {
+    if (subjects.length > 0) {
         for (let i = 0; i < subjects.length; i++) {
             const subjectLine = document.createElement('div');
             subjectLine.setAttribute('class', 'subjectLine');
