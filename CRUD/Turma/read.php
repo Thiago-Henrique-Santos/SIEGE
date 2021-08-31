@@ -105,6 +105,19 @@
                 $registros['turma'][$i]['idtf']  = $linha['id_turma'];
                 $registros['turma'][$i]['nome']  = $linha['nome_turma'];
                 $registros['turma'][$i]['serie'] = $linha['serie'];
+
+                $sql3 = "SELECT u.id, u.nome FROM usuario u INNER JOIN aluno a WHERE u.tipo_usuario = 1 AND a.id_turma = $linha[id_turma] ORDER BY u.nome ASC";
+                $resultado3 = $conexao->query($sql3);
+                if ($resultado3->num_rows > 0) {
+                    $j = 0;
+                    while ($linha3 = $resultado3->fetch_assoc())
+                    {
+                        $registros['turma'][$i]['aluno'][$j]['id']   = $linha3['id'];
+                        $registros['turma'][$i]['aluno'][$j]['nome'] = $linha3['nome'];
+                        $j++;
+                    }
+                }
+
                 $sql2 = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
@@ -117,11 +130,11 @@
                         if($linha2['id_professor'] == 1){
                             $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf'] = $linha2['id_disciplina'];
                             $registros['turma'][$i]['disciplinas'][$j]['materia']['nome'] = $linha2['nome_disciplina'];
-                            $registros['turma'][$i]['disciplinas'][$j]['professor']  = false;
+                            $registros['turma'][$i]['disciplinas'][$j]['professor']       = false;
                         }
                         else{
-                            $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf'] = $linha2['id_disciplina'];
-                            $registros['turma'][$i]['disciplinas'][$j]['materia']['nome'] = $linha2['nome_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['idtf']    = $linha2['id_disciplina'];
+                            $registros['turma'][$i]['disciplinas'][$j]['materia']['nome']    = $linha2['nome_disciplina'];
                             $registros['turma'][$i]['disciplinas'][$j]['professor']['idtf']  = $linha2['id_professor'];
                             $registros['turma'][$i]['disciplinas'][$j]['professor']['nome']  = $linha2['professor'];
                         }
@@ -149,6 +162,19 @@
                 $registros['turma'][$i]['idtf']  = $linha['id_turma'];
                 $registros['turma'][$i]['nome']  = $linha['nome_turma'];
                 $registros['turma'][$i]['serie'] = $linha['serie'];
+
+                $sql3 = "SELECT u.id, u.nome FROM usuario u INNER JOIN aluno a WHERE u.tipo_usuario = 1 AND a.id_turma = $linha[id_turma] ORDER BY u.nome ASC";
+                $resultado3 = $conexao->query($sql3);
+                if ($resultado3->num_rows > 0) {
+                    $j = 0;
+                    while ($linha3 = $resultado3->fetch_assoc())
+                    {
+                        $registros['turma'][$i]['aluno'][$j]['id']   = $linha3['id'];
+                        $registros['turma'][$i]['aluno'][$j]['nome'] = $linha3['nome'];
+                        $j++;
+                    }
+                }
+
                 $sql2 = "SELECT d.id AS 'id_disciplina', d.nome AS 'nome_disciplina', u.id AS 'id_professor', u.nome AS 'professor' FROM disciplina d, usuario u WHERE d.id_turma=$linha[id_turma] AND d.id_professor=u.id ORDER BY d.nome ASC";
                     
                 $resultado2 = $conexao->query($sql2);
