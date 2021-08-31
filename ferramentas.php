@@ -31,6 +31,13 @@
     </div>
 
     <div class="buttons-group" style="margin-top:25px;">
+        <a href="https://docs.google.com/" target="_blank"><button>Google Docs</button></a>
+        <a href="https://docs.google.com/spreadsheets/" target="_blank"><button>Google Sheets</button></a>
+        <a href="https://docs.google.com/presentation/" target="_blank"><button>Google Slides</button></a>
+        <a href="https://docs.google.com/forms/" target="_blank"><button>Google Forms</button></a>
+    </div>
+
+    <div class="buttons-group" style="margin-top:25px;">
         <a href="https://wordwall.net/pt" target="_blank"><button>Wordwall</button></a>
     </div>
 
