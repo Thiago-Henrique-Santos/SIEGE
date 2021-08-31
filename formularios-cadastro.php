@@ -83,9 +83,6 @@ $data_atual = date('d/m/Y');
         case "disciplina":
             disciplina();
             break;
-        case "bimestre":
-            bimestre();
-            break;
         case "validadoOK":
             validacaoOk();
             break;
@@ -452,47 +449,6 @@ $data_atual = date('d/m/Y');
                 if (isset($_GET['etur']) && !empty($_GET['etur']))
                     echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
             }
-
-            echo "<br><br>";
-            echo "<center>";
-            echo "<br><input class='btn btn-primary' type='submit' name='botao' value='Confirmar'>";
-            echo "</center>";
-        echo "</form>";
-    }
-
-    function bimestre() {
-        $valor_salvo = "";
-        echo "<h1 align='center' class='titulo_medio' id='titulo_formulario'>Cadastrar</h1>";
-        echo "<form method='POST' action='Validacoes/cadastrar/outros.php'>";
-
-            echo "<input type='text' style='display: none;' id='tipo' name='tipo' value='bimestre'>";
-            
-            if (isset($_GET['nmr']) && !empty($_GET['nmr']))
-                $valor_salvo = $_GET['nmr'];
-            echo "<label for='numero' class='form-label'><strong>Bimestre:</strong></label>";
-                echo "<br><select name='numero' class='form-select' required>";
-                    echo "<option value='none' selected>--</option>";
-                    echo "<option value='1' "; if($valor_salvo==1){echo "selected";} echo ">1&ordm;</option>";
-                    echo "<option value='2' "; if($valor_salvo==2){echo "selected";} echo ">2&ordm;</option>";
-                    echo "<option value='3' "; if($valor_salvo==3){echo "selected";} echo ">3&ordm;</option>";
-                    echo "<option value='4' "; if($valor_salvo==4){echo "selected";} echo ">4&ordm;</option>";
-                echo "</select>";
-                if (isset($_GET["enmr"]) && !empty($_GET["enmr"]))
-                    echo "<br><p class=\"msg_erro\">" . $_GET["enmr"] . "</p>";
-            
-            if (isset($_GET['dti']) && !empty($_GET['dti']))
-                $valor_salvo = $_GET['dti'];
-            echo "<br><label for='data_inicial' class='form-label'><strong>Início do bimestre:</strong></label>";
-                echo "<input type='date' required class='form-control' id='data_inicial' name='data_inicial' value='$valor_salvo'>";
-            if (isset($_GET['edti']) && !empty($_GET['edti']))
-                echo "<br><p class=\"msg_erro\">" . $_GET["edti"] . "</p>";
-
-            if (isset($_GET['dtf']) && !empty($_GET['dtf']))
-                $valor_salvo = $_GET['dtf'];
-            echo "<br><label for='data_final' class='form-label'><strong>Encerramento do bimestre:</strong></label>";
-                echo "<input type='date' required class='form-control' id='data_final' name='data_final' value='$valor_salvo'>";
-            if (isset($_GET['edtf']) && !empty($_GET['edtf']))
-                echo "<br><p class=\"msg_erro\">" . $_GET["edtf"] . "</p>";
 
             echo "<br><br>";
             echo "<center>";

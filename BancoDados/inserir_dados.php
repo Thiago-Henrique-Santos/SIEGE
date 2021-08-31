@@ -127,13 +127,7 @@
     $sql .= "INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES (41, '2019-02-17', '21308109', 'Ulisses Ribeiro', '(35) 98976-0951', 11);";
     $sql .= "INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES (42, '2009-03-19', '54311234', 'Silvio Limeira', '(35) 90912-7580', 11);";
     $sql .= "INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES (43, '2008-04-18', '09123456', 'Guilherme Freitas', '(35) 91998-9920', 19);";
-    $sql .= "INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES (44, '2010-05-17', '09125697', 'Silvana Juscelina', '(35) 92945-9970', 19);";
-
-
-
-    //Bimestre
-    $sql .= "INSERT INTO bimestre (id, numero, dataInicio, dataTermino) VALUES (1, 1, '2021-03-02', '2021-05-02');";
-    $sql .= "INSERT INTO bimestre (id, numero, dataInicio, dataTermino) VALUES (2, 2, '2021-05-03', '2021-07-03')";
+    $sql .= "INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES (44, '2010-05-17', '09125697', 'Silvana Juscelina', '(35) 92945-9970', 19)";
 
 	if ($conexao->multi_query($sql) === TRUE)
 		echo "Cadastros inseridos com sucesso";
