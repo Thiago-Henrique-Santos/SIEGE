@@ -1,4 +1,4 @@
-import { classAsyncQuery } from '../modulos/filtros.js';
+import { asyncQuery } from '../modulos/filtros.js';
 
 var options = document.getElementsByClassName('serieFiltro');
 var resultBlock = document.getElementById('busca_resultado');
@@ -9,9 +9,9 @@ for (let i = 0; i < options.length; i++) {
     checkbox.addEventListener("change", function (event) {
         var checkboxStatus = event.target.checked;
         if (checkboxStatus) {
-            classAsyncQuery(url, resultBlock, checkbox.id, checkboxStatus);
+            asyncQuery(url, resultBlock, checkbox.id, checkboxStatus, "Turma");
         } else {
-            classAsyncQuery(url, resultBlock, checkbox.id, checkboxStatus);
+            asyncQuery(url, resultBlock, checkbox.id, checkboxStatus, "Turma");
         }
     });
 }
@@ -21,5 +21,5 @@ window.onload = () => {
     sessionStorage.setItem('relativeCounter', 0);
     sessionStorage.setItem('relativeStart', false);
     sessionStorage.setItem('firstRelative', "");
-    classAsyncQuery(url, resultBlock, null, null);
+    asyncQuery(url, resultBlock, null, null, "Turma");
 }

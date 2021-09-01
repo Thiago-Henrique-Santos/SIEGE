@@ -1,7 +1,7 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
 
-function classAsyncQuery(url, resultBlock, option, optionStatus) {
+function asyncQuery(url, resultBlock, option, optionStatus, type) {
     let httpRequest = startRequest();
     if (option != null && optionStatus != null) {
         if (optionStatus) {
@@ -13,7 +13,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     let response = httpRequest.response;
                     console.log(response);
-                    makeClassResultPrint(response, resultBlock);
+                    makeResultPrint(response, resultBlock, type);
                 }
             });
         } else {
@@ -25,7 +25,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     let response = httpRequest.response;
                     console.log(response);
-                    makeClassResultPrint(response, resultBlock);
+                    makeResultPrint(response, resultBlock, type);
                 }
             });
         }
@@ -37,7 +37,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                 let response = httpRequest.response;
                 console.log(response);
-                makeClassResultPrint(response, resultBlock);
+                makeResultPrint(response, resultBlock, type);
             }
         });
     }
@@ -113,38 +113,34 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     parentBox.appendChild(classContainer);
 }
 
-function makeClassResultPrint(response, resultBlock) {
+function makeResultPrint(response, resultBlock, type) {
     resultBlock.innerHTML = "";
-    if (!response['turma']) {
-        resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
-    } else {
-        for (let j = 0; j < response['turma'].length; j++) {
-            let classIdtf = response['turma'][j]['idtf'];
-            let className = response['turma'][j]['nome'];
-            let classGrade = response['turma'][j]['serie'];
-            let subjects = response['turma'][j]['disciplinas'];
-            let subjectsInfo = [];
-            let subjectsTeachers = [];
-            if (subjects) {
-                for (let k = 0; k < subjects.length; k++) {
-                    subjectsInfo.push(response['turma'][j]['disciplinas'][k]['materia']);
-                    subjectsTeachers.push(response['turma'][j]['disciplinas'][k]['professor']);
+    switch (type) {
+        case "Turma":
+            if (!response['turma']) {
+                resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
+            } else {
+                for (let j = 0; j < response['turma'].length; j++) {
+                    let classIdtf = response['turma'][j]['idtf'];
+                    let className = response['turma'][j]['nome'];
+                    let classGrade = response['turma'][j]['serie'];
+                    let subjects = response['turma'][j]['disciplinas'];
+                    let subjectsInfo = [];
+                    let subjectsTeachers = [];
+                    if (subjects) {
+                        for (let k = 0; k < subjects.length; k++) {
+                            subjectsInfo.push(response['turma'][j]['disciplinas'][k]['materia']);
+                            subjectsTeachers.push(response['turma'][j]['disciplinas'][k]['professor']);
+                        }
+                    }
+                    classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsInfo, subjectsTeachers);
                 }
             }
-            classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsInfo, subjectsTeachers);
-        }
+            break;
+        
+        case "Usuario":
+            break;
     }
 }
 
-function makeUserResultPrint(response, resultBlock) {
-    resultBlock.innerHTML = "";
-    if (!response['usuario']) {
-        resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontrados usuários!</p>";
-    } else {
-        for (let i = 0; i < response['usuario'].length; i++) {
-            //comeco
-        }
-    }
-}
-
-export { classAsyncQuery };
+export { asyncQuery };
