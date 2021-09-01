@@ -111,7 +111,36 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 }
 
 function userHTMLResult(user, resultBlock) {
-    const userContainer
+    for (let i = 0; i < user.length; i++) {
+        const userContainer = document.createElement('div');
+        userContainer.setAttribute('class', 'registerContainer');
+
+        const userInfo = document.createElement('ul');
+        userInfo.setAttribute('class', 'listBlock');
+
+        const userName = document.createElement('li');
+        userName.setAttribute('class', 'listItemBlock');
+        userName.innerHTML = `<strong>Nome:</strong> ${user[i]['nome']}`;
+        userInfo.appendChild(userName);
+
+        const userEmail = document.createElement('li');
+        userEmail.setAttribute('class', 'listItemBlock');
+        userEmail.innerHTML = `<strong>Email:</strong> ${user[i]['email']}`;
+        userInfo.appendChild(userEmail);
+
+        const userResidentialArea = document.createElement('li');
+        userResidentialArea.setAttribute('class', 'listItemBlock');
+        userResidentialArea.innerHTML = `<strong>Zona de Moradia:</strong> ${user[i]['local_moradia']}`;
+        userInfo.appendChild(userResidentialArea);
+
+        const userGender = document.createElement('li');
+        userGender.setAttribute('class', 'listItemBlock');
+        userGender.innerHTML = `<strong>Sexo:</strong> ${user[i]['sexo']}`;
+        userInfo.appendChild(userGender);
+
+        userContainer.appendChild(userInfo);
+        resultBlock.appendChild(userContainer);
+    }
 }
 
 function makeResultPrint(response, resultBlock, type) {
