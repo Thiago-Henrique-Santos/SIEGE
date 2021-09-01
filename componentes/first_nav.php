@@ -1,20 +1,21 @@
 <!DOCTYPE html>
     <header>
-        <nav class="navbar fixed-top navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-            <img src="adicionar logo do juvenal" alt="" width="30" height="24">
-            Escola Estadual Professor Juvenal Brandão
-            <button class="btn btn-sm btn-outline-secondary" style="background-color: #B40404" type="button">ACESSE O SIEGE</button>
-            </a>
+      <div class="tudo">
+        <div class="info">
+          <img class="logo" src="colocar logo do juvenal">
+        <font class="titulo">Escola Estadual Professor Juvenal Brandão</font>
         </div>
-        </nav>
+        <a href="login.php">
+          <button class="botao">ACESSE O SIEGE</button>
+        </a>
+      </div>
     </header>
-    <br><br>
-    
     <section>
-      <div>
-        <ul class="nav justify-content-right" style="background-color:#191970" >
+      <div class="menu">
+        <ul class="nav justify-content-center" style="background-color:#191970">
+        <li class="nav-item">
+            <a class="nav-link text-white" href="index.php">Início</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#">Notícias</a>
           </li>
@@ -25,10 +26,10 @@
             <a class="nav-link text-white" href="#">Editais</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Como acessar</a>
+            <a class="nav-link text-white" href="como_acessar.php">Como acessar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Sobre nós</a>
+            <a class="nav-link text-white" href="sobre.php">Sobre nós</a>
           </li>
         </ul>
       </div>

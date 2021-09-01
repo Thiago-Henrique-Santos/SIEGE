@@ -1,0 +1,8 @@
+@font-face {
+	font-family: ChalkItUp;
+	src: url(../Fontes/DJBChalkItUp.ttf);
+}
+.menu{
+    font-family: 'Arial black';
+    font-size:25px;
+}
