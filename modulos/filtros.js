@@ -13,7 +13,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     let response = httpRequest.response;
                     console.log(response);
-                    makeResultPrint(response, resultBlock);
+                    makeClassResultPrint(response, resultBlock);
                 }
             });
         } else {
@@ -25,7 +25,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
                 if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                     let response = httpRequest.response;
                     console.log(response);
-                    makeResultPrint(response, resultBlock);
+                    makeClassResultPrint(response, resultBlock);
                 }
             });
         }
@@ -37,7 +37,7 @@ function classAsyncQuery(url, resultBlock, option, optionStatus) {
             if (httpRequest.readyState === 4 && httpRequest.status === 200) {
                 let response = httpRequest.response;
                 console.log(response);
-                makeResultPrint(response, resultBlock);
+                makeClassResultPrint(response, resultBlock);
             }
         });
     }
@@ -113,7 +113,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     parentBox.appendChild(classContainer);
 }
 
-function makeResultPrint(response, resultBlock) {
+function makeClassResultPrint(response, resultBlock) {
     resultBlock.innerHTML = "";
     if (!response['turma']) {
         resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
