@@ -110,8 +110,8 @@
         echo "<br> Erro criando a tabela disciplina: " . $conexao->error;
 
 
-    //Aluno_realiza_disciplina
-    $sql = "CREATE TABLE IF NOT EXISTS aluno_realiza_disciplina (
+    //Boletim
+    $sql = "CREATE TABLE IF NOT EXISTS boletim (
         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nota1bim FLOAT,
         nota2bim FLOAT,
@@ -128,9 +128,9 @@
         )";
 
     if($conexao->query($sql) === TRUE)
-        echo "<br> Tabela de aluno_realiza_disciplina criada com sucesso!";
+        echo "<br> Tabela de boletim criada com sucesso!";
     else    
-        echo "<br> Erro criando a tabela aluno_realiza_disciplina: " . $conexao->error;
+        echo "<br> Erro criando a tabela boletim: " . $conexao->error;
 
 
     //Criação da turma de id 1 (default)
