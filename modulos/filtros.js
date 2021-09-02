@@ -138,6 +138,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
     const buttonsBlock = document.createElement('div');
     buttonsBlock.setAttribute('class', 'registerButtonsBlock');
+    buttonsBlock.setAttribute('style', 'margin-left: 50px;');
 
     const updateClassButton = document.createElement('button');
     updateClassButton.setAttribute('class', 'buttons-queries');
@@ -332,6 +333,7 @@ function userHTMLResult(user, resultBlock) {
 
         const buttonsBlock = document.createElement('div');
         buttonsBlock.setAttribute('class', 'registerButtonsBlock');
+        buttonsBlock.setAttribute('style', 'margin-left: 82px;');
 
         const updateUserButton = document.createElement('button');
         updateUserButton.setAttribute('class', 'buttons-queries');
