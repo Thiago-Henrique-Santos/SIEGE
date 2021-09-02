@@ -27,7 +27,7 @@
         include ('componentes/user_nav.php');
     ?>
 
-    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas e Disciplinas cadastradas</h1>
+    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas cadastradas</h1>
 
 
     <div class="box_search">

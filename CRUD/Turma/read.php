@@ -109,10 +109,12 @@
                 $sql3 = "SELECT u.id, u.nome, a.id_turma FROM usuario u INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON a.id_turma=t.id WHERE u.tipo_usuario=1 AND a.id_turma=$linha[id_turma] ORDER BY u.nome ASC";
                 $resultado3 = $conexao->query($sql3);
                 if ($resultado3->num_rows > 0) {
+                    $j=0;
                     while ($linha3 = $resultado3->fetch_assoc())
                     {
                         $registros['turma'][$i]['aluno'][$j]['id']   = $linha3['id'];
                         $registros['turma'][$i]['aluno'][$j]['nome'] = $linha3['nome'];
+                        $j++;
                     }
                 }
 
