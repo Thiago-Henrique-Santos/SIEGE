@@ -126,6 +126,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             if($linha['id_turma'] == 1)
                                 $registros['usuario'][$i]['cargo_info']['turma'] = false;
                             else{
+                                $registros['usuario'][$i]['cargo_info']['turma']['idtf'] = $linha['id_turma'];
                                 $registros['usuario'][$i]['cargo_info']['turma']['serie'] = $linha['serie'];
                                 $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha['nome_turma'];
                             }
@@ -141,7 +142,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros['usuario'][$i]['cargo_info']['masp'] = $linha['masp'];
                             $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
                             $registros['usuario'][$i]['cargo_info']['funcao'] = $linha['funcao'];
-                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor";
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "professor";
                         } else {
 
                             if($linha['tipo_empregado'] == 'D')
@@ -199,6 +200,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         if($linha2['id_turma'] == 1)
                             $registros['usuario'][$i]['cargo_info']['turma'] = false;
                         else{
+                            $registros['usuario'][$i]['cargo_info']['turma']['idtf'] = $linha2['id'];
                             $registros['usuario'][$i]['cargo_info']['turma']['serie'] = $linha2['serie'];
                             $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha2['nome'];
                         }
@@ -220,7 +222,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros['usuario'][$i]['cargo_info']['masp'] = $linha2['masp'];
                         $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
                         $registros['usuario'][$i]['cargo_info']['funcao'] = $linha2['funcao'];
-                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor";
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "professor";
                     }
                 }
             } else {

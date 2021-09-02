@@ -112,6 +112,9 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
 function userHTMLResult(user, resultBlock) {
     for (let i = 0; i < user.length; i++) {
+        const thisUser = user[i];
+        const positionAttributes = thisUser['cargo_info'];
+
         const userContainer = document.createElement('div');
         userContainer.setAttribute('class', 'registerContainer');
 
@@ -120,37 +123,47 @@ function userHTMLResult(user, resultBlock) {
 
         const userName = document.createElement('li');
         userName.setAttribute('class', 'listItemBlock');
-        userName.innerHTML = `<strong>Nome:</strong> ${user[i]['nome']}`;
+        userName.innerHTML = `<strong>Nome:</strong> ${thisUser['nome']}`;
         userInfo.appendChild(userName);
 
         const userEmail = document.createElement('li');
         userEmail.setAttribute('class', 'listItemBlock');
-        userEmail.innerHTML = `<strong>Email:</strong> ${user[i]['email']}`;
+        userEmail.innerHTML = `<strong>Email:</strong> ${thisUser['email']}`;
         userInfo.appendChild(userEmail);
 
         const userResidentialArea = document.createElement('li');
         userResidentialArea.setAttribute('class', 'listItemBlock');
-        userResidentialArea.innerHTML = `<strong>Zona de Moradia:</strong> ${user[i]['local_moradia']}`;
+        userResidentialArea.innerHTML = `<strong>Zona de moradia:</strong> ${thisUser['local_moradia']}`;
         userInfo.appendChild(userResidentialArea);
 
         const userGender = document.createElement('li');
         userGender.setAttribute('class', 'listItemBlock');
-        userGender.innerHTML = `<strong>Sexo:</strong> ${user[i]['sexo']}`;
+        userGender.innerHTML = `<strong>Sexo:</strong> ${thisUser['sexo']}`;
         userInfo.appendChild(userGender);
 
-        const userPosition = user[i]['cargo_info']['ocupacao'];
+        const userPosition = positionAttributes['ocupacao'];
         if (userPosition == "Aluno") {
             const userBirthDate = document.createElement('li');
             userBirthDate.setAttribute('class', 'listItemBlock');
-            userBirthDate.innerHTML = `<strong>Data de nascimento:</strong> ${user[i]['cargo_info']['data_nascimento']}`;
+            userBirthDate.innerHTML = `<strong>Data de nascimento:</strong> ${positionAttributes['data_nascimento']}`;
             userInfo.appendChild(userBirthDate);
 
             const userRegistrationNumber = document.createElement('li');
             userRegistrationNumber.setAttribute('class', 'listItemBlock');
-            userRegistrationNumber.innerHTML = `<strong>N. matrícula:</strong> ${user[i]['cargo_info']['matricula']}`;
+            userRegistrationNumber.innerHTML = `<strong>N.° matrícula:</strong> ${positionAttributes['matricula']}`;
             userInfo.appendChild(userRegistrationNumber);
 
-            let userClassInfo = user[i]['cargo_info']['turma'];
+            const userResponsible = document.createElement('li');
+            userResponsible.setAttribute('class', 'listItemBlock');
+            userResponsible.innerHTML = `<strong>Responsável:</strong> ${positionAttributes['responsavel']}`;
+            userInfo.appendChild(userResponsible);
+
+            const userPhone = document.createElement('li');
+            userPhone.setAttribute('class', 'listItemBlock');
+            userPhone.innerHTML = `<strong>Telefone:</strong> ${positionAttributes['telefone']}`;
+            userInfo.appendChild(userPhone);
+
+            let userClassInfo = positionAttributes['turma'];
             if (userClassInfo) {
                 const userClass = document.createElement('li');
                 userClass.setAttribute('class', 'listItemBlock');
@@ -166,7 +179,7 @@ function userHTMLResult(user, resultBlock) {
             const userPosition = document.createElement('li');
             userPosition.setAttribute('class', 'listItemBlock');
             userPosition.innerHTML = "<strong>Ocupação:</strong> ";
-            if (user[i]['sexo'] == "Masculino")
+            if (thisUser['sexo'] == "Masculino")
                 userPosition.innerHTML += "Aluno";
             else
                 userPosition.innerHTML += "Aluna";
@@ -174,11 +187,73 @@ function userHTMLResult(user, resultBlock) {
         } else {
             const userRegistrationNumber = document.createElement('li');
             userRegistrationNumber.setAttribute('class', 'listItemBlock');
-            userRegistrationNumber.innerHTML = `<strong>N. matrícula:</strong> ${user[i]['cargo_info']['matricula']}`;
+            userRegistrationNumber.innerHTML = `<strong>MASP:</strong> ${positionAttributes['masp']}`;
             userInfo.appendChild(userRegistrationNumber);
-        }
 
+            const userStaffType = document.createElement('li');
+            userStaffType.setAttribute('class', 'listItemBlock');
+            userStaffType.innerHTML = `<strong>Tipo de empregado:</strong> ${positionAttributes['tipo_empregado']}`;
+            userInfo.appendChild(userStaffType);
+
+            const userFunction = document.createElement('li');
+            userFunction.setAttribute('class', 'listItemBlock');
+            userFunction.innerHTML = `<strong>Função:</strong> ${positionAttributes['funcao']}`;
+            userInfo.appendChild(userFunction);
+
+            const userPosition = document.createElement('li');
+            userPosition.setAttribute('class', 'listItemBlock');
+            userPosition.innerHTML = "<strong>Ocupação:</strong> ";
+            const userPositionInformation = positionAttributes['ocupacao'];
+            switch (userPositionInformation) {
+                case "professor":
+                    if (thisUser['sexo'] == "Masculino")
+                        userPosition.innerHTML += "Professor";
+                    else
+                        userPosition.innerHTML += "Professora";
+                    break;
+
+                case "secretario":
+                    if (thisUser['sexo'] == "Masculino")
+                        userPosition.innerHTML += "Secretário";
+                    else
+                        userPosition.innerHTML += "Secretária";
+                    break;
+
+                case "diretor":
+                    if (thisUser['sexo'] == "Masculino")
+                        userPosition.innerHTML += "Diretor";
+                    else
+                        userPosition.innerHTML += "Diretora";
+                    break;
+            }
+            userInfo.appendChild(userPosition);
+        }
         userContainer.appendChild(userInfo);
+
+        const buttonsBlock = document.createElement('div');
+        buttonsBlock.setAttribute('class', 'registerButtonsBlock');
+
+        const updateUserButton = document.createElement('button');
+        updateUserButton.setAttribute('class', 'buttons-queries');
+        updateUserButton.innerText = "Atualizar";
+        const gender = thisUser['sexo'] == "Masculino" ? "M" : "F";
+        const residentialArea = thisUser['local_moradia'] == "Urbana" ? "U" : "R";
+        if (positionAttributes['ocupacao'] == "Aluno") {
+            updateUserButton.onclick = () => loadStudentModal(thisUser['nome'], positionAttributes['data_nascimento'], positionAttributes['matricula'], positionAttributes['responsavel'], thisUser['email'], positionAttributes['telefone'], residentialArea, gender, positionAttributes['turma']['idtf'], thisUser['idtf']);
+        } else {
+            const staffType = positionAttributes['tipo_empregado'] == "Efetivo" ? "E" : "D";
+            updateUserButton.onclick = () => loadStaffModal(positionAttributes['ocupacao'], thisUser['nome'], positionAttributes['masp'], thisUser['email'], residentialArea, staffType, gender, positionAttributes['funcao'], thisUser['idtf']);
+        }
+        buttonsBlock.appendChild(updateUserButton);
+
+        const deleteClassButton = document.createElement('button');
+        deleteClassButton.setAttribute('class', 'buttons-queries');
+        deleteClassButton.innerText = "Excluir";
+        deleteClassButton.onclick = () => deleteConfirm("turma", "none", classIdtf);
+        buttonsBlock.appendChild(deleteClassButton);
+
+        userContainer.appendChild(buttonsBlock);
+
         resultBlock.appendChild(userContainer);
     }
 }
