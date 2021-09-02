@@ -86,11 +86,6 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             updateSubjectButton.onclick = () => loadSubjectModal(subjects[i]['nome'], teachers[i]['idtf'], subjects[i]['idtf']);
             buttonsPart.appendChild(updateSubjectButton);
 
-            const updateAllSubjectButton = document.createElement('button');
-            updateAllSubjectButton.setAttribute('class', 'buttons-queries');
-            updateAllSubjectButton.innerText = "Atualizar todas";
-            updateAllSubjectButton.onclick = () => loadSubjectModal(subjects[i]['nome'], teachers[i]['idtf'], subjects[i]['idtf']);
-            buttonsPart.appendChild(updateAllSubjectButton);
 
             subjectLine.appendChild(buttonsPart);
             subjectsBlock.appendChild(subjectLine);
