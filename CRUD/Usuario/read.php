@@ -124,13 +124,13 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros['usuario'][$i]['cargo_info']['telefone'] = $linha['telefone'];
 
                             if($linha['id_turma'] == 1)
-                                $registros['usuario'][$i]['cargo_info']['turma']['nome'] = "Este aluno não está vinculado a uma turma";
+                                $registros['usuario'][$i]['cargo_info']['turma'] = false;
                             else{
                                 $registros['usuario'][$i]['cargo_info']['turma']['serie'] = $linha['serie'];
                                 $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha['nome_turma'];
                             }
                             
-                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno(a)";
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno";
                         } elseif ($linha['tipo_usuario'] == 2) {
 
                             if($linha['tipo_empregado'] == 'D')
@@ -141,7 +141,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros['usuario'][$i]['cargo_info']['masp'] = $linha['masp'];
                             $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
                             $registros['usuario'][$i]['cargo_info']['funcao'] = $linha['funcao'];
-                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor(a)";
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor";
                         } else {
 
                             if($linha['tipo_empregado'] == 'D')
@@ -151,19 +151,8 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros['usuario'][$i]['cargo_info']['masp'] = $linha['masp'];
                             $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
                             $registros['usuario'][$i]['cargo_info']['funcao'] = $linha['funcao'];
-                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = $linha['tipo'] . "(a)";
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = $linha['tipo'];
                         }
-                         
-                        // if ($linha['tipo_usuario']==1) {
-                        //     $registros .= "loadStudentModal(\"".$linha['nome']."\", \"".$linha['data_nascimento']."\", \"".$linha['numero_matricula']."\", \"".$linha['nome_responsavel']."\", \"".$linha['email']."\", \"".$linha['telefone']."\", \"".$linha['local_moradia']."\", \"".$linha['sexo']."\", \"".$linha['id_turma']."\", \"".$linha['id']."\")";
-                        // } else {
-                        //     $registros .= "loadStaffModal(";
-                        //     if ($linha['tipo_usuario']==2) 
-                        //         $registros .= "\"professor\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
-                        //     else
-                        //         $registros .= "\"".$linha['tipo']."\", \"".$linha['nome']."\", \"".$linha['masp']."\", \"".$linha['email']."\", \"".$linha['local_moradia']."\", \"".$linha['tipo_empregado']."\", \"".$linha['sexo']."\", \"".$linha['funcao']."\", \"".$linha['id']."\"";
-                        //     $registros .= ")";
-                        // }
                             
                         $i++;
                     }
@@ -208,13 +197,13 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros['usuario'][$i]['cargo_info']['telefone'] = $linha2['telefone'];
                         
                         if($linha2['id_turma'] == 1)
-                            $registros['usuario'][$i]['cargo_info']['turma']['nome'] = "Este aluno não está vinculado a uma turma.";
+                            $registros['usuario'][$i]['cargo_info']['turma'] = false;
                         else{
                             $registros['usuario'][$i]['cargo_info']['turma']['serie'] = $linha2['serie'];
                             $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha2['nome'];
                         }
                         
-                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno(a)";
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno";
                     }
                 }
             } elseif ($linha["tipo_usuario"] == 2) {
@@ -231,7 +220,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros['usuario'][$i]['cargo_info']['masp'] = $linha2['masp'];
                         $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
                         $registros['usuario'][$i]['cargo_info']['funcao'] = $linha2['funcao'];
-                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor(a)";
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Professor";
                     }
                 }
             } else {
@@ -248,7 +237,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $registros['usuario'][$i]['cargo_info']['masp'] = $linha2['masp'];
                         $registros['usuario'][$i]['cargo_info']['tipo_empregado'] = $tipo_empregado;
                         $registros['usuario'][$i]['cargo_info']['funcao'] = $linha2['funcao'];
-                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = $linha2['tipo'] . "(a)";
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = $linha2['tipo'];
                     }
                 }
             }
