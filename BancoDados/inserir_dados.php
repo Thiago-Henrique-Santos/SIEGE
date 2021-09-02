@@ -22,7 +22,7 @@
     $sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (11, 'Renata de Sousa', 'renata@juvenal.com', 'U', 'F', '012498', 3);";
     $sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (12, 'Margô Favila', 'margo@juvenal.com', 'R', 'F', '091234', 3);";
     $sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (13, 'Simone Costa', 'simone@juvenal.com', 'R', 'F', '120345', 3);";
-    $sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (14, 'Alexandre Gouvêa', 'alexandre@juvenal.com', 'R', 'F', '098123', 3);";
+    $sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (14, 'Alexandre Gouvêa', 'alexandre@juvenal.com', 'R', 'M', '098123', 3);";
     $sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (15, 'Humberto Maia', 'humberto@juvenal.com', 'U', 'M', '331245', 3);";
 
     //Professores(Usuário)
