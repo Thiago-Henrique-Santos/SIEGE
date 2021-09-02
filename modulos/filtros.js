@@ -78,7 +78,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             unbindSubjectButton.innerText = "Remover";
             unbindSubjectButton.onclick = () => deleteConfirm("Disciplina", "none", subjects[i]['idtf']);
             buttonsPart.appendChild(unbindSubjectButton);
-            
+
 
             const updateSubjectButton = document.createElement('button');
             updateSubjectButton.setAttribute('class', 'buttons-queries');
@@ -108,7 +108,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             studentLine.setAttribute('class', 'listItemLine');
             const namesPart = document.createElement('div');
             namesPart.setAttribute('class', 'namesPart');
-            namesPart.innerHTML = `<u>${i+1}</u>- `;
+            namesPart.innerHTML = `<u>${i + 1}</u>- `;
             namesPart.innerHTML += `${studentsNames[i]}`;
             studentLine.appendChild(namesPart);
 
@@ -150,40 +150,40 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
     function unbindStudent(id) {
         var html = document.querySelector('html');
-    
+
         var screen = document.createElement('div');
         screen.setAttribute('id', 'deleteScreen');
         html.appendChild(screen);
-    
+
         var box = document.createElement('div');
         box.setAttribute('class', 'deleteBox');
         screen.appendChild(box);
-    
+
         var title = document.createElement('h1');
         title.textContent = "Confirmação de exclusão!";
         box.appendChild(title);
-    
+
         var text = document.createElement('p');
         text.innerHTML = "Tem certeza que deseja excluir este registro?";
         text.innerHTML += "<br>Todos os dados ligados a este registro serão exluídos juntos ou sofrerão alguma alteração.";
         box.appendChild(text);
-    
+
         var buttonsBlock = document.createElement('div');
         buttonsBlock.setAttribute('class', 'buttonsBlock');
         box.appendChild(buttonsBlock);
-    
+
         var cancel = document.createElement('button');
         cancel.setAttribute('id', 'cancel');
         cancel.textContent = "Cancelar";
         cancel.onclick = close;
         buttonsBlock.appendChild(cancel);
-    
+
         var confirm = document.createElement('button');
         confirm.setAttribute('id', 'confirm');
         confirm.textContent = "Confirmar";
         confirm.addEventListener('click', () => {
             httpRequest.open('GET', `CRUD/Usuario/desvincular_aluno.php?idtf=${id}`);
-    
+
             httpRequest.send();
             httpRequest.onreadystatechange = () => {
                 if (httpRequest.readyState === 4) {
@@ -197,7 +197,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             };
         });
         buttonsBlock.appendChild(confirm);
-    
+
         function close() {
             screen.parentNode.removeChild(screen);
         }
@@ -236,7 +236,7 @@ function userHTMLResult(user, resultBlock) {
         userInfo.appendChild(userGender);
 
         const userPosition = positionAttributes['ocupacao'];
-        if (userPosition == "Aluno") {
+        if (userPosition == "aluno") {
             const userBirthDate = document.createElement('li');
             userBirthDate.setAttribute('class', 'listItemBlock');
             userBirthDate.innerHTML = `<strong>Data de nascimento:</strong> ${positionAttributes['data_nascimento']}`;
@@ -332,7 +332,7 @@ function userHTMLResult(user, resultBlock) {
         updateUserButton.innerText = "Atualizar";
         const gender = thisUser['sexo'] == "Masculino" ? "M" : "F";
         const residentialArea = thisUser['local_moradia'] == "Urbana" ? "U" : "R";
-        if (positionAttributes['ocupacao'] == "Aluno") {
+        if (positionAttributes['ocupacao'] == "aluno") {
             updateUserButton.onclick = () => loadStudentModal(thisUser['nome'], positionAttributes['data_nascimento'], positionAttributes['matricula'], positionAttributes['responsavel'], thisUser['email'], positionAttributes['telefone'], residentialArea, gender, positionAttributes['turma']['idtf'], thisUser['idtf']);
         } else {
             const staffType = positionAttributes['tipo_empregado'] == "Efetivo" ? "E" : "D";
@@ -340,11 +340,11 @@ function userHTMLResult(user, resultBlock) {
         }
         buttonsBlock.appendChild(updateUserButton);
 
-        const deleteClassButton = document.createElement('button');
-        deleteClassButton.setAttribute('class', 'buttons-queries');
-        deleteClassButton.innerText = "Excluir";
-        deleteClassButton.onclick = () => deleteConfirm("turma", "none", classIdtf);
-        buttonsBlock.appendChild(deleteClassButton);
+        const deleteUserButton = document.createElement('button');
+        deleteUserButton.setAttribute('class', 'buttons-queries');
+        deleteUserButton.innerText = "Excluir";
+        deleteUserButton.onclick = () => deleteConfirm("Usuario", positionAttributes['ocupacao'], thisUser['idtf']);
+        buttonsBlock.appendChild(deleteUserButton);
 
         userContainer.appendChild(buttonsBlock);
 
@@ -376,7 +376,7 @@ function makeResultPrint(response, resultBlock, type) {
                     let students = response['turma'][i]['aluno'];
                     let studentId = [];
                     let studentName = [];
-                    
+
                     if (students) {
                         for (let j = 0; j < students.length; j++) {
                             studentId.push(response['turma'][i]['aluno'][j]['id']);

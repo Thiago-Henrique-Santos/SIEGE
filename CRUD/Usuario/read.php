@@ -112,6 +112,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         else
                             $sexo = 'Masculino';
 
+                        $registros['usuario'][$i]['idtf'] = $linha['id'];
                         $registros['usuario'][$i]['nome'] = $linha['nome'];
                         $registros['usuario'][$i]['email'] = $linha['email'];
                         $registros['usuario'][$i]['local_moradia'] = $local_moradia;
@@ -131,7 +132,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                                 $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha['nome_turma'];
                             }
                             
-                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno";
+                            $registros['usuario'][$i]['cargo_info']['ocupacao'] = "aluno";
                         } elseif ($linha['tipo_usuario'] == 2) {
 
                             if($linha['tipo_empregado'] == 'D')
@@ -181,6 +182,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             else
                 $sexo = 'Masculino';
 
+            $registros['usuario'][$i]['idtf'] = $linha['id'];
             $registros['usuario'][$i]['nome'] = $linha['nome'];
             $registros['usuario'][$i]['email'] = $linha['email'];
             $registros['usuario'][$i]['local_moradia'] = $local_moradia;
@@ -205,7 +207,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                             $registros['usuario'][$i]['cargo_info']['turma']['nome'] = $linha2['nome'];
                         }
                         
-                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "Aluno";
+                        $registros['usuario'][$i]['cargo_info']['ocupacao'] = "aluno";
                     }
                 }
             } elseif ($linha["tipo_usuario"] == 2) {
