@@ -138,6 +138,46 @@ function userHTMLResult(user, resultBlock) {
         userGender.innerHTML = `<strong>Sexo:</strong> ${user[i]['sexo']}`;
         userInfo.appendChild(userGender);
 
+        const userPosition = user[i]['cargo_info']['ocupacao'];
+        if (userPosition == "Aluno") {
+            const userBirthDate = document.createElement('li');
+            userBirthDate.setAttribute('class', 'listItemBlock');
+            userBirthDate.innerHTML = `<strong>Data de nascimento:</strong> ${user[i]['cargo_info']['data_nascimento']}`;
+            userInfo.appendChild(userBirthDate);
+
+            const userRegistrationNumber = document.createElement('li');
+            userRegistrationNumber.setAttribute('class', 'listItemBlock');
+            userRegistrationNumber.innerHTML = `<strong>N. matrícula:</strong> ${user[i]['cargo_info']['matricula']}`;
+            userInfo.appendChild(userRegistrationNumber);
+
+            let userClassInfo = user[i]['cargo_info']['turma'];
+            if (userClassInfo) {
+                const userClass = document.createElement('li');
+                userClass.setAttribute('class', 'listItemBlock');
+                userClass.innerHTML = `<strong>Turma:</strong> ${userClassInfo['serie']}º ano ${userClassInfo['nome']}`;
+                userInfo.appendChild(userClass);
+            } else {
+                const userClass = document.createElement('li');
+                userClass.setAttribute('class', 'listItemBlock');
+                userClass.innerHTML = `<strong>Turma:</strong> Este aluno não está vinculado à nenhuma turma!`;
+                userInfo.appendChild(userClass);
+            }
+
+            const userPosition = document.createElement('li');
+            userPosition.setAttribute('class', 'listItemBlock');
+            userPosition.innerHTML = "<strong>Ocupação:</strong> ";
+            if (user[i]['sexo'] == "Masculino")
+                userPosition.innerHTML += "Aluno";
+            else
+                userPosition.innerHTML += "Aluna";
+            userInfo.appendChild(userPosition);
+        } else {
+            const userRegistrationNumber = document.createElement('li');
+            userRegistrationNumber.setAttribute('class', 'listItemBlock');
+            userRegistrationNumber.innerHTML = `<strong>N. matrícula:</strong> ${user[i]['cargo_info']['matricula']}`;
+            userInfo.appendChild(userRegistrationNumber);
+        }
+
         userContainer.appendChild(userInfo);
         resultBlock.appendChild(userContainer);
     }
@@ -167,7 +207,7 @@ function makeResultPrint(response, resultBlock, type) {
                 }
             }
             break;
-        
+
         case "Usuario":
             if (!response['usuario']) {
                 resultBlock.innerHTML = "<p style='margin-left: 5px;'>Não há usuários registrados!</p>";
