@@ -40,14 +40,20 @@ function asyncQuery(url, resultBlock, option, optionStatus, type) {
     }
 }
 
-function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, teachers) {
+function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, teachers, studentId, studentsNames) {
     const classContainer = document.createElement('div');
     classContainer.setAttribute('class', 'registerContainer');
 
     const title = document.createElement('div');
     title.setAttribute('class', 'registerTitle');
-    title.innerHTML = `<strong>Turma:</strong> ${classGrade}º ano ${className}`;
+    title.innerHTML = `<strong><u>Turma:</u></strong> ${classGrade}º ano ${className}`;
     classContainer.appendChild(title);
+
+    //Disciplinas
+    const subjectTitle = document.createElement('div');
+    subjectTitle.setAttribute('class', 'registerTitle');
+    subjectTitle.innerHTML = "<br>&emsp;<strong>Disciplinas</strong><br>";
+    classContainer.appendChild(subjectTitle);
 
     const subjectsBlock = document.createElement('div');
     subjectsBlock.setAttribute('class', 'listBlock');
@@ -55,7 +61,6 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
         for (let i = 0; i < subjects.length; i++) {
             const subjectLine = document.createElement('div');
             subjectLine.setAttribute('class', 'listItemLine');
-
             const namesPart = document.createElement('div');
             namesPart.setAttribute('class', 'namesPart');
             namesPart.innerHTML = `<u>${subjects[i]['nome']}</u>: `;
@@ -68,13 +73,12 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             const buttonsPart = document.createElement('div');
             buttonsPart.setAttribute('class', 'buttonsPart');
 
-            if (teachers[i]) {
-                const withdrawSubjectButton = document.createElement('button');
-                withdrawSubjectButton.setAttribute('class', 'buttons-queries');
-                withdrawSubjectButton.innerText = "Desvincular";
-                withdrawSubjectButton.onclick = () => deleteConfirm("Disciplina", "none", subjects[i]['idtf']);
-                buttonsPart.appendChild(withdrawSubjectButton);
-            }
+            const unbindSubjectButton = document.createElement('button');
+            unbindSubjectButton.setAttribute('class', 'buttons-queries');
+            unbindSubjectButton.innerText = "Remover";
+            unbindSubjectButton.onclick = () => deleteConfirm("Disciplina", "none", subjects[i]['idtf']);
+            buttonsPart.appendChild(unbindSubjectButton);
+            
 
             const updateSubjectButton = document.createElement('button');
             updateSubjectButton.setAttribute('class', 'buttons-queries');
@@ -89,6 +93,42 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
         subjectsBlock.innerHTML = "<p>Não foram encontradas disciplinas!</p>";
     }
     classContainer.appendChild(subjectsBlock);
+
+    //Alunos
+    const studentTitle = document.createElement('div');
+    studentTitle.setAttribute('class', 'registerTitle');
+    studentTitle.innerHTML = "<br>&emsp;<strong>Alunos</strong><br>";
+    classContainer.appendChild(studentTitle);
+
+    const studentsBlock = document.createElement('div');
+    studentsBlock.setAttribute('class', 'listBlock');
+    if (studentsNames.length > 0) {
+        for (let i = 0; i < studentsNames.length; i++) {
+            const studentLine = document.createElement('div');
+            studentLine.setAttribute('class', 'listItemLine');
+            const namesPart = document.createElement('div');
+            namesPart.setAttribute('class', 'namesPart');
+            namesPart.innerHTML = `<u>${i+1}</u>- `;
+            namesPart.innerHTML += `${studentsNames[i]}`;
+            studentLine.appendChild(namesPart);
+
+            const buttonsPart = document.createElement('div');
+            buttonsPart.setAttribute('class', 'buttonsPart');
+
+            const unbindStudentButton = document.createElement('button');
+            unbindStudentButton.setAttribute('class', 'buttons-queries');
+            unbindStudentButton.innerText = "Desvincular";
+            unbindStudentButton.onclick = () => unbindStudent(studentId[i]);
+            buttonsPart.appendChild(unbindStudentButton);
+
+            studentLine.appendChild(buttonsPart);
+            studentsBlock.appendChild(studentLine);
+        }
+
+    } else {
+        studentsBlock.innerHTML = "<p>Não foram encontrados alunos!</p>";
+    }
+    classContainer.appendChild(studentsBlock);
 
     const buttonsBlock = document.createElement('div');
     buttonsBlock.setAttribute('class', 'registerButtonsBlock');
@@ -106,8 +146,62 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     buttonsBlock.appendChild(deleteClassButton);
 
     classContainer.appendChild(buttonsBlock);
-
     parentBox.appendChild(classContainer);
+
+    function unbindStudent(id) {
+        var html = document.querySelector('html');
+    
+        var screen = document.createElement('div');
+        screen.setAttribute('id', 'deleteScreen');
+        html.appendChild(screen);
+    
+        var box = document.createElement('div');
+        box.setAttribute('class', 'deleteBox');
+        screen.appendChild(box);
+    
+        var title = document.createElement('h1');
+        title.textContent = "Confirmação de exclusão!";
+        box.appendChild(title);
+    
+        var text = document.createElement('p');
+        text.innerHTML = "Tem certeza que deseja excluir este registro?";
+        text.innerHTML += "<br>Todos os dados ligados a este registro serão exluídos juntos ou sofrerão alguma alteração.";
+        box.appendChild(text);
+    
+        var buttonsBlock = document.createElement('div');
+        buttonsBlock.setAttribute('class', 'buttonsBlock');
+        box.appendChild(buttonsBlock);
+    
+        var cancel = document.createElement('button');
+        cancel.setAttribute('id', 'cancel');
+        cancel.textContent = "Cancelar";
+        cancel.onclick = close;
+        buttonsBlock.appendChild(cancel);
+    
+        var confirm = document.createElement('button');
+        confirm.setAttribute('id', 'confirm');
+        confirm.textContent = "Confirmar";
+        confirm.addEventListener('click', () => {
+            httpRequest.open('GET', `CRUD/Usuario/desvincular_aluno.php?idtf=${id}`);
+    
+            httpRequest.send();
+            httpRequest.onreadystatechange = () => {
+                if (httpRequest.readyState === 4) {
+                    if (httpRequest.status === 200) {
+                        close();
+                        document.location.reload(true);
+                    } else {
+                        alert('Houve um problema ao realizar esta ação!');
+                    }
+                }
+            };
+        });
+        buttonsBlock.appendChild(confirm);
+    
+        function close() {
+            screen.parentNode.removeChild(screen);
+        }
+    }
 }
 
 function userHTMLResult(user, resultBlock) {
@@ -203,7 +297,18 @@ function makeResultPrint(response, resultBlock, type) {
                             subjectsTeachers.push(response['turma'][i]['disciplinas'][j]['professor']);
                         }
                     }
-                    classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsInfo, subjectsTeachers);
+
+                    let students = response['turma'][i]['aluno'];
+                    let studentId = [];
+                    let studentName = [];
+                    
+                    if (students) {
+                        for (let j = 0; j < students.length; j++) {
+                            studentId.push(response['turma'][i]['aluno'][j]['id']);
+                            studentName.push(response['turma'][i]['aluno'][j]['nome']);
+                        }
+                    }
+                    classHTMLResult(resultBlock, classIdtf, className, classGrade, subjectsInfo, subjectsTeachers, studentId, studentName);
                 }
             }
             break;
