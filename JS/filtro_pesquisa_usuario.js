@@ -1,6 +1,6 @@
 import { asyncQuery } from '../modulos/filtros.js';
 
-var options = document.getElementsByClassName('serieFiltro');
+var options = document.getElementsByClassName('cargoFiltro');
 var resultBlock = document.getElementById('busca_resultado');
 var url = "CRUD/Usuario/read.php";
 

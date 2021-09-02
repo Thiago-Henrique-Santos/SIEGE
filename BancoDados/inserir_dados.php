@@ -130,7 +130,7 @@
     $sql .= "INSERT INTO aluno (idAluno, data_nascimento, numero_matricula, nome_responsavel, telefone, id_turma) VALUES (44, '2010-05-17', '09125697', 'Silvana Juscelina', '(35) 92945-9970', 19)";
 
 	if ($conexao->multi_query($sql) === TRUE)
-		echo "Cadastros inseridos com sucesso";
+		echo "<br>Cadastros inseridos com sucesso";
 	else
 		echo "Erro inserindo cadastros: " . $conexao->error;
 
