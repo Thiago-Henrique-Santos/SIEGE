@@ -2,15 +2,13 @@
 
 include ("../../BancoDados/conexao_mysql.php");
 
-$id_aluno = $_GET['id_aluno'];
-$id_disciplina = $_GET['id_disciplina'];
+$id_aluno = $_GET['idtf'];
+$id_disciplina = $_GET['idd'];
 
-$sql = "INSERT INTO boletim (id_aluno, id_disciplina) VALUES ($id_aluno, $id_disciplina)";
-
-	if ($conexao->query($sql) === TRUE)
-		echo "Linha criada com sucesso";
-	else
-		echo "Erro inserindo linha: " . $conexao->error;
+$prepara = $conexao->prepare("INSERT INTO boletim (id_aluno, id_disciplina) VALUES (?, ?)");
+$prepara->bind_param("ii", $id_aluno, $id_disciplina);
+$prepara->execute();
+$prepara->close();
 
 $conexao->close();
 
