@@ -43,9 +43,16 @@ if($_GET['id'] == 'aluno'){
         echo "<br> Não foram encontrados alunos!";
     }
 
-    if ($conexao->query($sql) === TRUE)
-        header ("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=cadastrar&rcd=aluno");
-    else{
+    if ($conexao->query($sql) === TRUE) {
+        $sql2 = "SELECT id FROM disciplina WHERE id_turma = $turma";
+        $resultado2 = $conexao->query($sql2);
+        if ($resultado2->num_rows > 0) {
+            while ($dados2 = $resultado2->fetch_assoc()) {
+                $idDisciplina = $dados2['id'];
+                header ("Location: ../Boletim/create.php?ent=aluno&ida=$idUsuario&idd=$idDisciplina");
+            }
+        }
+    }else{
         echo "Erro inserindo aluno: " . $conexao->error;
         $sql = "DELETE FROM usuario WHERE email == $email";
         $resultado = $conexao->query($sql);
