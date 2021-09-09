@@ -44,14 +44,24 @@ if($_GET['id'] == 'aluno'){
     }
 
     if ($conexao->query($sql) === TRUE) {
+        $idsDisciplinas = array();
+        $quantidadeDisciplinas = 0;
+
         $sql2 = "SELECT id FROM disciplina WHERE id_turma = $turma";
         $resultado2 = $conexao->query($sql2);
         if ($resultado2->num_rows > 0) {
             while ($dados2 = $resultado2->fetch_assoc()) {
                 $idDisciplina = $dados2['id'];
-                header ("Location: ../Boletim/create.php?ent=aluno&ida=$idUsuario&idd=$idDisciplina");
+                array_push($idsDisciplinas, $idDisciplina);
+                $quantidadeDisciplinas++;
             }
         }
+
+        $headerLink = "Location: ../Boletim/create.php?ent=aluno&ida=$idUsuario&qtd=$quantidadeDisciplinas";
+        for($i=0; $i < $quantidadeDisciplinas; $i++){
+            $headerLink .= "&idd$i=$idsDisciplinas[$i]";
+        }
+        header ($headerLink);
     }else{
         echo "Erro inserindo aluno: " . $conexao->error;
         $sql = "DELETE FROM usuario WHERE email == $email";
