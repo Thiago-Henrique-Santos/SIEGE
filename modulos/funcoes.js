@@ -75,4 +75,17 @@ function generatePath(basePath, key, add) {
 
 }
 
-export { generatePath };
+function converte_falta(aulas){
+    let minutosTotais = aulas * 50;
+    let horas = 0;
+    let minutos = 0;
+    let i = 0;
+    for(i=minutosTotais; i>=60; i-=60){
+        horas++;
+    }
+    minutos = i;
+    tempoTotal = horas + ":" + minutos;
+    return tempoTotal;
+} 
+
+export { generatePath, converte_falta };

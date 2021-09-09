@@ -34,4 +34,17 @@
         return date("d/m/Y", strtotime($data));
     }
 
+    //Transforma faltas de aulas para tempo (horas e minutos)
+    function converte_falta($aulas){
+        $minutosTotais = $aulas * 50;
+        $horas = 0;
+        $minutos = 0;
+        for($i=$minutosTotais; $i>=60; $i-=60){
+            $horas++;
+        }
+        $minutos = $i;
+        $tempoTotal = $horas . ":" . $minutos;
+        return $tempoTotal;
+    }
+
 ?>
