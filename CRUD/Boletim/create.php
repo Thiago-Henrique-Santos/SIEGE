@@ -26,7 +26,7 @@ if (isset($_GET['qtd'])) {
     $quantidadeDisciplinas = $_GET['qtd'];
     for ($i = 0; $i < $quantidadeDisciplinas; $i++) {
         $getName = "idd$i";
-        $id_aluno = $_GET[$getName];
+        $id_disciplina = $_GET[$getName];
         $prepara->execute();
     }
 }
