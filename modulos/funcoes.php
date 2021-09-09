@@ -39,7 +39,6 @@
         $minutosTotais = $aulas * 50;
         $horas = 0;
         $minutos = 0;
-        $subtracao = 0;
         for($i=$minutosTotais; $i>=60; $i-=60){
             $horas++;
         }
