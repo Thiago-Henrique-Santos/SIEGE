@@ -52,10 +52,18 @@
 					<span class="sr-only"></span>
 				</a>
             </section>
+			<br><br>
+			<section>
+			<div class="field field-name-como-chegar field-type-ds field-label-above">
+            <h3 class="field-label">Como chegar:&nbsp;</h3>
+				<div class="field-items">
+            	<div class="field-item even">
+					<iframe width="100%" height="450" frameborder="1" style="border:1"
+  					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBxss0dCNTXBUAGR6SIZmv7HOdzNfwe078&q=Rua+Engenheiro+Américo+Guidi+Filho,+48,+Centro,+Ouro+Fino,Minas+Gerais" allowfullscreen>
+					</iframe>
+				</div>
+			</section>
         </main>
     </div>
-
-
 </body>
-
 </html>
