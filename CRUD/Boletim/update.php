@@ -2,18 +2,39 @@
 
 include ("../../BancoDados/conexao_mysql.php");
 
-$idTurma      = $_GET['tur'];
-$idDisciplina = $_GET['dsc'];
+if (isset($_GET['qtd'])) {
+    $quantidade = $_GET['qtd'];
 
-        $sql2 = " UPDATE boletim SET id = $dados['id_boletim'], 
-                  nota1bim = $dados['nota1'], nota2bim = $dados['nota2'], nota3bim = $dados['nota3'], nota4bim = $dados['nota4'],  
-                  falta1bim = $dados['falta1'], falta2bim = $dados['falta2'], falta3bim = $dados['falta3'], falta4bim = $dados['falta4'] 
-                  WHERE id=$id AND id_disciplina = $idDisciplina AND id_turma = $idTurma";
-                  
-        if ($conexao->query($sql2) === TRUE)
-            header("Location: ../../formularios-cadastro.php?id=validadoOK&tfm=atualizar");
-        else
-            header("location: ../../formularios-cadastro.php?id=erro&tfm=atualizar&info=" . $conexao->error);
+    for ($i = 0; $i < $quantidade; $i++) {
+        $getName   = "idb$i";
+        $idBoletim = $_GET[$getName];
+
+        $getName  = "n1$i";
+        $nota1    = $_GET[$getName];
+        $getName  = "n2$i";
+        $nota2    = $_GET[$getName];
+        $getName  = "n3$i";
+        $nota3    = $_GET[$getName];
+        $getName  = "n4$i";
+        $nota4    = $_GET[$getName];
+
+        $getName    = "f1$i";
+        $faltas1    = $_GET[$getName];
+        $getName    = "f2$i";
+        $faltas2    = $_GET[$getName];
+        $getName    = "f3$i";
+        $faltas3    = $_GET[$getName];
+        $getName    = "f4$i";
+        $faltas4    = $_GET[$getName];
+
+        $getName           = "rn$i";
+        $notaRecuperacao   = $_GET[$getName];
+        $getName           = "rf$i";
+        $faltasRecuperacao = $_GET[$getName];
+
+        // $sql = "UPDATE boletim SET nota1bim = $nota1, nota2bim = $nota2, nota3bim = $nota3 WHERE id = 1";
+    }
+}
 
 $conexao->close();
 
