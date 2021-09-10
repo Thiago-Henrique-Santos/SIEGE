@@ -121,6 +121,8 @@
         falta2bim INT,
         falta3bim INT,
         falta4bim INT,
+        notaRecuperacao FLOAT,
+        faltaRecuperacao INT,
         id_aluno INT UNSIGNED,
         id_disciplina INT UNSIGNED,
         FOREIGN KEY(id_aluno) REFERENCES aluno(idAluno),
