@@ -28,7 +28,7 @@
         <a href="https://jamboard.google.com/" target="_blank"><button>Google Jamboard</button></a>
         <a href="https://meet.google.com/" target="_blank"><button>Google Meet</button></a>
         <a href="https://mail.google.com/" target="_blank"><button>Gmail</button></a>
-        <a href="https://calendar.google.com/" target="_blank"><button>Google Calendário</button></a>
+        <a href="https://calendar.google.com/" target="_blank"><button>Google Agenda</button></a>
     </div>
 
     <div class="buttons-group" style="margin-top:25px;">
