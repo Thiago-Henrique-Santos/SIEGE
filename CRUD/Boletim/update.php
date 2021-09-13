@@ -26,14 +26,19 @@ if (isset($_GET['qtd'])) {
         $faltas3    = $_GET[$getName];
         $getName    = "f4$i";
         $faltas4    = $_GET[$getName];
-
+        
         $getName           = "rn$i";
         $notaRecuperacao   = $_GET[$getName];
         $getName           = "rf$i";
         $faltasRecuperacao = $_GET[$getName];
-
-        // $sql = "UPDATE boletim SET nota1bim = $nota1, nota2bim = $nota2, nota3bim = $nota3 WHERE id = 1";
-        // Continuar daqui
+        
+        $sql = "UPDATE boletim SET nota1bim = $nota1, nota2bim = $nota2, nota3bim = $nota3 , nota4bim = $nota4, 
+        falta1bim = $faltas1, falta2bim = $faltas2, falta3bim = $faltas3, falta4bim = $faltas4
+        WHERE id = $idBoletim";
+        if ($conexao->query($sql))
+            echo "<font color='lime'>Deu certo! Substituir pela mensagem de sucesso de atualização!</font> <br>";
+        else
+            echo $conexao->error . "<font color='red'> - Substituir por mensagem de erro.</font>";
     }
 }
 
