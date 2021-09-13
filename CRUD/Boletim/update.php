@@ -33,6 +33,7 @@ if (isset($_GET['qtd'])) {
         $faltasRecuperacao = $_GET[$getName];
 
         // $sql = "UPDATE boletim SET nota1bim = $nota1, nota2bim = $nota2, nota3bim = $nota3 WHERE id = 1";
+        // Continuar daqui
     }
 }
 
