@@ -30,7 +30,7 @@
     <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Usuários cadastrados</h1>
 
     <div class="box_search">
-        <input type="text" name="">
+        <input type="text" id="barra_pesquisa" name="barra_pesquisa">
         <i class="fa fa-search" aria-hidden="true"></i>
     </div>
 

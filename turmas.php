@@ -23,6 +23,7 @@
 </head>
 
 <body>
+    
     <?php
         include ('componentes/user_nav.php');
     ?>
@@ -31,7 +32,7 @@
 
 
     <div class="box_search">
-	    <input type="text" name="">
+        <input type="text" id="barra_pesquisa" name="barra_pesquisa">
         <i class="fa fa-search" aria-hidden="true"></i>
     </div>
 
