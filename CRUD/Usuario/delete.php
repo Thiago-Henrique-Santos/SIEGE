@@ -11,9 +11,17 @@ $id = $_GET['id'];
 
 
 if($user == 'aluno'){
+    //Excluindo boletins do aluno
+    $prepara = $conexao->prepare("DELETE FROM boletim WHERE id_aluno=?");
+    $prepara->bind_param("i", $id);
+    if ($prepara->execute())
+        echo "<br> Boletins removidos com sucesso!";
+    else
+        echo "<br> Remoção de boletins falhou!";
+
+    //Excluindo o aluno
     $sql = "SELECT * FROM aluno WHERE idAluno=" . $id;
     $resultado = $conexao->query($sql);
-        
     if ($resultado->num_rows > 0)
     {
         while ($linha = $resultado->fetch_assoc())
@@ -28,7 +36,6 @@ if($user == 'aluno'){
     }
     else
         echo "<br> Não foram encontrados alunos para remover!";
-
 }elseif($user == 'professor'){
     $sql = "SELECT * FROM  professor WHERE idProfessor=" . $id;
     $resultado = $conexao->query($sql);
