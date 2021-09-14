@@ -6,7 +6,6 @@
 
     include ("../../BancoDados/conexao_mysql.php");
 
-
     $sql = "SELECT * FROM turma WHERE id=" . $_GET['id'];
     $resultado = $conexao->query($sql);
         
