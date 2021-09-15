@@ -248,7 +248,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             $i++;
         }
     } else {
-        $registros['usuario'] = "Não foram encontrados usuários!";
+        $registros['usuario'] = false;
     }
 }
 
