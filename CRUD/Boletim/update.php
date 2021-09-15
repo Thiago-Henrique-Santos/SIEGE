@@ -83,9 +83,9 @@ if (isset($_GET['qtd'])) {
             $faltasRecuperacao = NULL;
             
         if ($prepara->execute())
-            echo "1";
+            echo "Update de boletim realizado com sucesso!";
         else
-            echo "0";
+            echo "Update de boletim falhou!";
     }
 }
 
