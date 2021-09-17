@@ -32,7 +32,7 @@ else
     echo "<br> Erro removendo disciplinas: " . $conexao->error;
 
 //Excluindo a turma
-$sql = "DELETE FROM turma WHERE id=" . $idTurma;  
+$sql = "DELETE FROM turma WHERE id=" . $idTurma;
 if ($conexao->query($sql) === TRUE)
     echo "<br> Turma removida com sucesso";
 else
@@ -40,7 +40,7 @@ else
 
 //Colocando alunos sem turma (turma com id=1)
 $sql = "SELECT id_turma FROM aluno";
-$resultado = $conexao->query($sql); 
+$resultado = $conexao->query($sql);
 if ($resultado->num_rows > 0)
 {
     while ($linha = $resultado->fetch_assoc())
