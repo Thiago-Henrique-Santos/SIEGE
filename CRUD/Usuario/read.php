@@ -91,6 +91,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
         $sql .= " ORDER BY u.nome ASC";
     }
 
+    $i = 0;
     $existeRegistros = 0;
     if ($conexao->multi_query($sql)) {
         do {
@@ -99,7 +100,6 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             
             if ($resultado = $conexao->store_result()) {
                 if ($resultado->num_rows > 0) {
-                    $i = 0;
                     $existeRegistros++;
                     while ($linha = $resultado->fetch_assoc()) {
                         if($linha['local_moradia'] == 'U')
@@ -159,7 +159,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
                         $i++;
                     }
                 } else {
-                    $registros['usuario'] = "Não foram encontrados usuários!";
+                    $registros['usuario'] = false;
                 }
             }
         } while ($conexao->next_result());
@@ -248,7 +248,7 @@ if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset(
             $i++;
         }
     } else {
-        $registros['usuario'] = "Não foram encontrados usuários!";
+        $registros['usuario'] = false;
     }
 }
 
