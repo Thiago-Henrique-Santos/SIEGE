@@ -80,7 +80,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             if (teachers[i])
                 namesPart.innerHTML += teachers[i]['nome'];
             else
-                namesPart.innerText += "Nesta turma, não há professor vinculado a essa disciplina.";
+                namesPart.innerHTML += "Nesta turma, não há professor vinculado a essa disciplina.";
             subjectLine.appendChild(namesPart);
 
             const buttonsPart = document.createElement('div');
@@ -232,7 +232,7 @@ function userHTMLResult(user, resultBlock) {
 
         const userName = document.createElement('li');
         userName.setAttribute('class', 'listItemBlock');
-        userName.innerHTML = `<strong>Nome:</strong> ${thisUser['nome']}`;
+        userName.innerHTML = `<strong>Nome:</strong> <span>${thisUser['nome']}</span>`;
         userInfo.appendChild(userName);
 
         const userEmail = document.createElement('li');
@@ -326,6 +326,13 @@ function userHTMLResult(user, resultBlock) {
                         userPosition.innerHTML += "Secretário";
                     else
                         userPosition.innerHTML += "Secretária";
+                    break;
+
+                case "supervisor":
+                    if (thisUser['sexo'] == "Masculino")
+                        userPosition.innerHTML += "Supervisor";
+                    else
+                        userPosition.innerHTML += "Supervisora";
                     break;
 
                 case "diretor":
@@ -469,7 +476,6 @@ function makeResult(response, resultBlock, type) {
                 for (let i = 0; i < response['usuario'].length; i++) {
                     user.push(response['usuario'][i]);
                 }
-                console.log(user);
                 userHTMLResult(user, resultBlock);
             }
             break;
