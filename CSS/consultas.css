@@ -1,4 +1,15 @@
 /*Consulta de turma*/
+#busca_resultado {
+  width: 100%;
+  height: auto;
+  list-style-type: none;
+  list-style: none none inside;
+  margin-left: 0px;
+  margin: 0px;
+  padding-left: 0px;
+  padding: 0px;
+}
+
 #busca_resultado .registerContainer {
   width: 100%;
   height: auto;
@@ -6,12 +17,6 @@
   display: inline-flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-  list-style-type: none;
-  list-style: none none inside;
-  margin-left: 0px;
-  margin: 0px;
-  padding-left: 0px;
-  padding: 0px;
 }
 
 #busca_resultado .registerContainer .listBlock {
