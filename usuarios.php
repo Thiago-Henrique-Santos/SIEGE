@@ -30,7 +30,7 @@
     <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Usuários cadastrados</h1>
 
     <div class="box_search">
-        <input type="text" id="barra_pesquisa" name="barra_pesquisa" onkeyup="userSearchBarFilter()">
+        <input type="text" id="barra_pesquisa" name="barra_pesquisa">
         <i class="fa fa-search" aria-hidden="true"></i>
     </div>
 
@@ -53,9 +53,9 @@
         <label for="alu">Aluno(a)</label><br>
     </form>
     <br><br>
-
-    <div id="busca_resultado">
-    </div>
+    
+    <ul id="busca_resultado">
+    </ul>
 
     <div id="modal-screen">
         <div id="modal-block">

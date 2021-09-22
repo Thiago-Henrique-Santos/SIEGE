@@ -27,24 +27,46 @@ window.onload = () => {
 
 
 //Filtro barra de pesquisa
-var block = document.getElementsByClassName('registerContainer');
-var input = document.getElementById('barra_pesquisa');
-input.onkeyup = () => {
-    var filter = input.value.toUpperCase();
-    userSearchBarFilter(filter, block);
-}
+let searchBar = document.getElementById('barra_pesquisa');
+searchBar.onkeyup = userSearchBarFilter;
 
-function userSearchBarFilter (filter, block) {
-    for (let i = 0; i < block.length; i++) {
-        let ul = block[i].getElementsByTagName('ul');
-        let name_li = ul.getElementsByTagName('li')[0];
-        console.log(ul);
-        // let nameSpan = name_li.getElementsByTagName('span');
-        // let txtValue = nameSpan.innerText;
-        // if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        //     block[i].style.display = "";
-        // } else {
-        //     block[i].style.display = "none";
-        // }
+function userSearchBarFilter() {
+    //Variáveis para elementos do filtro
+    let input = document.getElementById('barra_pesquisa');
+    let filter = input.value.toUpperCase();
+    let ul = document.getElementById("busca_resultado");
+    let li = ul.getElementsByClassName('registerContainer');
+
+    //Verifica se o usuário já pesquisou algum nome de usuários inexistentes
+    let oldNoResults = ul.querySelector('li#noResults');
+    if (oldNoResults) {
+        ul.removeChild(oldNoResults);
+    }
+
+    //Variável de controle para "se achou usuários ou não", com o nome inserido
+    let liGroup = false;
+
+    //Buscando usuários
+    for (let i = 0; i < li.length; i++) {
+        let span = li[i].getElementsByTagName("span")[0];
+        let txtValue = span.textContent;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+            liGroup = true;
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+
+    //Verifica se não encontrou usuários com o nome inserido
+    if(!liGroup){
+        const noResults = document.createElement('li');
+        noResults.setAttribute('id', 'noResults');
+        noResults.setAttribute('style', 'margin-left: 15px;');
+        noResults.textContent = `Não foram encontrados resultados para: "${filter}"`;
+
+        ul.appendChild(noResults);
     }
 }
+
+export { userSearchBarFilter };

@@ -1,5 +1,6 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
+import { userSearchBarFilter } from '../JS/filtro_pesquisa_usuario.js';
 
 function asyncQuery(url, resultBlock, option, optionStatus, type) {
     let httpRequest = startRequest();
@@ -224,7 +225,7 @@ function userHTMLResult(user, resultBlock) {
         const thisUser = user[i];
         const positionAttributes = thisUser['cargo_info'];
 
-        const userContainer = document.createElement('div');
+        const userContainer = document.createElement('li');
         userContainer.setAttribute('class', 'registerContainer');
 
         const userInfo = document.createElement('ul');
@@ -373,6 +374,7 @@ function userHTMLResult(user, resultBlock) {
 
         resultBlock.appendChild(userContainer);
     }
+    userSearchBarFilter();
 }
 
 function printTable(studentObject, resultBlock) {

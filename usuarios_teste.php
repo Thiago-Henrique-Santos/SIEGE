@@ -72,45 +72,45 @@
     </form>
     <br><br>
 
-    <div id="busca_resultado_teste">
-        <div class="registerContainer">
-            <ul id="listBlock">
-                <li>
-                        <h5>
-                            <strong>Nome: </strong> <span>Alessandra Sofo</span>
-                        </h5>
-                    <h5>
-                        <strong>Email: </strong> alessandra@juvenal.com
-                     </h5>
-                     <h5>
-                        <strong>Local de moradia: </strong> Urbana
-                     </h5>
-                     <h5>
-                        <strong>Função: </strong> Professora de Ciências
-                     </h5>
-                     <hr>
+    
+    <ul id="busca_resultado">
+        <li class="registerContainer">
+            <ul class="listBlock">
+                <li class="listItemBlock">
+                    <strong>Nome: </strong> <span>Alessandra Sofo</span>
                 </li>
-                
-
                 <li>
-                    <h5>
-                        <strong>Nome: </strong> <span>Pedro Couto</span>
-                    </h5>
-                    <h5>
-                        <strong>Email: </strong> pedro@juvenal.com
-                    </h5>
-                    <h5>
-                        <strong>Local de moradia: </strong> Urbana
-                    </h5>
-                    <h5>
-                        <strong>Função: </strong> Professor de História
-                    </h5>
-                    <hr>
-                
+                    <strong>Email: </strong> alessandra@juvenal.com
                 </li>
+                <li>
+                    <strong>Local de moradia: </strong> Urbana
+                </li>
+                <li>
+                    <strong>Função: </strong> Professora de Ciências
+                </li>
+                <hr>
             </ul>
-        </div>
-    </div>
+        </li>
+        
+
+        <li>
+            <ul>
+                <li>
+                    <strong>Nome: </strong> <span>Pedro Zarotti</span>
+                </li>
+                <li>
+                    <strong>Email: </strong> pedro@juvenal.com
+                </li>
+                <li>
+                    <strong>Local de moradia: </strong> Urbana
+                </li>
+                <li>
+                    <strong>Função: </strong> Professor de História
+                </li>
+                <hr>
+            </ul>
+        </li>
+    </ul>
 
     <div id="modal-screen">
         <div id="modal-block">

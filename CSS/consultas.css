@@ -3,16 +3,15 @@
   width: 100%;
   height: auto;
   border: 1px solid black;
-  display: flex;
+  display: inline-flex;
   flex-flow: column nowrap;
   align-items: flex-start;
-}
-
-#busca_resultado .registerContainer .registerTitle {
-  font-family: 17px;
-  margin-left: 5px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  list-style-type: none;
+  list-style: none none inside;
+  margin-left: 0px;
+  margin: 0px;
+  padding-left: 0px;
+  padding: 0px;
 }
 
 #busca_resultado .registerContainer .listBlock {
@@ -23,6 +22,25 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
+}
+
+#busca_resultado .registerContainer .registerButtonsBlock {
+  width: calc(100%-15px);
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+.buttons-queries {
+  margin-right: 15px;
+}
+
+/*CSS envolvendo turmas*/
+#busca_resultado .registerContainer .registerTitle {
+  font-family: 17px;
+  margin-left: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 #busca_resultado .registerContainer .listBlock .listItemLine {
@@ -48,15 +66,4 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-}
-
-#busca_resultado .registerContainer .registerButtonsBlock {
-  width: calc(100%-15px);
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-bottom: 5px;
-}
-
-.buttons-queries {
-  margin-right: 15px;
 }
