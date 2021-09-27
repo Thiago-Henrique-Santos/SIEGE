@@ -1,6 +1,7 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
 import { userSearchBarFilter } from '../JS/filtro_pesquisa_usuario.js';
+import { classSearchBarFilter } from '../JS/filtro_pesquisa_turma.js';
 
 function asyncQuery(url, resultBlock, option, optionStatus, type) {
     let httpRequest = startRequest();
@@ -55,31 +56,31 @@ function reportTableAsyncQuery(url, resultBlock) {
 }
 
 function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, teachers, studentId, studentsNames) {
-    const classContainer = document.createElement('div');
+    const classContainer = document.createElement('li');
     classContainer.setAttribute('class', 'registerContainer');
 
-    const title = document.createElement('div');
+    const title = document.createElement('h7');
     title.setAttribute('class', 'registerTitle');
-    title.innerHTML = `<strong><u>Turma:</u></strong> ${classGrade}º ano ${className}`;
+    title.innerHTML = `<strong><u>Turma:</u></strong> <span>${classGrade}º ano ${className}</span>`;
     classContainer.appendChild(title);
 
     //Disciplinas
-    const subjectTitle = document.createElement('div');
+    const subjectTitle = document.createElement('h7');
     subjectTitle.setAttribute('class', 'registerTitle');
     subjectTitle.innerHTML = "<br>&emsp;<strong>Disciplinas</strong><br>";
     classContainer.appendChild(subjectTitle);
 
-    const subjectsBlock = document.createElement('div');
+    const subjectsBlock = document.createElement('ul');
     subjectsBlock.setAttribute('class', 'listBlock');
     if (subjects.length > 0) {
         for (let i = 0; i < subjects.length; i++) {
-            const subjectLine = document.createElement('div');
+            const subjectLine = document.createElement('li');
             subjectLine.setAttribute('class', 'listItemLine');
-            const namesPart = document.createElement('div');
+            const namesPart = document.createElement('span');
             namesPart.setAttribute('class', 'namesPart');
             namesPart.innerHTML = `<u>${subjects[i]['nome']}</u>: `;
             if (teachers[i])
-                namesPart.innerHTML += teachers[i]['nome'];
+                namesPart.innerHTML += `<span class="pesquisa">${teachers[i]['nome']}</span>`;
             else
                 namesPart.innerHTML += "Nesta turma, não há professor vinculado a essa disciplina.";
             subjectLine.appendChild(namesPart);
@@ -110,18 +111,18 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     classContainer.appendChild(subjectsBlock);
 
     //Alunos
-    const studentTitle = document.createElement('div');
+    const studentTitle = document.createElement('h7');
     studentTitle.setAttribute('class', 'registerTitle');
     studentTitle.innerHTML = "<br>&emsp;<strong>Alunos</strong><br>";
     classContainer.appendChild(studentTitle);
 
-    const studentsBlock = document.createElement('div');
+    const studentsBlock = document.createElement('ul');
     studentsBlock.setAttribute('class', 'listBlock');
     if (studentsNames.length > 0) {
         for (let i = 0; i < studentsNames.length; i++) {
-            const studentLine = document.createElement('div');
+            const studentLine = document.createElement('li');
             studentLine.setAttribute('class', 'listItemLine');
-            const namesPart = document.createElement('div');
+            const namesPart = document.createElement('span');
             namesPart.setAttribute('class', 'namesPart');
             namesPart.innerHTML = `<u>${i + 1}</u>- `;
             namesPart.innerHTML += `${studentsNames[i]}`;
@@ -218,6 +219,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             screen.parentNode.removeChild(screen);
         }
     }
+    classSearchBarFilter();
 }
 
 function userHTMLResult(user, resultBlock) {

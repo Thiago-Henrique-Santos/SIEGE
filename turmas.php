@@ -30,6 +30,12 @@
 
     <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas cadastradas</h1>
 
+    <div class="box_search">
+        <input type="text" id="barra_pesquisa" name="barra_pesquisa" placeholder="Nome do professor:">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+
+    
     <form class="user" action="#" method="post">
         <label>Marque o ano da turma que gostaria de ver os registros:</label> <br><br>
 
@@ -59,8 +65,8 @@
     </form>
     <br><br>
 
-    <div id="busca_resultado">
-    </div>
+    <ul id="busca_resultado">
+    </ul>
 
     <div id="modal-screen">
         <div id="modal-block">
