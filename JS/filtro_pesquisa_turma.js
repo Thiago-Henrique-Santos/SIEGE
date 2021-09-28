@@ -31,7 +31,8 @@ searchBar.onkeyup = classSearchBarFilter;
 function classSearchBarFilter() {
     //Variáveis para elementos do filtro
     let input = document.getElementById('barra_pesquisa');
-    let filter = input.value.toUpperCase();
+    let inputValue = input.value;
+    let filter = inputValue.toUpperCase();
     let ul = document.getElementById('busca_resultado');
     let li = ul.getElementsByClassName('registerContainer');
 
@@ -52,18 +53,24 @@ function classSearchBarFilter() {
         if (li2.length > 0) {
             for (let j = 0; j < li2.length; j++) {
                 let teacherName = li2[j].querySelector('span.pesquisa').textContent;
-                searchList.push(teacherName);
+
+                if (teacherName.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                    liGroup = true;
+                } else {
+                    li[i].style.display = "none";
+                }
+                // searchList.push(teacherName);
             }
         }
-        console.log(searchList);
     }
 
     //Verifica se não encontrou professores com o nome inserido
-    if(!liGroup){
+    if (!liGroup) {
         const noResults = document.createElement('li');
         noResults.setAttribute('id', 'noResults');
         noResults.setAttribute('style', 'margin-left: 15px;');
-        noResults.textContent = `Não foram encontrados resultados para: "${filter}"`;
+        noResults.textContent = `Não foram encontrados resultados para: "${inputValue}"`;
 
         ul.appendChild(noResults);
     }
