@@ -47,7 +47,6 @@ function classSearchBarFilter() {
 
     //Buscando professor
     for (let i = 0; i < li.length; i++) {
-        let searchList = [];
         let ul2 = li[i].getElementsByClassName('listBlock')[0];
         let li2 = ul2.getElementsByClassName('listItemLine');
         if (li2.length > 0) {
@@ -60,7 +59,6 @@ function classSearchBarFilter() {
                 } else {
                     li[i].style.display = "none";
                 }
-                // searchList.push(teacherName);
             }
         }
     }
