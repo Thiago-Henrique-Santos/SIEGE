@@ -81,6 +81,11 @@
                 <img src="img/logo_wordwall.png" width="200px" height="70px" title="Wordwall" alt="Logo Wordwall">
             </button>
         </a>
+        <a href="https://www.escolagames.com.br/" target="_blank">
+            <button>
+                <img src="img/logo_escolagames.png" width="200px" height="70px" title="Escola Games" alt="Logo Escola Games">
+            </button>
+        </a>
     </div>
 
     <div class="buttons-group" style="margin-top:20px;">
