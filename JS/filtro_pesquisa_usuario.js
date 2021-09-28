@@ -33,7 +33,8 @@ searchBar.onkeyup = userSearchBarFilter;
 function userSearchBarFilter() {
     //Variáveis para elementos do filtro
     let input = document.getElementById('barra_pesquisa');
-    let filter = input.value.toUpperCase();
+    let inputValue = input.value;
+    let filter = inputValue.toUpperCase();
     let ul = document.getElementById("busca_resultado");
     let li = ul.getElementsByClassName('registerContainer');
 
@@ -59,11 +60,11 @@ function userSearchBarFilter() {
     }
 
     //Verifica se não encontrou usuários com o nome inserido
-    if(!liGroup){
+    if (!liGroup) {
         const noResults = document.createElement('li');
         noResults.setAttribute('id', 'noResults');
         noResults.setAttribute('style', 'margin-left: 15px;');
-        noResults.textContent = `Não foram encontrados resultados para: "${filter}"`;
+        noResults.textContent = `Não foram encontrados resultados para: "${inputValue}"`;
 
         ul.appendChild(noResults);
     }
