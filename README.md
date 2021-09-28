@@ -1,8 +1,6 @@
-# SIEGE (Sistema Informativo E Gerenciamento Escolar - Informative And Management Scho System)
+# SIEGE (Sistema Informativo E Gerenciamento Escolar - Informative And Management School System)
 
-This is an academic system to help the school staff submit the students' report card remotely for their parents.
-School's managers (principal, headmaster, supervisor and secretaries) can register users, classes and subjects of the school and update or delete them, they can post, update or delete school grades of every students registered, and they can read registered informations about everything in the system. Teachers can post, update or delete school grades just for their students and read registered informations about their classes, subjects and students. And the students can just read their own report card and read other informations about their own classes.
-And another system's objective is show informations about the school as a website for guests.
+This academic system aims to help the school staff submit the students' report cards remotely to their parents. School's managers (principals, headmasters, supervisors and secretaries) can register users, classes and subjects of the school as well as update or delete them. They can post, update or delete school grades of every student registered, and they can read registered information about everything in the system. Teachers can post, update or delete school grades just for their students and read registered information about their classes, subjects and students. Whereas the students can only read their own report card and read other information about their own classes. Another objective of the system is to show information about the school as a website for guests.
 
 ## Tools
 
