@@ -53,6 +53,8 @@
         <label for="alu">Aluno(a)</label><br>
     </form>
     <br><br>
+
+    <a href="Relatorios/Usuario/gerarPDF.php" target="_blank">Gerar relatório de usuários</a>
     
     <ul id="busca_resultado">
     </ul>
