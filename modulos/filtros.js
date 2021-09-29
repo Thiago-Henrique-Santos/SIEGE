@@ -1,7 +1,5 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
-import { userSearchBarFilter } from '../JS/filtro_pesquisa_usuario.js';
-import { classSearchBarFilter } from '../JS/filtro_pesquisa_turma.js';
 
 function asyncQuery(url, resultBlock, option, optionStatus, type) {
     let httpRequest = startRequest();
@@ -61,7 +59,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
     const title = document.createElement('h7');
     title.setAttribute('class', 'registerTitle');
-    title.innerHTML = `<strong><u>Turma:</u></strong> <span>${classGrade}º ano ${className}</span>`;
+    title.innerHTML = `<strong><u>Turma:</u></strong> <span class="pesquisa">${classGrade}º ano ${className}</span>`;
     classContainer.appendChild(title);
 
     //Disciplinas
@@ -78,7 +76,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             subjectLine.setAttribute('class', 'listItemLine');
             const namesPart = document.createElement('span');
             namesPart.setAttribute('class', 'namesPart');
-            namesPart.innerHTML = `<u>${subjects[i]['nome']}</u>: `;
+            namesPart.innerHTML = `<u class="pesquisa">${subjects[i]['nome']}</u>: `;
             if (teachers[i])
                 namesPart.innerHTML += `<span class="pesquisa">${teachers[i]['nome']}</span>`;
             else
@@ -125,7 +123,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             const namesPart = document.createElement('span');
             namesPart.setAttribute('class', 'namesPart');
             namesPart.innerHTML = `<u>${i + 1}</u>- `;
-            namesPart.innerHTML += `${studentsNames[i]}`;
+            namesPart.innerHTML += `<span class="pesquisa">${studentsNames[i]}</span>`;
             studentLine.appendChild(namesPart);
 
             const buttonsPart = document.createElement('div');
@@ -219,7 +217,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             screen.parentNode.removeChild(screen);
         }
     }
-    classSearchBarFilter();
+    searchBarFilter();
 }
 
 function userHTMLResult(user, resultBlock) {
@@ -342,7 +340,7 @@ function userHTMLResult(user, resultBlock) {
                     if (thisUser['sexo'] == "Masculino")
                         userPosition.innerHTML += `<span class="pesquisa">Diretor</span>`;
                     else
-                        userPosition.innerHTML += `<span class="pesquisa">Diretora`;
+                        userPosition.innerHTML += `<span class="pesquisa">Diretora</span>`;
                     break;
             }
             userInfo.appendChild(userPosition);
@@ -376,7 +374,7 @@ function userHTMLResult(user, resultBlock) {
 
         resultBlock.appendChild(userContainer);
     }
-    userSearchBarFilter();
+    searchBarFilter();
 }
 
 function printTable(studentObject, resultBlock) {
@@ -492,4 +490,47 @@ function makeResult(response, resultBlock, type) {
     }
 }
 
-export { asyncQuery, reportTableAsyncQuery };
+function searchBarFilter() {
+    //Variáveis para elementos do filtro
+    let input = document.getElementById('barra_pesquisa');
+    let inputValue = input.value;
+    let filter = inputValue.toUpperCase();
+    let ul = document.getElementById('busca_resultado');
+    let li = ul.getElementsByClassName('registerContainer');
+
+    //Verifica se o usuário já pesquisou algum nome de usuários inexistentes
+    let oldNoResults = ul.querySelector('li#noResults');
+    if (oldNoResults) {
+        ul.removeChild(oldNoResults);
+    }
+
+    //Variável de controle para "se achou usuários ou não", com o nome inserido
+    let liGroup = false;
+
+    //Buscando usuários
+    for (let i = 0; i < li.length; i++) {
+        let searchList = li[i].getElementsByClassName('pesquisa');
+        for (let j = 0; j < searchList.length; j++) {
+            let txtValue = searchList[j].textContent;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                liGroup = true;
+                break;
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+
+    //Verifica se não encontrou usuários com o nome inserido
+    if (!liGroup) {
+        const noResults = document.createElement('li');
+        noResults.setAttribute('id', 'noResults');
+        noResults.setAttribute('style', 'margin-left: 15px;');
+        noResults.textContent = `Não foram encontrados resultados para: "${inputValue}"`;
+
+        ul.appendChild(noResults);
+    }
+}
+
+export { asyncQuery, reportTableAsyncQuery, searchBarFilter };

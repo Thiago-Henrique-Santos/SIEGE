@@ -31,7 +31,7 @@
     <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas cadastradas</h1>
 
     <div class="box_search">
-        <input type="text" id="barra_pesquisa" name="barra_pesquisa" placeholder="Nome do professor:">
+        <input type="text" id="barra_pesquisa" name="barra_pesquisa" placeholder="Pesquisar">
         <i class="fa fa-search" aria-hidden="true"></i>
     </div>
 
