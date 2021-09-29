@@ -235,51 +235,51 @@ function userHTMLResult(user, resultBlock) {
 
         const userName = document.createElement('li');
         userName.setAttribute('class', 'listItemBlock');
-        userName.innerHTML = `<strong>Nome:</strong> <span>${thisUser['nome']}</span>`;
+        userName.innerHTML = `<strong>Nome:</strong> <span class="pesquisa">${thisUser['nome']}</span>`;
         userInfo.appendChild(userName);
 
         const userEmail = document.createElement('li');
         userEmail.setAttribute('class', 'listItemBlock');
-        userEmail.innerHTML = `<strong>Email:</strong> ${thisUser['email']}`;
+        userEmail.innerHTML = `<strong>Email:</strong> <span class="pesquisa">${thisUser['email']}</span>`;
         userInfo.appendChild(userEmail);
 
         const userResidentialArea = document.createElement('li');
         userResidentialArea.setAttribute('class', 'listItemBlock');
-        userResidentialArea.innerHTML = `<strong>Zona de moradia:</strong> ${thisUser['local_moradia']}`;
+        userResidentialArea.innerHTML = `<strong>Zona de moradia:</strong> <span class="pesquisa">${thisUser['local_moradia']}</span>`;
         userInfo.appendChild(userResidentialArea);
 
         const userGender = document.createElement('li');
         userGender.setAttribute('class', 'listItemBlock');
-        userGender.innerHTML = `<strong>Sexo:</strong> ${thisUser['sexo']}`;
+        userGender.innerHTML = `<strong>Sexo:</strong> <span class="pesquisa">${thisUser['sexo']}</span>`;
         userInfo.appendChild(userGender);
 
         const userPosition = positionAttributes['ocupacao'];
         if (userPosition == "aluno") {
             const userBirthDate = document.createElement('li');
             userBirthDate.setAttribute('class', 'listItemBlock');
-            userBirthDate.innerHTML = `<strong>Data de nascimento:</strong> ${positionAttributes['data_nascimento']}`;
+            userBirthDate.innerHTML = `<strong>Data de nascimento:</strong> <span class="pesquisa">${positionAttributes['data_nascimento']}</span>`;
             userInfo.appendChild(userBirthDate);
 
             const userRegistrationNumber = document.createElement('li');
             userRegistrationNumber.setAttribute('class', 'listItemBlock');
-            userRegistrationNumber.innerHTML = `<strong>N.° matrícula:</strong> ${positionAttributes['matricula']}`;
+            userRegistrationNumber.innerHTML = `<strong>N.° matrícula:</strong> <span class="pesquisa">${positionAttributes['matricula']}</span>`;
             userInfo.appendChild(userRegistrationNumber);
 
             const userResponsible = document.createElement('li');
             userResponsible.setAttribute('class', 'listItemBlock');
-            userResponsible.innerHTML = `<strong>Responsável:</strong> ${positionAttributes['responsavel']}`;
+            userResponsible.innerHTML = `<strong>Responsável:</strong> <span class="pesquisa">${positionAttributes['responsavel']}</span>`;
             userInfo.appendChild(userResponsible);
 
             const userPhone = document.createElement('li');
             userPhone.setAttribute('class', 'listItemBlock');
-            userPhone.innerHTML = `<strong>Telefone:</strong> ${positionAttributes['telefone']}`;
+            userPhone.innerHTML = `<strong>Telefone:</strong> <span class="pesquisa">${positionAttributes['telefone']}</span>`;
             userInfo.appendChild(userPhone);
 
             let userClassInfo = positionAttributes['turma'];
             if (userClassInfo) {
                 const userClass = document.createElement('li');
                 userClass.setAttribute('class', 'listItemBlock');
-                userClass.innerHTML = `<strong>Turma:</strong> ${userClassInfo['serie']}º ano ${userClassInfo['nome']}`;
+                userClass.innerHTML = `<strong>Turma:</strong> <span class="pesquisa">${userClassInfo['serie']}º ano ${userClassInfo['nome']}</span>`;
                 userInfo.appendChild(userClass);
             } else {
                 const userClass = document.createElement('li');
@@ -292,24 +292,24 @@ function userHTMLResult(user, resultBlock) {
             userPosition.setAttribute('class', 'listItemBlock');
             userPosition.innerHTML = "<strong>Ocupação:</strong> ";
             if (thisUser['sexo'] == "Masculino")
-                userPosition.innerHTML += "Aluno";
+                userPosition.innerHTML += `<span class="pesquisa">Aluno</span>`;
             else
-                userPosition.innerHTML += "Aluna";
+                userPosition.innerHTML += `<span class="pesquisa">Aluna</span>`;
             userInfo.appendChild(userPosition);
         } else {
             const userRegistrationNumber = document.createElement('li');
             userRegistrationNumber.setAttribute('class', 'listItemBlock');
-            userRegistrationNumber.innerHTML = `<strong>MASP:</strong> ${positionAttributes['masp']}`;
+            userRegistrationNumber.innerHTML = `<strong>MASP:</strong> <span class="pesquisa">${positionAttributes['masp']}</span>`;
             userInfo.appendChild(userRegistrationNumber);
 
             const userStaffType = document.createElement('li');
             userStaffType.setAttribute('class', 'listItemBlock');
-            userStaffType.innerHTML = `<strong>Tipo de empregado:</strong> ${positionAttributes['tipo_empregado']}`;
+            userStaffType.innerHTML = `<strong>Tipo de empregado:</strong> <span class="pesquisa">${positionAttributes['tipo_empregado']}</span>`;
             userInfo.appendChild(userStaffType);
 
             const userFunction = document.createElement('li');
             userFunction.setAttribute('class', 'listItemBlock');
-            userFunction.innerHTML = `<strong>Função:</strong> ${positionAttributes['funcao']}`;
+            userFunction.innerHTML = `<strong>Função:</strong> <span class="pesquisa">${positionAttributes['funcao']}</span>`;
             userInfo.appendChild(userFunction);
 
             const userPosition = document.createElement('li');
@@ -319,30 +319,30 @@ function userHTMLResult(user, resultBlock) {
             switch (userPositionInformation) {
                 case "professor":
                     if (thisUser['sexo'] == "Masculino")
-                        userPosition.innerHTML += "Professor";
+                        userPosition.innerHTML += `<span class="pesquisa">Professor</span>`;
                     else
-                        userPosition.innerHTML += "Professora";
+                        userPosition.innerHTML += `<span class="pesquisa">Professora</span>`;
                     break;
 
                 case "secretario":
                     if (thisUser['sexo'] == "Masculino")
-                        userPosition.innerHTML += "Secretário";
+                        userPosition.innerHTML += `<span class="pesquisa">Secretário</span>`;
                     else
-                        userPosition.innerHTML += "Secretária";
+                        userPosition.innerHTML += `<span class="pesquisa">Secretária</span>`;
                     break;
 
                 case "supervisor":
                     if (thisUser['sexo'] == "Masculino")
-                        userPosition.innerHTML += "Supervisor";
+                        userPosition.innerHTML += `<span class="pesquisa">Supervisor</span>`;
                     else
-                        userPosition.innerHTML += "Supervisora";
+                        userPosition.innerHTML += `<span class="pesquisa">Supervisora</span>`;
                     break;
 
                 case "diretor":
                     if (thisUser['sexo'] == "Masculino")
-                        userPosition.innerHTML += "Diretor";
+                        userPosition.innerHTML += `<span class="pesquisa">Diretor</span>`;
                     else
-                        userPosition.innerHTML += "Diretora";
+                        userPosition.innerHTML += `<span class="pesquisa">Diretora`;
                     break;
             }
             userInfo.appendChild(userPosition);

@@ -35,7 +35,7 @@ function userSearchBarFilter() {
     let input = document.getElementById('barra_pesquisa');
     let inputValue = input.value;
     let filter = inputValue.toUpperCase();
-    let ul = document.getElementById("busca_resultado");
+    let ul = document.getElementById('busca_resultado');
     let li = ul.getElementsByClassName('registerContainer');
 
     //Verifica se o usuário já pesquisou algum nome de usuários inexistentes
@@ -49,13 +49,16 @@ function userSearchBarFilter() {
 
     //Buscando usuários
     for (let i = 0; i < li.length; i++) {
-        let span = li[i].getElementsByTagName("span")[0];
-        let txtValue = span.textContent;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-            liGroup = true;
-        } else {
-            li[i].style.display = "none";
+        let searchList = li[i].getElementsByClassName('pesquisa');
+        for (let j = 0; j < searchList.length; j++) {
+            let txtValue = searchList[j].textContent;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                liGroup = true;
+                break;
+            } else {
+                li[i].style.display = "none";
+            }
         }
     }
 
