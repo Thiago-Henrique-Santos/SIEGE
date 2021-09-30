@@ -59,7 +59,8 @@
         <form method='POST' target="_blank" id="form_relatorio" action='Relatorios/Usuario/gerarPDF.php?opvl='>
             <select name="select_relatorios" id="select_relatorios" onclick="toggleReportsButton()" style="text-align: center">
                 <option value="" selected>-- Opções de relatórios PDF --</option>
-                <option value="usuarios">Usuários</option>
+                <option value="usuarios">Todos os usuários</option>
+                <option value="funcionarios">Todos os funcionários</option>
                 <option value="gerenciadores">Gerenciadores</option>
                 <option value="supervisores">Supervisores</option>
                 <option value="secretarios">Secretários</option>

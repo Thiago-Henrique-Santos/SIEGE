@@ -4,6 +4,8 @@
     include ("../../Bibliotecas/FPDF/fpdf.php");
     include ("../../modulos/funcoes.php");
 
+    $opvl = $_GET['opvl'];
+
     $pdf = new FPDF("l", "cm", "A4");
     $pdf -> SetTopMargin(0.5);
     $pdf -> SetLeftMargin(0.5);
