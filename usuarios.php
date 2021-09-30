@@ -19,7 +19,7 @@
     <script src="JS/filtro_pesquisa_usuario.js" type="module" defer></script>
     <script src="JS/modal-atualizar.js" async></script>
     <script src="JS/modal-excluir.js" async></script>
-    <script src="JS/relatorios.js"></script>
+    <script src="JS/relatorios.js" defer></script>
 </head>
 
 <body>
@@ -56,9 +56,10 @@
     <br><br>
 
     <div id="conjuntoGerarRelatorio" style="float: right; margin-top: -55px; margin-right: 30px;">
-        <form method='POST' target="_blank" action='Relatorios/Usuario/gerarPDF.php?idop='>
+        <form method='POST' target="_blank" id="form_relatorio" action='Relatorios/Usuario/gerarPDF.php?opvl='>
             <select name="select_relatorios" id="select_relatorios" onclick="toggleReportsButton()" style="text-align: center">
-                <option value="opcoes" selected>-- Opções de relatórios PDF --</option>
+                <option value="" selected>-- Opções de relatórios PDF --</option>
+                <option value="usuarios">Usuários</option>
                 <option value="gerenciadores">Gerenciadores</option>
                 <option value="supervisores">Supervisores</option>
                 <option value="secretarios">Secretários</option>
