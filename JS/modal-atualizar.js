@@ -4,15 +4,6 @@ var close = new Array();
 close[0] = document.getElementById('close-button');
 close[1] = document.getElementById('modal-screen');
 
-/**************************
- *        Eventos         *
- *************************/
-// for (var i = 0; i < close.length; i++) {
-//     close[i].addEventListener("click", () => {
-//         modal.style.display = "none";
-//     });
-// }
-
 close[0].addEventListener("click", () => {
     modal.style.display = "none";
     //document.location.reload(true);
@@ -22,9 +13,6 @@ close[1].addEventListener("dblclick", () => {
     //document.location.reload(true);
 });
 
-/**************************
-*         Funções         *
-**************************/
 function loadStudentModal(nm, dt, mt, rsp, eml, tlf, czn, cms, tur, idtf) {
     var path = generateStudentPath(nm, dt, mt, rsp, eml, tlf, czn, cms, tur, idtf);
     iframe.src = path;
