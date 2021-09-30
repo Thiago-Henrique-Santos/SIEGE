@@ -8,7 +8,3 @@ function toggleReportsButton(){
         botao.disabled = false;
     }
 }
-
-function generateReports() {
-    alert("I'm ready!");
-}

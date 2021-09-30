@@ -56,16 +56,18 @@
     <br><br>
 
     <div id="conjuntoGerarRelatorio" style="float: right; margin-top: -55px; margin-right: 30px;">
-        <select name="select_relatorios" id="select_relatorios" onclick="toggleReportsButton()">
-            <option value="opcoes" selected>-- Opções de relatórios --</option>
-            <option value="gerenciadores">Gerenciadores</option>
-            <option value="supervisores">Supervisores</option>
-            <option value="secretarios">Secretários</option>
-            <option value="professores">Professores</option>
-            <option value="alunos">Alunos</option>
-        </select>
+        <form method='POST' target="_blank" action='Relatorios/Usuario/gerarPDF.php?idop='>
+            <select name="select_relatorios" id="select_relatorios" onclick="toggleReportsButton()" style="text-align: center">
+                <option value="opcoes" selected>-- Opções de relatórios PDF --</option>
+                <option value="gerenciadores">Gerenciadores</option>
+                <option value="supervisores">Supervisores</option>
+                <option value="secretarios">Secretários</option>
+                <option value="professores">Professores</option>
+                <option value="alunos">Alunos</option>
+            </select>
 
-        <button type="button" name="btnRelatorios" id="gr" onclick="generateReports()" disabled>Gerar PDF</button>
+            <button type="submit" name="btnRelatorios" id="gr" disabled>Gerar PDF</button>
+        </form>
     </div>
     
     <ul id="busca_resultado" style="margin-top:40px;">
