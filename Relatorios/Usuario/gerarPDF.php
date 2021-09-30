@@ -21,7 +21,7 @@
     $pdf -> SetFillColor(3, 22, 133);
     $pdf -> SetTextColor(255, 255, 255);
     $pdf -> SetFont('Arial', 'B', 33);
-    $pdf -> Cell(0.8, 1.5, "||||||||||||", 1, 0, "C", 1);
+    $pdf -> Cell(0.8, 1.5, "", 1, 0, "C", 1);
     $pdf -> SetFont('Arial', 'B', 10);
     $pdf -> Cell(10, 1.5, "Nome", 1, 0, "C", 1);
     $pdf -> Cell(8.5, 0.75, "Email", 1, 0, "C", 1);
@@ -93,11 +93,16 @@
 
             $pdf -> Ln();
             $i++;
+            if($i%2==0){
+                $pdf -> SetFillColor(217, 222, 255);
+            }else{
+                $pdf -> SetFillColor(255, 255, 255);
+            }
 		}
 	}
 	else
 		echo "Não foram encontrados gerenciadores!";	
 
-    $pdf -> Output();
+    $pdf -> Output("I", "RelatorioGerenciadores.pdf");
 
 ?>
