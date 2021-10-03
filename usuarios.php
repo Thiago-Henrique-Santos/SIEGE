@@ -62,6 +62,7 @@
                 <option value="usuarios">Todos os usuários</option>
                 <option value="funcionarios">Todos os funcionários</option>
                 <option value="gerenciadores">Gerenciadores</option>
+                <option value="diretores_vices">Diretores e Vices</option>
                 <option value="supervisores">Supervisores</option>
                 <option value="secretarios">Secretários</option>
                 <option value="professores">Professores</option>
