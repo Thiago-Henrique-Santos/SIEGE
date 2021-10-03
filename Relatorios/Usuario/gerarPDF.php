@@ -16,8 +16,7 @@
     $pdf -> SetRightMargin(0.5);
     $pdf -> AddPage();
     
-    $pdf -> SetFont('Arial', 'B', 20);
-    $pdf -> SetFont('Arial', 'U', 20);
+    $pdf -> SetFont('Arial', 'BU', 20);
     $pdf -> SetTextColor(220, 50, 50);
     
     //Parâmetros da função Cell: largura, altura, título, borda, onde se inicia a escrita, alinhamento, preenchimento
@@ -27,7 +26,20 @@
         case "usuarios":
             $pdf -> Cell(27.7, 1.5, utf8_decode('Relatório de Usuários'), 0, 0, "C");
             $pdf -> Ln(2);
+            $pdf -> SetFont('Arial', 'B', 14);
+            $pdf -> SetTextColor(0, 0, 0);
+            $pdf -> Cell(27.7, 1.5, utf8_decode('Funcionários'), 0, 0, "L");
+            $pdf -> Ln(1.5);
             celulasTituloUFG();
+            celulasFuncionarios();
+            $pdf -> Ln(2);
+            $pdf -> SetFont('Arial', 'B', 14);
+            $pdf -> SetTextColor(0, 0, 0);
+            $pdf -> Cell(27.7, 1.5, utf8_decode('Alunos'), 0, 0, "L");
+            $pdf -> Ln(1.5);
+            celulasTituloAlunos();
+            celulasAlunos();
+            $pdf -> Output("I", "RelatorioUsuarios.pdf");
             break;
 
         case "funcionarios":
@@ -156,6 +168,7 @@
             $pdf -> Cell(27.7, 1.5, utf8_decode('Relatório de Alunos'), 0, 0, "C");
             $pdf -> Ln(2);
             celulasTituloAlunos();
+            celulasAlunos();
             $pdf -> Output("I", "RelatorioAlunos.pdf");
             break;
 
@@ -219,6 +232,23 @@
         global $pdf;
         global $conexao;
         global $i;
+        $pdf -> SetFillColor(3, 22, 133);
+        $pdf -> SetTextColor(255, 255, 255);
+        $pdf -> SetFont('Arial', 'B', 33);
+        $pdf -> Cell(0.8, 1.5, "", 1, 0, "C", 1);
+        $pdf -> SetFont('Arial', 'B', 10);
+        $pdf -> Cell(9.5, 1.5, "Nome", 1, 0, "C", 1);
+        $pdf -> Cell(9.2, 0.75, "Email", 1, 0, "C", 1);
+        $pdf -> Cell(3.7, 0.75, "Zon. Moradia", 1, 0, "C", 1);
+        $pdf -> Cell(2.5, 0.75, utf8_decode("N°. Matrícula"), 1, 0, "C", 1);
+        $pdf -> Cell(3, 0.75, "Telefone", 1, 0, "C", 1);
+        $pdf -> Cell(0, 0.75, "", 0, 1);
+        $pdf -> Cell(10.3, 0.75, "", 0, 0);
+        $pdf -> Cell(9.2, 0.75, utf8_decode("Responsável"), 1, 0, "C", 1);
+        $pdf -> Cell(3.7, 0.75, "Data de Nascimento", 1, 0, "C", 1);
+        $pdf -> Cell(2.5, 0.75, "Sexo", 1, 0, "C", 1);
+        $pdf -> Cell(3, 0.75, "Turma", 1, 0, "C", 1);
+        $pdf -> Ln();
     }
 
     function celulasDSSP(){
@@ -392,6 +422,72 @@
             }
             else
                 echo "Não foram encontrados registros.";	
+    }
+
+    function celulasAlunos(){
+        global $pdf;
+        global $conexao;
+        global $i;
+        $sql = "
+                SELECT u.id AS 'id', u.nome AS 'nome_usuario', u.email AS 'email', u.local_moradia AS 'local_moradia',  
+                u.sexo AS 'sexo', a.idAluno AS 'idAluno', a.data_nascimento AS 'data_nascimento', 
+                a.numero_matricula AS 'numero_matricula', a.nome_responsavel AS 'nome_responsavel', a.telefone AS 'telefone',
+                a.id_turma AS 'id_turma', t.id AS 'idTurma', t.serie AS 'serie', t.nome AS 'nome_turma' 
+                FROM usuario u, aluno a, turma t WHERE u.id=a.idAluno AND u.id != 1 AND a.id_turma=t.id ORDER BY u.nome ASC
+                ";
+        $resultado = $conexao->query($sql);
+            
+            if ($resultado->num_rows > 0)
+            {
+                $pdf -> SetFont('Arial', '', 10);
+                $pdf->SetTextColor(0, 0, 0);
+                $pdf -> SetFillColor(255, 255, 255);
+                while ($linha = $resultado->fetch_assoc())
+                {
+                    $i++;
+                    $pdf -> Cell(0.8, 1.5, $i, 1, 0, "C", 1);
+                    $pdf -> Cell(9.5, 1.5, utf8_decode($linha['nome_usuario']), 1, 0, "C", 1);
+                    $pdf -> Cell(9.2, 0.75, utf8_decode($linha['email']), 1, 0, "C", 1);
+
+                    if($linha['local_moradia'] == 'R')
+                        $linha['local_moradia'] = 'Rural';
+                    else
+                        $linha['local_moradia'] = 'Urbana';
+
+                    $pdf -> Cell(3.7, 0.75, utf8_decode($linha['local_moradia']), 1, 0, "C", 1);
+                    $pdf -> Cell(2.5, 0.75, $linha['numero_matricula'], 1, 0, "C", 1);
+                    $pdf -> Cell(3, 0.75, utf8_decode($linha['telefone']), 1, 0, "C", 1);
+                    $pdf -> Cell(0, 0.75, "", 0, 1);
+                    $pdf -> Cell(10.3, 0.75, "", 0, 0);
+                    $pdf -> Cell(9.2, 0.75, utf8_decode($linha['nome_responsavel']), 1, 0, "C", 1);
+                    $pdf -> Cell(3.7, 0.75, formata_data($linha['data_nascimento']), 1, 0, "C", 1);
+
+                    if($linha['sexo'] == 'F')
+                        $linha['sexo'] = 'Feminino';
+                    else
+                        $linha['sexo'] = 'Masculino';
+
+                    $pdf -> Cell(2.5, 0.75, $linha['sexo'], 1, 0, "C", 1);
+
+                    if($linha['id_turma'] == 1){
+                        $turma = "Não vinculada";
+                        $pdf -> Cell(3, 0.75, utf8_decode($turma), 1, 0, "C", 1);
+                    }
+                    else{
+                        $turma = $linha['serie'] . "° ano " . $linha['nome_turma'];
+                        $pdf -> Cell(3, 0.75, utf8_decode($turma), 1, 0, "C", 1);
+                    }
+                        
+                    $pdf -> Ln();
+                    if($i%2==0){
+                        $pdf -> SetFillColor(255, 255, 255);
+                    }else{
+                        $pdf -> SetFillColor(217, 222, 255);
+                    }
+                }
+            }
+            else
+                echo "Não foram encontrados registros.";
     }
 
     function def() {
