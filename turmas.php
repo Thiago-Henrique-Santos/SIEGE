@@ -20,6 +20,7 @@
     <script src="JS/filtro_pesquisa_turma.js" type="module" defer></script>
     <script src="JS/modal-atualizar.js" async></script>
     <script src="JS/modal-excluir.js" async></script>
+    <script src="JS/relatorios.js" defer></script>
 </head>
 
 <body>
@@ -65,7 +66,21 @@
     </form>
     <br><br>
 
-    <ul id="busca_resultado">
+    <div id="conjuntoGerarRelatorio" style="float: right; margin-top: -55px; margin-right: 30px;">
+        <form method='POST' target="_blank" id="form_relatorio" action='Relatorios/Turma/gerarPDF.php?opvl='>
+            <select name="select_relatorios" id="select_relatorios" onclick="entityAddress('Turma')" style="text-align: center">
+                <option value="" selected>-- Opções de relatórios PDF --</option>
+                <option value="tudoturma">Turmas, alunos e disciplinas</option>
+                <option value="soalunos">Turmas e alunos</option>
+                <option value="sodisciplinas">Turmas e disciplinas</option>
+                <option value="sonomes">Nomes das turmas</option>
+            </select>
+
+            <button type="submit" name="btnRelatorios" id="gr" disabled>Gerar PDF</button>
+        </form>
+    </div>
+
+    <ul id="busca_resultado" style="margin-top:40px;">
     </ul>
 
     <div id="modal-screen">
