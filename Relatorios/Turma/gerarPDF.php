@@ -23,21 +23,163 @@
         break;
 
     case "soalunos":
+        $pdf -> AddPage();
+        
+        $pdf -> SetFont('Arial', 'BU', 20);
+        $pdf -> SetTextColor(220, 50, 50);
         $pdf -> Cell(27.7, 1.5, utf8_decode('Relatório de Turmas'), 0, 0, "C");
         $pdf -> Ln(2);
-        $pdf -> SetFont('Arial', 'B', 14);
+
+        $pdf -> SetTopMargin(0.5);
+        $pdf -> SetLeftMargin(0.5);
+        $pdf -> SetRightMargin(0.5);
+
+        $pdf -> SetFont('Arial', 'B', 17);
         $pdf -> SetTextColor(0, 0, 0);
         $pdf -> Cell(27.7, 1.5, utf8_decode('Contendo: nomes das turmas e alunos'), 0, 0, "L");
-        $pdf -> Ln(1.5);
+
+        $sql = "SELECT DISTINCT a.id_turma, t.id, t.serie, t.nome FROM turma t, aluno a WHERE t.id != 1 AND a.id_turma=t.id ORDER BY t.serie ASC, t.nome ASC";
+        $resultado = $conexao->query($sql);
+        $i=0;
+            
+            if ($resultado->num_rows > 0)
+            {
+                while ($linha = $resultado->fetch_assoc())
+                {
+                    $i++;
+                    $pdf -> SetFont('Arial', 'B', 15);
+                    $pdf -> SetTextColor(0, 0, 0);
+                    $pdf -> Ln(2);
+                    $pdf -> Cell(1, 1.5, utf8_decode($i . "-    "), 0, 0, "L");
+                    $pdf -> SetTextColor(235, 209, 45);
+                    $pdf -> Cell(22.7, 1.5, utf8_decode($linha['serie'] . "° Ano " . $linha['nome']), 0, 0, "L");
+                    $pdf -> Ln(1.2);
+
+                    $pdf -> SetFillColor(3, 22, 133);
+                    $pdf -> SetTextColor(255, 255, 255);
+                    $pdf -> SetFont('Arial', 'B', 12);
+
+                    $pdf -> Cell(1, 1.5, "", 1, 0, "C", 1);
+                    $pdf -> Cell(11, 1.5, "Aluno", 1, 0, "C", 1);
+                    $pdf -> Cell(7, 1.5, utf8_decode("Número de matrícula"), 1, 0, "C", 1);
+                    $pdf -> Cell(9.7, 1.5, "Email", 1, 0, "C", 1);
+                    $pdf -> Ln();
+
+                    $sql2 = "SELECT * FROM usuario u, aluno a WHERE u.id=a.idAluno AND a.id_turma=" . $linha['id'] . " AND " . $linha['id'] . " != 1 ORDER BY u.nome ASC";
+                        $resultado2 = $conexao->query($sql2);
+                        
+                        if ($resultado2->num_rows > 0)
+                        {
+                            $j=1;
+                            $pdf -> SetFont('Arial', '', 10);
+                            $pdf -> SetTextColor(0, 0, 0);
+                            $pdf -> SetFillColor(255, 255, 255);
+                            while ($linha2 = $resultado2->fetch_assoc())
+                            {
+                                $pdf -> Cell(1, 1.5, $j, 1, 0, "C", 1);
+                                $pdf -> Cell(11, 1.5, utf8_decode($linha2['nome']), 1, 0, "C", 1);
+                                $pdf -> Cell(7, 1.5, $linha2['numero_matricula'], 1, 0, "C", 1);
+                                $pdf -> Cell(9.7, 1.5, $linha2['email'], 1, 0, "C", 1);
+                                $j++;
+
+                                $pdf -> Ln();
+                                if($j%2==0){
+                                    $pdf -> SetFillColor(217, 222, 255);
+                                }else{
+                                    $pdf -> SetFillColor(255, 255, 255);
+                                }
+                            }
+                        }
+                }
+            }	
+            else
+                echo "Não foram encontrados registros.";
+
+            $pdf -> Output("I", "RelatorioNomesTurmasAlunos.pdf");
         break;
 
     case "sodisciplinas":
+        $pdf -> AddPage();
+        
+        $pdf -> SetFont('Arial', 'BU', 20);
+        $pdf -> SetTextColor(220, 50, 50);
         $pdf -> Cell(27.7, 1.5, utf8_decode('Relatório de Turmas'), 0, 0, "C");
         $pdf -> Ln(2);
-        $pdf -> SetFont('Arial', 'B', 14);
+
+        $pdf -> SetTopMargin(0.5);
+        $pdf -> SetLeftMargin(0.4);
+        $pdf -> SetRightMargin(0.4);
+
+        $pdf -> SetFont('Arial', 'B', 17);
         $pdf -> SetTextColor(0, 0, 0);
         $pdf -> Cell(27.7, 1.5, utf8_decode('Contendo: nomes das turmas e disciplinas'), 0, 0, "L");
-        $pdf -> Ln(1.5);
+
+        $sql = "SELECT DISTINCT d.id_turma, t.id, t.serie, t.nome FROM turma t, disciplina d WHERE t.id != 1 AND d.id_turma=t.id ORDER BY t.serie ASC, t.nome ASC";
+        $resultado = $conexao->query($sql);
+        $i=0;
+            
+            if ($resultado->num_rows > 0)
+            {
+                while ($linha = $resultado->fetch_assoc())
+                {
+                    $i++;
+                    $pdf -> SetFont('Arial', 'B', 15);
+                    $pdf -> SetTextColor(0, 0, 0);
+                    $pdf -> Ln(2);
+                    $pdf -> Cell(1, 1.5, utf8_decode($i . "-    "), 0, 0, "L");
+                    $pdf -> SetTextColor(235, 209, 45);
+                    $pdf -> Cell(22.7, 1.5, utf8_decode($linha['serie'] . "° Ano " . $linha['nome']), 0, 0, "L");
+                    $pdf -> Ln(1.2);
+
+                    $pdf -> SetFillColor(3, 22, 133);
+                    $pdf -> SetTextColor(255, 255, 255);
+                    $pdf -> SetFont('Arial', 'B', 12);
+
+                    $pdf -> Cell(0.5, 1.5, "", 1, 0, "C", 1);
+                    $pdf -> Cell(7.5, 1.5, "Disciplina", 1, 0, "C", 1);
+                    $pdf -> Cell(1, 1.5, "Ano", 1, 0, "C", 1);
+                    $pdf -> Cell(9.7, 1.5, "Professor", 1, 0, "C", 1);
+                    $pdf -> Cell(1.7, 1.5, "MASP", 1, 0, "C", 1);
+                    $pdf -> Cell(8.5, 1.5, "Email", 1, 0, "C", 1);
+                    $pdf -> Ln();
+
+                    $sql2 = "
+                             SELECT u.id, u.nome AS 'nome_usuario', u.email, d.id, d.nome AS 'nome_disciplina', d.ano, d.id_professor, 
+                             d.id_turma, p.idProfessor, p.masp FROM usuario u, disciplina d, professor p WHERE u.id=p.idProfessor 
+                             AND d.id_turma=" . $linha['id'] . " AND d.id_professor=p.idProfessor AND " . $linha['id'] . " != 1 ORDER BY d.nome ASC, u.nome ASC
+                            ";
+                        $resultado2 = $conexao->query($sql2);
+                        
+                        if ($resultado2->num_rows > 0)
+                        {
+                            $j=1;
+                            $pdf -> SetFont('Arial', '', 10);
+                            $pdf -> SetTextColor(0, 0, 0);
+                            $pdf -> SetFillColor(255, 255, 255);
+                            while ($linha2 = $resultado2->fetch_assoc())
+                            {
+                                $pdf -> Cell(0.5, 1.5, $j, 1, 0, "C", 1);
+                                $pdf -> Cell(7.5, 1.5, utf8_decode($linha2['nome_disciplina']), 1, 0, "C", 1);
+                                $pdf -> Cell(1, 1.5, $linha2['ano'], 1, 0, "C", 1);
+                                $pdf -> Cell(9.7, 1.5, utf8_decode($linha2['nome_usuario']), 1, 0, "C", 1);
+                                $pdf -> Cell(1.7, 1.5, utf8_decode($linha2['masp']), 1, 0, "C", 1);
+                                $pdf -> Cell(8.5, 1.5, utf8_decode($linha2['email']), 1, 0, "C", 1);
+                                $j++;
+
+                                $pdf -> Ln();
+                                if($j%2==0){
+                                    $pdf -> SetFillColor(217, 222, 255);
+                                }else{
+                                    $pdf -> SetFillColor(255, 255, 255);
+                                }
+                            }
+                        }
+                }
+            }	
+            else
+                echo "Não foram encontrados registros.";
+
+            $pdf -> Output("I", "RelatorioNomesTurmasDisciplinas.pdf");
         break;
     
     case "sonomes":
