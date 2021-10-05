@@ -47,7 +47,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer class="container-fluid" style="margin-top: 5px">
         <p> SIEGE - Sistema Informativo E Gerenciamento Escolar </p>
     </footer>
 </body>

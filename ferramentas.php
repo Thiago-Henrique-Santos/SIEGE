@@ -45,6 +45,11 @@
                 <img src="img/logo_gmail.png" width="200px" height="70px" title="Gmail" alt="Logo Gmail">
             </button>
         </a>
+        <a href="https://drive.google.com/" target="_blank">
+            <button>
+                <img src="img/logo_drive.png" width="200px" height="70px" title="Google Drive" alt="Logo Google Drive">
+            </button>
+        </a>
         <a href="https://calendar.google.com/" target="_blank">
             <button>
                 <img src="img/logo_calendar.png" width="200px" height="70px" title="Google Calendar" alt="Logo Google Calendar">
