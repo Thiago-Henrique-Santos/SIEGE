@@ -1,6 +1,7 @@
 <?php
     $erros_email="";
     $erros_senha="";
+    include ("../BancoDados/conexao_mysql.php");
 
 
     /*******Validações referentes ao campo de email(login)******** */
@@ -36,7 +37,21 @@
 
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
-        header("Location: ../pagina_inicial.php");
+        session_start();
+        $sql = "SELECT u.email, u.senha FROM usuario u WHERE u.email='" . $_POST['campo_email'] . "' AND u.senha='" . $_POST['campo_senha'] . "'";
+        $resultado = $conexao->query($sql);
+        
+        if ($resultado->num_rows > 0)
+        {
+            $linha = $resultado->fetch_assoc();
+            $_SESSION['campo_email'] = $linha['email'];
+            $_SESSION['campo_senha'] = $linha['senha'];
+            header("Location: ../pagina_inicial.php");
+        }
+        else
+            header("Location: ../login.php?erros_email=<br> * Email e/ou senha inválidos!&valor_email=$valor");	
+
+        $conexao->close();
     }else{
         $valor = $_POST["campo_email"];
         header("Location: ../login.php?erros_email=$erros_email&erros_senha=$erros_senha&valor_email=$valor");
