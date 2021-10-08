@@ -33,8 +33,7 @@
             flex-flow: row nowrap; justify-content: center;">
                 <h1 class="titulo-principal"> Página principal</h1>
             </div>
-            <p>Esta página contará com as informações principais e necessárias, a página principal com os
-                menus, avisos, etc.</p>
+            <p>Colocar os botões do menu e alterar o menu, colocando apenas a logo do SIEGE</p>
         </main>
     </div>
 

@@ -3,6 +3,10 @@
     if(!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])){
         header ("Location: login.php");
     }
+
+    if($_SESSION['tip_usu'] == 1){
+        header ("Location: pagina_inicial.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>

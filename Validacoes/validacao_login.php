@@ -38,7 +38,7 @@
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
         session_start();
-        $sql = "SELECT u.email, u.senha FROM usuario u WHERE u.email='" . $_POST['campo_email'] . "' AND u.senha='" . $_POST['campo_senha'] . "'";
+        $sql = "SELECT u.email, u.senha, u.tipo_usuario FROM usuario u WHERE u.email='" . $_POST['campo_email'] . "' AND u.senha='" . $_POST['campo_senha'] . "'";
         $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
@@ -46,6 +46,7 @@
             $linha = $resultado->fetch_assoc();
             $_SESSION['campo_email'] = $linha['email'];
             $_SESSION['campo_senha'] = $linha['senha'];
+            $_SESSION['tip_usu'] = $linha['tipo_usuario'];
             header("Location: ../pagina_inicial.php");
         }
         else
