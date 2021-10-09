@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/logo_juvenal.png"/>
-    <title>Sobre</title>
+    <title>Notícias</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/main.css">
@@ -26,11 +26,11 @@
         <main>
             <div style="width: 100%; height: 50px; display: flex; 
             flex-flow: row nowrap; justify-content: center;">
-                <h1 class="titulo-principal"> Sobre a equipe e o projeto </h1>
+                <h1 class="titulo-principal"> Notícias </h1>
             </div>
             
             <p style="margin-top: 50px;">
-                Nesta página, iremos contar um pouco sobre os desenvolvedores do SIEGE, sobre a escola e algumas informações da equipe
+                Nesta página, terão algumas notícias fixas sobre a escola que já aconteceram, de maneira estática e fixa
             </p>
         </main>
     </div>

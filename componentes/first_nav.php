@@ -2,8 +2,10 @@
     <header>
       <div class="tudo">
         <div class="info">
-          <img class="logo" src="./img/logo_juvenal.png" alt="Logo da Escola Estadual Professor Juvenal Brandão">
-        <font class="titulo">Escola Estadual Professor Juvenal Brandão</font>
+          <a href="./index.php">
+            <img class="logo" src="./img/logo_juvenal.png" alt="Logo da Escola Estadual Professor Juvenal Brandão"/>
+          </a>
+          <font class="titulo"><a href="./index.php" style="text-decoration: none; color: inherit;">Escola Estadual Professor Juvenal Brandão</a></font>
         </div>
         <a href="login.php">
           <button class="botao">ACESSE O SIEGE</button>
@@ -17,13 +19,13 @@
             <a class="nav-link text-white" href="index.php">Início</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Notícias</a>
+            <a class="nav-link text-white" href="noticias.php">Notícias</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Boas Práticas</a>
+            <a class="nav-link text-white" href="boas_praticas.php">Boas Práticas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#">Editais</a>
+            <a class="nav-link text-white" href="editais.php">Editais</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="como_acessar.php">Como acessar</a>
