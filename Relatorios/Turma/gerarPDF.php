@@ -15,6 +15,8 @@
     switch ($opvl) {
     case "tudoturma":
         $pdf -> AddPage();
+        $pdf -> Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+        $pdf -> Ln(4);
         
         $pdf -> SetFont('Arial', 'BU', 20);
         $pdf -> SetTextColor(220, 50, 50);
@@ -75,6 +77,8 @@
 
     case "soalunos":
         $pdf -> AddPage();
+        $pdf -> Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+        $pdf -> Ln(4);
         
         $pdf -> SetFont('Arial', 'BU', 20);
         $pdf -> SetTextColor(220, 50, 50);
@@ -124,6 +128,8 @@
 
     case "sodisciplinas":
         $pdf -> AddPage();
+        $pdf -> Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+        $pdf -> Ln(4);
         
         $pdf -> SetFont('Arial', 'BU', 20);
         $pdf -> SetTextColor(220, 50, 50);
@@ -173,6 +179,8 @@
     
     case "sonomes":
         $pdf -> AddPage();
+        $pdf -> Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+        $pdf -> Ln(4);
         
         $pdf -> SetFont('Arial', 'BU', 20);
         $pdf -> SetTextColor(220, 50, 50);

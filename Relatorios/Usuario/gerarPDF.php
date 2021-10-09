@@ -16,6 +16,8 @@
     $pdf -> SetRightMargin(0.5);
     $pdf -> AddPage();
     
+    $pdf -> Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+    $pdf -> Ln(4);
     $pdf -> SetFont('Arial', 'BU', 20);
     $pdf -> SetTextColor(220, 50, 50);
     
