@@ -2,7 +2,7 @@
     <header>
       <div class="tudo">
         <div class="info">
-          <img class="logo" src="colocar logo do juvenal">
+          <img class="logo" src="./img/logo_juvenal.png" alt="Logo da Escola Estadual Professor Juvenal Brandão">
         <font class="titulo">Escola Estadual Professor Juvenal Brandão</font>
         </div>
         <a href="login.php">
