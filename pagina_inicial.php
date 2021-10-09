@@ -33,41 +33,61 @@
         <main>
             <div style="width: 100%; height: 120px; display: flex; 
             flex-flow: row nowrap; justify-content: center;">
-                <h1 class="titulo-principal"> Página principal</h1>
+                <h1 class="titulo-principal"> Página Inicial</h1>
             </div>
 
-            <h4 style="margin-bottom: 120px; margin-top: -40px; text-align: center;">Sejam Bem-Vindos ao SIEGE!</h4>
+            <h4 style="margin-bottom: 120px; margin-top: -40px; text-align: center;">Seja bem-vindo(a) ao SIEGE!</h4>
 
             <div class="buttons-group" style="margin-top:20px;">
-                <a href="pagina_inicial.php">
-                    <button>
-                        Página inicial
-                    </button>
-                </a>
-                <a href="cadastrar.php">
-                    <button>
-                        Cadastrar
-                    </button>
-                </a>
-                <a href="ferramentas.php">
-                    <button>
-                        Ferramentas
-                    </button>
-                </a>
-                <a href="usuarios.php">
-                    <button>
-                        Usuários
-                    </button>
-                </a>
-                <a href="turmas.php">
-                    <button>
-                        Turmas
-                    </button>
-                </a>
-                <a href="boletim.php">
-                    <button>
-                        Boletim
-                    </button>
+
+                <?php
+                    if($_SESSION['tip_usu'] == 3){
+                        echo "<a href='cadastrar.php'>";
+                            echo "<button>Cadastrar</button>";
+                        echo "</a>";
+                        echo "<a href='ferramentas.php'>";
+                            echo "<button>Ferramentas</button>";
+                        echo "</a>";
+                        echo "<a href='usuarios.php'>";
+                            echo "<button>Usuários</button>";
+                        echo "</a>";
+                        echo "<a href='turmas.php'>";
+                            echo "<button>Turmas</button>";
+                        echo "</a>";
+                        echo "<a href='boletim.php'>";
+                            echo "<button>Boletim</button>";
+                        echo "</a>";
+                    }elseif($_SESSION['tip_usu'] == 2){
+                        echo "<a href='ferramentas.php'>";
+                            echo "<button>Ferramentas</button>";
+                        echo "</a>";
+                        echo "<a href='usuarios.php'>";
+                            echo "<button>Usuários</button>";
+                        echo "</a>";
+                        echo "<a href='turmas.php'>";
+                            echo "<button>Turmas</button>";
+                        echo "</a>";
+                        echo "<a href='boletim.php'>";
+                            echo "<button>Boletim</button>";
+                        echo "</a>";
+                    }elseif($_SESSION['tip_usu'] == 1){
+                        echo "<a href='usuarios.php'>";
+                            echo "<button>Usuários</button>";
+                        echo "</a>";
+                        echo "<a href='turmas.php'>";
+                            echo "<button>Turmas</button>";
+                        echo "</a>";
+                        echo "<a href='boletim.php'>";
+                            echo "<button>Boletim</button>";
+                        echo "</a>";
+                    }
+                ?>
+
+            </div>
+
+            <div class="buttons-group" style="margin-top:50px;">
+                <a href='sair.php'>
+                    <button>Sair</button>
                 </a>
             </div>
 
