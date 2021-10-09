@@ -16,7 +16,7 @@
     <title>Página Inicial </title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
-    <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/menu_pagina_inicial.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -26,9 +26,11 @@
 
     <div class="flex-container">
 
-        <?php
-            include ('componentes/user_nav.php');
-        ?>
+        <nav>
+            <ul>
+                <a href='pagina_inicial.php'> <img class='logo_menu' src='img/logo_transparente2.png' alt='Logo do sistema'/> </a>
+            </ul>
+        </nav>
 
         <main>
             <div style="width: 100%; height: 120px; display: flex; 
