@@ -63,23 +63,29 @@
     </form>
     <br><br>
 
-    <div id="conjuntoGerarRelatorio" style="float: right; margin-top: -55px; margin-right: 30px;">
-        <form method='POST' target="_blank" id="form_relatorio" action='Relatorios/Usuario/gerarPDF.php?opvl='>
-            <select name="select_relatorios" id="select_relatorios" onclick="entityAddress('Usuario')" style="text-align: center">
-                <option value="" selected>-- Opções de relatórios PDF --</option>
-                <option value="usuarios">Todos os usuários</option>
-                <option value="funcionarios">Todos os funcionários</option>
-                <option value="gerenciadores">Gerenciadores</option>
-                <option value="diretores_vices">Diretores e Vices</option>
-                <option value="supervisores">Supervisores</option>
-                <option value="secretarios">Secretários</option>
-                <option value="professores">Professores</option>
-                <option value="alunos">Alunos</option>
-            </select>
+    <?php
 
-            <button type="submit" name="btnRelatorios" id="gr" disabled>Gerar PDF</button>
-        </form>
-    </div>
+        if($_SESSION['tip_usu'] == 3){
+            echo "<div id='conjuntoGerarRelatorio' style='float: right; margin-top: -55px; margin-right: 30px;'>";
+                echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Usuario/gerarPDF.php?opvl='>";
+                    echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Usuario\")' style='text-align: center'>";
+                        echo "<option value='' selected>-- Opções de relatórios PDF --</option>";
+                        echo "<option value='usuarios'>Todos os usuários</option>";
+                        echo "<option value='funcionarios'>Todos os funcionários</option>";
+                        echo "<option value='gerenciadores'>Gerenciadores</option>";
+                        echo "<option value='diretores_vices'>Diretores e Vices</option>";
+                        echo "<option value='supervisores'>Supervisores</option>";
+                        echo "<option value='secretarios'>Secretários</option>";
+                        echo "<option value='professores'>Professores</option>";
+                        echo "<option value='alunos'>Alunos</option>";
+                    echo "</select>";
+
+                    echo "<button type='submit' name='btnRelatorios' id='gr' disabled>Gerar PDF</button>";
+                echo "</form>";
+            echo "</div>";
+        }
+
+    ?>
     
     <ul id="busca_resultado" style="margin-top:40px;">
     </ul>
