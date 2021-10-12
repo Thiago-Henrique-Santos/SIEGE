@@ -44,7 +44,10 @@
             if ($resultado->num_rows > 0)
             {
                 $linha = $resultado->fetch_assoc();
-                echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turma - " . $linha['serie'] . "° ano " . $linha['nome'] . "</h1>";
+                if($linha['serie'] != 0)
+                    echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turma - " . $linha['serie'] . "° ano " . $linha['nome'] . "</h1>";
+                else
+                    echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turma - Não vinculada</h1>";
             }
         }else{
             echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turmas registradas</h1>";
