@@ -74,10 +74,10 @@
                         echo "</a>";
                     }elseif($_SESSION['tip_usu'] == 1){
                         echo "<a href='usuarios.php'>";
-                            echo "<button>Usuários</button>";
+                            echo "<button>Pessoas</button>";
                         echo "</a>";
                         echo "<a href='turmas.php'>";
-                            echo "<button>Turmas</button>";
+                            echo "<button>Turma</button>";
                         echo "</a>";
                         echo "<a href='boletim.php'>";
                             echo "<button>Boletim</button>";

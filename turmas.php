@@ -35,43 +35,58 @@
     
     <?php
         include ('componentes/user_nav.php');
-    ?>
+        include ("BancoDados/conexao_mysql.php");
 
-    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Turmas cadastradas</h1>
+        if($_SESSION['tip_usu'] == 1){
+            $sql = "SELECT t.serie, t.nome FROM usuario u, aluno a, turma t WHERE u.id=a.idAluno AND u.email='" . $_SESSION['campo_email'] . "' AND t.id=a.id_turma";
+            $resultado = $conexao->query($sql);
+            
+            if ($resultado->num_rows > 0)
+            {
+                $linha = $resultado->fetch_assoc();
+                echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turma - " . $linha['serie'] . "° ano " . $linha['nome'] . "</h1>";
+            }
+        }else{
+            echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turmas registradas</h1>";
+        }
+    ?>
 
     <div class="box_search">
         <input type="text" id="barra_pesquisa" name="barra_pesquisa" placeholder="Pesquisar">
         <i class="fa fa-search" aria-hidden="true"></i>
     </div>
 
-    
-    <form class="user" action="#" method="post">
-        <label>Marque o ano da turma que gostaria de ver os registros:</label> <br><br>
+    <?php
+        if($_SESSION['tip_usu'] != 1){
+            echo "<form class='user' action='#' method='post'>";
+                echo "<label>Marque o ano da turma que gostaria de ver os registros:</label> <br><br>";
 
-        <input type="checkbox" class="serieFiltro" id="seg" name="seg" value="segundo">
-        <label for="seg">2° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='seg' name='seg' value='segundo'>";
+                echo "<label for='seg'>2° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="terc" name="terc" value="terceiro">
-        <label for="terc">3° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='terc' name='terc' value='terceiro'>";
+                echo "<label for='terc'>3° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="quart" name="quart" value="quarto">
-        <label for="quart">4° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='quart' name='quart' value='quarto'>";
+                echo "<label for='quart'>4° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="quin" name="quin" value="quinto">
-        <label for="quin">5° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='quin' name='quin' value='quinto'>";
+                echo "<label for='quin'>5° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="sext" name="sext" value="sexto">
-        <label for="sext">6° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='sext' name='sext' value='sexto'>";
+                echo "<label for='sext'>6° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="seti" name="seti" value="setimo">
-        <label for="seti">7° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='seti' name='seti' value='setimo'>";
+                echo "<label for='seti'>7° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="oit" name="oit" value="oitavo">
-        <label for="oit">8° anos&emsp;</label>
+                echo "<input type='checkbox' class='serieFiltro' id='oit' name='oit' value='oitavo'>";
+                echo "<label for='oit'>8° anos&emsp;</label>";
 
-        <input type="checkbox" class="serieFiltro" id="non" name="non" value="nono">
-        <label for="non">9° anos&emsp;</label><br>
-    </form>
+                echo "<input type='checkbox' class='serieFiltro' id='non' name='non' value='nono'>";
+                echo "<label for='non'>9° anos&emsp;</label><br>";
+            echo "</form>";
+        }
+    ?>
     <br><br>
 
     <?php

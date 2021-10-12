@@ -34,9 +34,12 @@
 
     <?php
         include('componentes/user_nav.php');
+        if($_SESSION['tip_usu'] == 1){
+            echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Pessoas da sua comunidade escolar</h1>";
+        }else{
+            echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Usuários cadastrados</h1>";
+        }
     ?>
-
-    <h1 class="titulo-principal centralizar-texto" style="margin-bottom: 25px;">Usuários cadastrados</h1>
 
     <div class="box_search">
         <input type="text" id="barra_pesquisa" name="barra_pesquisa" placeholder="Pesquisar">
@@ -44,22 +47,39 @@
     </div>
 
     <form class="user" action="#" method="post">
-        <label>Marque o tipo de funcionário que gostaria de ver os registros:</label> <br><br>
 
-        <input type="checkbox" class="cargoFiltro" id="dir" name="dir" value="diretor">
-        <label for="dir"> Diretor(a) e Vice</label>
+        <?php
+            if($_SESSION['tip_usu'] == 1){
+                echo "<label>Marque o(s) tipo(s) de membro(s) da escola que gostaria de ver os registros:</label> <br><br>";
 
-        <input type="checkbox" class="cargoFiltro" id="secr" name="secr" value="secretario">
-        <label for="secr"> Secretário(a)</label>
+                echo "<input type='checkbox' class='cargoFiltro' id='dir' name='dir' value='diretor'>";
+                echo "<label for='dir'> Diretores e Vices</label> &emsp;";
 
-        <input type="checkbox" class="cargoFiltro" id="sup" name="sup" value="supervisor">
-        <label for="sup">Supervisor(a)</label>
+                echo "<input type='checkbox' class='cargoFiltro' id='prof' name='prof' value='professor'>";
+                echo "<label for='prof'>Professores</label> &emsp;";
 
-        <input type="checkbox" class="cargoFiltro" id="prof" name="prof" value="professor">
-        <label for="prof">Professor(a)</label>
+                echo "<input type='checkbox' class='cargoFiltro' id='alu' name='alu' value='aluno'>";
+                echo "<label for='alu'>Alunos</label><br>";
+            
+            }else{
+                echo "<label>Marque o(s) tipo(s) de usuário(s) que gostaria de ver os registros:</label> <br><br>";
 
-        <input type="checkbox" class="cargoFiltro" id="alu" name="alu" value="aluno">
-        <label for="alu">Aluno(a)</label><br>
+                echo "<input type='checkbox' class='cargoFiltro' id='dir' name='dir' value='diretor'>";
+                echo "<label for='dir'> Diretores e Vices</label> &emsp;";
+
+                echo "<input type='checkbox' class='cargoFiltro' id='secr' name='secr' value='secretario'>";
+                echo "<label for='secr'> Secretários</label> &emsp;";
+
+                echo "<input type='checkbox' class='cargoFiltro' id='sup' name='sup' value='supervisor'>";
+                echo "<label for='sup'>Supervisores</label> &emsp;";
+
+                echo "<input type='checkbox' class='cargoFiltro' id='prof' name='prof' value='professor'>";
+                echo "<label for='prof'>Professores</label> &emsp;";
+
+                echo "<input type='checkbox' class='cargoFiltro' id='alu' name='alu' value='aluno'>";
+                echo "<label for='alu'>Alunos</label><br>";
+            }
+        ?>
     </form>
     <br><br>
 
