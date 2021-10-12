@@ -218,6 +218,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
         }
     }
     searchBarFilter();
+    hideButtons();
 }
 
 function userHTMLResult(user, resultBlock) {
@@ -375,6 +376,7 @@ function userHTMLResult(user, resultBlock) {
         resultBlock.appendChild(userContainer);
     }
     searchBarFilter();
+    hideButtons();
 }
 
 function printTable(studentObject, resultBlock) {
@@ -530,6 +532,17 @@ function searchBarFilter() {
         noResults.textContent = `Não foram encontrados resultados para: "${inputValue}"`;
 
         ul.appendChild(noResults);
+    }
+}
+
+function hideButtons(){
+    var tip_usu = sessionStorage.getItem('tip_usu');
+
+    if (tip_usu != 3) {
+        const buttons = document.querySelectorAll('button.buttons-queries');
+        for (let i=0; i<buttons.length; i++) {
+            buttons[i].style.display = "none";
+        }
     }
 }
 

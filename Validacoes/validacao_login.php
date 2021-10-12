@@ -57,4 +57,8 @@
         $valor = $_POST["campo_email"];
         header("Location: ../login.php?erros_email=$erros_email&erros_senha=$erros_senha&valor_email=$valor");
     }
+
+    echo "<script type='text/javascript'>";
+        echo "sessionStorage.setItem('tip_usu'," . $_SESSION['tip_usu'] . ");";
+    echo "</script>";
 ?>
