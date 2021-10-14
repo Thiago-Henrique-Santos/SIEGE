@@ -1,6 +1,9 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
 
+let tip_usu = sessionStorage.getItem('tip_usu');
+let genero = sessionStorage.getItem('sx');
+
 function asyncQuery(url, resultBlock, option, optionStatus, type) {
     let httpRequest = startRequest();
     if (option != null && optionStatus != null) {
@@ -218,7 +221,9 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
         }
     }
     searchBarFilter();
-    hideButtons();
+    if(tip_usu != 3){
+        hideButtons();
+    }
 }
 
 function userHTMLResult(user, resultBlock) {
@@ -376,7 +381,9 @@ function userHTMLResult(user, resultBlock) {
         resultBlock.appendChild(userContainer);
     }
     searchBarFilter();
-    hideButtons();
+    if(tip_usu != 3){
+        hideButtons();
+    }
 }
 
 function printTable(studentObject, resultBlock) {
@@ -441,7 +448,16 @@ function makeResult(response, resultBlock, type) {
     switch (type) {
         case "Turma":
             if (!response['turma']) {
-                resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
+                if(tip_usu == 1){
+                    if(genero == 'M'){
+                        resultBlock.innerHTML = "<p style='margin-left: 10px;'>O aluno não está vinculado a uma turma!</p>";
+                    }else{
+                        resultBlock.innerHTML = "<p style='margin-left: 10px;'>A aluna não está vinculada a uma turma!</p>";
+                    }
+                }
+                else{
+                    resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
+                }
             } else {
                 for (let i = 0; i < response['turma'].length; i++) {
                     let classIdtf = response['turma'][i]['idtf'];
@@ -536,13 +552,9 @@ function searchBarFilter() {
 }
 
 function hideButtons(){
-    var tip_usu = sessionStorage.getItem('tip_usu');
-
-    if (tip_usu != 3) {
-        const buttons = document.querySelectorAll('button.buttons-queries');
-        for (let i=0; i<buttons.length; i++) {
-            buttons[i].style.display = "none";
-        }
+    const buttons = document.getElementsByClassName('buttons-queries');
+    for (let i=0; i<buttons.length; i++) {
+        buttons[i].style.display = 'none';
     }
 }
 
