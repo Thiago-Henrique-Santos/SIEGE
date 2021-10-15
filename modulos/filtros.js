@@ -274,10 +274,12 @@ function userHTMLResult(user, resultBlock) {
             userResponsible.innerHTML = `<strong>Responsável:</strong> <span class="pesquisa">${positionAttributes['responsavel']}</span>`;
             userInfo.appendChild(userResponsible);
 
-            const userPhone = document.createElement('li');
-            userPhone.setAttribute('class', 'listItemBlock');
-            userPhone.innerHTML = `<strong>Telefone:</strong> <span class="pesquisa">${positionAttributes['telefone']}</span>`;
-            userInfo.appendChild(userPhone);
+            if(tip_usu != 1){
+                const userPhone = document.createElement('li');
+                userPhone.setAttribute('class', 'listItemBlock');
+                userPhone.innerHTML = `<strong>Telefone:</strong> <span class="pesquisa">${positionAttributes['telefone']}</span>`;
+                userInfo.appendChild(userPhone);
+            }
 
             let userClassInfo = positionAttributes['turma'];
             if (userClassInfo) {
