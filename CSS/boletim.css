@@ -1,73 +1,106 @@
 .linha_registros {
-    background-color: lightblue;
-    color: black;
-    text-align: center;
-    vertical-align: middle;
-    height: auto;
-    width: auto;
-  }
-  
-  .linha_registros:hover {
-    background-color: rgb(110, 151, 238);
-    color: black;
-    text-align: center;
-    vertical-align: middle;
-    height: auto;
-    width: auto;
-  }
-  
-  .nome {
-    color: black;
-    text-align: left;
-    vertical-align: middle;
-    height: auto;
-    width: auto;
-  }
-  
-  .boletim {
-    border: 2px solid black;
-    background-color: black;
-  }
-  
-  input[type="number"] {
-    width: 85%;
-    height: 50px;
-    font-size: 20px;
-    vertical-align: middle;
-    text-align: center;
-    border: none;
-  }
-  
-  .titulo_tabela {
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bold;
-    background-color: orange;
-    font-family: Arial;
-  }
-  
-  #btn_editar {
-    background-color: darkblue;
-    color: white;
-    width: 100px;
-    height: 40px;
-    font-size: 30px;
-    border-radius: 5px 5px 5px 5px;
-    border: solid 2px white;
-    cursor: pointer;
-  }
-  
-  #btn_cancelar {
-    background-color: rgb(25, 25, 27);
-    color: white;
-    width: 150px;
-    height: 40px;
-    font-size: 30px;
-    border-radius: 5px 5px 5px 5px;
-    border: solid 2px white;
-    cursor: pointer;
-  }
+  background-color: rgb(196, 230, 243);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
 
-  h3 {
-    font-size: 20px;
-  }
+.linha_registros:hover {
+  background-color: rgb(176, 198, 247);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.nome {
+  color: black;
+  text-align: left;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+#boletim {
+  border: 1px solid black;
+  background-color: black;
+}
+
+input[type="number"] {
+  width: 85%;
+  height: 50px;
+  font-size: 20px;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+}
+
+.titulo_tabela {
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  background-color: orange;
+  font-family: Arial;
+}
+
+#btn_editar {
+  background-color: darkblue;
+  color: white;
+  width: 100px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 2px white;
+  cursor: pointer;
+}
+
+#btn_cancelar {
+  background-color: rgb(177, 21, 1);
+  color: white;
+  width: 140px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 2px white;
+  cursor: pointer;
+}
+
+#btn_limpar {
+  background-color: rgb(255, 157, 9);
+  color: white;
+  width: 110px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 2px white;
+  cursor: pointer;
+}
+
+#btn_limpar:hover {
+  text-decoration: underline;
+}
+
+#btn_publicar {
+  background-color: rgb(157, 157, 157);
+  color: rgb(177, 177, 177);
+  width: 130px;
+  height: 40px;
+  font-size: 30px;
+  border-radius: 5px 5px 5px 5px;
+  border: solid 2px white;
+}
+
+#btn_editar:hover {
+  text-decoration: underline;
+}
+
+#btn_cancelar:hover {
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 20px;
+}
