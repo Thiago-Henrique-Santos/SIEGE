@@ -35,7 +35,7 @@
     <?php
         include('componentes/user_nav.php');
         if($_SESSION['tip_usu'] == 1){
-            echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Pessoas da sua comunidade escolar</h1>";
+            echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Pessoas do seu ambiente escolar</h1>";
         }else{
             echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Usuários cadastrados</h1>";
         }
