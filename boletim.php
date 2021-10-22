@@ -39,7 +39,7 @@
                 <select name="turmas">
                     <option selected="sut">Selecione uma Turma</option>
                     <?php
-                        $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1");
+                        $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");
                         $prepara->execute();
                         $resultado = $prepara->get_result();
                         while($t = $resultado->fetch_object()){
