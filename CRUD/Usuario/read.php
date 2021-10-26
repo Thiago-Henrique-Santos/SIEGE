@@ -254,6 +254,12 @@
         }
     }else{
         if (isset($_GET['dir']) || isset($_GET['secr']) || isset($_GET['sup']) || isset($_GET['prof']) || isset($_GET['alu'])) {
+          $sql0 = "SELECT a.id_turma FROM aluno a, usuario u WHERE a.idAluno = u.id AND u.email = '" . $_SESSION['campo_email'] . "'";
+          $resultado0 = $conexao->query($sql0);
+          
+          if ($resultado0->num_rows > 0){
+            $linha0 = $resultado0->fetch_assoc();
+
             $tipoUsuario_escolhidos = array(
                 "aluno"       => false,
                 "professor"   => false,
@@ -303,21 +309,24 @@
                     $sql .= "; ";
                 }
 
-                $sql .= "SELECT * FROM usuario u INNER JOIN ";
-
                 if ($tipoUsuario_escolhidos['aluno']) {
-                    $sql = "
+                    $sql .= "
                         SELECT u.id AS 'id', u.nome, u.email, u.local_moradia, u.sexo, u.tipo_usuario, 
                         a.data_nascimento, a.numero_matricula, a.nome_responsavel, a.telefone, 
                         t.id AS 'id_turma', t.nome AS 'nome_turma', t.serie FROM usuario u 
-                        INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON t.id=a.id_turma
-                        ";
+                        INNER JOIN aluno a ON u.id=a.idAluno INNER JOIN turma t ON t.id=a.id_turma WHERE t.id = " . $linha0['id_turma'];
+
                     $tipoUsuario_escolhidos['aluno'] = false;
                 } elseif ($tipoUsuario_escolhidos['professor']) {
-                    $sql .= "professor p ON u.id=p.idProfessor WHERE p.idProfessor != 1";
+                    $sql .= "
+                        SELECT u.*, p.*, d.nome AS 'nome_disciplina' FROM usuario u 
+                        INNER JOIN professor p ON u.id=p.idProfessor INNER JOIN disciplina d ON p.idProfessor=d.id_professor 
+                        WHERE p.idProfessor != 1 AND d.id_turma = " . $linha0['id_turma'];
+                        
                     $tipoUsuario_escolhidos['professor'] = false;
                 } elseif ($tipoUsuario_escolhidos['gerenciador']) {
-                    $sql .= "gerenciadores g ON u.id=g.idGerenciador";
+                    $sql .= "SELECT * FROM usuario u INNER JOIN gerenciadores g ON u.id=g.idGerenciador";
+
                     if (!$gerenciadores_escolhidos['supervisor'] || !$gerenciadores_escolhidos['secretario'] || !$gerenciadores_escolhidos['diretor']) {
                         $sql .= " WHERE ";
                         $c = 0;
@@ -368,7 +377,6 @@
                                     $registros['usuario'][$i]['cargo_info']['data_nascimento'] = formata_data($linha['data_nascimento']);
                                     $registros['usuario'][$i]['cargo_info']['matricula'] = $linha['numero_matricula'];
                                     $registros['usuario'][$i]['cargo_info']['responsavel'] = $linha['nome_responsavel'];
-                                    $registros['usuario'][$i]['cargo_info']['telefone'] = $linha['telefone'];
 
                                     if($linha['id_turma'] == 1)
                                         $registros['usuario'][$i]['cargo_info']['turma'] = false;
@@ -410,6 +418,7 @@
                     }
                 } while ($conexao->next_result());
             }
+          }
         } else {
             $sql0 = "SELECT a.id_turma FROM aluno a, usuario u WHERE a.idAluno = u.id AND u.email = '" . $_SESSION['campo_email'] . "'";
             $resultado0 = $conexao->query($sql0);
@@ -523,15 +532,13 @@
                         $i++;
                     }
                 }
-
-                usort($registros['usuario'], "cmp_nome");
-
             } else {
                 $registros['usuario'] = false;
             }
         }
     }
 
+    usort($registros['usuario'], "cmp_nome");
     echo json_encode($registros);
     $conexao->close();
 
