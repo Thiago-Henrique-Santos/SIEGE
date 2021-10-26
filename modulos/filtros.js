@@ -310,7 +310,23 @@ function userHTMLResult(user, resultBlock) {
 
             const userStaffType = document.createElement('li');
             userStaffType.setAttribute('class', 'listItemBlock');
-            userStaffType.innerHTML = `<strong>Tipo de empregado:</strong> <span class="pesquisa">${positionAttributes['tipo_empregado']}</span>`;
+            userStaffType.innerHTML = "<strong>Tipo de empregado:</strong> ";
+            const userStaffInformation = positionAttributes['tipo_empregado'];
+            switch (userStaffInformation) {
+                case "Designado":
+                    if (thisUser['sexo'] == "Masculino")
+                        userStaffType.innerHTML += `<span class="pesquisa">Designado</span>`;
+                    else
+                        userStaffType.innerHTML += `<span class="pesquisa">Designada</span>`;
+                    break;
+
+                case "Efetivo":
+                    if(thisUser['sexo'] == "Masculino")
+                        userStaffType.innerHTML += `<span class="pesquisa">Efetivo</span>`;
+                    else
+                        userStaffType.innerHTML += `<span class="pesquisa">Efetiva</span>`;
+                    break;
+            }
             userInfo.appendChild(userStaffType);
 
             const userFunction = document.createElement('li');
