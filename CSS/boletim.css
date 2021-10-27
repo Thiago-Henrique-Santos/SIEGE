@@ -50,8 +50,8 @@ input[type="number"] {
   background-color: darkblue;
   color: white;
   width: 100px;
-  height: 40px;
-  font-size: 30px;
+  height: 50px;
+  font-size: 25px;
   border-radius: 5px 5px 5px 5px;
   border: solid 2px white;
   cursor: pointer;
@@ -61,8 +61,8 @@ input[type="number"] {
   background-color: rgb(177, 21, 1);
   color: white;
   width: 140px;
-  height: 40px;
-  font-size: 30px;
+  height: 50px;
+  font-size: 25px;
   border-radius: 5px 5px 5px 5px;
   border: solid 2px white;
   cursor: pointer;
@@ -72,8 +72,8 @@ input[type="number"] {
   background-color: rgb(255, 157, 9);
   color: white;
   width: 110px;
-  height: 40px;
-  font-size: 30px;
+  height: 50px;
+  font-size: 25px;
   border-radius: 5px 5px 5px 5px;
   border: solid 2px white;
   cursor: pointer;
@@ -87,8 +87,8 @@ input[type="number"] {
   background-color: rgb(157, 157, 157);
   color: rgb(177, 177, 177);
   width: 130px;
-  height: 40px;
-  font-size: 30px;
+  height: 50px;
+  font-size: 25px;
   border-radius: 5px 5px 5px 5px;
   border: solid 2px white;
 }
