@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/icon_siege.png"/>
-    <title>SIEGE - Cadastrar </title>
+    <title>SIEGE - Cadastrar</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/forms.css">
@@ -37,19 +37,26 @@
     ?>
 
     <main>
-        <h1 style="margin-bottom: 25px;" class="titulo-principal centralizar-texto">Cadastrar novos funcionários</h1>
+        <h1 style="margin-bottom: 30px;" class="titulo-principal centralizar-texto">Cadastrar novos usuários</h1>
         
         <div class="toRegister-box">
-            <p style="margin-bottom: 25px;">Qual tipo de usuário gostaria de cadastrar?</p>
-            <div class="buttons-group">
+            <p style="margin-bottom: 25px;font-weight: bold;">Qual tipo de usuário gostaria de cadastrar?</p>
+            
+            <br> <p style="margin-bottom: 20px;text-decoration: underline;">Gerenciadores</p>
+            <div class="buttons-group" style="margin-bottom: 50px;">
                 <button class="option" id="diretor">Diretor(a) e vice</button>
                 <button class="option" id="supervisor">Supervisor(a)</button>
                 <button class="option" id="secretario">Secretário(a)</button>
+            </div>
+
+            <p style="margin-bottom: 20px;text-decoration: underline;">Doscentes e Discentes</p>
+            <div class="buttons-group" style="margin-bottom: 50px;">
                 <button class="option" id="professor">Professor(a)</button>
                 <button class="option" id="aluno">Aluno(a)</button>
             </div>
-            <p style="margin-top:50px;">Outros cadastros:</p>
-            <div class="buttons-group" style="margin-top:25px;">
+
+            <p style="margin-bottom:20px; text-decoration: underline;">Outros cadastros:</p>
+            <div class="buttons-group" style="margin-bottom: 50px;">
                 <button class="option" id="turma">Turma</button>
                 <button class="option" id="disciplina">Disciplina</button>
             </div>
