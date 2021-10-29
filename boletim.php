@@ -23,6 +23,10 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="JS/boletim.js"></script>
     <script src="JS/filtro_boletim.js" type="module"></script>
+    <script>
+        let selecinar_turma = document.getElemntById('select_turma');
+        let valor_turma = selecionar_turma.value;
+    </script>
 </head>
 
 <body>
@@ -45,7 +49,9 @@
     <br><br>
         <?php
             if($_SESSION['tip_usu'] != 1){
-                echo "<select name='turmas'>";
+                echo "<form method='POST' action='#'>";
+                echo "<label for='turmaEscolhida' class='form-label'></label>";
+                echo "<select class='form-select' id='turmaEscolhida' name='turmas'>";
                     echo "<option selected='sut'>Selecione uma Turma</option>";
                         
                             if($_SESSION['tip_usu'] == 3){
@@ -68,12 +74,19 @@
                                 echo "<option value = $tur->id>" . $tur->serie . "º " . $tur->nome . "</option>";
                             }
                     echo "</select>";
-                echo "&emsp;";
+                    echo "<br>";
+                    echo "<button type='submit' class='btn btn-primary'>Visualizar Disciplinas</button>";
+                    echo "</form>";
+                    echo "&emsp;";
 
+                if (isset($_POST["turmas"]))
+				{
+                echo "<form method='POST' action='#'>";
                 echo "<select name='disciplinas'>";
                     echo "<option selected='sud'>Selecione uma Disciplina</option>";
 
-                            $prepara2 = $conexao->prepare("SELECT nome FROM disciplina WHERE id_turma = /*$(Variável com o id da turma selecionada)*/");
+                            $prepara2 = $conexao->prepare("SELECT nome FROM disciplina WHERE id_turma = ?");
+                            $prepara2->bind_param("i", $_POST["turmas"]);
                             $prepara2->execute();
                             $resultado2 = $prepara2->get_result();
                             while($d = $resultado2->fetch_object()){
@@ -83,6 +96,8 @@
                                 echo "<option value = $dis->id>" . $dis->nome . "</option>";
                             }
                 echo "</select>";
+                echo "</form>";
+                }
             }
                     
             if($_SESSION['tip_usu'] == 3){
@@ -131,7 +146,7 @@
         ?>
                 
     <br><br>
-    
+
     <!--tr = linha, td = coluna-->
     <!-- Tabela na visão de gerenciadores e professores -->
         <table id="boletim">
