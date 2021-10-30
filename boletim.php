@@ -24,7 +24,7 @@
     <script src="JS/boletim.js"></script>
     <script src="JS/filtro_boletim.js" type="module"></script>
     <script>
-        let selecinar_turma = document.getElemntById('select_turma');
+        let selecinar_turma = document.getElementById('select_turma');
         let valor_turma = selecionar_turma.value;
     </script>
 </head>
