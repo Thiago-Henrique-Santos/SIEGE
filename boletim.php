@@ -136,13 +136,13 @@
                             echo "</form>";
                         echo "</div>";
             
-            }else{
+            }elseif($_SESSION['tip_usu'] == 1){
                         echo "<div id='conjuntoGerarRelatorio' style='float: right; margin-top: -55px; margin-right: 30px;'>";
-                            echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
-                                echo "<button type='submit' name='btnRelatorios' value='bmt' id='gr'>Gerar boletim em PDF</button>";
+                            echo "<form method='POST' target='_blank' id='form_relatorioboletimaluno' action='Relatorios/Boletim/gerarPDF.php?opvl=boletimaluno'>";
+                                echo "<button type='submit' name='btnBoletimRelatorios' value='boletimaluno' id='boletimaluno'>Gerar boletim em PDF</button>";
                             echo "</form>";
                         echo "</div>";
-                    }
+                }
         ?>
                 
     <br><br>

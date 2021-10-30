@@ -505,7 +505,7 @@
             echo "<img src='../../img/erro.gif' style='margin-bottom: 10px; width: 350px; height: auto;'>";
         echo "<br><br>";
         echo "<div id='mostra erro' style='width:100%; display: flex; justify-content: center; align-items: center;'>";
-            echo "<img src='img/atencao.png' style='height: 20px; width: auto;'>";
+            echo "<img src='../../img/atencao.png' style='height: 20px; width: auto;'>";
             echo "<font style='font-size: 20px;'>".$_GET['info']."</font>";
         echo "</div>";
     }
