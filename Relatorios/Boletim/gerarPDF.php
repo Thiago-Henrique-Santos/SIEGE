@@ -318,6 +318,14 @@
                     def();
                 break;
         }
+    }elseif($_SESSION['tip_usu'] == 2){
+
+        //Código de boletim para professores
+
+    }else{
+
+        //Código de boletim para gerenciadores
+
     }
 
     /*******
