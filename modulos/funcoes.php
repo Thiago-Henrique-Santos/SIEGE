@@ -43,6 +43,8 @@
             $horas++;
         }
         $minutos = $i;
+        if($minutos==0)
+            $minutos = '00';
         $tempoTotal = $horas . ":" . $minutos;
         return $tempoTotal;
     }
