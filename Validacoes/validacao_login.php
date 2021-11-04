@@ -34,28 +34,42 @@
     if(!is_numeric($_POST["campo_senha"])){
         $erros_senha .= "<br> * A senha deve conter apenas números";
     }
-    
-
 
     if(strlen($erros_email)==0 and strlen($erros_senha)==0){
+        $jaLogado = validaLoginNaSessao();
         $sql = "SELECT u.email, u.senha, u.sexo, u.tipo_usuario FROM usuario u WHERE u.email='" . $_POST['campo_email'] . "' AND u.senha='" . $_POST['campo_senha'] . "'";
         $resultado = $conexao->query($sql);
         
         if ($resultado->num_rows > 0)
         {
-            $linha = $resultado->fetch_assoc();
-            $_SESSION['campo_email'] = $linha['email'];
-            $_SESSION['campo_senha'] = $linha['senha'];
-            $_SESSION['tip_usu'] = $linha['tipo_usuario'];
-            $_SESSION['sx'] = $linha['sexo'];
+            if ($jaLogado) {
+                header("Location: ../login.php?jlg=true");
+            } else {
+                $linha = $resultado->fetch_assoc();
+                $_SESSION['campo_email'] = $linha['email'];
+                $_SESSION['campo_senha'] = $linha['senha'];
+                $_SESSION['tip_usu'] = $linha['tipo_usuario'];
+                $_SESSION['sx'] = $linha['sexo'];
+            }
         }
         else
             header("Location: ../login.php?erros_email=<br> * Email e/ou senha inválidos!&valor_email=$valor");
-
         $conexao->close();
     }else{
         $valor = $_POST["campo_email"];
         header("Location: ../login.php?erros_email=$erros_email&erros_senha=$erros_senha&valor_email=$valor");
+    }
+
+    function validaLoginNaSessao(){
+        $validado = 1;
+
+        $validado = (isset($_SESSION['campo_email']) && !empty($_SESSION['campo_email'])) ? $validado*1 : $validado*0;
+        $validado = (isset($_SESSION['campo_senha']) && !empty($_SESSION['campo_senha'])) ? $validado*1 : $validado*0;
+        $validado = (isset($_SESSION['tip_usu']) && !empty($_SESSION['tip_usu'])) ? $validado*1 : $validado*0;
+        $validado = (isset($_SESSION['sx']) && !empty($_SESSION['sx'])) ? $validado*1 : $validado*0;
+
+        $validado = (bool)$validado;
+        return $validado;
     }
 ?>
 
