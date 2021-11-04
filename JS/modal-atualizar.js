@@ -6,11 +6,17 @@ close[1] = document.getElementById('modal-screen');
 
 close[0].addEventListener("click", () => {
     modal.style.display = "none";
-    //document.location.reload(true);
+    
+    let reload = sessionStorage.getItem('reloadReadPage');
+    if(reload == "true")
+        document.location.reload(true);
 });
 close[1].addEventListener("dblclick", () => {
     modal.style.display = "none";
-    //document.location.reload(true);
+    
+    let reload = sessionStorage.getItem('reloadReadPage');
+    if(reload == "true")
+        document.location.reload(true);
 });
 
 function loadStudentModal(nm, dt, mt, rsp, eml, tlf, czn, cms, tur, idtf) {

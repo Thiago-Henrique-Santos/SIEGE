@@ -596,6 +596,12 @@ $data_atual = date('d/m/Y');
         $mensagem = $_GET['dtfc'];
         echo "componentes.displayAlert('Datas cruzadas!', '$mensagem');";
     }
+
+    if ($_GET['id'] == "validadoOK" && $_GET['tfm'] == "atualizar") {
+        echo "sessionStorage.setItem('reloadReadPage', true);";
+    } else {
+        echo "sessionStorage.setItem('reloadReadPage', false);";
+    }
     ?>
 
 </script>
