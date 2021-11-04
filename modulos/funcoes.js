@@ -75,7 +75,7 @@ function generatePath(basePath, key, add) {
 
 }
 
-function dateFormatForInput(brDate){
+function dateFormatForInput(date){
     return date.split('/').reverse().join('-');
 }
 
