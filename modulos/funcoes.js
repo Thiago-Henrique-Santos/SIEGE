@@ -75,6 +75,10 @@ function generatePath(basePath, key, add) {
 
 }
 
+function dateFormatForInput(brDate){
+    return date.split('/').reverse().join('-');
+}
+
 function converte_falta(aulas){
     let minutosTotais = aulas * 50;
     let horas = 0;
@@ -90,4 +94,4 @@ function converte_falta(aulas){
     return tempoTotal;
 } 
 
-export { generatePath, converte_falta };
+export { generatePath, converte_falta, dateFormatForInput };
