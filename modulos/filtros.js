@@ -1,5 +1,6 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
+import {dateFormatForInput} from './funcoes.js';
 
 let tip_usu = sessionStorage.getItem('tip_usu');
 let genero = sessionStorage.getItem('sx');
@@ -381,7 +382,8 @@ function userHTMLResult(user, resultBlock) {
         const gender = thisUser['sexo'] == "Masculino" ? "M" : "F";
         const residentialArea = thisUser['local_moradia'] == "Urbana" ? "U" : "R";
         if (positionAttributes['ocupacao'] == "aluno") {
-            updateUserButton.onclick = () => loadStudentModal(thisUser['nome'], positionAttributes['data_nascimento'], positionAttributes['matricula'], positionAttributes['responsavel'], thisUser['email'], positionAttributes['telefone'], residentialArea, gender, positionAttributes['turma']['idtf'], thisUser['idtf']);
+            const birthDate = dateFormatForInput(positionAttributes['data_nascimento']);
+            updateUserButton.onclick = () => loadStudentModal(thisUser['nome'], birthDate, positionAttributes['matricula'], positionAttributes['responsavel'], thisUser['email'], positionAttributes['telefone'], residentialArea, gender, positionAttributes['turma']['idtf'], thisUser['idtf']);
         } else {
             const staffType = positionAttributes['tipo_empregado'] == "Efetivo" ? "E" : "D";
             updateUserButton.onclick = () => loadStaffModal(positionAttributes['ocupacao'], thisUser['nome'], positionAttributes['masp'], thisUser['email'], residentialArea, staffType, gender, positionAttributes['funcao'], thisUser['idtf']);
