@@ -23,6 +23,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
     <script src="JS/boletim.js"></script>
     <script src="JS/filtro_boletim.js" type="module"></script>
+    <script src="JS/relatorios.js" defer></script>
     <script>
         let selecinar_turma = document.getElementById('select_turma');
         let valor_turma = selecionar_turma.value;
@@ -71,7 +72,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             $turmas[] = $t;
         }
         foreach ($turmas as $tur) {
-            echo "<option value = $tur->id>" . $tur->serie . "º " . $tur->nome . "</option>";
+            echo "<option value = $tur->id>" . $tur->serie . "º ano " . $tur->nome . "</option>";
         }
         echo "</select>";
         echo "<br>";
@@ -103,15 +104,18 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<div id='conjuntoGerarRelatorio' style='float: right;'>";
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")' style='text-align: center'>";
-        echo "<option value='' selected>-- Opções de relatórios PDF --</option>";
-        echo "<option value='usuarios'>Todos os usuários</option>";
-        echo "<option value='funcionarios'>Todos os funcionários</option>";
-        echo "<option value='gerenciadores'>Gerenciadores</option>";
-        echo "<option value='diretores_vices'>Diretores e Vices</option>";
-        echo "<option value='supervisores'>Supervisores</option>";
-        echo "<option value='secretarios'>Secretários</option>";
-        echo "<option value='professores'>Professores</option>";
-        echo "<option value='alunos'>Alunos</option>";
+        echo "<option value='' selected>-- Opções de boletim PDF --</option>";
+        echo "<option value='todasTurmas'>Todas as turmas</option>";
+
+        $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");
+        $prepara->execute();
+        $resultado = $prepara->get_result();
+        while ($t = $resultado->fetch_object()) {
+            $turmas[] = $t;
+        }
+        foreach ($turmas as $tur) {
+            echo "<option value = $tur->id>" . $tur->serie . "º ano " . $tur->nome . "</option>";
+        }
         echo "</select>";
         echo "<button type='submit' name='btnRelatorios' id='gr' disabled>Gerar PDF</button>";
         echo "</form>";
@@ -120,15 +124,25 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<div id='conjuntoGerarRelatorio' style='float: right;'>";
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")' style='text-align: center'>";
-        echo "<option value='' selected>-- Opções de relatórios PDF --</option>";
-        echo "<option value='usuarios'>Todos os usuários</option>";
-        echo "<option value='funcionarios'>Todos os funcionários</option>";
-        echo "<option value='gerenciadores'>Gerenciadores</option>";
-        echo "<option value='diretores_vices'>Diretores e Vices</option>";
-        echo "<option value='supervisores'>Supervisores</option>";
-        echo "<option value='secretarios'>Secretários</option>";
-        echo "<option value='professores'>Professores</option>";
-        echo "<option value='alunos'>Alunos</option>";
+        echo "<option value='' selected>-- Opções de boletim PDF --</option>";
+        echo "<option value='todasTurmasLecionadas'>Todas as turmas lecionadas</option>";
+
+        $sqlb = "SELECT p.idProfessor FROM professor p, usuario u WHERE p.idProfessor = u.id AND u.email = '" . $_SESSION['campo_email'] . "'";
+        $resultadob = $conexao->query($sqlb);
+
+        if ($resultadob->num_rows > 0) {
+            $linhab = $resultadob->fetch_assoc();
+            $preparab = $conexao->prepare("SELECT t.* FROM turma t, disciplina d, professor p WHERE d.id_turma=t.id AND d.id_professor=p.idProfessor AND p.idProfessor=" . $linhab['idProfessor'] . " AND t.id != 1 ORDER BY t.serie ASC, t.nome ASC");
+        }
+        $preparab->execute();
+        $resultadob = $preparab->get_result();
+        while ($tb = $resultadob->fetch_object()) {
+            $turmasb[] = $tb;
+        }
+        foreach ($turmasb as $turb) {
+            echo "<option value = $turb->id>" . $turb->serie . "º ano " . $turb->nome . "</option>";
+        }
+
         echo "</select>";
         echo "<button type='submit' name='btnRelatorios' id='gr' disabled>Gerar PDF</button>";
         echo "</form>";
