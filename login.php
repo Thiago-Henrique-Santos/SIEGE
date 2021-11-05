@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/login.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
@@ -51,6 +52,15 @@
     <footer class="container-fluid" style="margin-top: 5px">
         <p> SIEGE - Sistema Informativo E Gerenciamento Escolar </p>
     </footer>
+
+    <script type="module">
+        import componentes from './modulos/componentes.js';
+        <?php
+            if (isset($_GET['jlg']) && !empty($_GET['jlg'])) {
+                echo "componentes.displayAlert('Cadastro repetido!', 'Desconecte a conta ativa atual, antes de entrar em outra.');";
+            }
+        ?>
+    </script>
 </body>
 
 </html>
