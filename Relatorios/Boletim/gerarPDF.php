@@ -53,7 +53,7 @@ if ($_SESSION['tip_usu'] == 1) {
 } elseif ($_SESSION['tip_usu'] == 2) {
     if ($opvl == 'todasTurmasLecionadas') {
         $pdf = new FPDF("l", "cm", "A4");
-        $sqlt = "SELECT t.id FROM turma t, usuario u, professor p, disciplina d WHERE u.id=p.idProfessor AND d.id_turma=t.id AND d.id_professor=p.idProfessor AND u.email='" . $_SESSION['campo_email'] . "'";
+        $sqlt = "SELECT t.id FROM turma t, usuario u, professor p, disciplina d WHERE u.id=p.idProfessor AND d.id_turma=t.id AND d.id_professor=p.idProfessor AND u.email='" . $_SESSION['campo_email'] . "' ORDER BY t.serie ASC, t.nome ASC";
         $resultadot = $conexao->query($sqlt);
         if ($resultadot->num_rows > 0) {
             while ($linhat = $resultadot->fetch_assoc()) {
@@ -130,14 +130,348 @@ if ($_SESSION['tip_usu'] == 1) {
         }
     }
 } else {
-    $pdf = new FPDF("l", "cm", "A4");
-    $pdf->AddPage();
-    $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
-    $pdf->Ln(3);
+    if ($opvl == 'todasTurmas') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
 
-    $pdf->SetTopMargin(0.5);
-    $pdf->SetLeftMargin(0.3);
-    $pdf->SetRightMargin(0.3);
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+            $pdf->Output("I", "BoletimTodasTurmas.pdf");
+        }
+    } elseif ($opvl == 'segundosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 2 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimSegundosAnos.pdf");
+    } elseif ($opvl == 'terceirosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 3 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimTerceirosAnos.pdf");
+    } elseif ($opvl == 'quartosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 4 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimQuartosAnos.pdf");
+    } elseif ($opvl == 'quintosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 5 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimQuintosAnos.pdf");
+    } elseif ($opvl == 'sextosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 6 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimSextosAnos.pdf");
+    } elseif ($opvl == 'setimosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 7 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimSetimosAnos.pdf");
+    } elseif ($opvl == 'oitavosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 8 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimOitavosAnos.pdf");
+    } elseif ($opvl == 'nonosAnos') {
+        $pdf = new FPDF("l", "cm", "A4");
+        $sqlt = "SELECT t.id FROM turma t WHERE t.id != 1 AND t.serie = 9 ORDER BY t.serie ASC, t.nome ASC";
+        $resultadot = $conexao->query($sqlt);
+        if ($resultadot->num_rows > 0) {
+            while ($linhat = $resultadot->fetch_assoc()) {
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $linhat['id'] . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        $pdf->Output("I", "BoletimNonosAnos.pdf");
+    } else {
+        $sqlcont = "SELECT COUNT(a.idAluno) AS 'contadorAlunos' FROM aluno a, turma t WHERE t.id=a.id_turma AND t.id=" . $opvl;
+        $resultadocont = $conexao->query($sqlcont);
+        if ($resultadocont->num_rows > 0) {
+            $linhacont = $resultadocont->fetch_assoc();
+            if ($linhacont['contadorAlunos'] == 0) {
+                echo "
+                        <script> 
+                            alert('Não há nenhum aluno nesta turma, logo, não é possível gerar os boletins dessa turma!');
+                            alert('Você será redirecionado para a página \"boletim\".');
+                            window.location.href = '../../boletim.php';
+                        </script>
+                    ";
+            } else {
+                $pdf = new FPDF("l", "cm", "A4");
+                $nomeArquivo = "";
+                $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $opvl . " ORDER BY u.nome ASC";
+                $resultado0 = $conexao->query($sql0);
+                if ($resultado0->num_rows > 0) {
+                    while ($linha0 = $resultado0->fetch_assoc()) {
+                        $pdf->AddPage();
+                        $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
+                        $pdf->Ln(3);
+
+                        $pdf->SetTopMargin(0.5);
+                        $pdf->SetLeftMargin(0.3);
+                        $pdf->SetRightMargin(0.3);
+                        dadosAluno();
+
+                        $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
+
+                        $resultado = $conexao->query($sql);
+
+                        if ($resultado->num_rows > 0) {
+                            while ($linha = $resultado->fetch_assoc()) {
+                                tabelaNotas();
+                            }
+                        }
+                        $nomeArquivo = "Boletim" . $linha0['serie'] . "ano" . $linha0['nomeTurma'] . ".pdf";
+                    }
+                }
+                $pdf->Output("I", $nomeArquivo);
+            }
+        }
+    }
 }
 
 

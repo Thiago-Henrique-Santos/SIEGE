@@ -105,16 +105,27 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")' style='text-align: center'>";
         echo "<option value='' selected>-- Opções de boletim PDF --</option>";
+        echo "<option value=''>-------</option>";
         echo "<option value='todasTurmas'>Todas as turmas</option>";
+        echo "<option value=''>-------</option>";
+        echo "<option value='segundosAnos'>2°s anos</option>";
+        echo "<option value='terceirosAnos'>3°s anos</option>";
+        echo "<option value='quartosAnos'>4°s anos</option>";
+        echo "<option value='quintosAnos'>5°s anos</option>";
+        echo "<option value='sextosAnos'>6°s anos</option>";
+        echo "<option value='setimosAnos'>7°s anos</option>";
+        echo "<option value='oitavosAnos'>8°s anos</option>";
+        echo "<option value='nonosAnos'>9°s anos</option>";
+        echo "<option value=''>-------</option>";
 
-        $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");
-        $prepara->execute();
-        $resultado = $prepara->get_result();
-        while ($t = $resultado->fetch_object()) {
-            $turmas[] = $t;
+        $preparab = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");
+        $preparab->execute();
+        $resultadob = $preparab->get_result();
+        while ($tb = $resultadob->fetch_object()) {
+            $turmasb[] = $tb;
         }
-        foreach ($turmas as $tur) {
-            echo "<option value = $tur->id>" . $tur->serie . "º ano " . $tur->nome . "</option>";
+        foreach ($turmasb as $turb) {
+            echo "<option value = $turb->id>" . $turb->serie . "º ano " . $turb->nome . "</option>";
         }
         echo "</select>";
         echo "<button type='submit' name='btnRelatorios' id='gr' disabled>Gerar PDF</button>";
@@ -125,7 +136,9 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")' style='text-align: center'>";
         echo "<option value='' selected>-- Opções de boletim PDF --</option>";
+        echo "<option value=''>-------</option>";
         echo "<option value='todasTurmasLecionadas'>Todas as turmas lecionadas</option>";
+        echo "<option value=''>-------</option>";
 
         $sqlb = "SELECT p.idProfessor FROM professor p, usuario u WHERE p.idProfessor = u.id AND u.email = '" . $_SESSION['campo_email'] . "'";
         $resultadob = $conexao->query($sqlb);
