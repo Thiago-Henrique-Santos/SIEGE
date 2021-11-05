@@ -638,7 +638,11 @@ function tabelaNotas()
         $faltasTotais = '-:--';
         $situacoes = 'Em andamento';
     } else {
-        $soma = $linha['falta1bim'] + $linha['falta2bim'] + $linha['falta3bim'] + $linha['falta4bim'];
+        if ($linha['faltaRecuperacao'] == '-:--') {
+            $soma = $linha['falta1bim'] + $linha['falta2bim'] + $linha['falta3bim'] + $linha['falta4bim'];
+        } else {
+            $soma = $linha['falta1bim'] + $linha['falta2bim'] + $linha['falta3bim'] + $linha['falta4bim'] + $linha['faltaRecuperacao'];
+        }
         $faltasTotais = converte_falta($soma);
     }
 
@@ -647,6 +651,12 @@ function tabelaNotas()
         $situacoes = 'Em andamento';
     } else {
         $notaFinal = $linha['nota1bim'] + $linha['nota2bim'] + $linha['nota3bim'] + $linha['nota4bim'];
+        if (($notaFinal < 65) && ($linha['notaRecuperacao'] != '-,-' && $linha['notaRecuperacao'] >= $notaFinal)) {
+            $notaFinal = $linha['notaRecuperacao'];
+        }
+        if ($notaFinal < 65 && $linha['notaRecuperacao'] == '-,-' && $soma <= 50) {
+            $notaFinal = $linha['notaRecuperacao'];
+        }
     }
 
     if (($soma <= 50 && $notaFinal >= 65) && ($n == 0 && $f == 0)) {
@@ -654,12 +664,12 @@ function tabelaNotas()
             $situacoes = 'Aprovado';
         else
             $situacoes = 'Aprovada';
-    } elseif (($soma > 50 || $notaFinal < 65) && ($n == 0 && $f == 0)) {
+    } elseif ((($soma > 50) || ($notaFinal < 65 && $notaFinal != '-,-')) && ($n == 0 && $f == 0)) {
         if ($linha0['sexo'] == 'Masculino')
             $situacoes = 'Reprovado';
         else
             $situacoes = 'Reprovada';
-    } elseif ($n > 0 || $f > 0) {
+    } elseif (($n > 0 || $f > 0) || ($notaFinal == '-,-')) {
         $situacoes = 'Em andamento';
     }
 
@@ -748,10 +758,12 @@ function tabelaNotas()
 
     $pdf->Cell(3, 0.7, $faltasTotais, 1, 0, "C", 1);
 
-    if (($n == 0) && ($notaFinal < 65))
+    if (($n == 0) && ($notaFinal < 65 && $notaFinal != '-,-'))
         $pdf->SetTextColor(255, 0, 0);
     elseif (($n == 0) && ($notaFinal >= 65))
         $pdf->SetTextColor(0, 128, 0);
+    elseif (($n == 0) && ($notaFinal == '-,-'))
+        $pdf->SetTextColor(128, 128, 128);
 
     $pdf->Cell(3, 0.7, $notaFinal, 1, 0, "C", 1);
 
