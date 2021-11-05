@@ -36,7 +36,9 @@ if ($_SESSION['tip_usu'] == 1) {
             $resultado = $conexao->query($sql);
 
             if ($resultado->num_rows > 0) {
-                tabelaNotas();
+                while ($linha = $resultado->fetch_assoc()) {
+                    tabelaNotas();
+                }
             }
 
             $pdf->Output("I", "Boletim.pdf");
@@ -84,6 +86,8 @@ if ($_SESSION['tip_usu'] == 1) {
             }
             $pdf->Output("I", "BoletimTurmasLecionadas.pdf");
         }
+    } elseif ($opvl == "erro") {
+        alertaErro();
     } else {
         $sqlcont = "SELECT COUNT(a.idAluno) AS 'contadorAlunos' FROM aluno a, turma t WHERE t.id=a.id_turma AND t.id=" . $opvl;
         $resultadocont = $conexao->query($sqlcont);
@@ -427,6 +431,8 @@ if ($_SESSION['tip_usu'] == 1) {
             }
         }
         $pdf->Output("I", "BoletimNonosAnos.pdf");
+    } elseif ($opvl == "erro") {
+        alertaErro();
     } else {
         $sqlcont = "SELECT COUNT(a.idAluno) AS 'contadorAlunos' FROM aluno a, turma t WHERE t.id=a.id_turma AND t.id=" . $opvl;
         $resultadocont = $conexao->query($sqlcont);
