@@ -496,9 +496,9 @@ function dadosAluno()
     $pdf->SetTextColor(220, 50, 50);
 
     if ($linha0['sexo'] == 'F')
-        $pdf->Cell(27.7, 1, utf8_decode('Boletim Escolar da Aluna - ' . $linha0['ano']), 0, 0, "C");
+        $pdf->Cell(27.7, 1, utf8_decode('Boletim Escolar da Aluna'), 0, 0, "C");
     else
-        $pdf->Cell(27.7, 1, utf8_decode('Boletim Escolar do Aluno - ' . $linha0['ano']), 0, 0, "C");
+        $pdf->Cell(27.7, 1, utf8_decode('Boletim Escolar do Aluno'), 0, 0, "C");
 
     $pdf->Ln(1.5);
 
