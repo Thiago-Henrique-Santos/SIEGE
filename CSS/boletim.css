@@ -1,4 +1,4 @@
-.linha_registros {
+.linha_registros1 {
   background-color: rgb(196, 230, 243);
   color: black;
   text-align: center;
@@ -7,8 +7,26 @@
   width: auto;
 }
 
-.linha_registros:hover {
-  background-color: rgb(176, 198, 247);
+.linha_registros1:hover {
+  background-color: rgb(133, 170, 252);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.linha_registros2 {
+  background-color: rgb(223, 239, 250);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.linha_registros2:hover {
+  background-color: rgb(133, 170, 252);
   color: black;
   text-align: center;
   vertical-align: middle;
@@ -42,8 +60,9 @@ input[type="number"] {
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
-  background-color: orange;
+  background-color: rgb(0, 0, 156);
   font-family: Arial;
+  color: white;
 }
 
 #btn_editar {

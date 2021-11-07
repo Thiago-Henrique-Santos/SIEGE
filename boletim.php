@@ -263,7 +263,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
         </tr>
 
-        <tr class="linha_registros">
+        <tr class="linha_registros1">
 
             <!--Primeira coluna -> Aluno-->
             <td class="nome">
@@ -345,7 +345,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
 
         <!-- Registro 2 -->
-        <tr class="linha_registros">
+        <tr class="linha_registros2">
 
             <!--Primeira coluna -> Aluno-->
             <td class="nome">
@@ -427,11 +427,93 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
 
         <!-- Registro 3 -->
-        <tr class="linha_registros">
+        <tr class="linha_registros1">
 
             <!--Primeira coluna -> Aluno-->
             <td class="nome">
                 <h3>Bruno Muniz de Carvalho</h3>
+            </td>
+
+            <!--Segunda coluna -> Falta 1° bim-->
+            <td>
+                <input min="0" type="number" step="1" name="f1b" id="i" value="" placeholder="-" disabled="">
+            </td>
+
+            <!--Terceira coluna -> Nota 1° bim-->
+            <td>
+                <input min="0" type="number" step="0.5" name="n1b" id="i" value="" placeholder="-,-" disabled="">
+            </td>
+
+            <!--Quarta coluna -> Falta 2° bim-->
+            <td>
+                <input min="0" type="number" step="1" name="f2b" id="i" value="" placeholder="-" disabled="">
+            </td>
+
+            <!--Quinta coluna -> Nota 2° bim-->
+            <td>
+                <input min="0" type="number" step="0.5" name="n2b" id="i" value="" placeholder="-,-" disabled="">
+            </td>
+
+            <!--Sexta coluna -> Falta 3° bim-->
+            <td>
+                <input min="0" type="number" step="1" name="f3b" id="i" value="" placeholder="-" disabled="">
+            </td>
+
+            <!--Sétima coluna -> Nota 3° bim-->
+            <td>
+                <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
+            </td>
+
+            <!--Oitava coluna -> Falta 4° bim-->
+            <td>
+                <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
+            </td>
+
+            <!--Nona coluna -> Nota 4° bim-->
+            <td>
+                <input min="0" type="number" step="0.5" name="n4b" id="i" value="" placeholder="-,-" disabled="">
+            </td>
+
+            <!--Décima coluna -> Falta recuperação-->
+            <td>
+                <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
+            </td>
+
+            <!--Décima primeira coluna -> Nota recuperação-->
+            <td>
+                <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
+            </td>
+
+            <!--Falta final-->
+            <td>
+                <h3>
+                    <font color="green">4</font>
+                </h3>
+            </td>
+
+            <!--Nota final-->
+            <td>
+                <h3>
+                    <font color="red">40,0</font>
+                </h3>
+            </td>
+
+            <!--Situação-->
+            <td>
+                <h3>
+                    <font color="red">Reprovado</font>
+                </h3>
+            </td>
+
+        </tr>
+
+
+        <!-- Registro 4 -->
+        <tr class="linha_registros2">
+
+            <!--Primeira coluna -> Aluno-->
+            <td class="nome">
+                <h3>Humberto Gouvêa</h3>
             </td>
 
             <!--Segunda coluna -> Falta 1° bim-->
