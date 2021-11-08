@@ -1,6 +1,6 @@
 <?php
 
-include ("../../BancoDados/conexao_mysql.php");
+include("../../BancoDados/conexao_mysql.php");
 
 $id            = $_GET['idtf'];
 $nome          = $_GET['nm'];
@@ -9,7 +9,10 @@ $sexo          = $_GET['cms'];
 $senha         = $_GET['pss'];
 $local_moradia = $_GET['czn'];
 
-$sql = "UPDATE usuario SET nome = '$nome', email = '$email', sexo = '$sexo', local_moradia = '$local_moradia', senha = '$senha' WHERE id=$id";
+$crpt1 = MD5($senha);
+$crpt2 = sha1($crpt1);
+
+$sql = "UPDATE usuario SET nome = '$nome', email = '$email', sexo = '$sexo', local_moradia = '$local_moradia', senha = '$crpt2' WHERE id=$id";
 if ($conexao->query($sql) === TRUE)
     echo "Usuario atualiado com sucesso!";
 else
@@ -37,7 +40,7 @@ switch ($tipo_usuario) {
         nome_responsavel = '$responsavel', telefone = '$telefone', id_turma=$turma 
         WHERE idAluno = $id";
         break;
-    
+
     case 2:
         $masp           = $_GET['mp'];
         $tipo_empregado = $_GET['tep'];
@@ -64,5 +67,3 @@ else
     header("location: ../../formularios-cadastro.php?id=erro&tfm=atualizar&info=" . $conexao->error);
 
 $conexao->close();
-
-?>
