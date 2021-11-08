@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+$jaLogado = validaLoginNaSessao();
+if ($jaLogado) {
+    header ("Location: pagina_inicial.php");
+}
+
+function validaLoginNaSessao(){
+    $validado = 1;
+
+    $validado = (isset($_SESSION['campo_email']) && !empty($_SESSION['campo_email'])) ? $validado*1 : $validado*0;
+    $validado = (isset($_SESSION['campo_senha']) && !empty($_SESSION['campo_senha'])) ? $validado*1 : $validado*0;
+    $validado = (isset($_SESSION['tip_usu']) && !empty($_SESSION['tip_usu'])) ? $validado*1 : $validado*0;
+    $validado = (isset($_SESSION['sx']) && !empty($_SESSION['sx'])) ? $validado*1 : $validado*0;
+
+    $validado = (bool)$validado;
+    return $validado;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -52,15 +73,6 @@
     <footer class="container-fluid" style="margin-top: 5px">
         <p> SIEGE - Sistema Informativo E Gerenciamento Escolar </p>
     </footer>
-
-    <script type="module">
-        import componentes from './modulos/componentes.js';
-        <?php
-            if (isset($_GET['jlg']) && !empty($_GET['jlg'])) {
-                echo "componentes.displayAlert('Cadastro repetido!', 'Desconecte a conta ativa atual, antes de entrar em outra.');";
-            }
-        ?>
-    </script>
 </body>
 
 </html>
