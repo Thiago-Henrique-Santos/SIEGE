@@ -8,8 +8,10 @@ function entityAddress(entidade){
 
     if(select.options[select.selectedIndex].value == ""){
         botao.disabled = true;
+        botao.style.cursor = "not-allowed";
     }else{
         botao.disabled = false;
+        botao.style.cursor = "pointer";
     }
 
     selectInput.addEventListener('change', () => {

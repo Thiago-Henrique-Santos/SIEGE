@@ -103,7 +103,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<option value='sonomes'>Nomes das turmas</option>";
         echo "</select>";
 
-        echo "<button type='submit' name='btnRelatorios' id='gr' disabled>Gerar PDF</button>";
+        echo "<button type='submit' name='btnRelatorios' id='gr' style='cursor: not-allowed;' disabled>Gerar PDF</button>";
         echo "</form>";
         echo "</div>";
     }

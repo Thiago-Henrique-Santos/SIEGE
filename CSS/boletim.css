@@ -123,3 +123,60 @@ input[type="number"] {
 h3 {
   font-size: 20px;
 }
+
+#btn_boletimPDF_aluno {
+  background-color: rgb(255, 157, 9);
+  border: none;
+  height: 58px;
+  border-radius: 15px;
+  width: 183px;
+}
+
+#btn_boletimPDF_aluno:hover {
+  background-color: rgb(252, 164, 33);
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow: 0 0 3px 3px rgba(185, 185, 185, 0.795);
+}
+
+.btn_boletimPDF_funcionarios {
+  background-color: rgb(255, 157, 9);
+  border: none;
+  height: 43px;
+  border-radius: 15px;
+  width: 150px;
+  margin-right: 20px;
+}
+
+.btn_boletimPDF_funcionarios:hover {
+  background-color: rgb(252, 164, 33);
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow: 0 0 3px 3px rgba(185, 185, 185, 0.795);
+}
+
+.select_boletim {
+  text-align: center;
+  width: auto;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.options_validos {
+  background-color: rgb(223, 239, 250);
+}
+
+.ignorar {
+  background-color: gray;
+}
+
+.img_boletim {
+  height: 27px;
+  width: auto;
+}
+
+.img_boletim_funcionarios {
+  margin-left: 10px;
+  height: 27px;
+  width: auto;
+}

@@ -34,7 +34,7 @@ function cancel(bool) {
 	botao_publicar.disabled = true;
 	botao_publicar.style.backgroundColor = "rgb(157, 157, 157)";
 	botao_publicar.style.color = "rgb(177, 177, 177)";
-	botao_publicar.style.cursor = "default";
+	botao_publicar.style.cursor = "not-allowed";
 
 }
 

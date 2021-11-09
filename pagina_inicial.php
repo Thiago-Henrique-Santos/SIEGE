@@ -62,7 +62,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                     echo "<button>Turmas</button>";
                     echo "</a>";
                     echo "<a href='boletim.php'>";
-                    echo "<button>Boletim</button>";
+                    echo "<button>Boletins</button>";
                     echo "</a>";
                 } elseif ($_SESSION['tip_usu'] == 2) {
                     echo "<a href='ferramentas.php'>";
@@ -75,7 +75,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                     echo "<button>Turmas</button>";
                     echo "</a>";
                     echo "<a href='boletim.php'>";
-                    echo "<button>Boletim</button>";
+                    echo "<button>Boletins</button>";
                     echo "</a>";
                 } elseif ($_SESSION['tip_usu'] == 1) {
                     echo "<a href='usuarios.php'>";
@@ -94,7 +94,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
             <div class="buttons-group" style="margin-top:50px;">
                 <a href='sair.php'>
-                    <button>Sair</button>
+                    <button class='btn_sair'>Sair <img class='img_logout' draggable='false' src='img/logout.png'></button>
                 </a>
             </div>
 

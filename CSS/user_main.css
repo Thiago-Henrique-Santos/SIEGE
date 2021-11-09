@@ -66,3 +66,30 @@ nav div.preenche-final {
   width: 150px;
   height: 100%;
 }
+
+.btn_sair {
+  background-color: rgb(218, 24, 24);
+  border: none;
+  width: 100px;
+  height: 38px;
+  color: white;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  vertical-align: center !important;
+}
+
+.btn_sair:hover {
+  transition: 0.2s;
+  background-color: rgb(173, 23, 23);
+  border: 1px black solid;
+  color: white;
+}
+
+.img_logout {
+  height: auto;
+  width: 20px;
+  vertical-align: center;
+  margin: 0 auto 0 auto;
+  margin-top: -5px;
+  margin-left: 3px;
+}
