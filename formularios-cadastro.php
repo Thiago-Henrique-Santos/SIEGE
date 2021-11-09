@@ -196,42 +196,42 @@ $data_atual = date('d/m/Y');
         echo "<br><label for='nome_completo' style='margin-left: 10px;' class='form-label'><strong>Nome completo: </strong></label>";
         if (isset($_GET["nm"]) && !empty($_GET["nm"]))
             $valor_salvo = $_GET["nm"];
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='Nome completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='Nome completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
         if (isset($_GET["enm"]) && !empty($_GET["enm"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
         echo "<br><label for='data_nascimento' style='margin-left: 10px;' class='form-label'><strong>Data de Nascimento: </strong></label>";
         if (isset($_GET["dt"]) && !empty($_GET["dt"]))
             $valor_salvo = $_GET["dt"];
-        echo "<input type='date' style='margin-left: 10px;width: 370px;' required class='form-control' id='data_nascimento' name='data_nascimento' value='$valor_salvo'>";
+        echo "<input type='date' style='margin-left: 10px;width: 357px;' required class='form-control' id='data_nascimento' name='data_nascimento' value='$valor_salvo'>";
         if (isset($_GET["edt"]) && !empty($_GET["edt"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["edt"] . "</p>";
 
         echo "<br><label for='matricula' style='margin-left: 10px;' class='form-label'><strong>Número da matrícula: </strong></label>";
         if (isset($_GET["mt"]) && !empty($_GET["mt"]))
             $valor_salvo = $_GET["mt"];
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='12345678' required class='form-control' id='matricula' name='matricula' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='12345678' required class='form-control' id='matricula' name='matricula' value='$valor_salvo'>";
         if (isset($_GET["emt"]) && !empty($_GET["emt"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["emt"] . "</p>";
 
         echo "<br><label for='responsavel' style='margin-left: 10px;' class='form-label'><strong>Nome do responsável: </strong></label>";
         if (isset($_GET["rsp"]) && !empty($_GET["rsp"]))
             $valor_salvo = $_GET["rsp"];
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='responsavel' name='responsavel' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='responsavel' name='responsavel' value='$valor_salvo'>";
         if (isset($_GET["ersp"]) && !empty($_GET["ersp"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["ersp"] . "</p>";
 
         echo "<br><label for='email' style='margin-left: 10px;' class='form-label'><strong>Email: </strong></label>";
         if (isset($_GET["eml"]) && !empty($_GET["eml"]))
             $valor_salvo = $_GET["eml"];
-        echo "<input type='email' style='margin-left: 10px;width: 370px;' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
+        echo "<input type='email' style='margin-left: 10px;width: 357px;' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
         if (isset($_GET["eeml"]) && !empty($_GET["eeml"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
         echo "<br><label for='telefone' style='margin-left: 10px;' class='form-label'><strong>Telefone do responsável: </strong></label>";
         if (isset($_GET["tlf"]) && !empty($_GET["tlf"]))
             $valor_salvo = $_GET["tlf"];
-        echo "<input type='tel' style='margin-left: 10px;width: 370px;' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' onkeypress='mascara(this)' title='Insira seu telefone com o DDD e o número precedido de 9.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
+        echo "<input type='tel' style='margin-left: 10px;width: 357px;' placeholder='(00) 00000-0000' required pattern='\([0-9]{2}\)[\s][0-9]{5}-[0-9]{4}' maxlength = '15' onkeypress='mascara(this)' title='Insira seu telefone com o DDD e o número precedido de 9.' class='form-control' id='telefone' name='telefone' value='$valor_salvo'>";
         if (isset($_GET["etlf"]) && !empty($_GET["etlf"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["etlf"] . "</p>";
 
@@ -276,7 +276,7 @@ $data_atual = date('d/m/Y');
         echo "<br><label for='turma' style='margin-left: 10px;' class='form-label'><strong>Turma do aluno:</strong></label>";
         if (isset($_GET["tur"]) && $_GET["tur"] != "none")
             $valor_salvo = $_GET["tur"];
-        echo "<br><select name='turma' style='margin-left: 10px;width: 370px;' class='form-select'>";
+        echo "<br><select name='turma' style='margin-left: 10px;width: 357px;' class='form-select'>";
         echo "<option value='none' selected>--</option>";
         $sql = "
                     SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC
@@ -296,12 +296,12 @@ $data_atual = date('d/m/Y');
             echo "<br><p class=\"msg_erro\">" . $_GET["etur"] . "</p>";
 
         echo "<br><label for='senha' style='margin-left: 10px;' class='form-label'><strong>Senha: </strong></label>";
-        echo "<input type='password' style='margin-left: 10px;width: 370px;' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
+        echo "<input type='password' style='margin-left: 10px;width: 357px;' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
         if (isset($_GET["epss"]) && !empty($_GET["epss"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
         echo "<br><label for='confirm_senha' style='margin-left: 10px;' class='form-label'><strong>Confirme a senha: </strong></label>";
-        echo "<input type='password' style='margin-left: 10px;width: 370px;' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
+        echo "<input type='password' style='margin-left: 10px;width: 357px;' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
         if (isset($_GET["ecps"]) && !empty($_GET["ecps"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
 
@@ -328,14 +328,14 @@ $data_atual = date('d/m/Y');
         if (isset($_GET['nm']) && !empty($_GET['nm']))
             $valor_salvo = $_GET['nm'];
         echo "<label for='nome_turma' style='margin-left: 10px;' class='form-label'><strong>Nome da turma:</strong></label>";
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='A' class='form-control' required title='Insira o nome da turma.' name='nome_turma' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='A' class='form-control' required title='Insira o nome da turma.' name='nome_turma' value='$valor_salvo'>";
         if (isset($_GET['enm']) && !empty($_GET['enm']))
             echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
         if (isset($_GET['sr']) && !empty($_GET['sr']))
             $valor_salvo = $_GET['sr'];
         echo "<br><label for='serie' style='margin-left: 10px;' class='form-label'><strong>Série:</strong></label>";
-        echo "<br><select name='serie' style='margin-left: 10px;width: 370px;' class='form-select' required>";
+        echo "<br><select name='serie' style='margin-left: 10px;width: 357px;' class='form-select' required>";
         echo "<option value='none' selected>--</option>";
         echo "<option value='2' ";
         if ($valor_salvo == 2) {
@@ -399,7 +399,7 @@ $data_atual = date('d/m/Y');
                     $getName = "dsc$i";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                         $valor_salvo = $_GET[$getName];
-                    echo "&nbsp;<input type='text' style='margin-left: 10px;width: 370px;' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='";
+                    echo "&nbsp;<input type='text' style='margin-left: 10px;width: 357px;' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName])) {
                         echo $valor_salvo;
                     } else {
@@ -411,7 +411,7 @@ $data_atual = date('d/m/Y');
                     $getName = "prf$i";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                         $valor_salvo = $_GET[$getName];
-                    echo "&nbsp;<select name='professor_$i' style='margin-left: 10px;width: 370px;' title='Selecione o nome do professor da disciplina' required>";
+                    echo "&nbsp;<select name='professor_$i' style='margin-left: 10px;width: 357px;' title='Selecione o nome do professor da disciplina' required>";
 
                     if ($linha['nome_professor'] == 'Default')
                         $linha['nome_professor'] = "--";
@@ -475,7 +475,7 @@ $data_atual = date('d/m/Y');
         if (isset($_GET['nm']) && !empty($_GET['nm']))
             $valor_salvo = $_GET['nm'];
         echo "<label for='nome_disciplina' style='margin-left: 10px;' class='form-label'><strong>Nome da disciplina:</strong></label>";
-        echo "<input type='text' placeholder='Matemática' style='margin-left: 10px;width: 370px;' class='form-control' title='Insira o nome da turma.' required name='nome_disciplina' value='$valor_salvo'>";
+        echo "<input type='text' placeholder='Matemática' style='margin-left: 10px;width: 357px;' class='form-control' title='Insira o nome da turma.' required name='nome_disciplina' value='$valor_salvo'>";
         if (isset($_GET['enm']) && !empty($_GET['enm']))
             echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
@@ -483,7 +483,7 @@ $data_atual = date('d/m/Y');
             if (isset($_GET['ano']) && !empty($_GET['ano']))
                 $valor_salvo = $_GET['ano'];
             echo "<br><label for='ano' style='margin-left: 10px;' class='form-label'><strong>Ano em que será lecionada:</strong></label>";
-            echo "<br><select name='ano' style='margin-left: 10px;width: 370px;' class='form-select' required>";
+            echo "<br><select name='ano' style='margin-left: 10px;width: 357px;' class='form-select' required>";
             $anoAtual = date("Y");
             for ($i = $anoAtual - 80; $i <= $anoAtual + 1; $i++) {
                 echo "<option value='$i' ";
@@ -504,7 +504,7 @@ $data_atual = date('d/m/Y');
         if (isset($_GET['prf']) && !empty($_GET['prf']))
             $valor_salvo = $_GET['prf'];
         echo "<br><label for='professor' style='margin-left: 10px;' class='form-label'><strong>Professor da disciplina:</strong></label>";
-        echo "<br><select name='professor' style='margin-left: 10px;width: 370px;' class='form-select' required>";
+        echo "<br><select name='professor' style='margin-left: 10px;width: 357px;' class='form-select' required>";
         $opcaoSelecionada_id = 0;
         echo "<option value='";
         if ($cad_att == "atualizar") {
@@ -590,21 +590,21 @@ $data_atual = date('d/m/Y');
         echo "<br><label for='nome_completo' style='margin-left: 10px;' class='form-label'><strong>Nome completo: </strong></label>";
         if (isset($_GET["nm"]) && !empty($_GET["nm"]))
             $valor_salvo = $_GET["nm"];
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='Nome Completo' pattern='^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$' required class='form-control' id='nome_completo' name='nome_completo' value='$valor_salvo'>";
         if (isset($_GET["enm"]) && !empty($_GET["enm"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["enm"] . "</p>";
 
         echo "<br><label for='masp' style='margin-left: 10px;' class='form-label'><strong>MASP: </strong></label>";
         if (isset($_GET["mp"]) && !empty($_GET["mp"]))
             $valor_salvo = $_GET["mp"];
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='12345678' minlength='7' maxlength='8' required class='form-control' id='masp' name='masp' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='12345678' minlength='7' maxlength='8' required class='form-control' id='masp' name='masp' value='$valor_salvo'>";
         if (isset($_GET["emp"]) && !empty($_GET["emp"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["emp"] . "</p>";
 
         echo "<br><label for='email' style='margin-left: 10px;' class='form-label'><strong>Email: </strong></label>";
         if (isset($_GET["eml"]) && !empty($_GET["eml"]))
             $valor_salvo = $_GET["eml"];
-        echo "<input type='email' style='margin-left: 10px;width: 370px;' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' required title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
+        echo "<input type='email' style='margin-left: 10px;width: 357px;' placeholder='exemplo@exemplo.ex' class='form-control' minlength = '5' required pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' required title='O email deve conter @ e . ao final.' id='email' name='email' value='$valor_salvo'>";
         if (isset($_GET["eeml"]) && !empty($_GET["eeml"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["eeml"] . "</p>";
 
@@ -668,17 +668,17 @@ $data_atual = date('d/m/Y');
         echo "<br><label for='funcao' style='margin-left: 10px;' class='form-label'><strong>Função: </strong></label>";
         if (isset($_GET["fnc"]) && !empty($_GET["fnc"]))
             $valor_salvo = $_GET["fnc"];
-        echo "<input type='text' style='margin-left: 10px;width: 370px;' placeholder='Função' required class='form-control' id='funcao' name='funcao' value='$valor_salvo'>";
+        echo "<input type='text' style='margin-left: 10px;width: 357px;' placeholder='Função' required class='form-control' id='funcao' name='funcao' value='$valor_salvo'>";
         if (isset($_GET["efnc"]) && !empty($_GET["efnc"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["efnc"] . "</p>";
 
         echo "<br><label for='senha' style='margin-left: 10px;' class='form-label'><strong>Senha: </strong></label>";
-        echo "<input type='password' style='margin-left: 10px;width: 370px;' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
+        echo "<input type='password' style='margin-left: 10px;width: 357px;' class='form-control' maxlength = '6' id='senha' required name='senha' value=''>";
         if (isset($_GET["epss"]) && !empty($_GET["epss"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["epss"] . "</p>";
 
         echo "<br><label for='confirm_senha' style='margin-left: 10px;' class='form-label'><strong>Confirme a senha: </strong></label>";
-        echo "<input type='password' style='margin-left: 10px;width: 370px;' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
+        echo "<input type='password' style='margin-left: 10px;width: 357px;' class='form-control' maxlength = '6' id='confirm_senha' required name='confirm_senha' value=''>";
         if (isset($_GET["ecps"]) && !empty($_GET["ecps"]))
             echo "<br><p class=\"msg_erro\">" . $_GET["ecps"] . "</p>";
     }

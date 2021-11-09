@@ -50,7 +50,7 @@ if ($_SESSION['tip_usu'] != 3) {
                 <button class="option" id="secretario">Secretário(a)</button>
             </div>
 
-            <p style="margin-bottom: 20px;text-decoration: underline;">Doscentes e Discentes</p>
+            <p style="margin-bottom: 20px;text-decoration: underline;">Docentes e Discentes</p>
             <div class="buttons-group" style="margin-bottom: 50px;">
                 <button class="option" id="professor">Professor(a)</button>
                 <button class="option" id="aluno">Aluno(a)</button>
