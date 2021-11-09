@@ -22,7 +22,7 @@
   border-radius: 10px;
   position: relative;
   bottom: 25px;
-  border: 5px rgb(245, 242, 56) solid;
+  border: 7px darkgray solid;
 }
 
 #close-button {
