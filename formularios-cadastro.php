@@ -701,7 +701,7 @@ $data_atual = date('d/m/Y');
             echo "<img draggable='false' src='img/correct.gif' height='300px' width='400px' style='margin-bottom: 10px'>";
         if (isset($_GET['rcd']) && !empty($_GET['rcd'])) {
             echo "<br><br>";
-            echo "<button onclick='reloadModal(\"" . $_GET['rcd'] . "\")'>Cadastrar novamente</button>";
+            echo "<button id='recadastrar' onclick='reloadModal(\"" . $_GET['rcd'] . "\")'>Cadastrar novamente<br><img src='img/again.png'></button>";
         }
         echo "</center>";
     }

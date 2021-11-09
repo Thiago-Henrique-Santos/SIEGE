@@ -2,182 +2,201 @@
 Caixa de alerta (personalizado)
 ************************/
 .alertBox {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: gray;
-    border-radius: 25px;
-    border: 0px;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: gray;
+  border-radius: 25px;
+  border: 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
 
 .alertTitle {
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid black;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    order: 1;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  order: 1;
 }
 
 .alertTitle p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 27px;
-    font-weight: bold;
-    color: black;
-    margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  color: black;
+  margin-left: 10px;
 }
 
 .alertContent {
-    width: 100%;
-    height: 198px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    order: 2;
+  width: 100%;
+  height: 198px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  order: 2;
 }
 
 .alertContent p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: black;
 }
 
 .alertMenu {
-    width: 100%;
-    height: 50px;
-    border-top: 1px solid black;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    order: 3;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  order: 3;
 }
 
 .alertMenu button {
-    width: 55px;
-    height: 40px;
-    background-color: royalblue;
-    border-radius: 10px;
-    border-width: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    color: white;
-    margin-right: 10px;
+  width: 55px;
+  height: 40px;
+  background-color: royalblue;
+  border-radius: 10px;
+  border-width: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: white;
+  margin-right: 10px;
 }
 
 .alertMenu button:hover {
-    border: 1px solid lightgray;
+  border: 1px solid lightgray;
 }
 
 .alertMenu button:active {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 /***********************
 Modal de confirmar exclusão de um usuário
 ************************/
 #deleteScreen {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 #deleteScreen .deleteBox {
-    width: 700px;
-    height: 450px;
-    background-color: white;
-    border: 10px double red;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: center;
+  width: 700px;
+  height: 450px;
+  background-color: white;
+  border: 10px double red;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #deleteScreen .deleteBox h1 {
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    font-weight: bold;
-    color: black;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
 }
 
 #deleteScreen .deleteBox p {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-    color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: black;
 }
 
 #deleteScreen .deleteBox .buttonsBlock {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-    align-items: center;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /****************
 Botões
 *****************/
 #confirm {
-    width: 100px;
-    height: 40px;
-    background-color: royalblue;
-    border-width: 0px;
-    border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-    margin-left: 10px;
-    margin-right: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: royalblue;
+  border-width: 0px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #confirm:hover {
-    border: 1px solid lightgray;
+  border: 1px solid lightgray;
 }
 
 #confirm:active {
-    transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 #cancel {
-    width: 100px;
-    height: 40px;
-    background-color: lightgray;
-    border-width: 0px;
-    border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    font-weight: bold;
-    color: black;
-    margin-left: 10px;
-    margin-right: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: lightgray;
+  border-width: 0px;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #cancel:hover {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 #cancel:active {
-    transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+#recadastrar {
+  border-radius: 10px 10px 10px 10px;
+  background-color: rgb(89, 167, 89);
+  border: 1px white solid;
+  color: white;
+  vertical-align: center;
+  text-align: center;
+  height: 55px;
+  width: 180px;
+  font-size: 14px;
+  border: 2px lightgray solid;
+}
+
+#recadastrar:hover {
+  transition: 0.4s;
+  background-color: rgb(78, 181, 47);
+  box-shadow: 0 0 4px 4px rgba(204, 203, 203, 0.795);
 }

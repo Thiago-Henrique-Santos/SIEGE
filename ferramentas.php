@@ -37,7 +37,7 @@ if ($_SESSION['tip_usu'] == 1) {
     <h1 class="titulo-principal"> Ferramentas </h1>
     <br>
 
-    <div class="buttons-group" style="margin-top:20px;">
+    <div class="buttons-group" style="margin-top:10px;">
         <a href="https://classroom.google.com/" target="_blank">
             <button>
                 <img src="img/logo_classroom.png" width="200px" height="70px" title="Google Classroom" alt="Logo Google Sala de Aula">

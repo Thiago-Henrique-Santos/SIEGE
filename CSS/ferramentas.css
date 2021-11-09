@@ -1,4 +1,12 @@
 button {
+  border-width: 0.1px !important;
+  background-color: white !important;
+  border-radius: 17px 17px 17px 17px !important;
+}
+
+button:hover {
   border-width: 0.1px;
   background-color: white;
+  border-radius: 17px 17px 17px 17px;
+  box-shadow: 2px 2px 2px 1px rgba(122, 122, 122, 0.719);
 }
