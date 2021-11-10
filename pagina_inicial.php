@@ -42,7 +42,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             if ($_SESSION['sx'] == 'F')
                 echo "<h4 style='margin-bottom: 120px; margin-top: -40px; text-align: center;'>Seja bem-vinda ao SIEGE</h4>";
             else
-                echo "<h4 style='margin-bottom: 120px; margin-top: -40px; text-align: center;'>Seja bem-vinda ao SIEGE</h4>";
+                echo "<h4 style='margin-bottom: 120px; margin-top: -40px; text-align: center;'>Seja bem-vindo ao SIEGE</h4>";
             ?>
 
             <div class="buttons-group" style="margin-top:20px;">
