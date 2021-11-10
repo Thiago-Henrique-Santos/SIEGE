@@ -55,7 +55,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select class='select_boletim' name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")' style='text-align: center'>";
         echo "<option class='ignorar' value='' selected>-- Opções de boletim PDF --</option>";
-        echo "<option class='ignorar' value=''>-------</option>";
         echo "<option class='options_validos' value='todasTurmas'>Todas as turmas</option>";
         echo "<option class='ignorar' value=''>-------</option>";
         echo "<option class='options_validos' value='segundosAnos'>2°s anos</option>";
@@ -86,7 +85,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select class='select_boletim' name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")'>";
         echo "<option class='ignorar' value='' selected>-- Opções de boletim PDF --</option>";
-        echo "<option class='ignorar' value=''>-------</option>";
         echo "<option class='options_validos' value='todasTurmasLecionadas'>Todas as turmas lecionadas</option>";
         echo "<option class='ignorar' value=''>-------</option>";
 
