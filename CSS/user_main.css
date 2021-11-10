@@ -57,9 +57,17 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: white;
+  color: rgb(182, 182, 182);
   font-size: 20px;
   text-decoration: underline;
+  transition: 0.1s;
+}
+
+nav ul li a:active {
+  color: rgb(230, 203, 65);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
 }
 
 nav div.preenche-final {
@@ -75,7 +83,7 @@ nav div.preenche-final {
   color: white;
   border-radius: 20px 20px 20px 20px;
   text-align: center;
-  vertical-align: center !important;
+  vertical-align: middle !important;
 }
 
 .btn_sair:hover {
@@ -88,7 +96,7 @@ nav div.preenche-final {
 .img_logout {
   height: auto;
   width: 20px;
-  vertical-align: center;
+  vertical-align: middle;
   margin: 0 auto 0 auto;
   margin-top: -5px;
   margin-left: 3px;

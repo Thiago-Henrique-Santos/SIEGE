@@ -60,7 +60,7 @@ nav div.preenche-final {
   font-size: 25px;
   border-radius: 20px 20px 20px 20px;
   text-align: center;
-  vertical-align: center !important;
+  vertical-align: middle !important;
 }
 
 .btn_sair:hover {
@@ -73,7 +73,7 @@ nav div.preenche-final {
 .img_logout {
   height: auto;
   width: 35px;
-  vertical-align: center;
+  vertical-align: middle;
   margin: 0 auto 0 auto;
   margin-top: -5px;
   margin-left: 3px;

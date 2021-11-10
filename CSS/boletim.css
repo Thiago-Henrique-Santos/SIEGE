@@ -157,6 +157,7 @@ h3 {
 
 .select_boletim {
   text-align: center;
+  border-radius: 5px;
   width: auto;
   height: 40px;
   margin-right: 8px;
@@ -164,10 +165,12 @@ h3 {
 
 .options_validos {
   background-color: rgb(223, 239, 250);
+  cursor: pointer;
 }
 
 .ignorar {
   background-color: gray;
+  cursor: default;
 }
 
 .img_boletim {

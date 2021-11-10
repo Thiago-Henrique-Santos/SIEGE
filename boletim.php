@@ -51,7 +51,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <?php
 
     if ($_SESSION['tip_usu'] == 3) {
-        echo "<div id='conjuntoGerarRelatorio' style='float: right;margin-top: -70px;margin-bottom: 70px;vertical-align: center;'>";
+        echo "<div id='conjuntoGerarRelatorio' style='float: right;margin-top: -70px;margin-bottom: 70px;vertical-align: middle;'>";
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select class='select_boletim' name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")' style='text-align: center'>";
         echo "<option class='ignorar' value='' selected>-- Opções de boletim PDF --</option>";
@@ -82,7 +82,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         echo "</form>";
         echo "</div>";
     } elseif ($_SESSION['tip_usu'] == 2) {
-        echo "<div id='conjuntoGerarRelatorio' style='float: right;margin-top: -70px;margin-bottom: 70px;vertical-align: center;'>";
+        echo "<div id='conjuntoGerarRelatorio' style='float: right;margin-top: -70px;margin-bottom: 70px;vertical-align: middle;'>";
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Boletim/gerarPDF.php?opvl='>";
         echo "<select class='select_boletim' name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Boletim\")'>";
         echo "<option class='ignorar' value='' selected>-- Opções de boletim PDF --</option>";

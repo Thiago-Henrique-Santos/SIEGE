@@ -22,6 +22,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <link rel="stylesheet" type="text/css" href="CSS/consultas.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
+    <link rel="stylesheet" type="text/css" href="CSS/componentes.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
@@ -44,12 +45,12 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         if ($resultado->num_rows > 0) {
             $linha = $resultado->fetch_assoc();
             if ($linha['serie'] != 0)
-                echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turma - " . $linha['serie'] . "° ano " . $linha['nome'] . "</h1>";
+                echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 55px;'>Turma - " . $linha['serie'] . "° ano " . $linha['nome'] . "</h1>";
             else
-                echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turma - Não vinculada</h1>";
+                echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 55px;'>Turma - Não vinculada</h1>";
         }
     } else {
-        echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Turmas registradas</h1>";
+        echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 55px;'>Turmas registradas</h1>";
     }
     ?>
 
@@ -61,31 +62,33 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <?php
     if ($_SESSION['tip_usu'] != 1) {
         echo "<form class='user' action='#' method='post'>";
-        echo "<label>Marque o ano da turma que gostaria de ver os registros:</label> <br><br>";
+        echo "<label style='margin-left: 20px;'>Marque o ano da turma que gostaria de ver os registros:</label> <br><br>";
 
-        echo "<input type='checkbox' class='serieFiltro' id='seg' name='seg' value='segundo'>";
-        echo "<label for='seg'>2° anos&emsp;</label>";
+        echo "<input type='checkbox' style='margin-left: 20px;' class='serieFiltro' id='seg' name='seg' value='segundo'>";
+        echo "<label for='seg' class='label_filtrosTurmas'>2° anos</label>";
 
         echo "<input type='checkbox' class='serieFiltro' id='terc' name='terc' value='terceiro'>";
-        echo "<label for='terc'>3° anos&emsp;</label>";
+        echo "<label for='terc' class='label_filtrosTurmas'>3° anos</label>";
 
         echo "<input type='checkbox' class='serieFiltro' id='quart' name='quart' value='quarto'>";
-        echo "<label for='quart'>4° anos&emsp;</label>";
+        echo "<label for='quart' class='label_filtrosTurmas'>4° anos</label>";
 
         echo "<input type='checkbox' class='serieFiltro' id='quin' name='quin' value='quinto'>";
-        echo "<label for='quin'>5° anos&emsp;</label>";
+        echo "<label for='quin' class='label_filtrosTurmas'>5° anos</label>";
 
-        echo "<input type='checkbox' class='serieFiltro' id='sext' name='sext' value='sexto'>";
-        echo "<label for='sext'>6° anos&emsp;</label>";
+        echo "<br>";
+
+        echo "<input type='checkbox' style='margin-left: 20px;' class='serieFiltro' id='sext' name='sext' value='sexto'>";
+        echo "<label for='sext' class='label_filtrosTurmas'>6° anos</label>";
 
         echo "<input type='checkbox' class='serieFiltro' id='seti' name='seti' value='setimo'>";
-        echo "<label for='seti'>7° anos&emsp;</label>";
+        echo "<label for='seti' class='label_filtrosTurmas'>7° anos</label>";
 
         echo "<input type='checkbox' class='serieFiltro' id='oit' name='oit' value='oitavo'>";
-        echo "<label for='oit'>8° anos&emsp;</label>";
+        echo "<label for='oit' class='label_filtrosTurmas'>8° anos</label>";
 
         echo "<input type='checkbox' class='serieFiltro' id='non' name='non' value='nono'>";
-        echo "<label for='non'>9° anos&emsp;</label><br>";
+        echo "<label for='non' class='label_filtrosTurmas'>9° anos</label><br>";
         echo "</form>";
     }
     ?>
@@ -93,17 +96,17 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
     <?php
     if ($_SESSION['tip_usu'] == 3) {
-        echo "<div id='conjuntoGerarRelatorio' style='float: right; margin-top: -55px; margin-right: 30px;'>";
+        echo "<div id='conjuntoGerarRelatorio' style='float: right; margin-top: -80px; margin-right: 20px;vertical-align: middle;'>";
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Turma/gerarPDF.php?opvl='>";
-        echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Turma\")' style='text-align: center'>";
-        echo "<option value='' selected>-- Opções de relatórios PDF --</option>";
-        echo "<option value='tudoturma'>Turmas, alunos e disciplinas</option>";
-        echo "<option value='soalunos'>Turmas e alunos</option>";
-        echo "<option value='sodisciplinas'>Turmas e disciplinas</option>";
-        echo "<option value='sonomes'>Nomes das turmas</option>";
+        echo "<select class='select_relatoriosPDF' name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Turma\")' style='text-align: center'>";
+        echo "<option class='ignorar' value='' selected>-- Opções de relatórios PDF --</option>";
+        echo "<option class='options_validos' value='tudoturma'>Turmas, alunos e disciplinas</option>";
+        echo "<option class='options_validos' value='soalunos'>Turmas e alunos</option>";
+        echo "<option class='options_validos' value='sodisciplinas'>Turmas e disciplinas</option>";
+        echo "<option class='options_validos' value='sonomes'>Nomes das turmas</option>";
         echo "</select>";
 
-        echo "<button type='submit' name='btnRelatorios' id='gr' style='cursor: not-allowed;' disabled>Gerar PDF</button>";
+        echo "<button type='submit' class='btn_relatorioPDF' name='btnRelatorios' id='gr' style='cursor: not-allowed;' disabled>Gerar PDF <img class='img_boletim_funcionarios' draggable='false' src='img/files.png'></button>";
         echo "</form>";
         echo "</div>";
     }

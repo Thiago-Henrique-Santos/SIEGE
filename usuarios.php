@@ -22,6 +22,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
     <link rel="stylesheet" type="text/css" href="CSS/consultas.css">
+    <link rel="stylesheet" type="text/css" href="CSS/componentes.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
@@ -36,13 +37,13 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <?php
     include('componentes/user_nav.php');
     if ($_SESSION['tip_usu'] == 1) {
-        echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Pessoas do seu ambiente escolar</h1>";
+        echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 55px;'>Pessoas do seu ambiente escolar</h1>";
     } else {
-        echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 25px;'>Usuários cadastrados</h1>";
+        echo "<h1 class='titulo-principal centralizar-texto' style='margin-bottom: 55px;'>Usuários cadastrados</h1>";
     }
     ?>
 
-    <div class="box_search">
+    <div class="box_search" style='margin-right: 20px;'>
         <input type="text" id="barra_pesquisa" name="barra_pesquisa" placeholder="Pesquisar">
         <i class="fa fa-search" aria-hidden="true"></i>
     </div>
@@ -51,33 +52,33 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
         <?php
         if ($_SESSION['tip_usu'] == 1) {
-            echo "<label>Marque o(s) tipo(s) de membro(s) da escola que gostaria de ver os registros:</label> <br><br>";
+            echo "<label style='margin-left: 20px;'>Marque o(s) tipo(s) de membro(s) da escola que gostaria de ver os registros:</label> <br><br>";
 
-            echo "<input type='checkbox' class='cargoFiltro' id='dir' name='dir' value='diretor'>";
-            echo "<label for='dir'> Diretores e Vices</label> &emsp;";
+            echo "<input type='checkbox' style='margin-left: 20px;' class='cargoFiltro' id='dir' name='dir' value='diretor'>";
+            echo "<label for='dir' class='label_filtrosUsuarios'> Diretores e Vices</label> &emsp;";
 
             echo "<input type='checkbox' class='cargoFiltro' id='prof' name='prof' value='professor'>";
-            echo "<label for='prof'>Professores</label> &emsp;";
+            echo "<label for='prof' class='label_filtrosUsuarios'>Professores</label> &emsp;";
 
             echo "<input type='checkbox' class='cargoFiltro' id='alu' name='alu' value='aluno'>";
-            echo "<label for='alu'>Alunos</label><br>";
+            echo "<label for='alu' class='label_filtrosUsuarios'>Alunos</label><br>";
         } else {
-            echo "<label>Marque o(s) tipo(s) de usuário(s) que gostaria de ver os registros:</label> <br><br>";
+            echo "<label style='margin-left: 20px;'>Marque o(s) tipo(s) de usuário(s) que gostaria de ver os registros:</label> <br><br>";
 
-            echo "<input type='checkbox' class='cargoFiltro' id='dir' name='dir' value='diretor'>";
-            echo "<label for='dir'> Diretores e Vices</label> &emsp;";
+            echo "<input type='checkbox' style='margin-left: 20px;' class='cargoFiltro' id='dir' name='dir' value='diretor'>";
+            echo "<label for='dir' class='label_filtrosUsuarios'> Diretores e Vices</label> &emsp;";
 
             echo "<input type='checkbox' class='cargoFiltro' id='secr' name='secr' value='secretario'>";
-            echo "<label for='secr'> Secretários</label> &emsp;";
+            echo "<label for='secr' class='label_filtrosUsuarios'> Secretários</label> &emsp;";
 
             echo "<input type='checkbox' class='cargoFiltro' id='sup' name='sup' value='supervisor'>";
-            echo "<label for='sup'>Supervisores</label> &emsp;";
+            echo "<label for='sup' class='label_filtrosUsuarios'>Supervisores</label> &emsp;";
 
             echo "<input type='checkbox' class='cargoFiltro' id='prof' name='prof' value='professor'>";
-            echo "<label for='prof'>Professores</label> &emsp;";
+            echo "<label for='prof' class='label_filtrosUsuarios'>Professores</label> &emsp;";
 
             echo "<input type='checkbox' class='cargoFiltro' id='alu' name='alu' value='aluno'>";
-            echo "<label for='alu'>Alunos</label><br>";
+            echo "<label for='alu' class='label_filtrosUsuarios'>Alunos</label><br>";
         }
         ?>
     </form>
@@ -86,21 +87,21 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <?php
 
     if ($_SESSION['tip_usu'] == 3) {
-        echo "<div id='conjuntoGerarRelatorio' style='float: right; margin-top: -55px; margin-right: 30px;'>";
+        echo "<div id='conjuntoGerarRelatorio' style='float: right; margin-top: -35px; margin-right: 20px;vertical-align: middle;'>";
         echo "<form method='POST' target='_blank' id='form_relatorio' action='Relatorios/Usuario/gerarPDF.php?opvl='>";
-        echo "<select name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Usuario\")' style='text-align: center'>";
-        echo "<option value='' selected>-- Opções de relatórios PDF --</option>";
-        echo "<option value='usuarios'>Todos os usuários</option>";
-        echo "<option value='funcionarios'>Todos os funcionários</option>";
-        echo "<option value='gerenciadores'>Gerenciadores</option>";
-        echo "<option value='diretores_vices'>Diretores e Vices</option>";
-        echo "<option value='supervisores'>Supervisores</option>";
-        echo "<option value='secretarios'>Secretários</option>";
-        echo "<option value='professores'>Professores</option>";
-        echo "<option value='alunos'>Alunos</option>";
+        echo "<select class='select_relatoriosPDF' name='select_relatorios' id='select_relatorios' onclick='entityAddress(\"Usuario\")'>";
+        echo "<option class='ignorar' value='' selected>-- Opções de relatórios PDF --</option>";
+        echo "<option class='options_validos' value='usuarios'>Todos os usuários</option>";
+        echo "<option class='options_validos' value='funcionarios'>Todos os funcionários</option>";
+        echo "<option class='options_validos' value='gerenciadores'>Gerenciadores</option>";
+        echo "<option class='options_validos' value='diretores_vices'>Diretores e Vices</option>";
+        echo "<option class='options_validos' value='supervisores'>Supervisores</option>";
+        echo "<option class='options_validos' value='secretarios'>Secretários</option>";
+        echo "<option class='options_validos' value='professores'>Professores</option>";
+        echo "<option class='options_validos' value='alunos'>Alunos</option>";
         echo "</select>";
 
-        echo "<button type='submit' name='btnRelatorios' id='gr' style='cursor: not-allowed;' disabled>Gerar PDF</button>";
+        echo "<button type='submit' class='btn_relatorioPDF' name='btnRelatorios' id='gr' style='cursor: not-allowed;' disabled>Gerar PDF <img class='img_boletim_funcionarios' draggable='false' src='img/files.png'></button>";
         echo "</form>";
         echo "</div>";
     }
