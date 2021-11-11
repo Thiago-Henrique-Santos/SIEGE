@@ -101,3 +101,70 @@ nav div.preenche-final {
   margin-top: -5px;
   margin-left: 3px;
 }
+
+.outraPagina {
+  background-color: #2f3a4f;
+  border: none !important;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.outraPagina:hover {
+  background-color: #2f3a4f;
+  color: rgb(182, 182, 182);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.2s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.outraPagina:active {
+  background-color: #2f3a4f;
+  color: rgb(230, 203, 65);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paginaAtual {
+  height: 67px;
+  /* -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+  transform: skew(-20deg); */
+  width: auto;
+  font-size: 20px;
+  background-color: white;
+  color: #2f3a4f;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paginaAtual:hover {
+  color: rgb(182, 182, 182);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.2s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paginaAtual:active {
+  color: rgb(230, 203, 65);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
