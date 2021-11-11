@@ -21,7 +21,7 @@ if ($_SESSION['tip_usu'] != 3) {
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/forms.css">
-    <link rel="stylesheet" type="text/css" href="CSS/user_main.css">
+    <link rel="stylesheet" type="text/css" href="CSS/main_nav.css">
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
@@ -34,11 +34,11 @@ if ($_SESSION['tip_usu'] != 3) {
 <body>
 
     <?php
-    include('componentes/user_nav.php');
+    include('componentes/main_nav.php');
     ?>
 
     <main>
-        <h1 style="margin-bottom: 30px;" class="titulo-principal centralizar-texto">Cadastrar novos usuários</h1>
+        <h1 class="titulo-principal centralizar-texto">Cadastrar novos usuários</h1>
 
         <div class="toRegister-box">
             <p style="margin-bottom: 25px;font-weight: bold;">Qual tipo de usuário gostaria de cadastrar?</p>

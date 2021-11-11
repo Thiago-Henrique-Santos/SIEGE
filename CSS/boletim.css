@@ -183,3 +183,21 @@ h3 {
   height: 27px;
   width: auto;
 }
+
+.select_turma {
+  text-align: center;
+  border-radius: 5px;
+  width: 200px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.options_validos {
+  background-color: rgb(223, 239, 250);
+  cursor: pointer;
+}
+
+.ignorar {
+  background-color: gray;
+  cursor: default;
+}
