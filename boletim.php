@@ -23,6 +23,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="JS/boletim.js"></script>
+    <script src="JS/selectsBoletim.js" type="module" async></script>
     <script src="JS/filtro_boletim.js" type="module"></script>
     <script src="JS/relatorios.js" defer></script>
 </head>
@@ -158,6 +159,9 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
     <br><br>
 
+    <?php
+    echo $_SESSION['id_selectTurma'];
+    ?>
     <!--tr = linha, td = coluna-->
     <!-- Tabela na visão de gerenciadores e professores -->
     <table id="boletim">
@@ -580,43 +584,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
     </table>
     </form>
-
-    <script type="module">
-        import { startRequest } from './modulos/ajax.js';
-        let httpRequest = startRequest();
-        let url = "processos/session/guarda_turma_boletim.php";
-        const selectClass = document.getElementById('turmaEscolhida');
-        selectClass.addEventListener("change", () => {
-            let classId = selectClass.value;
-            url += `?idt=${classId}`;
-            httpRequest.open('GET', url);
-            httpRequest.send();
-            httpRequest.addEventListener("readystatechange", function () {
-                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                    <?php
-                        if (isset($_SESSION['id_selectTurma'])) {
-                            echo "alert(". $_SESSION['id_selectTurma'] .");";
-                        }
-                    ?>
-                }
-            });
-        });
-
-        window.onload = () => {
-            let classId = selectClass.value;
-            httpRequest.open('GET', url);
-            httpRequest.send();
-            httpRequest.addEventListener("readystatechange", function () {
-                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
-                    <?php
-                        if (isset($_SESSION['id_selectTurma'])) {
-                            echo "alert(". $_SESSION['id_selectTurma'] .");";
-                        }
-                    ?>
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>
