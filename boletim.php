@@ -23,12 +23,9 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="JS/boletim.js"></script>
+    <script src="JS/selectsBoletim.js" type="module" async></script>
     <script src="JS/filtro_boletim.js" type="module"></script>
     <script src="JS/relatorios.js" defer></script>
-    <script>
-        let selecinar_turma = document.getElementById('select_turma');
-        let valor_turma = selecionar_turma.value;
-    </script>
 </head>
 
 <body>
@@ -119,8 +116,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         }
 
         if ($_SESSION['tip_usu'] != 1) {
-            echo "<form method='POST' action='#'>";
-            echo "<label for='turmaEscolhida' class='form-label'></label>";
             echo "<select class='select_turma' id='turmaEscolhida' name='turmas' style='margin-left: 20px;'>";
             echo "<option class='ignorar' selected='sut'>Selecione uma Turma</option>";
 
@@ -144,29 +139,22 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                 echo "<option class='options_validos' value = $tur->id>" . $tur->serie . "º ano " . $tur->nome . "</option>";
             }
             echo "</select>";
-            echo "<br>";
-            echo "<button type='submit' class='btn btn-primary'>Visualizar Disciplinas</button>";
-            echo "</form>";
-            echo "&emsp;";
 
-            if (isset($_POST["turmas"])) {
-                echo "<form method='POST' action='#'>";
-                echo "<select name='disciplinas'>";
-                echo "<option selected='sud'>Selecione uma Disciplina</option>";
-
-                $prepara2 = $conexao->prepare("SELECT nome FROM disciplina WHERE id_turma = ?");
-                $prepara2->bind_param("i", $_POST["turmas"]);
+            echo "<select class='select_turma' name='disciplinas'>";
+            echo "<option class='options_validos' value='ola'>Selecione uma Disciplina</option>";
+            if (isset($_SESSION['id_selectTurma']) && $_SESSION['id_selectTurma'] != "none") {
+                $prepara2 = $conexao->prepare("SELECT id, nome FROM disciplina WHERE id_turma = ?");
+                $prepara2->bind_param("i", $_SESSION['id_selectTurma']);
                 $prepara2->execute();
                 $resultado2 = $prepara2->get_result();
                 while ($d = $resultado2->fetch_object()) {
                     $disciplinas[] = $d;
                 }
                 foreach ($disciplinas as $dis) {
-                    echo "<option value = $dis->id>" . $dis->nome . "</option>";
+                    echo "<option class='options_validos' value = $dis->id>" . $dis->nome . "</option>";
                 }
-                echo "</select>";
-                echo "</form>";
             }
+            echo "</select>";
         }
         ?>
 
@@ -593,7 +581,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             <!-- ***** Parte dinâmica acima*****-->
 
         </table>
-        </form>
 
     </main>
 
