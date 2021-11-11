@@ -24,10 +24,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <script src="JS/boletim.js"></script>
     <script src="JS/filtro_boletim.js" type="module"></script>
     <script src="JS/relatorios.js" defer></script>
-    <script>
-        let selecinar_turma = document.getElementById('select_turma');
-        let valor_turma = selecionar_turma.value;
-    </script>
 </head>
 
 <body>
@@ -117,10 +113,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     }
 
     if ($_SESSION['tip_usu'] != 1) {
-        echo "<form method='POST' action='#'>";
-        echo "<label for='turmaEscolhida' class='form-label'></label>";
-        echo "<select class='form-select' id='turmaEscolhida' name='turmas' style='margin-left: 20px;'>";
-        echo "<option selected='sut'>Selecione uma Turma</option>";
+        echo "<select class='form-select' id='turmaEscolhida' name='turmas'>";
+        echo "<option value='none' selected>Selecione uma Turma</option>";
 
         if ($_SESSION['tip_usu'] == 3) {
             $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");
@@ -142,18 +136,12 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             echo "<option value = $tur->id>" . $tur->serie . "º ano " . $tur->nome . "</option>";
         }
         echo "</select>";
-        echo "<br>";
-        echo "<button type='submit' class='btn btn-primary'>Visualizar Disciplinas</button>";
-        echo "</form>";
-        echo "&emsp;";
 
-        if (isset($_POST["turmas"])) {
-            echo "<form method='POST' action='#'>";
-            echo "<select name='disciplinas'>";
-            echo "<option selected='sud'>Selecione uma Disciplina</option>";
-
-            $prepara2 = $conexao->prepare("SELECT nome FROM disciplina WHERE id_turma = ?");
-            $prepara2->bind_param("i", $_POST["turmas"]);
+        echo "<select name='disciplinas'>";
+        echo "<option value='none' selected>Selecione uma Disciplina</option>";
+        if(isset($_SESSION['id_selectTurma']) && $_SESSION['id_selectTurma']!="none"){
+            $prepara2 = $conexao->prepare("SELECT id, nome FROM disciplina WHERE id_turma = ?");
+            $prepara2->bind_param("i", $_SESSION['id_selectTurma']);
             $prepara2->execute();
             $resultado2 = $prepara2->get_result();
             while ($d = $resultado2->fetch_object()) {
@@ -162,9 +150,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             foreach ($disciplinas as $dis) {
                 echo "<option value = $dis->id>" . $dis->nome . "</option>";
             }
-            echo "</select>";
-            echo "</form>";
         }
+        echo "</select>";
     }
     ?>
 
@@ -593,6 +580,42 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     </table>
     </form>
 
+    <script type="module">
+        import { startRequest } from './modulos/ajax.js';
+        let httpRequest = startRequest();
+        let url = "processos/session/guarda_turma_boletim.php";
+        const selectClass = document.getElementById('turmaEscolhida');
+        selectClass.addEventListener("change", () => {
+            let classId = selectClass.value;
+            url += `?idt=${classId}`;
+            httpRequest.open('GET', url);
+            httpRequest.send();
+            httpRequest.addEventListener("readystatechange", function () {
+                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                    <?php
+                        if (isset($_SESSION['id_selectTurma'])) {
+                            echo "alert(". $_SESSION['id_selectTurma'] .");";
+                        }
+                    ?>
+                }
+            });
+        });
+
+        window.onload = () => {
+            let classId = selectClass.value;
+            httpRequest.open('GET', url);
+            httpRequest.send();
+            httpRequest.addEventListener("readystatechange", function () {
+                if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                    <?php
+                        if (isset($_SESSION['id_selectTurma'])) {
+                            echo "alert(". $_SESSION['id_selectTurma'] .");";
+                        }
+                    ?>
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
