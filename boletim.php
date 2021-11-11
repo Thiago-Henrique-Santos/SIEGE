@@ -37,10 +37,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <main>
         <h1 class="titulo-principal">Boletim</h1>
 
-        <center>
-            <img src="img/cabecalho_relatorioPDF.png" draggable="false" height="90" width="832" style="margin-top:5px;margin-bottom: 40px;">
-        </center>
-
         <button id="btn_editar" style="margin-left: 20px;" name="btn_editar" type="button" onclick="toogle_disabled(false)">Editar</button>
         <button id="btn_cancelar" name="btn_cancelar" type="button" onclick="cancel(true)">Cancelar</button>
         <button id="btn_limpar" name="btn_limpar" type="button" onclick="clearInputs()">Limpar</button>
@@ -116,8 +112,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         }
 
         if ($_SESSION['tip_usu'] != 1) {
-            echo "<select class='form-select' id='turmaEscolhida' name='turmas'>";
-            echo "<option value='none' selected>Selecione uma Turma</option>";
+            echo "<select class='select_turma' style='margin-left: 20px;' id='turmaEscolhida' name='turmas'>";
+            echo "<option class='ignorar' value='none' selected>Selecione uma Turma</option>";
 
             if ($_SESSION['tip_usu'] == 3) {
                 $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");
