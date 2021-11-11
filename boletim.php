@@ -116,8 +116,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         }
 
         if ($_SESSION['tip_usu'] != 1) {
-            echo "<select class='select_turma' id='turmaEscolhida' name='turmas' style='margin-left: 20px;'>";
-            echo "<option class='ignorar' selected='sut'>Selecione uma Turma</option>";
+            echo "<select class='form-select' id='turmaEscolhida' name='turmas'>";
+            echo "<option value='none' selected>Selecione uma Turma</option>";
 
             if ($_SESSION['tip_usu'] == 3) {
                 $prepara = $conexao->prepare("SELECT * FROM turma WHERE id != 1 ORDER BY serie ASC, nome ASC");

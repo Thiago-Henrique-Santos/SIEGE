@@ -10,31 +10,54 @@ if ($conexao->connect_error)
     die("Conexão falhou: " . $conexao->connect_error);
 
 //Gerenciadores(Usuário)
-$sql = "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (2, 'Francisney Rezende', 'francisney@juvenal.com', 'U', 'M', csbd('111111'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (3, 'Deise Feitosa', 'deise@juvenal.com', 'U', 'F', csbd('222222'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (4, 'Luciana Alvarenga', 'luciana@juvenal.com', 'R', 'F', csbd('444444'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (5, 'Cíntia Medeiros', 'cintia@juvenal.com', 'U', 'F', csbd('555555'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (6, 'Gaspar Mendes', 'gaspar@juvenal.com', 'U', 'M', csbd('111188'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (7, 'Fabiana Faria', 'fabiana@juvenal.com', 'R', 'F', csbd('777777'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (8, 'Heitor Simeão', 'heitor@juvenal.com', 'U', 'M', csbd('012315'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (9, 'Ângela Lomônaco', 'angela@juvenal.com', 'U', 'F', csbd('022315'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (10, 'Camila Alexandrino', 'camila@juvenal.com', 'R', 'F', csbd('123456'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (11, 'Renata de Sousa', 'renata@juvenal.com', 'U', 'F', csbd('012498'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (12, 'Margô Favila', 'margo@juvenal.com', 'R', 'F', csbd('091234'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (13, 'Simone Costa', 'simone@juvenal.com', 'R', 'F', csbd('120345'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (14, 'Alexandre Gouvêa', 'alexandre@juvenal.com', 'R', 'M', csbd('098123'), 3);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (15, 'Humberto Maia', 'humberto@juvenal.com', 'U', 'M', csbd('331245'), 3);";
+$senha_criptografada = csbd("111111");
+$sql = "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (2, 'Francisney Rezende', 'francisney@juvenal.com', 'U', 'M', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("222222");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (3, 'Deise Feitosa', 'deise@juvenal.com', 'U', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("555555");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (5, 'Cíntia Medeiros', 'cintia@juvenal.com', 'U', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("444444");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (4, 'Luciana Alvarenga', 'luciana@juvenal.com', 'R', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("111188");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (6, 'Gaspar Mendes', 'gaspar@juvenal.com', 'U', 'M', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("777777");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (7, 'Fabiana Faria', 'fabiana@juvenal.com', 'R', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("012315");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (8, 'Heitor Simeão', 'heitor@juvenal.com', 'U', 'M', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("022315");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (9, 'Ângela Lomônaco', 'angela@juvenal.com', 'U', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("123456");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (10, 'Camila Alexandrino', 'camila@juvenal.com', 'R', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("012498");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (11, 'Renata de Sousa', 'renata@juvenal.com', 'U', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("091234");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (12, 'Margô Favila', 'margo@juvenal.com', 'R', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("120345");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (13, 'Simone Costa', 'simone@juvenal.com', 'R', 'F', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("098123");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (14, 'Alexandre Gouvêa', 'alexandre@juvenal.com', 'R', 'M', '$senha_criptografada', 3);";
+$senha_criptografada = csbd("331245");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (15, 'Humberto Maia', 'humberto@juvenal.com', 'U', 'M', '$senha_criptografada', 3);";
 
 //Professores(Usuário)
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (16, 'Alessandra Sofo', 'alessandra@juvenal.com', 'U', 'F', csbd('123412'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (17, 'Caio Silva', 'caio@juvenal.com', 'U', 'M', csbd('120998'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (18, 'Fátima Pereira', 'fatima.pereira@juvenal.com', 'U', 'F', csbd('451277'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (19, 'Fátima Vieira', 'fatima.vieira@juvenal.com', 'U', 'F', csbd('098712'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (20, 'Fernanda Mira', 'fernanda@juvenal.com', 'U', 'F', csbd('221133'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (21, 'Ana Paula Bueno', 'ana.paula@juvenal.com', 'U', 'F', csbd('112311'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (22, 'César Couto', 'cesar@juvenal.com', 'U', 'M', csbd('008122'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (23, 'Ricardo Sousa', 'ricardo@juvenal.com', 'U', 'M', csbd('113312'), 2);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (24, 'Raquel Teles', 'raquel@juvenal.com', 'U', 'F', csbd('123411'), 2);";
+$senha_criptografada = csbd("120998");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (17, 'Caio Silva', 'caio@juvenal.com', 'U', 'M', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("451277");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (18, 'Fátima Pereira', 'fatima.pereira@juvenal.com', 'U', 'F', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("123412");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (16, 'Alessandra Sofo', 'alessandra@juvenal.com', 'U', 'F', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("098712");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (19, 'Fátima Vieira', 'fatima.vieira@juvenal.com', 'U', 'F', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("221133");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (20, 'Fernanda Mira', 'fernanda@juvenal.com', 'U', 'F', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("112311");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (21, 'Ana Paula Bueno', 'ana.paula@juvenal.com', 'U', 'F', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("008122");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (22, 'César Couto', 'cesar@juvenal.com', 'U', 'M', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("113312");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (23, 'Ricardo Sousa', 'ricardo@juvenal.com', 'U', 'M', '$senha_criptografada', 2);";
+$senha_criptografada = csbd("123411");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (24, 'Raquel Teles', 'raquel@juvenal.com', 'U', 'F', '$senha_criptografada', 2);";
 
 //Turmas
 $sql .= "INSERT INTO turma (id, nome, serie) VALUES (2, 'A', 2);";
@@ -57,26 +80,46 @@ $sql .= "INSERT INTO turma (id, nome, serie) VALUES (18, 'A', 9);";
 $sql .= "INSERT INTO turma (id, nome, serie) VALUES (19, 'Z', 9);";
 
 //Alunos(Usuário)
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (25, 'Ana Beatriz Costa', 'ana.beatriz@juvenal.com', 'U', 'F', csbd('003411'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (26, 'Antônia Goulart', 'antonia@juvenal.com', 'R', 'F', csbd('123341'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (27, 'Benedito Simões', 'benedito@juvenal.com', 'R', 'M', csbd('103411'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (28, 'Carlos Araújo', 'carlos@juvenal.com', 'U', 'M', csbd('113111'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (29, 'Davi Donizetti', 'davi@juvenal.com', 'U', 'M', csbd('190831'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (30, 'Eliézer Pereira', 'eliezer@juvenal.com', 'R', 'M', csbd('145211'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (31, 'Fabiana Rivelina', 'fabiana@juvenal.com', 'R', 'F', csbd('011341'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (32, 'Gabriel Assis', 'gabriel@juvenal.com', 'U', 'M', csbd('087654'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (33, 'Haroldo Teixeira', 'haroldo@juvenal.com', 'U', 'M', csbd('112100'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (34, 'Isadora Castro', 'isadora@juvenal.com', 'U', 'F', csbd('003411'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (35, 'Joana Garcia', 'joana@juvenal.com', 'R', 'F', csbd('330129'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (36, 'Kelly Monteiro', 'kelly@juvenal.com', 'U', 'F', csbd('210341'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (37, 'Luis Dorival', 'luis@juvenal.com', 'U', 'M', csbd('353011'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (38, 'Marcos Albuquerque', 'marcos@juvenal.com', 'R', 'M', csbd('092114'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (39, 'Nádia de Paula', 'nadia@juvenal.com', 'U', 'F', csbd('112211'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (40, 'Otávio dos Santos', 'otavio@juvenal.com', 'U', 'M', csbd('445577'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (41, 'Paula Ribeiro', 'paula@juvenal.com', 'R', 'F', csbd('113322'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (42, 'Quézia Limeira', 'quezia@juvenal.com', 'U', 'F', csbd('004788'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (43, 'Rita Freitas', 'rita@juvenal.com', 'U', 'F', csbd('112355'), 1);";
-$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (44, 'Soraia Juscelina', 'soraia@juvenal.com', 'U', 'F', csbd('121109'), 1);";
+$senha_criptografada = csbd("003411");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (25, 'Ana Beatriz Costa', 'ana.beatriz@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("123341");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (26, 'Antônia Goulart', 'antonia@juvenal.com', 'R', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("103411");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (27, 'Benedito Simões', 'benedito@juvenal.com', 'R', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("113111");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (28, 'Carlos Araújo', 'carlos@juvenal.com', 'U', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("190831");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (29, 'Davi Donizetti', 'davi@juvenal.com', 'U', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("145211");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (30, 'Eliézer Pereira', 'eliezer@juvenal.com', 'R', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("011341");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (31, 'Fabiana Rivelina', 'fabiana@juvenal.com', 'R', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("087654");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (32, 'Gabriel Assis', 'gabriel@juvenal.com', 'U', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("112100");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (33, 'Haroldo Teixeira', 'haroldo@juvenal.com', 'U', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("003411");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (34, 'Isadora Castro', 'isadora@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("330129");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (35, 'Joana Garcia', 'joana@juvenal.com', 'R', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("210341");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (36, 'Kelly Monteiro', 'kelly@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("353011");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (37, 'Luis Dorival', 'luis@juvenal.com', 'U', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("092114");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (38, 'Marcos Albuquerque', 'marcos@juvenal.com', 'R', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("112211");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (39, 'Nádia de Paula', 'nadia@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("445577");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (40, 'Otávio dos Santos', 'otavio@juvenal.com', 'U', 'M', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("113322");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (41, 'Paula Ribeiro', 'paula@juvenal.com', 'R', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("004788");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (42, 'Quézia Limeira', 'quezia@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("112355");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (43, 'Rita Freitas', 'rita@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
+$senha_criptografada = csbd("121109");
+$sql .= "INSERT INTO usuario (id, nome, email, local_moradia, sexo, senha, tipo_usuario) VALUES (44, 'Soraia Juscelina', 'soraia@juvenal.com', 'U', 'F', '$senha_criptografada', 1);";
 
 
 
@@ -134,8 +177,6 @@ if ($conexao->multi_query($sql) === TRUE)
 else
     echo "Erro inserindo cadastros: " . $conexao->error;
 
-$conexao->close();
-
 function csbd($s_dcrpt)
 {
     $crpt1 = MD5($s_dcrpt);
@@ -143,3 +184,5 @@ function csbd($s_dcrpt)
     $crpt3 = substr($crpt2, 0, 6);
     return $crpt3;
 }
+
+$conexao->close();
