@@ -81,23 +81,36 @@ label #fechar_menu {
   cursor: pointer;
 }
 
+label div#entorno_btn {
+  height: 102px;
+  width: 142px;
+  left: 40px;
+  top: 0px;
+  padding: 8px 14px;
+  transition: all 0.5s ease;
+  background-color: white;
+  border: none;
+  position: fixed;
+  vertical-align: middle;
+  border: 0.5px rgb(241, 241, 241) solid;
+}
+
 label #btn {
   left: 40px;
   top: 25px;
   font-size: 35px;
   color: black;
   padding: 6px 12px;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   border-radius: 3px;
   background-color: lightgray;
   border: 1px black solid;
-  position: fixed;
 }
 
 label #btn:hover {
   color: gray;
   padding: 6px 12px;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   border-radius: 3px;
   background-color: rgb(221, 220, 220);
   border: 1px lightgray solid;
@@ -106,7 +119,7 @@ label #btn:hover {
 label #btn:active {
   color: lightgray;
   padding: 6px 12px;
-  transition: all 0.5s;
+  transition: all 0.5s ease;
   border-radius: 3px;
   background-color: rgb(228, 226, 226);
   border: 1px rgb(172, 172, 172) solid;

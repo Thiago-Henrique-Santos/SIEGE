@@ -5,7 +5,11 @@ if ($_SESSION['tip_usu'] == 3) {
 
     echo "<input type='checkbox' id='check'>";
     echo "<label for='check'>";
+    echo "<div id='entorno_btn'>";
+    echo "<center>";
     echo "<i class='fas fa-bars' id='btn'></i>";
+    echo "</center>";
+    echo "</div>";
     echo "<i class='fas fa-times' id='fechar_menu'></i>";
     echo "</label>";
 
@@ -51,7 +55,11 @@ if ($_SESSION['tip_usu'] == 3) {
 
     echo "<input type='checkbox' id='check'>";
     echo "<label for='check'>";
+    echo "<div id='entorno_btn'>";
+    echo "<center>";
     echo "<i class='fas fa-bars' id='btn'></i>";
+    echo "</center>";
+    echo "</div>";
     echo "<i class='fas fa-times' id='fechar_menu'></i>";
     echo "</label>";
 
@@ -92,7 +100,11 @@ if ($_SESSION['tip_usu'] == 3) {
 
     echo "<input type='checkbox' id='check'>";
     echo "<label for='check'>";
+    echo "<div id='entorno_btn'>";
+    echo "<center>";
     echo "<i class='fas fa-bars' id='btn'></i>";
+    echo "</center>";
+    echo "</div>";
     echo "<i class='fas fa-times' id='fechar_menu'></i>";
     echo "</label>";
 
