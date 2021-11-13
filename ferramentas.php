@@ -22,6 +22,7 @@ if ($_SESSION['tip_usu'] == 1) {
     <link rel="stylesheet" type="text/css" href="CSS/ferramentas.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/main_nav.css">
+    <link rel="stylesheet" type="text/css" href="CSS/user_footer.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
@@ -149,6 +150,11 @@ if ($_SESSION['tip_usu'] == 1) {
                 </button>
             </a>
         </div>
+
+        <?php
+        include('componentes/user_footer.php');
+        ?>
+
     </main>
 </body>
 

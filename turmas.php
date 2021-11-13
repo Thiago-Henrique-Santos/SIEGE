@@ -18,6 +18,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link rel="stylesheet" type="text/css" href="CSS/forms.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/main_nav.css">
+    <link rel="stylesheet" type="text/css" href="CSS/user_footer.css">
     <link rel="stylesheet" type="text/css" href="CSS/inputs.css">
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <link rel="stylesheet" type="text/css" href="CSS/consultas.css">
@@ -120,6 +121,10 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
         <ul id="busca_resultado" style="margin-top:40px;">
         </ul>
+
+        <?php
+        include('componentes/user_footer.php');
+        ?>
 
     </main>
     <div id="modal-screen">

@@ -17,6 +17,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/menu_pagina_inicial.css">
+    <link rel="stylesheet" type="text/css" href="CSS/user_footer.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
@@ -99,8 +100,9 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                 </a>
             </div>
 
-            <br><br>
-            <p>Customizar e melhorar o layout, bem como o menu, etc.</p>
+            <?php
+            include('componentes/user_footer.php');
+            ?>
         </main>
     </div>
 

@@ -22,6 +22,7 @@ if ($_SESSION['tip_usu'] != 3) {
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/forms.css">
     <link rel="stylesheet" type="text/css" href="CSS/main_nav.css">
+    <link rel="stylesheet" type="text/css" href="CSS/user_footer.css">
     <link rel="stylesheet" type="text/css" href="CSS/modal.css">
     <link rel="stylesheet" type="text/css" href="CSS/cadastrar.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
@@ -63,6 +64,11 @@ if ($_SESSION['tip_usu'] != 3) {
                 <button class="option" id="disciplina">Disciplina</button>
             </div>
         </div>
+
+        <?php
+        include('componentes/user_footer.php');
+        ?>
+
     </main>
 
     <div id="modal-screen">

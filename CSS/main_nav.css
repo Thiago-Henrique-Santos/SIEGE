@@ -50,18 +50,18 @@
   transform: translateY(120%);
 }
 
-ul li a {
+ul li a.link_menu {
   background-color: #2f3a4f;
   text-decoration: none;
 }
 
-ul li:hover a {
+ul li:hover a.link_menu {
   padding-left: 40px;
   color: gray;
   text-decoration: underline;
 }
 
-ul li:active a {
+ul li:active a.link_menu {
   padding-left: 40px;
   color: rgb(230, 203, 65);
   text-decoration: underline;
