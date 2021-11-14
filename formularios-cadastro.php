@@ -698,7 +698,7 @@ $data_atual = date('d/m/Y');
         if ($cad_att == "cadastrar")
             echo "<img draggable='false' src='img/sucesso.gif' height='250px' width='250px' style='margin-bottom: 10px'>";
         else
-            echo "<img draggable='false' src='img/correct.gif' height='300px' width='400px' style='margin-bottom: 10px'>";
+            echo "<img draggable='false' src='img/correct.gif' height='225px' width='300px' style='margin-bottom: 10px'>";
         if (isset($_GET['rcd']) && !empty($_GET['rcd'])) {
             echo "<br><br>";
             echo "<button id='recadastrar' onclick='reloadModal(\"" . $_GET['rcd'] . "\")'>Cadastrar novamente<br><img src='img/again.png'></button>";
