@@ -42,59 +42,208 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
             <?php
             if ($_SESSION['sx'] == 'F')
-                echo "<h4 style='margin-bottom: 120px; margin-top: -40px; text-align: center;'>Seja bem-vinda ao SIEGE</h4>";
+                echo "<h4 style='margin-bottom: 59px; margin-top: -40px; text-align: center;'>Seja bem-vinda ao SIEGE</h4>";
             else
-                echo "<h4 style='margin-bottom: 120px; margin-top: -40px; text-align: center;'>Seja bem-vindo ao SIEGE</h4>";
+                echo "<h4 style='margin-bottom: 59px; margin-top: -40px; text-align: center;'>Seja bem-vindo ao SIEGE</h4>";
             ?>
 
-            <div class="buttons-group" style="margin-top:20px;">
+            <div class="buttons-group">
 
                 <?php
                 if ($_SESSION['tip_usu'] == 3) {
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Cadastrar</h3>"; //Cadastrar
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Cadastre usuários para acessar o sistema, como funcionários (gerenciadores e professores) e alunos, além também de turmas e disciplinas.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_cadastrar.png'>";
+                    echo "</center>";
                     echo "<a href='cadastrar.php'>";
-                    echo "<button>Cadastrar</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Ferramentas</h3>"; //Ferramentas
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Página criada com o intuito de facilitar o acesso a páginas, aplicativos e ferramentas digitais para professores e gerenciadores, apenas em um botão.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_ferramentas.png'>";
+                    echo "</center>";
                     echo "<a href='ferramentas.php'>";
-                    echo "<button>Ferramentas</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "</div>"; //Fecha a div class='buttons-group'
+                    echo "<div class='buttons-group' style='margin-top:28px;'>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Usuários</h3>"; //Usuários
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Consulte os usuários cadastrados, além de atualizá-los e excluí-los. Há opções de filtros e de gerar PDFs de acordo com a opção escolhida também.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_usuarios.png'>";
+                    echo "</center>";
                     echo "<a href='usuarios.php'>";
-                    echo "<button>Usuários</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Turmas</h3>"; //Turmas
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Consulte as turmas cadastradas, observando as disciplinas e seus respectivos professores, além de visualizar os alunos e de gerar PDFs também.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_turmas.png'>";
+                    echo "</center>";
                     echo "<a href='turmas.php'>";
-                    echo "<button>Turmas</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Boletins</h3>"; //Boletins
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Acesse os boletins das turmas em cada disciplina, podendo, também, inserir as notas e faltas de cada aluno e, ao final, postá-las no sistema.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_boletim.png'>";
+                    echo "</center>";
                     echo "<a href='boletim.php'>";
-                    echo "<button>Boletins</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
                 } elseif ($_SESSION['tip_usu'] == 2) {
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Ferramentas</h3>"; //Ferramentas
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Página criada com o intuito de facilitar o acesso a páginas, aplicativos e ferramentas digitais para professores e gerenciadores, apenas em um botão.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_ferramentas.png'>";
+                    echo "</center>";
                     echo "<a href='ferramentas.php'>";
-                    echo "<button>Ferramentas</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Usuários</h3>"; //Usuários
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Consulte os usuários cadastrados. Há opções de filtros por ocupação e pela barra de pesquisa também, pesquisando pelo nome ou por outro atributo.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_usuarios.png'>";
+                    echo "</center>";
                     echo "<a href='usuarios.php'>";
-                    echo "<button>Usuários</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "</div>"; //Fecha a div class='buttons-group'
+                    echo "<div class='buttons-group' style='margin-top:20px;'>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Turmas</h3>"; //Turmas
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Consulte as turmas cadastradas, observando as disciplinas e seus respectivos professores, além de visualizar os alunos de cada turma também.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_turmas.png'>";
+                    echo "</center>";
                     echo "<a href='turmas.php'>";
-                    echo "<button>Turmas</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Boletins</h3>"; //Boletins
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Acesse os boletins das turmas em cada disciplina ministrada, podendo, também, inserir as notas e faltas de cada aluno e, ao final, postá-las no sistema.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_boletim.png'>";
+                    echo "</center>";
                     echo "<a href='boletim.php'>";
-                    echo "<button>Boletins</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
                 } elseif ($_SESSION['tip_usu'] == 1) {
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Pessoas</h3>"; //Pessoas
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Consulte os professores e alunos da sua turma, além dos diretores e vices. Você também pode filtrar pela ocupação e pesquisar pela barra de pesquisa.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_usuarios.png'>";
+                    echo "</center>";
                     echo "<a href='usuarios.php'>";
-                    echo "<button>Pessoas</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Turma</h3>"; //Turma
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Consulte os membros da sua turma, como os alunos e as disciplinas vinculadas com os professores, contendo os mesmos filtros da página de pessoas.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_turmas.png'>";
+                    echo "</center>";
                     echo "<a href='turmas.php'>";
-                    echo "<button>Turma</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
+                    echo "<div class='pi_btns'>";
+                    echo "<h3 class='titulo_btn'>Boletim</h3>"; //Boletim
+                    echo "<hr class='separador'>";
+                    echo "<center>";
+                    echo "<div class='descr_pi'>";
+                    echo "<p class='txt_descr_pi'>";
+                    echo "Acesse e consulte as suas notas e faltas bimestrais, notal final, faltas finais e as situações para cada disciplina. Você também pode gerar o PDF e imprimi-lo.";
+                    echo "</p>";
+                    echo "</div>";
+                    echo "<img class='icons_pi' draggable='false' src='img/icon_boletim.png'>";
+                    echo "</center>";
                     echo "<a href='boletim.php'>";
-                    echo "<button>Boletim</button>";
+                    echo "<button class='btn_pi'>Acessar</button>";
                     echo "</a>";
+                    echo "</div>";
                 }
                 ?>
 
+                <!--Fecha a div class='buttons-group'-->
             </div>
 
-            <div class="buttons-group" style="margin-top:50px;">
+            <div class="buttons-group" style="margin-top:55px;">
                 <a href='sair.php'>
                     <button class='btn_sair'>Sair <img class='img_logout' draggable='false' src='img/logout.png'></button>
                 </a>

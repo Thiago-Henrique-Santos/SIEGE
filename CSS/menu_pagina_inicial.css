@@ -78,3 +78,74 @@ nav div.preenche-final {
   margin-top: -5px;
   margin-left: 3px;
 }
+
+.pi_btns {
+  height: 380px;
+  width: 350px;
+  background-color: rgb(58, 58, 138);
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.pi_btns:hover {
+  background-color: rgb(109, 109, 161);
+  transition: 0.25s;
+  box-shadow: 0px 10px 0px 0px rgba(180, 180, 180, 0.795);
+}
+
+.titulo_btn {
+  margin-top: 10px;
+  color: white;
+}
+
+.btn_pi {
+  margin-top: 7.5%;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: rgb(248, 209, 79);
+  border: none !important;
+  outline: none !important;
+}
+
+.btn_pi:hover {
+  transition: 0.2s;
+  font-weight: bold;
+  background-color: rgb(255, 187, 0);
+}
+
+.btn_pi:active {
+  font-weight: bold;
+  text-decoration: underline;
+  border: none;
+  outline: none;
+}
+
+.btn_pi:after {
+  border: none !important;
+  outline: none !important;
+}
+
+.descr_pi {
+  height: auto;
+  width: 300px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.txt_descr_pi {
+  word-break: normal;
+  color: rgb(184, 184, 184);
+}
+
+.icons_pi {
+  height: 85px;
+  width: 85px;
+  margin-top: 8px;
+  margin-bottom: -5px;
+}
+
+.separador {
+  background-color: black;
+}
