@@ -399,7 +399,7 @@ $data_atual = date('d/m/Y');
                     $getName = "dsc$i";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                         $valor_salvo = $_GET[$getName];
-                    echo "&nbsp;<input type='text' style='margin-left: 10px;width: 357px;' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='";
+                    echo "&nbsp;<input type='text' style='margin-left: 40px;width: 290px;' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName])) {
                         echo $valor_salvo;
                     } else {
@@ -411,7 +411,7 @@ $data_atual = date('d/m/Y');
                     $getName = "prf$i";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                         $valor_salvo = $_GET[$getName];
-                    echo "&nbsp;<select name='professor_$i' style='margin-left: 10px;width: 357px;' title='Selecione o nome do professor da disciplina' required>";
+                    echo "&nbsp;<select name='professor_$i' style='margin-left: 40px;width: 290px;' title='Selecione o nome do professor da disciplina' required>";
 
                     if ($linha['nome_professor'] == 'Default')
                         $linha['nome_professor'] = "--";

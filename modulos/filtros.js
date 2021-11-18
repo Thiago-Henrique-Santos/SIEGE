@@ -94,6 +94,10 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             unbindSubjectButton.setAttribute('class', 'buttons-queries');
             unbindSubjectButton.innerText = "Remover";
             unbindSubjectButton.onclick = () => deleteConfirm("Disciplina", "none", subjects[i]['idtf']);
+            const unbindSubjectIcon = document.createElement('i');
+            unbindSubjectIcon.setAttribute('class', 'far fa-trash-alt');
+            unbindSubjectButton.appendChild(unbindSubjectIcon);
+
             buttonsPart.appendChild(unbindSubjectButton);
 
 
@@ -101,6 +105,10 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             updateSubjectButton.setAttribute('class', 'buttons-queries');
             updateSubjectButton.innerText = "Atualizar";
             updateSubjectButton.onclick = () => loadSubjectModal(subjects[i]['nome'], teachers[i]['idtf'], subjects[i]['idtf']);
+            const updateSubjectIcon = document.createElement('i');
+            updateSubjectIcon.setAttribute('class', 'far fa-edit');
+            updateSubjectButton.appendChild(updateSubjectIcon);
+            
             buttonsPart.appendChild(updateSubjectButton);
 
 
@@ -137,6 +145,10 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             unbindStudentButton.setAttribute('class', 'buttons-queries');
             unbindStudentButton.innerText = "Desvincular";
             unbindStudentButton.onclick = () => unbindStudent(studentId[i]);
+            const unbindStudentIcon = document.createElement('i');
+            unbindStudentIcon.setAttribute('class', 'fas fa-unlink');
+            unbindStudentButton.appendChild(unbindStudentIcon);
+            
             buttonsPart.appendChild(unbindStudentButton);
 
             studentLine.appendChild(buttonsPart);
@@ -156,6 +168,10 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     updateClassButton.setAttribute('class', 'buttons-queries');
     updateClassButton.innerText = "Atualizar";
     updateClassButton.onclick = () => loadClassModal(className, classGrade, classIdtf);
+    const updateClassIcon = document.createElement('i');
+    updateClassIcon.setAttribute('class', 'fas fa-edit');
+    updateClassButton.appendChild(updateClassIcon);
+
     buttonsBlock.appendChild(updateClassButton);
 
     const deleteClassButton = document.createElement('button');
@@ -163,6 +179,9 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     deleteClassButton.innerText = "Excluir";
     deleteClassButton.onclick = () => deleteConfirm("turma", "none", classIdtf);
     buttonsBlock.appendChild(deleteClassButton);
+    const deleteClassIcon = document.createElement('i');
+    deleteClassIcon.setAttribute('class', 'fas fa-trash-alt');
+    deleteClassButton.appendChild(deleteClassIcon);
 
     classContainer.appendChild(buttonsBlock);
     parentBox.appendChild(classContainer);
@@ -291,7 +310,10 @@ function userHTMLResult(user, resultBlock) {
             } else {
                 const userClass = document.createElement('li');
                 userClass.setAttribute('class', 'listItemBlock');
-                userClass.innerHTML = `<strong>Turma:</strong> Este aluno não está vinculado à nenhuma turma!`;
+                if (thisUser['sexo'] == "Masculino")
+                    userClass.innerHTML = `<strong>Turma:</strong> Este aluno não está vinculado à nenhuma turma!`;
+                else
+                    userClass.innerHTML = `<strong>Turma:</strong> Esta aluna não está vinculada à nenhuma turma!`;
                 userInfo.appendChild(userClass);
             }
 
@@ -388,12 +410,20 @@ function userHTMLResult(user, resultBlock) {
             const staffType = positionAttributes['tipo_empregado'] == "Efetivo" ? "E" : "D";
             updateUserButton.onclick = () => loadStaffModal(positionAttributes['ocupacao'], thisUser['nome'], positionAttributes['masp'], thisUser['email'], residentialArea, staffType, gender, positionAttributes['funcao'], thisUser['idtf']);
         }
+        const updateUserIcon = document.createElement('i');
+        updateUserIcon.setAttribute('class', 'fas fa-edit');
+        updateUserButton.appendChild(updateUserIcon);
+
         buttonsBlock.appendChild(updateUserButton);
 
         const deleteUserButton = document.createElement('button');
         deleteUserButton.setAttribute('class', 'buttons-queries');
         deleteUserButton.innerText = "Excluir";
         deleteUserButton.onclick = () => deleteConfirm("Usuario", positionAttributes['ocupacao'], thisUser['idtf']);
+        const deleteUserIcon = document.createElement('i');
+        deleteUserIcon.setAttribute('class', 'fas fa-trash-alt');
+        deleteUserButton.appendChild(deleteUserIcon);
+
         buttonsBlock.appendChild(deleteUserButton);
 
         userContainer.appendChild(buttonsBlock);
