@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/logo_juvenal.png" />
-    <title>Notícias</title>
+    <title>Conquistas e Marcos</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/main.css">
@@ -27,11 +27,11 @@
         <main>
             <div style="width: 100%; height: 50px; display: flex; 
             flex-flow: row nowrap; justify-content: center;">
-                <h1 class="titulo-principal"> Notícias </h1>
+                <h1 class="titulo-principal"> Conquistas e Marcos</h1>
             </div>
 
             <p style="margin-top: 50px;">
-                Nesta página, terão algumas notícias fixas sobre a escola que já aconteceram, de maneira estática e fixa
+                Nesta página, terão algumas conquistas e marcos fixos sobre a escola que já aconteceram, de maneira estática e fixa
             </p>
         </main>
     </div>

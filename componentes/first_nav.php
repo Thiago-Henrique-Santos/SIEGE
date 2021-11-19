@@ -19,7 +19,7 @@
         <a class="nav-link text-white" href="index.php">Início</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="noticias.php">Notícias</a>
+        <a class="nav-link text-white" href="conquistas.php">Conquistas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="boas_praticas.php">Boas Práticas</a>
