@@ -38,10 +38,14 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <main>
         <h1 class="titulo-principal">Boletim</h1>
 
-        <button id="btn_editar" style="margin-left: 20px;" name="btn_editar" type="button" onclick="toogle_disabled(false)">Editar</button>
-        <button id="btn_cancelar" name="btn_cancelar" type="button" onclick="cancel(true)">Cancelar</button>
-        <button id="btn_limpar" name="btn_limpar" type="button" onclick="clearInputs()">Limpar</button>
-        <button id="btn_publicar" name="btn_publicar" type="button" onclick="postGrades()" disabled="" style="cursor: not-allowed;">Publicar</button>
+        <?php
+        if ($_SESSION['tip_usu'] != 1) {
+            echo "<button id='btn_editar' style='margin-left: 20px;' name='btn_editar' type='button' onclick='toogle_disabled(false)'>Editar</button>";
+            echo "<button id='btn_cancelar' name='btn_cancelar' type='button' onclick='cancel(true)'>Cancelar</button>";
+            echo "<button id='btn_limpar' name='btn_limpar' type='button' onclick='clearInputs()'>Limpar</button>";
+            echo "<button id='btn_publicar' name='btn_publicar' type='button' onclick='postGrades()' disabled='' style='cursor: not-allowed;'>Publicar</button>";
+        }
+        ?>
 
         <br><br>
         <?php
