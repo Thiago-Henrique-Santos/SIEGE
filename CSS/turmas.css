@@ -1,0 +1,70 @@
+i.i_btns {
+  margin-left: 7px;
+}
+
+.updateClassButton {
+  background-color: rgb(70, 50, 255);
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.updateClassButton:hover {
+  text-decoration: underline;
+}
+
+.deleteClassButton {
+  background-color: rgb(255, 50, 50);
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.deleteClassButton:hover {
+  text-decoration: underline;
+}
+
+.unbindSubjectButton {
+  background-color: rgb(160, 23, 23);
+  color: white;
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+.unbindSubjectButton:hover {
+  text-decoration: underline;
+}
+
+.updateSubjectButton {
+  background-color: rgb(37, 64, 116);
+  color: white;
+  border: none;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.updateSubjectButton:hover {
+  text-decoration: underline;
+}
+
+.unbindStudentButton {
+  background-color: rgb(206, 135, 4);
+  color: white;
+  border: none;
+  height: 30px;
+  width: 125px;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+.unbindStudentButton:hover {
+  text-decoration: underline;
+}

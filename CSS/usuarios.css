@@ -1,0 +1,29 @@
+i.i_btns {
+  margin-left: 7px;
+}
+
+.updateUserButton {
+  background-color: rgb(70, 50, 255);
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.updateUserButton:hover {
+  text-decoration: underline;
+}
+
+.deleteUserButton {
+  background-color: rgb(255, 50, 50);
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.deleteUserButton:hover {
+  text-decoration: underline;
+}

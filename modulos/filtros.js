@@ -91,22 +91,22 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             buttonsPart.setAttribute('class', 'buttonsPart');
 
             const unbindSubjectButton = document.createElement('button');
-            unbindSubjectButton.setAttribute('class', 'buttons-queries');
+            unbindSubjectButton.setAttribute('class', 'buttons-queries unbindSubjectButton');
             unbindSubjectButton.innerText = "Remover";
             unbindSubjectButton.onclick = () => deleteConfirm("Disciplina", "none", subjects[i]['idtf']);
             const unbindSubjectIcon = document.createElement('i');
-            unbindSubjectIcon.setAttribute('class', 'far fa-trash-alt');
+            unbindSubjectIcon.setAttribute('class', 'far fa-trash-alt i_btns');
             unbindSubjectButton.appendChild(unbindSubjectIcon);
 
             buttonsPart.appendChild(unbindSubjectButton);
 
 
             const updateSubjectButton = document.createElement('button');
-            updateSubjectButton.setAttribute('class', 'buttons-queries');
+            updateSubjectButton.setAttribute('class', 'buttons-queries updateSubjectButton');
             updateSubjectButton.innerText = "Atualizar";
             updateSubjectButton.onclick = () => loadSubjectModal(subjects[i]['nome'], teachers[i]['idtf'], subjects[i]['idtf']);
             const updateSubjectIcon = document.createElement('i');
-            updateSubjectIcon.setAttribute('class', 'far fa-edit');
+            updateSubjectIcon.setAttribute('class', 'far fa-edit i_btns');
             updateSubjectButton.appendChild(updateSubjectIcon);
             
             buttonsPart.appendChild(updateSubjectButton);
@@ -142,11 +142,11 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             buttonsPart.setAttribute('class', 'buttonsPart');
 
             const unbindStudentButton = document.createElement('button');
-            unbindStudentButton.setAttribute('class', 'buttons-queries');
+            unbindStudentButton.setAttribute('class', 'buttons-queries unbindStudentButton');
             unbindStudentButton.innerText = "Desvincular";
             unbindStudentButton.onclick = () => unbindStudent(studentId[i]);
             const unbindStudentIcon = document.createElement('i');
-            unbindStudentIcon.setAttribute('class', 'fas fa-unlink');
+            unbindStudentIcon.setAttribute('class', 'fas fa-unlink i_btns');
             unbindStudentButton.appendChild(unbindStudentIcon);
             
             buttonsPart.appendChild(unbindStudentButton);
@@ -165,22 +165,22 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     buttonsBlock.setAttribute('style', 'margin-left: 50px;');
 
     const updateClassButton = document.createElement('button');
-    updateClassButton.setAttribute('class', 'buttons-queries');
+    updateClassButton.setAttribute('class', 'buttons-queries updateClassButton');
     updateClassButton.innerText = "Atualizar";
     updateClassButton.onclick = () => loadClassModal(className, classGrade, classIdtf);
     const updateClassIcon = document.createElement('i');
-    updateClassIcon.setAttribute('class', 'fas fa-edit');
+    updateClassIcon.setAttribute('class', 'fas fa-edit i_btns');
     updateClassButton.appendChild(updateClassIcon);
 
     buttonsBlock.appendChild(updateClassButton);
 
     const deleteClassButton = document.createElement('button');
-    deleteClassButton.setAttribute('class', 'buttons-queries');
+    deleteClassButton.setAttribute('class', 'buttons-queries deleteClassButton');
     deleteClassButton.innerText = "Excluir";
     deleteClassButton.onclick = () => deleteConfirm("turma", "none", classIdtf);
     buttonsBlock.appendChild(deleteClassButton);
     const deleteClassIcon = document.createElement('i');
-    deleteClassIcon.setAttribute('class', 'fas fa-trash-alt');
+    deleteClassIcon.setAttribute('class', 'fas fa-trash-alt i_btns');
     deleteClassButton.appendChild(deleteClassIcon);
 
     classContainer.appendChild(buttonsBlock);
@@ -399,7 +399,7 @@ function userHTMLResult(user, resultBlock) {
         buttonsBlock.setAttribute('style', 'margin-left: 82px;');
 
         const updateUserButton = document.createElement('button');
-        updateUserButton.setAttribute('class', 'buttons-queries');
+        updateUserButton.setAttribute('class', 'buttons-queries updateUserButton');
         updateUserButton.innerText = "Atualizar";
         const gender = thisUser['sexo'] == "Masculino" ? "M" : "F";
         const residentialArea = thisUser['local_moradia'] == "Urbana" ? "U" : "R";
@@ -411,17 +411,17 @@ function userHTMLResult(user, resultBlock) {
             updateUserButton.onclick = () => loadStaffModal(positionAttributes['ocupacao'], thisUser['nome'], positionAttributes['masp'], thisUser['email'], residentialArea, staffType, gender, positionAttributes['funcao'], thisUser['idtf']);
         }
         const updateUserIcon = document.createElement('i');
-        updateUserIcon.setAttribute('class', 'fas fa-edit');
+        updateUserIcon.setAttribute('class', 'fas fa-edit i_btns');
         updateUserButton.appendChild(updateUserIcon);
 
         buttonsBlock.appendChild(updateUserButton);
 
         const deleteUserButton = document.createElement('button');
-        deleteUserButton.setAttribute('class', 'buttons-queries');
+        deleteUserButton.setAttribute('class', 'buttons-queries deleteUserButton');
         deleteUserButton.innerText = "Excluir";
         deleteUserButton.onclick = () => deleteConfirm("Usuario", positionAttributes['ocupacao'], thisUser['idtf']);
         const deleteUserIcon = document.createElement('i');
-        deleteUserIcon.setAttribute('class', 'fas fa-trash-alt');
+        deleteUserIcon.setAttribute('class', 'fas fa-trash-alt i_btns');
         deleteUserButton.appendChild(deleteUserIcon);
 
         buttonsBlock.appendChild(deleteUserButton);
