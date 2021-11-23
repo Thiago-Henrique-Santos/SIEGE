@@ -5,6 +5,7 @@
   height: 100%;
   background: #2f3a4f;
   transition: all 0.5s ease;
+  z-index: 1000;
 }
 
 .sidebar header {
@@ -82,6 +83,7 @@ label #fechar_menu {
 }
 
 label div#entorno_btn {
+  z-index: 90;
   height: 102px;
   width: 142px;
   left: 40px;
@@ -90,9 +92,10 @@ label div#entorno_btn {
   transition: all 0.5s ease;
   background-color: white;
   border: none;
-  position: fixed;
+  position: fixed !important;
   vertical-align: middle;
   border: 0.5px rgb(241, 241, 241) solid;
+  border-radius: 8px;
 }
 
 label #btn {

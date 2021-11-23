@@ -91,7 +91,7 @@ Modal de confirmar exclusão de um usuário
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.767);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;

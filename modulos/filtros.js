@@ -162,7 +162,6 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
 
     const buttonsBlock = document.createElement('div');
     buttonsBlock.setAttribute('class', 'registerButtonsBlock');
-    buttonsBlock.setAttribute('style', 'margin-left: 50px;');
 
     const updateClassButton = document.createElement('button');
     updateClassButton.setAttribute('class', 'buttons-queries updateClassButton');
@@ -258,8 +257,8 @@ function userHTMLResult(user, resultBlock) {
         userInfo.setAttribute('class', 'listBlock');
 
         const userName = document.createElement('li');
-        userName.setAttribute('class', 'listItemBlock');
-        userName.innerHTML = `<strong>Nome:</strong> <span class="pesquisa">${thisUser['nome']}</span>`;
+        userName.setAttribute('class', 'listItemBlock listItemBlockName');
+        userName.innerHTML = `<center><strong>Nome:&nbsp;</strong> <span class="pesquisa">${thisUser['nome']}</span></center>`;
         userInfo.appendChild(userName);
 
         const userEmail = document.createElement('li');
@@ -396,7 +395,6 @@ function userHTMLResult(user, resultBlock) {
 
         const buttonsBlock = document.createElement('div');
         buttonsBlock.setAttribute('class', 'registerButtonsBlock');
-        buttonsBlock.setAttribute('style', 'margin-left: 82px;');
 
         const updateUserButton = document.createElement('button');
         updateUserButton.setAttribute('class', 'buttons-queries updateUserButton');
