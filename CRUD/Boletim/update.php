@@ -4,7 +4,6 @@ include ("../../BancoDados/conexao_mysql.php");
 
 if (isset($_GET['qtd'])) {
     $quantidade = $_GET['qtd'];
-
     $nota1 = 0; $faltas1 = 0;
     $nota2 = 0; $faltas2 = 0;
     $nota3 = 0; $faltas3 = 0;
