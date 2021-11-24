@@ -72,6 +72,7 @@ input[type="number"] {
   height: 50px;
   font-size: 25px;
   border-radius: 5px 5px 5px 5px;
+  margin-right: 10px;
   border: solid 2px white;
   cursor: pointer;
 }
@@ -83,6 +84,7 @@ input[type="number"] {
   height: 50px;
   font-size: 25px;
   border-radius: 5px 5px 5px 5px;
+  margin-right: 10px;
   border: solid 2px white;
   cursor: pointer;
 }
@@ -93,6 +95,7 @@ input[type="number"] {
   width: 110px;
   height: 50px;
   font-size: 25px;
+  margin-right: 10px;
   border-radius: 5px 5px 5px 5px;
   border: solid 2px white;
   cursor: pointer;
