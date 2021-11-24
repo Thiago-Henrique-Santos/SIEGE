@@ -137,11 +137,11 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                 $turmas[] = $t;
             }
             foreach ($turmas as $tur) {
-                echo "<option class='options_validos' value = $tur->id>" . $tur->serie . "º ano " . $tur->nome . "</option>";
+                echo "<option class='options_validos' value = '$tur->id'>" . $tur->serie . "º ano " . $tur->nome . "</option>";
             }
             echo "</select>";
 
-            echo "<select class='select_turma' name='disciplinas'>";
+            echo "<select class='select_turma' name='disciplinas' id='disciplinaEscolhida'>";
             echo "<option class='options_validos' value='ola'>Selecione uma Disciplina</option>";
             if (isset($_SESSION['id_selectTurma']) && $_SESSION['id_selectTurma'] != "none") {
                 $prepara2 = $conexao->prepare("SELECT id, nome FROM disciplina WHERE id_turma = ?");
