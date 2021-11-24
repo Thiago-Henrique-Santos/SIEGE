@@ -151,7 +151,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         <?php 
             //tr = linha, td = coluna
             //Tabela na visão de gerenciadores e professores
-            echo "<table id='boletim' style='margin-top: 40px'>";
+            echo "<table id='reportTable' style='margin-top: 55px'>";
             if($_SESSION['tip_usu'] != 1){
 
                 //Parte Fixa abaixo
@@ -243,6 +243,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                     echo "</td>";
 
                 echo "</tr>";
+
+                echo "<tr>Selecione uma turma <strong>e</strong> uma disciplina para poder inserir as notas</tr>"
             }else{
                 //Parte Fixa abaixo
                 echo "<tr class='titulo_tabela'>";

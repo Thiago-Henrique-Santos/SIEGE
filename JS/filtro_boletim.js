@@ -1,5 +1,16 @@
 import { reportTableAsyncQuery } from '../modulos/filtros.js';
-import { startRequest } from "../modulos/ajax.js";
 
-const resultTable = document.querySelector("#report-table");
-const url = "info.php";
+const selectClass = document.getElementById('turmaEscolhida');
+const selectSubject = document.getElementById('disciplinaEscolhida');
+const resultTable = document.querySelector("#reportTable");
+
+selectClass.addEventListener("change", callRequest);
+selectSubject.addEventListener("change", callRequest);
+
+function callRequest () {
+    let classId = selectClass.options[selectClass.selectedIndex].value;
+    let subjectId = selectSubject.options[selectSubject.selectedIndex].value;
+    let url = "CRUD/Boletim/read.php";
+    url += `?tur=${classId}&dsc=${subjectId}`;
+    reportTableAsyncQuery(url, resultTable);
+}
