@@ -42,7 +42,7 @@ i.i_btns {
   margin-bottom: 35px;
   margin-left: 5.5px;
   margin-right: 5.5px;
-  width: 425px !important;
+  width: 400px !important;
   height: 388.2px !important;
   position: relative;
 }
@@ -52,7 +52,7 @@ i.i_btns {
 }
 
 .registerButtonsBlock {
-  width: 423px;
+  width: 398px;
   background-color: rgb(180, 180, 180);
   display: flex !important;
   text-align: center !important;
@@ -69,7 +69,7 @@ i.i_btns {
 }
 
 .listItemBlockName {
-  width: 423px;
+  width: 398px;
   height: auto;
   font-size: 14.75px !important;
   border-bottom: 1px solid gray;

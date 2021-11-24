@@ -116,8 +116,10 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
         ?>
 
+    <center>
         <ul id="busca_resultado" style="margin-top:40px;">
         </ul>
+    </center>
 
         <?php
         include('componentes/user_footer.php');

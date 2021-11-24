@@ -142,19 +142,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             echo "</select>";
 
             echo "<select class='select_turma' name='disciplinas' id='disciplinaEscolhida'>";
-            echo "<option class='options_validos' value='ola'>Selecione uma Disciplina</option>";
-            if (isset($_SESSION['id_selectTurma']) && $_SESSION['id_selectTurma'] != "none") {
-                $prepara2 = $conexao->prepare("SELECT id, nome FROM disciplina WHERE id_turma = ?");
-                $prepara2->bind_param("i", $_SESSION['id_selectTurma']);
-                $prepara2->execute();
-                $resultado2 = $prepara2->get_result();
-                while ($d = $resultado2->fetch_object()) {
-                    $disciplinas[] = $d;
-                }
-                foreach ($disciplinas as $dis) {
-                    echo "<option class='options_validos' value = $dis->id>" . $dis->nome . "</option>";
-                }
-            }
+            echo "<option class='ignorar' value='ola'>Selecione uma Disciplina</option>";
+
             echo "</select>";
         }
         ?>
