@@ -35,7 +35,8 @@ i.i_btns {
   height: 30px;
   width: 100px;
   border-radius: 5px;
-  margin-left: 15px;
+  margin-right: 0px;
+  margin-left: 10px;
 }
 
 .unbindSubjectButton:hover {
@@ -49,6 +50,7 @@ i.i_btns {
   height: 30px;
   width: 100px;
   border-radius: 5px;
+  margin-left: 10px;
 }
 
 .updateSubjectButton:hover {
@@ -62,9 +64,85 @@ i.i_btns {
   height: 30px;
   width: 125px;
   border-radius: 5px;
-  margin-left: 15px;
+  margin-right: 0px !important;
+  right: 0 !important;
+  float: right !important;
 }
 
 .unbindStudentButton:hover {
   text-decoration: underline;
+}
+
+#busca_resultado {
+  background-color: white;
+  height: auto;
+  width: 100% !important;
+}
+
+.registerContainer {
+  border: 2px solid black !important;
+  border-radius: 10px !important;
+  margin-bottom: 35px;
+  width: 65% !important;
+  height: auto !important;
+  position: relative;
+  justify-content: center;
+  justify-items: center;
+  word-break: normal;
+  line-break: normal !important;
+}
+
+.listBlock {
+  width: 88%;
+}
+
+.listItemLine {
+  padding: 10px !important;
+  width: 100% !important;
+  text-align: left;
+  line-break: normal !important;
+}
+
+.buttonsPart {
+  margin-top: 10px;
+  padding: 7px;
+}
+
+.registerTitleClass {
+  width: 100%;
+  height: auto;
+  font-size: 15.75px !important;
+  border-bottom: 1px solid gray;
+  padding: 5.9px;
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  margin-bottom: 20px !important;
+  background-color: #a0b5dd;
+  list-style-type: none !important;
+  text-align: center !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.registerButtonsBlock {
+  width: 100%;
+  background-color: #5b6c8d;
+  display: flex !important;
+  text-align: center !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 5px;
+  margin-left: 0px !important;
+  margin-bottom: 0px !important;
+  border-top: 1px solid gray;
+  border-radius: 0px 0px 10px 10px;
+  margin-top: 50px !important;
+}
+
+.nomeTurmaTitle {
+  margin-left: 5px !important;
 }

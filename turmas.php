@@ -121,7 +121,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         ?>
 
         <center>
-            <ul id="busca_resultado" style="margin-top:85px;">
+            <ul id="busca_resultado" style="margin-top:55px;">
             </ul>
         </center>
 

@@ -62,8 +62,8 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
     classContainer.setAttribute('class', 'registerContainer');
 
     const title = document.createElement('h7');
-    title.setAttribute('class', 'registerTitle');
-    title.innerHTML = `<strong><u>Turma:</u></strong> <span class="pesquisa">${classGrade}º ano ${className}</span>`;
+    title.setAttribute('class', 'registerTitle registerTitleClass');
+    title.innerHTML = `<strong><u>Turma:</u></strong> <span class="pesquisa nomeTurmaTitle">${classGrade}º ano ${className}</span>`;
     classContainer.appendChild(title);
 
     //Disciplinas
@@ -80,9 +80,9 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             subjectLine.setAttribute('class', 'listItemLine');
             const namesPart = document.createElement('span');
             namesPart.setAttribute('class', 'namesPart');
-            namesPart.innerHTML = `<u class="pesquisa">${subjects[i]['nome']}</u>: `;
+            namesPart.innerHTML = `<u class="pesquisa otherSearches">${subjects[i]['nome']}</u>: `;
             if (teachers[i])
-                namesPart.innerHTML += `<span class="pesquisa">${teachers[i]['nome']}</span>`;
+                namesPart.innerHTML += `<span class="pesquisa otherSearches">${teachers[i]['nome']}</span>`;
             else
                 namesPart.innerHTML += "Nesta turma, não há professor vinculado a essa disciplina.";
             subjectLine.appendChild(namesPart);
@@ -134,8 +134,8 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             studentLine.setAttribute('class', 'listItemLine');
             const namesPart = document.createElement('span');
             namesPart.setAttribute('class', 'namesPart');
-            namesPart.innerHTML = `<u>${i + 1}</u>- `;
-            namesPart.innerHTML += `<span class="pesquisa">${studentsNames[i]}</span>`;
+            namesPart.innerHTML = `<u class='otherSearches'>${i + 1}</u>- `;
+            namesPart.innerHTML += `<span class="pesquisa otherSearches">${studentsNames[i]}</span>`;
             studentLine.appendChild(namesPart);
 
             const buttonsPart = document.createElement('div');
