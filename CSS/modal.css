@@ -27,6 +27,7 @@
 }
 
 #close-button {
+  z-index: 20000;
   width: 25px;
   height: 25px;
   border: 2px white solid;
@@ -41,6 +42,7 @@
 }
 
 #close-button p {
+  z-index: 20000;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-weight: bold;

@@ -148,513 +148,515 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         }
         ?>
 
-        <?php
-        //tr = linha, td = coluna
-        //Tabela na visão de gerenciadores e professores
-        echo "<table id='reportTable' style='margin-top: 55px'>";
-        if ($_SESSION['tip_usu'] != 1) {
+        <center>
+            <?php
+            //tr = linha, td = coluna
+            //Tabela na visão de gerenciadores e professores
+            echo "<table id='reportTable' style='margin-top: 55px'>";
+            if ($_SESSION['tip_usu'] != 1) {
 
-            //Parte Fixa abaixo
-            echo "<tr class='titulo_tabela'>";
-            echo "<td></td>";
-            echo "<td colspan='2'>";
-            echo "<h2>1° Bimestre</h2>";
-            echo "</td>";
+                //Parte Fixa abaixo
+                echo "<tr class='titulo_tabela'>";
+                echo "<td class='td_aluno'></td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>1° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>2° Bimestre</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>2° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>3° Bimestre</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>3° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>4° Bimestre</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>4° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>Recuperação</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>Recuperação</h2>";
+                echo "</td>";
 
-            echo "<td rowspan='2'>";
-            echo "<h2>Faltas totais</h2>";
-            echo "</td>";
+                echo "<td rowspan='2' class='td_totais'>";
+                echo "<h2>Faltas totais</h2>";
+                echo "</td>";
 
-            echo "<td rowspan='2'>";
-            echo "<h2>Nota Final</h2>";
-            echo "</td>";
+                echo "<td rowspan='2' class='td_totais'>";
+                echo "<h2>Nota Final</h2>";
+                echo "</td>";
 
-            echo "<td rowspan='2'>";
-            echo "<h2>Situação</h2>";
-            echo "</td>";
+                echo "<td rowspan='2' class='td_situacao'>";
+                echo "<h2>Situação</h2>";
+                echo "</td>";
 
-            echo "</tr>";
+                echo "</tr>";
 
-            echo "<tr class='titulo_tabela'>";
-            echo "<td>";
-            echo "<h2>Alunos</h2>";
-            echo "</td>";
+                echo "<tr class='titulo_tabela'>";
+                echo "<td class='td_aluno'>";
+                echo "<h2>Alunos</h2>";
+                echo "</td>";
 
-            //1° bimestre
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //1° bimestre
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //2° bimestre
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //2° bimestre
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //3° bimestre
+                //3° bimestre
 
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //4° bimestre
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //4° bimestre
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //Recuperação
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //Recuperação
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            echo "</tr>";
-        } else {
-            //Parte Fixa abaixo
-            echo "<tr class='titulo_tabela'>";
-            echo "<td></td>";
-            echo "<td colspan='2'>";
-            echo "<h2>1° Bimestre</h2>";
-            echo "</td>";
+                echo "</tr>";
+            } else {
+                //Parte Fixa abaixo
+                //Parte Fixa abaixo
+                echo "<tr class='titulo_tabela'>";
+                echo "<td class='td_aluno'></td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>1° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>2° Bimestre</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>2° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>3° Bimestre</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>3° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>4° Bimestre</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>4° Bimestre</h2>";
+                echo "</td>";
 
-            echo "<td colspan='2'>";
-            echo "<h2>Recuperação</h2>";
-            echo "</td>";
+                echo "<td colspan='2' class='td_bimestre'>";
+                echo "<h2>Recuperação</h2>";
+                echo "</td>";
 
-            echo "<td rowspan='2'>";
-            echo "<h2>Faltas totais</h2>";
-            echo "</td>";
+                echo "<td rowspan='2' class='td_totais'>";
+                echo "<h2>Faltas totais</h2>";
+                echo "</td>";
 
-            echo "<td rowspan='2'>";
-            echo "<h2>Nota Final</h2>";
-            echo "</td>";
+                echo "<td rowspan='2' class='td_totais'>";
+                echo "<h2>Nota Final</h2>";
+                echo "</td>";
 
-            echo "<td rowspan='2'>";
-            echo "<h2>Situação</h2>";
-            echo "</td>";
+                echo "<td rowspan='2' class='td_situacao'>";
+                echo "<h2>Situação</h2>";
+                echo "</td>";
 
-            echo "</tr>";
+                echo "</tr>";
 
-            echo "<tr class='titulo_tabela'>";
-            echo "<td>";
-            echo "<h2>Disciplinas</h2>";
-            echo "</td>";
+                echo "<tr class='titulo_tabela'>";
+                echo "<td class='td_aluno'>";
+                echo "<h2>Disciplinas</h2>";
+                echo "</td>";
 
-            //1° bimestre
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //1° bimestre
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //2° bimestre
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //2° bimestre
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //3° bimestre
+                //3° bimestre
 
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //4° bimestre
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //4° bimestre
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            //Recuperação
-            echo "<td>";
-            echo "<h2>Faltas</h2>";
-            echo "</td>";
+                //Recuperação
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Faltas</h2>";
+                echo "</td>";
 
-            echo "<td>";
-            echo "<h2>Notas</h2>";
-            echo "</td>";
+                echo "<td class='td_notafalta'>";
+                echo "<h2>Notas</h2>";
+                echo "</td>";
 
-            echo "</tr>";
-        }
-        ?>
+                echo "</tr>";
+            }
+            ?>
 
-        <!-- <tr class="linha_registros1"> -->
+            <!-- <tr class="linha_registros1"> -->
 
-        <!--Primeira coluna -> Aluno-->
-        <!-- <td class="nome">
+            <!--Primeira coluna -> Aluno-->
+            <!-- <td class="nome">
                     <h3>Ana Clara Souza</h3>
                 </td> -->
 
-        <!--Segunda coluna -> Falta 1° bim-->
-        <!-- <td>
+            <!--Segunda coluna -> Falta 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f1b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Terceira coluna -> Nota 1° bim-->
-        <!-- <td>
+            <!--Terceira coluna -> Nota 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n1b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Quarta coluna -> Falta 2° bim-->
-        <!-- <td>
+            <!--Quarta coluna -> Falta 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f2b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Quinta coluna -> Nota 2° bim-->
-        <!-- <td>
+            <!--Quinta coluna -> Nota 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n2b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Sexta coluna -> Falta 3° bim-->
-        <!-- <td>
+            <!--Sexta coluna -> Falta 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f3b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Sétima coluna -> Nota 3° bim-->
-        <!-- <td>
+            <!--Sétima coluna -> Nota 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Oitava coluna -> Falta 4° bim-->
-        <!-- <td>
+            <!--Oitava coluna -> Falta 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Nona coluna -> Nota 4° bim-->
-        <!-- <td>
+            <!--Nona coluna -> Nota 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n4b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Décima coluna -> Falta recuperação-->
-        <!-- <td>
+            <!--Décima coluna -> Falta recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Décima primeira coluna -> Nota recuperação-->
-        <!-- <td>
+            <!--Décima primeira coluna -> Nota recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Falta final-->
-        <!-- <td>
+            <!--Falta final-->
+            <!-- <td>
                     <h3>
                         <font color="green">10</font>
                     </h3>
                 </td> -->
 
-        <!--Nota final-->
-        <!-- <td>
+            <!--Nota final-->
+            <!-- <td>
                     <h3>
                         <font color="green">100,0</font>
                     </h3>
                 </td> -->
 
-        <!--Situação-->
-        <!-- <td>
+            <!--Situação-->
+            <!-- <td>
                     <h3>
                         <font color="green">Aprovada</font>
                     </h3>
                 </td> -->
 
-        <!-- </tr> -->
+            <!-- </tr> -->
 
 
-        <!-- Registro 2 -->
-        <!-- <tr class="linha_registros2">
+            <!-- Registro 2 -->
+            <!-- <tr class="linha_registros2">
 
                 <!-Primeira coluna -> Aluno->
                 <td class="nome">
                     <h3>Bianca Barroso da Silva</h3>
                 </td> -->
 
-        <!--Segunda coluna -> Falta 1° bim-->
-        <!-- <td>
+            <!--Segunda coluna -> Falta 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f1b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Terceira coluna -> Nota 1° bim-->
-        <!-- <td>
+            <!--Terceira coluna -> Nota 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n1b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Quarta coluna -> Falta 2° bim-->
-        <!-- <td>
+            <!--Quarta coluna -> Falta 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f2b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Quinta coluna -> Nota 2° bim-->
-        <!-- <td>
+            <!--Quinta coluna -> Nota 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n2b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Sexta coluna -> Falta 3° bim-->
-        <!-- <td>
+            <!--Sexta coluna -> Falta 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f3b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Sétima coluna -> Nota 3° bim-->
-        <!-- <td>
+            <!--Sétima coluna -> Nota 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Oitava coluna -> Falta 4° bim-->
-        <!-- <td>
+            <!--Oitava coluna -> Falta 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Nona coluna -> Nota 4° bim-->
-        <!-- <td>
+            <!--Nona coluna -> Nota 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n4b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Décima coluna -> Falta recuperação-->
-        <!-- <td>
+            <!--Décima coluna -> Falta recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Décima primeira coluna -> Nota recuperação-->
-        <!-- <td>
+            <!--Décima primeira coluna -> Nota recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Falta final-->
-        <!-- <td>
+            <!--Falta final-->
+            <!-- <td>
                     <h3>
                         <font color="gray" title="A falta final ainda não está disponível, já que nem todas as faltas foram lançadas.">-:--</font>
                     </h3>
                 </td> -->
 
-        <!--Nota final-->
-        <!-- <td>
+            <!--Nota final-->
+            <!-- <td>
                     <h3>
                         <font color="gray" title="A nota final ainda não está disponível, já que nem todas as notas foram lançadas.">-,-</font>
                     </h3>
                 </td> -->
 
-        <!--Situação-->
-        <!-- <td>
+            <!--Situação-->
+            <!-- <td>
                     <h3>
                         <font color="gray" title="A situação do aluno ainda está em andamento, já que nem todas as notas e faltas foram publicadas.">Em andamento</font>
                     </h3>
                 </td> -->
 
-        <!-- </tr> -->
+            <!-- </tr> -->
 
 
-        <!-- Registro 3 -->
-        <!-- <tr class="linha_registros1"> -->
+            <!-- Registro 3 -->
+            <!-- <tr class="linha_registros1"> -->
 
-        <!--Primeira coluna -> Aluno-->
-        <!-- <td class="nome">
+            <!--Primeira coluna -> Aluno-->
+            <!-- <td class="nome">
                     <h3>Bruno Muniz de Carvalho</h3>
                 </td> -->
 
-        <!--Segunda coluna -> Falta 1° bim-->
-        <!-- <td>
+            <!--Segunda coluna -> Falta 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f1b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Terceira coluna -> Nota 1° bim-->
-        <!-- <td>
+            <!--Terceira coluna -> Nota 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n1b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Quarta coluna -> Falta 2° bim-->
-        <!-- <td>
+            <!--Quarta coluna -> Falta 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f2b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Quinta coluna -> Nota 2° bim-->
-        <!-- <td>
+            <!--Quinta coluna -> Nota 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n2b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Sexta coluna -> Falta 3° bim-->
-        <!-- <td>
+            <!--Sexta coluna -> Falta 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f3b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Sétima coluna -> Nota 3° bim-->
-        <!-- <td>
+            <!--Sétima coluna -> Nota 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Oitava coluna -> Falta 4° bim-->
-        <!-- <td>
+            <!--Oitava coluna -> Falta 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Nona coluna -> Nota 4° bim-->
-        <!-- <td>
+            <!--Nona coluna -> Nota 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n4b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Décima coluna -> Falta recuperação-->
-        <!-- <td>
+            <!--Décima coluna -> Falta recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Décima primeira coluna -> Nota recuperação-->
-        <!-- <td>
+            <!--Décima primeira coluna -> Nota recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Falta final-->
-        <!-- <td>
+            <!--Falta final-->
+            <!-- <td>
                     <h3>
                         <font color="green">4</font>
                     </h3>
                 </td> -->
 
-        <!--Nota final-->
-        <!-- <td>
+            <!--Nota final-->
+            <!-- <td>
                     <h3>
                         <font color="red">40,0</font>
                     </h3>
                 </td> -->
 
-        <!--Situação-->
-        <!-- <td>
+            <!--Situação-->
+            <!-- <td>
                     <h3>
                         <font color="red">Reprovado</font>
                     </h3>
                 </td> -->
 
-        <!-- </tr> -->
+            <!-- </tr> -->
 
 
-        <!-- Registro 4 -->
-        <!-- <tr class="linha_registros2"> -->
+            <!-- Registro 4 -->
+            <!-- <tr class="linha_registros2"> -->
 
-        <!--Primeira coluna -> Aluno-->
-        <!-- <td class="nome">
+            <!--Primeira coluna -> Aluno-->
+            <!-- <td class="nome">
                     <h3>Humberto Gouvêa</h3>
                 </td> -->
 
-        <!--Segunda coluna -> Falta 1° bim-->
-        <!-- <td>
+            <!--Segunda coluna -> Falta 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f1b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Terceira coluna -> Nota 1° bim-->
-        <!-- <td>
+            <!--Terceira coluna -> Nota 1° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n1b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Quarta coluna -> Falta 2° bim-->
-        <!-- <td>
+            <!--Quarta coluna -> Falta 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f2b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Quinta coluna -> Nota 2° bim-->
-        <!-- <td>
+            <!--Quinta coluna -> Nota 2° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n2b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Sexta coluna -> Falta 3° bim-->
-        <!-- <td>
+            <!--Sexta coluna -> Falta 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f3b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Sétima coluna -> Nota 3° bim-->
-        <!-- <td>
+            <!--Sétima coluna -> Nota 3° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Oitava coluna -> Falta 4° bim-->
-        <!-- <td>
+            <!--Oitava coluna -> Falta 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Nona coluna -> Nota 4° bim-->
-        <!-- <td>
+            <!--Nona coluna -> Nota 4° bim-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n4b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Décima coluna -> Falta recuperação-->
-        <!-- <td>
+            <!--Décima coluna -> Falta recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="1" name="f4b" id="i" value="" placeholder="-" disabled="">
                 </td> -->
 
-        <!--Décima primeira coluna -> Nota recuperação-->
-        <!-- <td>
+            <!--Décima primeira coluna -> Nota recuperação-->
+            <!-- <td>
                     <input min="0" type="number" step="0.5" name="n3b" id="i" value="" placeholder="-,-" disabled="">
                 </td> -->
 
-        <!--Falta final-->
-        <!-- <td>
+            <!--Falta final-->
+            <!-- <td>
                     <h3>
                         <font color="green">4</font>
                     </h3>
                 </td> -->
 
-        <!--Nota final-->
-        <!-- <td>
+            <!--Nota final-->
+            <!-- <td>
                     <h3>
                         <font color="red">40,0</font>
                     </h3>
                 </td> -->
 
-        <!--Situação-->
-        <!-- <td>
+            <!--Situação-->
+            <!-- <td>
                     <h3>
                         <font color="red">Reprovado</font>
                     </h3>
@@ -662,9 +664,10 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
             </tr> -->
 
-        <!-- ***** Parte dinâmica acima*****-->
+            <!-- ***** Parte dinâmica acima*****-->
 
-        </table>
+            </table>
+        </center>
 
         <?php
         if ($_SESSION['tip_usu'] != 1) {
