@@ -43,7 +43,7 @@
 }
 
 #reportTable {
-  background-color: black;
+  width: 100%;
 }
 
 input[type="number"] {
@@ -77,28 +77,33 @@ input[type="number"] {
   margin-right: 7px;
   vertical-align: middle;
   position: relative;
-  transform: translateY(10%);
+  transform: translateY(20%);
 }
 
 .titulo_tabela td.td_aluno {
   width: 350px !important;
   height: 55px;
+  text-align: left;
 }
 
 .titulo_tabela td.td_bimestre {
   width: 150px !important;
+  text-align: center;
 }
 
 .titulo_tabela td.td_totais {
   width: 100px !important;
+  text-align: center;
 }
 
 .titulo_tabela td.td_situacao {
   width: 150px !important;
+  text-align: center;
 }
 
 .titulo_tabela td.td_notafalta {
   width: 30px !important;
+  text-align: center;
 }
 
 #btn_editar {
@@ -239,4 +244,40 @@ h3 {
 .ignorar {
   background-color: gray;
   cursor: default;
+}
+
+.linha_registros {
+  background-color: rgb(196, 230, 243);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.linha_registros:hover {
+  background-color: rgb(176, 198, 247);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.linha_registros2 {
+  background-color: rgb(223, 239, 250);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
+}
+
+.linha_registros2:hover {
+  background-color: rgb(176, 198, 247);
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  height: auto;
+  width: auto;
 }

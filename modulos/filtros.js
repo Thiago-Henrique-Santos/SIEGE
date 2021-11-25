@@ -1,6 +1,6 @@
 import { generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
-import {dateFormatForInput} from './funcoes.js';
+import { dateFormatForInput } from './funcoes.js';
 
 let tip_usu = sessionStorage.getItem('tip_usu');
 let genero = sessionStorage.getItem('sx');
@@ -108,7 +108,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             const updateSubjectIcon = document.createElement('i');
             updateSubjectIcon.setAttribute('class', 'far fa-edit i_btns');
             updateSubjectButton.appendChild(updateSubjectIcon);
-            
+
             buttonsPart.appendChild(updateSubjectButton);
 
 
@@ -148,7 +148,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
             const unbindStudentIcon = document.createElement('i');
             unbindStudentIcon.setAttribute('class', 'fas fa-unlink i_btns');
             unbindStudentButton.appendChild(unbindStudentIcon);
-            
+
             buttonsPart.appendChild(unbindStudentButton);
 
             studentLine.appendChild(buttonsPart);
@@ -240,7 +240,7 @@ function classHTMLResult(parentBox, classIdtf, className, classGrade, subjects, 
         }
     }
     searchBarFilter();
-    if(tip_usu != 3){
+    if (tip_usu != 3) {
         hideButtons();
     }
 }
@@ -293,7 +293,7 @@ function userHTMLResult(user, resultBlock) {
             userResponsible.innerHTML = `<strong>Responsável:</strong> <span class="pesquisa">${positionAttributes['responsavel']}</span>`;
             userInfo.appendChild(userResponsible);
 
-            if(tip_usu != 1){
+            if (tip_usu != 1) {
                 const userPhone = document.createElement('li');
                 userPhone.setAttribute('class', 'listItemBlock');
                 userPhone.innerHTML = `<strong>Telefone:</strong> <span class="pesquisa">${positionAttributes['telefone']}</span>`;
@@ -343,7 +343,7 @@ function userHTMLResult(user, resultBlock) {
                     break;
 
                 case "Efetivo":
-                    if(thisUser['sexo'] == "Masculino")
+                    if (thisUser['sexo'] == "Masculino")
                         userStaffType.innerHTML += `<span class="pesquisa">Efetivo</span>`;
                     else
                         userStaffType.innerHTML += `<span class="pesquisa">Efetiva</span>`;
@@ -429,7 +429,7 @@ function userHTMLResult(user, resultBlock) {
         resultBlock.appendChild(userContainer);
     }
     searchBarFilter();
-    if(tip_usu != 3){
+    if (tip_usu != 3) {
         hideButtons();
     }
 }
@@ -438,52 +438,74 @@ function printTable(studentObject, resultBlock) {
     const row = document.createElement('tr');
 
     const alunoColoumn = document.createElement('td');
+    alunoColoumn.setAttribute('class', 'td_aluno');
     alunoColoumn.innerText = studentObject['aluno'];
     row.appendChild(alunoColoumn);
 
     const falta1Coloumn = document.createElement('td');
+    falta1Coloumn.setAttribute('class', 'td_notafalta');
     falta1Coloumn.innerText = studentObject['falta1'];
     row.appendChild(falta1Coloumn);
 
     const nota1Coloumn = document.createElement('td');
+    nota1Coloumn.setAttribute('class', 'td_notafalta');
     nota1Coloumn.innerText = studentObject['nota1'];
     row.appendChild(nota1Coloumn);
 
     const falta2Coloumn = document.createElement('td');
+    falta2Coloumn.setAttribute('class', 'td_notafalta');
     falta2Coloumn.innerText = studentObject['falta2'];
     row.appendChild(falta2Coloumn);
 
     const nota2Coloumn = document.createElement('td');
+    nota2Coloumn.setAttribute('class', 'td_notafalta');
     nota2Coloumn.innerText = studentObject['nota2'];
     row.appendChild(nota2Coloumn);
 
     const falta3Coloumn = document.createElement('td');
+    falta3Coloumn.setAttribute('class', 'td_notafalta');
     falta3Coloumn.innerText = studentObject['falta3'];
     row.appendChild(falta3Coloumn);
 
     const nota3Coloumn = document.createElement('td');
+    nota3Coloumn.setAttribute('class', 'td_notafalta');
     nota3Coloumn.innerText = studentObject['nota3'];
     row.appendChild(nota3Coloumn);
 
     const falta4Coloumn = document.createElement('td');
+    falta4Coloumn.setAttribute('class', 'td_notafalta');
     falta4Coloumn.innerText = studentObject['falta4'];
     row.appendChild(falta4Coloumn);
 
     const nota4Coloumn = document.createElement('td');
+    nota4Coloumn.setAttribute('class', 'td_notafalta');
     nota4Coloumn.innerText = studentObject['nota4'];
     row.appendChild(nota4Coloumn);
 
+    const faltaRecuperacaoColoumn = document.createElement('td');
+    faltaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
+    faltaRecuperacaoColoumn.innerText = studentObject['falta_r'];
+    row.appendChild(faltaRecuperacaoColoumn);
+
+    const notaRecuperacaoColoumn = document.createElement('td');
+    notaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
+    notaRecuperacaoColoumn.innerText = studentObject['nota_r'];
+    row.appendChild(notaRecuperacaoColoumn);
+
     const falta_finalColoumn = document.createElement('td');
+    falta_finalColoumn.setAttribute('class', 'td_totais');
     const falta_total = studentObject['falta1'] + studentObject['falta2'] + studentObject['falta3'] + studentObject['falta4'];
     falta_finalColoumn.innerText = falta_total;
     row.appendChild(falta_finalColoumn);
 
     const nota_finalColoumn = document.createElement('td');
+    nota_finalColoumn.setAttribute('class', 'td_totais');
     const nota_total = studentObject['nota1'] + studentObject['nota2'] + studentObject['nota3'] + studentObject['nota3'];
     nota_finalColoumn.innerText = nota_total;
     row.appendChild(nota_finalColoumn);
 
     const situacao_final = document.createElement('td');
+    situacao_final.setAttribute('class', 'td_situacao');
     const situacao = nota_total > 65 && falta_total < 51 ? "Aprovado" : "Reprovado";
     situacao_final.innerText = situacao;
     row.appendChild(situacao_final);
@@ -492,18 +514,18 @@ function printTable(studentObject, resultBlock) {
 }
 
 function makeResult(response, resultBlock, type) {
-    resultBlock.innerHTML = "";
     switch (type) {
         case "Turma":
+            resultBlock.innerHTML = "";
             if (!response['turma']) {
-                if(tip_usu == 1){
-                    if(genero == 'M'){
+                if (tip_usu == 1) {
+                    if (genero == 'M') {
                         resultBlock.innerHTML = "<p style='margin-left: 10px;'>O aluno não está vinculado a uma turma!</p>";
-                    }else{
+                    } else {
                         resultBlock.innerHTML = "<p style='margin-left: 10px;'>A aluna não está vinculada a uma turma!</p>";
                     }
                 }
-                else{
+                else {
                     resultBlock.innerHTML = "<p style='margin-left: 10px;'>Não foram encontradas turmas!</p>";
                 }
             } else {
@@ -537,6 +559,7 @@ function makeResult(response, resultBlock, type) {
             break;
 
         case "Usuario":
+            resultBlock.innerHTML = "";
             if (!response['usuario']) {
                 resultBlock.innerHTML = "<p style='margin-left: 5px;'>Não há usuários registrados!</p>";
             } else {
@@ -549,8 +572,11 @@ function makeResult(response, resultBlock, type) {
             break;
 
         case "Boletim":
-            for (let i = 0; i < response.length; i++) {
-                printTable(response[i], resultBlock);
+            clearReportTable(resultBlock);
+            if (response) {
+                for (let i = 0; i < response.length; i++) {
+                    printTable(response[i], resultBlock);
+                }
             }
             break;
     }
@@ -599,10 +625,17 @@ function searchBarFilter() {
     }
 }
 
-function hideButtons(){
+function hideButtons() {
     const buttons = document.getElementsByClassName('buttons-queries');
-    for (let i=0; i<buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
         buttons[i].style.display = 'none';
+    }
+}
+
+function clearReportTable(table){
+    let linesQuantity = table.getElementsByTagName('tr').length;
+    for (let i = linesQuantity-1; i > 1; i--) {
+        table.deleteRow(i);
     }
 }
 
