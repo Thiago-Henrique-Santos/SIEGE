@@ -434,62 +434,132 @@ function userHTMLResult(user, resultBlock) {
     }
 }
 
-function printTable(studentObject, resultBlock) {
+function printTable(studentObject, resultBlock, counter) {
+    console.log(studentObject);
     const row = document.createElement('tr');
+    if (counter%2==0) {
+        row.setAttribute('class', 'linha_registros');
+    } else {
+        row.setAttribute('class', 'linha_registros2');
+    }
 
     const alunoColoumn = document.createElement('td');
-    alunoColoumn.setAttribute('class', 'td_aluno');
+    alunoColoumn.setAttribute('class', 'registroAlunos');
     alunoColoumn.innerText = studentObject['aluno'];
     row.appendChild(alunoColoumn);
 
     const falta1Coloumn = document.createElement('td');
     falta1Coloumn.setAttribute('class', 'td_notafalta');
-    falta1Coloumn.innerText = studentObject['falta1'];
+
+    const inputBoletim = document.createElement('input');
+    inputBoletim.setAttribute('type', 'number');
+    inputBoletim.setAttribute('min', '0');
+    inputBoletim.setAttribute('step', '1');
+    inputBoletim.setAttribute('name', 'f1b');
+    inputBoletim.setAttribute('placeholder', '-');
+    inputBoletim.setAttribute('disabled', '');
+    inputBoletim.setAttribute('value', studentObject['faltas'][1]);
+
+    falta1Coloumn.appendChild(inputBoletim);
     row.appendChild(falta1Coloumn);
 
     const nota1Coloumn = document.createElement('td');
     nota1Coloumn.setAttribute('class', 'td_notafalta');
-    nota1Coloumn.innerText = studentObject['nota1'];
+
+    inputBoletim.setAttribute('step', '0.5');
+    inputBoletim.setAttribute('name', 'n1b');
+    inputBoletim.setAttribute('placeholder', '-,-');
+    inputBoletim.setAttribute('value', studentObject['notas'][1]);
+
+    nota1Coloumn.appendChild(inputBoletim);
     row.appendChild(nota1Coloumn);
 
     const falta2Coloumn = document.createElement('td');
     falta2Coloumn.setAttribute('class', 'td_notafalta');
-    falta2Coloumn.innerText = studentObject['falta2'];
+
+    inputBoletim.setAttribute('step', '1');
+    inputBoletim.setAttribute('name', 'f2b');
+    inputBoletim.setAttribute('placeholder', '-');
+    inputBoletim.setAttribute('value', studentObject['faltas'][2]);
+
+    falta2Coloumn.appendChild(inputBoletim);
     row.appendChild(falta2Coloumn);
 
     const nota2Coloumn = document.createElement('td');
     nota2Coloumn.setAttribute('class', 'td_notafalta');
-    nota2Coloumn.innerText = studentObject['nota2'];
+
+    inputBoletim.setAttribute('step', '0.5');
+    inputBoletim.setAttribute('name', 'n2b');
+    inputBoletim.setAttribute('placeholder', '-,-');
+    inputBoletim.setAttribute('value', studentObject['notas'][2]);
+
+    nota2Coloumn.appendChild(inputBoletim);
     row.appendChild(nota2Coloumn);
 
     const falta3Coloumn = document.createElement('td');
     falta3Coloumn.setAttribute('class', 'td_notafalta');
-    falta3Coloumn.innerText = studentObject['falta3'];
+
+    inputBoletim.setAttribute('step', '1');
+    inputBoletim.setAttribute('name', 'f3b');
+    inputBoletim.setAttribute('placeholder', '-');
+    inputBoletim.setAttribute('value', studentObject['faltas'][3]);
+
+    falta3Coloumn.appendChild(inputBoletim);
     row.appendChild(falta3Coloumn);
 
     const nota3Coloumn = document.createElement('td');
     nota3Coloumn.setAttribute('class', 'td_notafalta');
-    nota3Coloumn.innerText = studentObject['nota3'];
+
+    inputBoletim.setAttribute('step', '0.5');
+    inputBoletim.setAttribute('name', 'n3b');
+    inputBoletim.setAttribute('placeholder', '-,-');
+    inputBoletim.setAttribute('value', studentObject['notas'][3]);
+
+    nota3Coloumn.appendChild(inputBoletim);
     row.appendChild(nota3Coloumn);
 
     const falta4Coloumn = document.createElement('td');
     falta4Coloumn.setAttribute('class', 'td_notafalta');
-    falta4Coloumn.innerText = studentObject['falta4'];
+
+    inputBoletim.setAttribute('step', '1');
+    inputBoletim.setAttribute('name', 'f4b');
+    inputBoletim.setAttribute('placeholder', '-');
+    inputBoletim.setAttribute('value', studentObject['faltas'][4]);
+
+    falta4Coloumn.appendChild(inputBoletim);
     row.appendChild(falta4Coloumn);
 
     const nota4Coloumn = document.createElement('td');
     nota4Coloumn.setAttribute('class', 'td_notafalta');
-    nota4Coloumn.innerText = studentObject['nota4'];
+
+    inputBoletim.setAttribute('step', '0.5');
+    inputBoletim.setAttribute('name', 'n4b');
+    inputBoletim.setAttribute('placeholder', '-,-');
+    inputBoletim.setAttribute('value', studentObject['notas'][4]);
+
+    nota4Coloumn.appendChild(inputBoletim);
     row.appendChild(nota4Coloumn);
 
     const faltaRecuperacaoColoumn = document.createElement('td');
     faltaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
-    faltaRecuperacaoColoumn.innerText = studentObject['falta_r'];
+
+    inputBoletim.setAttribute('step', '1');
+    inputBoletim.setAttribute('name', 'f5b');
+    inputBoletim.setAttribute('placeholder', '-');
+    inputBoletim.setAttribute('value', studentObject['faltas'][5]);
+
+    faltaRecuperacaoColoumn.appendChild(inputBoletim);
     row.appendChild(faltaRecuperacaoColoumn);
 
     const notaRecuperacaoColoumn = document.createElement('td');
     notaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
-    notaRecuperacaoColoumn.innerText = studentObject['nota_r'];
+
+    inputBoletim.setAttribute('step', '0.5');
+    inputBoletim.setAttribute('name', 'n5b');
+    inputBoletim.setAttribute('placeholder', '-,-');
+    inputBoletim.setAttribute('value', studentObject['notas'][5]);
+
+    notaRecuperacaoColoumn.appendChild(inputBoletim);
     row.appendChild(notaRecuperacaoColoumn);
 
     const falta_finalColoumn = document.createElement('td');
@@ -575,7 +645,7 @@ function makeResult(response, resultBlock, type) {
             clearReportTable(resultBlock);
             if (response) {
                 for (let i = 0; i < response.length; i++) {
-                    printTable(response[i], resultBlock);
+                    printTable(response[i], resultBlock, i);
                 }
             }
             break;
