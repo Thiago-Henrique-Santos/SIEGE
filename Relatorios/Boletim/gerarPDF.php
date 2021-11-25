@@ -36,6 +36,7 @@ if ($_SESSION['tip_usu'] == 1) {
             $resultado = $conexao->query($sql);
 
             if ($resultado->num_rows > 0) {
+                $i = 0;
                 while ($linha = $resultado->fetch_assoc()) {
                     tabelaNotas();
                 }
@@ -77,6 +78,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -122,6 +124,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -158,6 +161,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -191,6 +195,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -224,6 +229,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -257,6 +263,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -290,6 +297,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -323,6 +331,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -356,6 +365,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -389,6 +399,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $resultado = $conexao->query($sql);
 
                         if ($resultado->num_rows > 0) {
+                            $i = 0;
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
                             }
@@ -420,7 +431,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
 
                         $resultado = $conexao->query($sql);
-
+                        $i = 0;
                         if ($resultado->num_rows > 0) {
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
@@ -452,6 +463,7 @@ if ($_SESSION['tip_usu'] == 1) {
                 $sql0 = "SELECT DISTINCT u.*, a.*, t.nome AS 'nomeTurma', t.serie, d.ano FROM usuario u, aluno a, disciplina d, turma t WHERE u.id=a.idAluno AND a.id_turma=t.id AND t.id=d.id_turma AND a.id_turma=" . $opvl . " ORDER BY u.nome ASC";
                 $resultado0 = $conexao->query($sql0);
                 if ($resultado0->num_rows > 0) {
+                    $i = 0;
                     while ($linha0 = $resultado0->fetch_assoc()) {
                         $pdf->AddPage();
                         $pdf->Image('../../img/cabecalho_relatorioPDF.png', 2.75, 0.5, 23.1, 2.5);
@@ -465,7 +477,7 @@ if ($_SESSION['tip_usu'] == 1) {
                         $sql = "SELECT b.*, d.nome AS 'nomeDisciplina' FROM usuario u, aluno a, boletim b, disciplina d WHERE u.id=a.idAluno AND b.id_aluno=a.idAluno AND b.id_disciplina=d.id AND a.idAluno=" . $linha0['idAluno'] . " ORDER BY d.nome ASC";
 
                         $resultado = $conexao->query($sql);
-
+                        $i = 0;
                         if ($resultado->num_rows > 0) {
                             while ($linha = $resultado->fetch_assoc()) {
                                 tabelaNotas();
@@ -584,15 +596,18 @@ function tabelaNotas()
     global $pdf;
     global $linha0;
     global $linha;
-    $i = 0;
+    global $i;
     $pdf->SetFont('Arial', '', 8.5);
     $pdf->SetTextColor(0, 0, 0);
-    $pdf->SetFillColor(255, 255, 255);
+    if ($i % 2 == 0) {
+        $pdf->SetFillColor(255, 255, 255);
+    } else {
+        $pdf->SetFillColor(217, 222, 255);
+    }
     $faltasTotais = '';
     $notaFinal = '';
     $situacoes = '';
     $soma = 0;
-    $i++;
     $f = 0;
     $n = 0;
     if ($linha['falta1bim'] == NULL) {
@@ -778,11 +793,7 @@ function tabelaNotas()
     $pdf->Ln();
     $pdf->SetTextColor(0, 0, 0);
 
-    if ($i % 2 == 0) {
-        $pdf->SetFillColor(255, 255, 255);
-    } else {
-        $pdf->SetFillColor(217, 222, 255);
-    }
+    $i++;
 }
 
 

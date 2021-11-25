@@ -10,15 +10,6 @@
   width: 100%;
 }
 
-input[type="number"] {
-  width: 85%;
-  height: 50px;
-  font-size: 20px;
-  vertical-align: middle;
-  text-align: center;
-  border: none;
-}
-
 .titulo_tabela {
   text-align: center;
   vertical-align: middle;
@@ -50,8 +41,9 @@ input[type="number"] {
   text-align: center;
 }
 
-td.registroAlunos{
+td.registroAlunos {
   text-align: left;
+  line-break: normal !important;
 }
 
 .titulo_tabela td.td_bimestre {
@@ -215,38 +207,50 @@ h3 {
 }
 
 .linha_registros {
-  height: 50px;
+  height: 40px;
   width: auto;
   background-color: rgb(196, 230, 243);
   color: black;
   text-align: center;
-  border: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 .linha_registros:hover {
-  height: 50px;
   background-color: rgb(176, 198, 247);
 }
 
 .linha_registros2 {
-  height: 50px;
+  height: 40px;
   width: auto;
   background-color: rgb(223, 239, 250);
   color: black;
   text-align: center;
-  border: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 .linha_registros2:hover {
-  height: 50px;
   background-color: rgb(176, 198, 247);
 }
 
 input[type="number"] {
   width: 85%;
-  height: 50px;
-  font-size: 20px;
+  height: 30px;
+  font-size: 15px;
   vertical-align: middle;
   text-align: center;
   border: none;
+}
+
+.linha_registros td {
+  border: 1px solid black;
+  vertical-align: middle !important;
+  font-size: 14px;
+}
+
+.linha_registros2 td {
+  border: 1px solid black;
+  vertical-align: middle !important;
+  font-size: 14px;
 }

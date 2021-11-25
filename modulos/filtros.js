@@ -445,7 +445,8 @@ function printTable(studentObject, resultBlock, counter) {
 
     const alunoColoumn = document.createElement('td');
     alunoColoumn.setAttribute('class', 'registroAlunos');
-    alunoColoumn.innerText = studentObject['aluno'];
+    alunoColoumn.innerHTML = "&nbsp;&nbsp;";
+    alunoColoumn.innerText += studentObject['aluno'];
     row.appendChild(alunoColoumn);
 
     const falta1Coloumn = document.createElement('td');
