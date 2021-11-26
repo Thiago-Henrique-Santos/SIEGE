@@ -5,7 +5,12 @@ const selectSubject = document.getElementById('disciplinaEscolhida');
 const resultTable = document.querySelector("#reportTable");
 
 selectClass.addEventListener("change", callRequest);
-selectSubject.addEventListener("change", callRequest);
+selectSubject.addEventListener("change", showReportTable);
+
+function showReportTable() {
+    deleteInfoText();
+    callRequest();
+}
 
 function callRequest () {
     let classId = selectClass.options[selectClass.selectedIndex].value;
@@ -13,4 +18,9 @@ function callRequest () {
     let url = "CRUD/Boletim/read.php";
     url += `?tur=${classId}&dsc=${subjectId}`;
     reportTableAsyncQuery(url, resultTable);
+}
+
+function deleteInfoText(){
+    var paragraph = document.getElementById('info_text');
+    paragraph.parentNode.removeChild(paragraph);
 }
