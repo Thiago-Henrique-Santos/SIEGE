@@ -673,6 +673,11 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         if ($_SESSION['tip_usu'] != 1) {
             echo "<p id='info_text' name='info_text' style='margin-top: 25px;text-align: center;'>Selecione uma turma <strong><u>e</u></strong> uma disciplina para poder inserir as notas.<br>";
             echo "Se mesmo assim não aparecer os campos para inserir as notas, pode ser que essa turma não possua alunos.</p>";
+        } else {
+            if ($_SESSION['sx'] == 'M')
+                echo "<p id='info_text' name='info_text' style='margin-top: 25px;text-align: center;'>Se caso não aparecer as informações no boletim, pode ser que sua turma não possua disciplinas ainda<br>e/ou você não esteja vinculado a uma turma.</p>";
+            else
+                echo "<p id='info_text' name='info_text' style='margin-top: 25px;text-align: center;'>Se caso não aparecer as informações no boletim, pode ser que sua turma não possua disciplinas ainda<br>e/ou você não esteja vinculada a uma turma.</p>";
         }
         ?>
 
