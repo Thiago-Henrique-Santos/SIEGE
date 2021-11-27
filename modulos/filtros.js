@@ -437,6 +437,10 @@ function userHTMLResult(user, resultBlock) {
 function printTable(studentObject, resultBlock, counter) {
     let f = 0;
     let n = 0;
+    let falta_total;
+    let nota_total;
+    let situacao = '';
+    let soma = 0;
     const row = document.createElement('tr');
     if (counter%2==0) {
         row.setAttribute('class', 'linha_registros');
@@ -617,10 +621,6 @@ function printTable(studentObject, resultBlock, counter) {
     row.appendChild(notaRecuperacaoColoumn);
 
     //Condições de formatação e lógica do boletim para funcionarios
-    let falta_total;
-    let nota_total;
-    let situacao = '';
-    let soma = 0;
 
     if(f > 0){
         falta_total = '-:--';
@@ -639,11 +639,12 @@ function printTable(studentObject, resultBlock, counter) {
         situacao = 'Em andamento';
     }else{
         nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
-        if((nota_total < 65) && (studentObject['notas'][5] != null && parseFloat(studentObject['notas'][5]) >= nota_total)){
+        if((nota_total < 65) && (parseFloat(studentObject['notas'][5]) != null && parseFloat(studentObject['notas'][5]) >= nota_total)){
             nota_total = parseFloat(studentObject['notas'][5]);
         }
         if(nota_total < 65 && studentObject['notas'][5] == null && soma <= 50){
-            nota_total = parseFloat(studentObject['notas'][5]);
+            studentObject['notas'][5] = '-,-';
+            nota_total = studentObject['notas'][5];
         }
     }
 
