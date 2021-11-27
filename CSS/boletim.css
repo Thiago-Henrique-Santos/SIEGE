@@ -257,12 +257,15 @@ input[type="number"] {
 
 .negativa {
   color: rgb(255, 0, 0);
+  font-weight: 500;
 }
 
 .positiva {
   color: rgb(0, 128, 0);
+  font-weight: 500;
 }
 
 .neutra {
   color: rgb(128, 128, 128);
+  font-weight: 500;
 }
