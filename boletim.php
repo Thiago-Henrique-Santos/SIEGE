@@ -128,7 +128,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
                 if ($resultado0->num_rows > 0) {
                     $linha0 = $resultado0->fetch_assoc();
-                    $prepara = $conexao->prepare("SELECT t.* FROM turma t, disciplina d, professor p WHERE d.id_turma=t.id AND d.id_professor=p.idProfessor AND p.idProfessor=" . $linha0['idProfessor'] . " ORDER BY t.serie ASC, t.nome ASC");
+                    $prepara = $conexao->prepare("SELECT DISTINCT t.* FROM turma t, disciplina d, professor p WHERE d.id_turma=t.id AND d.id_professor=p.idProfessor AND p.idProfessor=" . $linha0['idProfessor'] . " ORDER BY t.serie ASC, t.nome ASC");
                 }
             }
             $prepara->execute();
