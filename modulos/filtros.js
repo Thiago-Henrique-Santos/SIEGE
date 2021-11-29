@@ -749,9 +749,12 @@ function makeResult(response, resultBlock, type) {
         case "Boletim":
             clearReportTable(resultBlock);
             if (response) {
+                toggleInfoText(0);
                 for (let i = 0; i < response.length; i++) {
                     printTable(response[i], resultBlock, i);
                 }
+            } else {
+                toggleInfoText(1);
             }
             break;
     }
@@ -811,6 +814,15 @@ function clearReportTable(table){
     let linesQuantity = table.getElementsByTagName('tr').length;
     for (let i = linesQuantity-1; i > 1; i--) {
         table.deleteRow(i);
+    }
+}
+
+function toggleInfoText(status){
+    var paragraph = document.getElementById('info_text');
+    if(status == 0){
+        paragraph.style.display = "none";
+    } else {
+        paragraph.style.display = "block";
     }
 }
 

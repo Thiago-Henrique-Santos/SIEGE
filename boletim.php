@@ -142,7 +142,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
             echo "</select>";
 
             echo "<select class='select_turma' name='disciplinas' id='disciplinaEscolhida'>";
-            echo "<option class='ignorar' value='ola'>Selecione uma Disciplina</option>";
+            echo "<option class='ignorar' value='none'>Selecione uma Disciplina</option>";
 
             echo "</select>";
         }
