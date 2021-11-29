@@ -14,11 +14,11 @@ function toogle_disabled(bool) {
 	botao_publicar.addEventListener("mouseover", function(event){
 		event.target.style.textDecoration = "underline";
 		event.target.style.color = "white";
-	})
-		botao_publicar.addEventListener("mouseout", function(event){
+	});
+	botao_publicar.addEventListener("mouseout", function(event){
 		event.target.style.textDecoration = "none";
 		event.target.style.color = "white";
-	})
+	});
 }
 
 function cancel(bool) {

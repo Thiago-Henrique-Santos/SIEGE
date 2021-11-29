@@ -39,6 +39,8 @@ if ($resultado->num_rows > 0) {
         }
         $i++;
     }
+} else {
+    $registros = false;
 }
 
 echo json_encode($registros);
