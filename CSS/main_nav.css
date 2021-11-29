@@ -27,9 +27,22 @@
   height: auto;
 }
 
-.sidebar ul {
+.sidebar ul.ul3 {
   width: 100%;
   margin-left: -32px;
+  transform: translateY(8.5%);
+}
+
+.sidebar ul.ul2 {
+  width: 100%;
+  margin-left: -32px;
+  transform: translateY(20%);
+}
+
+.sidebar ul.ul1 {
+  width: 100%;
+  margin-left: -32px;
+  transform: translateY(40%);
 }
 
 .sidebar ul li {
@@ -48,7 +61,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid black;
   transition: 0.4s;
-  transform: translateY(120%);
 }
 
 ul li a.link_menu {
@@ -228,8 +240,12 @@ ul li.paginaAtual a:active {
   margin-right: 10px;
 }
 
+.ctr_btn_sair {
+  height: 0px;
+  margin-top: 25px;
+}
+
 .sidebar ul a.no_border button.btn_sair {
-  margin-top: 10px;
   background-color: rgb(218, 24, 24);
   border: none;
   width: 100px;
@@ -237,18 +253,17 @@ ul li.paginaAtual a:active {
   color: white;
   border-radius: 20px 20px 20px 20px;
   text-align: center;
+  width: 100px;
+  height: 38px;
 }
 
 .sidebar ul a.no_border button.btn_sair:hover {
-  width: 100px;
-  height: 38px;
   transition: 0.4s;
   background-color: rgb(173, 23, 23);
-  border: 1px black solid;
+  border: 1.5px black solid;
   color: white;
   border-radius: 20px 20px 20px 20px;
   text-align: center;
-  margin-top: 10px;
 }
 
 .sidebar ul a.no_border button.btn_sair img.img_logout {

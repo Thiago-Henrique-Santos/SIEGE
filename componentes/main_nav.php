@@ -15,7 +15,9 @@ if ($_SESSION['tip_usu'] == 3) {
 
     echo "<div class='sidebar'>";
     echo "<header><a class='link_hide' href='pagina_inicial.php'><img src='img/logo_transparente2.png' alt='Logo do sistema'></a></header>";
-    echo "<ul>";
+    echo "<ul class='ul3'>";
+
+    echo "<li><a class='link_menu' href='index.php'><i class='fas fa-globe'></i>Site</a></li>";
 
     if ($paginaAtual == 'cadastrar.php') {
         echo "<li class='paginaAtual'><a class='link_menu' href='cadastrar.php'><i class='fas fa-plus-circle'></i>Cadastrar</a></li>";
@@ -47,7 +49,7 @@ if ($_SESSION['tip_usu'] == 3) {
         echo "<li><a class='link_menu' href='boletim.php'><i class='fas fa-file-invoice'></i>Boletins</a></li>";
     }
 
-    echo "<center>";
+    echo "<center class='ctr_btn_sair'>";
     echo "<a href='sair.php' class='no_border'><button class='btn_sair'><span class='nm_btn'>Sair</span><img class='img_logout' draggable='false' src='img/logout.png'></button></a>";
     echo "</center>";
     echo "</ul>";
@@ -66,7 +68,9 @@ if ($_SESSION['tip_usu'] == 3) {
 
     echo "<div class='sidebar'>";
     echo "<header><a class='link_hide' href='pagina_inicial.php'><img src='img/logo_transparente2.png' alt='Logo do sistema'></a></header>";
-    echo "<ul>";
+    echo "<ul class='ul2'>";
+
+    echo "<li><a class='link_menu' href='index.php'><i class='fas fa-globe'></i>Site</a></li>";
 
     if ($paginaAtual == 'ferramentas.php') {
         echo "<li class='paginaAtual'><a class='link_menu' href='ferramentas.php'><i class='fas fa-desktop'></i>Ferramentas</a></li>";
@@ -92,7 +96,7 @@ if ($_SESSION['tip_usu'] == 3) {
         echo "<li><a class='link_menu' href='boletim.php'><i class='fas fa-file-invoice'></i>Boletins</a></li>";
     }
 
-    echo "<center>";
+    echo "<center class='ctr_btn_sair'>";
     echo "<a href='sair.php' class='no_border'><button class='btn_sair'><span class='nm_btn'>Sair</span><img class='img_logout' draggable='false' src='img/logout.png'></button></a>";
     echo "</center>";
     echo "</ul>";
@@ -111,7 +115,9 @@ if ($_SESSION['tip_usu'] == 3) {
 
     echo "<div class='sidebar'>";
     echo "<header><a class='link_hide' href='pagina_inicial.php'><img src='img/logo_transparente2.png' alt='Logo do sistema'></a></header>";
-    echo "<ul>";
+    echo "<ul class='ul1'>";
+
+    echo "<li><a class='link_menu' href='index.php'><i class='fas fa-globe'></i>Site</a></li>";
 
     if ($paginaAtual == 'usuarios.php') {
         echo "<li class='paginaAtual'><a class='link_menu' href='usuarios.php'><i class='fas fa-users'></i>Pessoas</a></li>";
@@ -131,7 +137,7 @@ if ($_SESSION['tip_usu'] == 3) {
         echo "<li><a class='link_menu' href='boletim.php'><i class='fas fa-file-invoice'></i>Boletim</a></li>";
     }
 
-    echo "<center>";
+    echo "<center class='ctr_btn_sair'>";
     echo "<a href='sair.php' class='no_border'><button class='btn_sair'><span class='nm_btn'>Sair</span><img class='img_logout' draggable='false' src='img/logout.png'></button></a>";
     echo "</center>";
     echo "</ul>";
