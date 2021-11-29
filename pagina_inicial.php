@@ -47,6 +47,8 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                 echo "<h4 style='margin-bottom: 34px; margin-top: -54px; text-align: center;'>Seja bem-vindo ao SIEGE</h4>";
             ?>
 
+            <a href='index.php' class='ignore_link'><button class='back_site'><i id='voltar_i' class="far fa-arrow-alt-circle-left"></i> Voltar ao Site</button></a>
+
             <div class="buttons-group">
 
                 <?php

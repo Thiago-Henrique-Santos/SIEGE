@@ -1,5 +1,5 @@
 <?php
-$paginaAtual = basename($_SERVER['SCRIPT_NAME']);
+$paginaAtual = basename($_SERVER['PHP_SELF']);
 
 if ($_SESSION['tip_usu'] == 3) {
 
