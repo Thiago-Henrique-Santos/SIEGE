@@ -435,6 +435,8 @@ function userHTMLResult(user, resultBlock) {
 }
 
 function printTable(studentObject, resultBlock, counter) {
+
+    //Criação dos componentes na página boletim para funcionários
     let f = 0;
     let n = 0;
     let falta_total;
@@ -453,6 +455,19 @@ function printTable(studentObject, resultBlock, counter) {
     alunoColoumn.innerHTML = "&nbsp;&nbsp;";
     alunoColoumn.innerText += studentObject['aluno'];
     row.appendChild(alunoColoumn);
+
+    const idReportColoumn = document.createElement('td');
+    idReportColoumn.setAttribute('style', 'display:none');
+    const inputIdBoletim = document.createElement('input');
+    inputIdBoletim.setAttribute('type', 'number');
+    inputIdBoletim.setAttribute('min', '0');
+    inputIdBoletim.setAttribute('step', '1');
+    inputIdBoletim.setAttribute('name', 'idb');
+    inputIdBoletim.setAttribute('placeholder', '-');
+    inputIdBoletim.setAttribute('disabled', '');
+    inputIdBoletim.setAttribute('value', parseInt(studentObject['id_boletim']));
+    idReportColoumn.appendChild(inputIdBoletim);
+    row.appendChild(idReportColoumn);
 
     const falta1Coloumn = document.createElement('td');
     falta1Coloumn.setAttribute('class', 'td_notafalta');

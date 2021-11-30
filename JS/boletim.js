@@ -1,8 +1,8 @@
 function toogle_disabled(bool) {
-	var input = document.getElementsByTagName('input');
-	var botao_publicar = document.getElementById('btn_publicar');
+	let input = document.getElementsByTagName('input');
+	let botao_publicar = document.getElementById('btn_publicar');
 
-	for (var i = 0; i <= (input.length - 1); i++) {
+	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number')
 			input[i].disabled = bool;
 	}
@@ -22,10 +22,10 @@ function toogle_disabled(bool) {
 }
 
 function cancel(bool) {
-	var input = document.getElementsByTagName('input');
-	var botao_publicar = document.getElementById('btn_publicar');
+	let input = document.getElementsByTagName('input');
+	let botao_publicar = document.getElementById('btn_publicar');
 
-	for (var i = 0; i <= (input.length - 1); i++) {
+	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number') {
 			input[i].disabled = bool;
 		}
@@ -39,11 +39,11 @@ function cancel(bool) {
 }
 
 function clearInputs() {
-	var input = document.getElementsByTagName('input');
-	var conf;
-	var confirmacao;
+	let input = document.getElementsByTagName('input');
+	let conf;
+	let confirmacao;
 
-	for (var i = 0; i <= (input.length - 1); i++) {
+	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number' && !input[i].disabled) {
 				conf = true;
 		}
@@ -52,7 +52,7 @@ function clearInputs() {
 	if(conf){
 		confirmacao = confirm ("Você realmente deseja limpar os dados de todos os campos?");
 		if(confirmacao == true)
-			for (var i = 0; i <= (input.length - 1); i++) {
+			for (let i = 0; i <= (input.length - 1); i++) {
 				if (input[i].type == 'number') {
 					input[i].value = "";
 				}
@@ -61,34 +61,54 @@ function clearInputs() {
 }
 
 function postGrades(){
-	var input = document.getElementsByTagName('input');
+	let input = document.getElementsByTagName('input');
 
-	for (var i = 0; i <= (input.length - 1); i++) {
+	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number') {
 			input[i].disabled = true;
 		}
 	}
 
-	var info = [];
-	var linhas = document.querySelectorAll('#boletim tr');
+	let info = [];
+	let linhas = document.querySelectorAll('#reportTable tr');
 	for(let i = 2; i < linhas.length; i++){
-		var linha = linhas[i];
-		var colunas = linha.getElementsByTagName('td');
-		var linha_info = [];
+		let linha = linhas[i];
+		let colunas = linha.getElementsByTagName('td');
+		let linha_info = [];
 		for(let j = 1; j < colunas.length-3; j++){
-			var coluna = colunas[j];
-			var valor = coluna.getElementsByTagName('input')[0].value;
+			let coluna = colunas[j];
+			let valor = coluna.getElementsByTagName('input')[0].value;
 			linha_info.push(valor);
 		}
 		info.push(linha_info);
 	}
-	console.log(info);
 
-	var quantbole = info.length;
-	var url = `CRUD/Boletim/read.php?qtd=${quantbole}`;
+	let quantbole = info.length;
+	let url = `CRUD/Boletim/update.php?qtd=${quantbole}`;
 	for(let i = 0; i < quantbole; i++){
-		for(let j = 0; j < info[i].length; j++){
-			url+=`&idb${i}=${info[i][j]}&n1${i}=`;
-		}
-	} 
+		url+=`&idb${i}=${info[i][0]}&f1${i}=${info[i][1]}&n1${i}=${info[i][2]}&f2${i}=${info[i][3]}&n2${i}=${info[i][4]}&f3${i}=${info[i][5]}&n3${i}=${info[i][6]}&f4${i}=${info[i][7]}&n4${i}=${info[i][8]}&rf${i}=${info[i][9]}&rn${i}=${info[i][10]}`;
+	}
+
+	let httpRequest = startRequest();
+	httpRequest.open('GET', url);
+	httpRequest.send();
+}
+
+function startRequest() {
+	let httpRequest;
+    if (window.XMLHttpRequest) {
+        httpRequest = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        try {
+            httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+            } catch (e) { }
+        }
+    }
+    if (!httpRequest) {
+        alert("Desistindo: Não é possível criar uma instância XMLHTTP.");
+    }
+    return httpRequest;
 }

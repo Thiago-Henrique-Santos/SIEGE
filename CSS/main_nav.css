@@ -102,11 +102,9 @@ label div#entorno_btn {
   top: 0px;
   padding: 8px 14px;
   transition: all 0.5s ease;
-  background-color: white;
-  border: none;
+  background: rgba(255, 255, 255, 0.45);
   position: fixed !important;
   vertical-align: middle;
-  border: 0.5px rgb(241, 241, 241) solid;
   border-radius: 8px;
 }
 
