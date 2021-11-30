@@ -25,12 +25,10 @@ if ($_SESSION['tip_usu'] == 1) {
     <link rel="stylesheet" type="text/css" href="CSS/user_footer.css">
     <link rel="stylesheet" type="text/css" href="CSS/box.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modal2.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script type="module">
-        import componentes from 'modulos/componentes.js';
-    </script>
 </head>
 
 <body>
@@ -43,7 +41,27 @@ if ($_SESSION['tip_usu'] == 1) {
         <h1 class="titulo-principal"> Ferramentas </h1>
         <br>
 
-        <button onclick="<?php echo "componentes.displayAlert('Cadastro repetido!', 'Testando');"; ?>" id='btn_tst'>Teste</button>
+        <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h2>Sucesso!</h2>
+  </div>
+  <div class="modal-body">
+    <p>Some text in the Modal Body</p>
+    <p>Some other text...</p>
+  </div>
+  <div class="modal-footer">
+  </div>
+</div>
+
+</div>
 
         <div class="buttons-group" style="margin-top:10px;">
             <a href="https://classroom.google.com/" target="_blank">
@@ -161,6 +179,33 @@ if ($_SESSION['tip_usu'] == 1) {
         ?>
 
     </main>
+    <script type='text/javascript'>
+        // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
 </body>
 
 </html>
