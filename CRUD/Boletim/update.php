@@ -82,10 +82,12 @@ if (isset($_GET['qtd'])) {
             $faltasRecuperacao = NULL;
             
         if ($prepara->execute())
-            echo "Update de boletim realizado com sucesso!";
+            $updateStatus = true;
         else
-            echo "Update de boletim falhou!";
+            $updateStatus = false;
     }
+
+    echo json_encode($updateStatus);
 }
 
 $conexao->close();

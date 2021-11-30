@@ -91,7 +91,18 @@ function postGrades(){
 
 	let httpRequest = startRequest();
 	httpRequest.open('GET', url);
+	httpRequest.responseType = "json"
 	httpRequest.send();
+	httpRequest.onreadystatechange = () => {
+		if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+			let response = httpRequest.response;
+			if (response) {
+				console.log("Update successful!");
+			} else {
+				console.log("Update failed!");
+			}
+		}
+	}
 }
 
 function startRequest() {
