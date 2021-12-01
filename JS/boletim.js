@@ -1,4 +1,19 @@
-function toogle_disabled(bool) {
+import { reportTableAsyncQuery } from "../modulos/filtros.js";
+import { currentURL, resultTable } from "./filtro_boletim.js";
+
+let btn_edit = document.getElementById('btn_editar');
+btn_edit.addEventListener("click", () => {toggle_disabled(false);});
+
+let btn_cancel = document.getElementById('btn_cancelar');
+btn_cancel.addEventListener("click",() => {cancel(true);});
+
+let btn_clear = document.getElementById('btn_limpar');
+btn_clear.addEventListener("click", () => {clearInputs();});
+
+let btn_post = document.getElementById('btn_publicar');
+btn_post.addEventListener("click", () => {postGrades()});
+
+function toggle_disabled(bool) {
 	let input = document.getElementsByTagName('input');
 	let botao_publicar = document.getElementById('btn_publicar');
 
@@ -98,6 +113,7 @@ function postGrades(){
 			let response = httpRequest.response;
 			if (response) {
 				console.log("Update successful!");
+				reportTableAsyncQuery(currentURL, resultTable);
 			} else {
 				console.log("Update failed!");
 			}
