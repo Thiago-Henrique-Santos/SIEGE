@@ -20,6 +20,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
     <link rel="stylesheet" type="text/css" href="CSS/main_nav.css">
     <link rel="stylesheet" type="text/css" href="CSS/boletim.css">
     <link rel="stylesheet" type="text/css" href="CSS/user_footer.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modal2.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -37,6 +38,38 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
     <main>
         <h1 class="titulo-principal">Boletim</h1>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Sucesso</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Registros publicados com sucesso!</p>
+                    <img id='correct_boletim_img' src='img/check_salt_boletim.gif'>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <div class="modal-header2">
+                    <h2 id='msg_erro_inesperado'>Erro inesperado</h2>
+                    <div class='fechar_btn'>
+                        <span class="close2">&times;</span>
+                    </div>
+                </div>
+                <div class="modal-body2">
+                    <p id='dsc_modal'>Verifique se você selecionou uma turma <strong><u>e</u></strong> uma disciplina, e tente novamente.</p>
+                    <img id='error_boletim_img' src='img/error_boletim.gif'>
+                </div>
+                <div class="modal-footer2">
+                </div>
+            </div>
+        </div>
 
         <?php
         if ($_SESSION['tip_usu'] != 1) {
@@ -358,7 +391,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
         ?>
 
     </main>
-
 </body>
 
 </html>

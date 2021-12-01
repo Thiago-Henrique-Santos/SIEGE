@@ -1,62 +1,131 @@
 .modal {
-    display: none; 
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.767);
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.767);
+  text-align: center;
+}
 
-  /* Modal Header */
+.close {
+  color: rgb(255, 255, 255);
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(150, 4, 4);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.fechar_btn {
+  width: 100px;
+  height: auto;
+  margin-top: -59px;
+  float: right;
+}
+
+.close2 {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: rgb(150, 4, 4);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
 .modal-header {
-    background-color: #5cb85c;
-    color: white;
-    height: 70px;
-    text-align: center;
-    width: 100% !important;
+  background-color: #5cb85c;
+  color: white;
+  height: 70px;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+#msg_erro_inesperado {
+  margin-left: 10px;
+  margin-top: 12px;
+  text-align: left;
+}
+
+#dsc_modal {
+  margin-top: 10px;
+}
+
+.modal-header2 {
+  background-color: #e75151;
+  color: white;
+  height: 70px;
+  width: 100% !important;
+}
+
+.modal-body {
+  background-color: rgb(255, 255, 255);
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 20px;
+}
+
+.modal-body2 {
+  background-color: rgb(255, 255, 255);
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 17px;
+}
+
+.modal-footer {
+  height: 2px;
+  background-color: #5cb85c;
+  color: white;
+  width: 100% !important;
+}
+
+.modal-footer2 {
+  height: 25px;
+  background-color: #e75151;
+  color: white;
+  width: 100% !important;
+}
+
+.modal-content {
+  margin-left: 25%;
+  width: 50% !important;
+  text-align: center !important;
+  transform: translateY(10%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 1s;
+  height: 80%;
+}
+
+#correct_boletim_img {
+  margin-top: 5%;
+}
+
+#error_boletim_img {
+  width: 450px;
+  height: auto;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
   }
-  
-  .modal-body {
-    background-color: pink;
-    width: 100% !important;
-    height: 200px !important;
+  to {
+    top: 0;
+    opacity: 1;
   }
-  
-  .modal-footer {
-    height: 2px;
-    background-color: #5cb85c;
-    color: white;
-    width: 100% !important;
-  }
-  
-  .modal-content {
-    margin-left: 25%;
-    width: 50% !important;
-    transform: translateY(50%);
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-  }
-  
-  @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-  }
+}

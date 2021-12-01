@@ -76,6 +76,7 @@ function clearInputs() {
 }
 
 function postGrades(){
+	let btn_cancel = document.getElementById('btn_cancelar');
 	let input = document.getElementsByTagName('input');
 
 	for (let i = 0; i <= (input.length - 1); i++) {
@@ -112,13 +113,42 @@ function postGrades(){
 		if (httpRequest.readyState === 4 && httpRequest.status === 200) {
 			let response = httpRequest.response;
 			if (response) {
-				console.log("Update successful!");
+				var modal = document.getElementById("myModal");
+		
+				var span = document.getElementsByClassName("close")[0];
+				
+				modal.style.display = "block";
+		
+				span.onclick = function() {
+					modal.style.display = "none";
+				}
+		
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
+				}
 				reportTableAsyncQuery(currentURL, resultTable);
 			} else {
-				console.log("Update failed!");
+				var modal = document.getElementById("myModal2");
+		
+				var span = document.getElementsByClassName("close2")[0];
+				
+				modal.style.display = "block";
+		
+				span.onclick = function() {
+					modal.style.display = "none";
+				}
+		
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
+				}
 			}
 		}
 	}
+	btn_cancel.addEventListener('click', cancel(true));
 }
 
 function startRequest() {
