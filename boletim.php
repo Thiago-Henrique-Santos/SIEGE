@@ -47,7 +47,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                 </div>
                 <div class="modal-body">
                     <p>Registros publicados com sucesso!</p>
-                    <img id='correct_boletim_img' src='img/check_salt_boletim.gif'>
+                    <img id='correct_boletim_img' src='img/check_saltitante.gif' draggable="false">
                 </div>
                 <div class="modal-footer">
                 </div>
@@ -64,7 +64,7 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
                 </div>
                 <div class="modal-body2">
                     <p id='dsc_modal'>Verifique se você selecionou uma turma <strong><u>e</u></strong> uma disciplina, e tente novamente.</p>
-                    <img id='error_boletim_img' src='img/error_boletim.gif'>
+                    <img id='error_boletim_img' src='img/error_boletim.gif' draggable="false">
                 </div>
                 <div class="modal-footer2">
                 </div>

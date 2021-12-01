@@ -81,6 +81,9 @@ function postGrades(){
 
 	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number') {
+			if(input[i].value == '0'){
+				input[i].value = '00';
+			}
 			input[i].disabled = true;
 		}
 	}
