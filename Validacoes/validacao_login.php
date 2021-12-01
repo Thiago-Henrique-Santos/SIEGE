@@ -64,7 +64,7 @@ if (strlen($erros_email) == 0 and strlen($erros_senha) == 0) {
     <script>
         <?php
         echo "
-            sessionStorage.setItem('tip_usu', " . $_SESSION['tip_usu'] . "); 
+            sessionStorage.setItem('tip_usu', " . $_SESSION['tip_usu'] . ");
             sessionStorage.setItem('sx', '" . $_SESSION['sx'] . "');
             window.location = '../pagina_inicial.php';
             ";

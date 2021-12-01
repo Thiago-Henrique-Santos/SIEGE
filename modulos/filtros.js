@@ -436,271 +436,273 @@ function userHTMLResult(user, resultBlock) {
 
 function printTable(studentObject, resultBlock, counter) {
 
-    //Criação dos componentes na página boletim para funcionários
-    let f = 0;
-    let n = 0;
-    let falta_total;
-    let nota_total;
-    let situacao = '';
-    let soma = 0;
-    const row = document.createElement('tr');
-    if (counter%2==0) {
-        row.setAttribute('class', 'linha_registros');
-    } else {
-        row.setAttribute('class', 'linha_registros2');
-    }
-
-    const alunoColoumn = document.createElement('td');
-    alunoColoumn.setAttribute('class', 'registroAlunos');
-    alunoColoumn.innerHTML = "&nbsp;&nbsp;";
-    alunoColoumn.innerText += studentObject['aluno'];
-    row.appendChild(alunoColoumn);
-
-    const idReportColoumn = document.createElement('td');
-    idReportColoumn.setAttribute('style', 'display:none');
-    const inputIdBoletim = document.createElement('input');
-    inputIdBoletim.setAttribute('type', 'number');
-    inputIdBoletim.setAttribute('min', '0');
-    inputIdBoletim.setAttribute('step', '1');
-    inputIdBoletim.setAttribute('name', 'idb');
-    inputIdBoletim.setAttribute('placeholder', '-');
-    inputIdBoletim.setAttribute('disabled', '');
-    inputIdBoletim.setAttribute('value', parseInt(studentObject['id_boletim']));
-    idReportColoumn.appendChild(inputIdBoletim);
-    row.appendChild(idReportColoumn);
-
-    const falta1Coloumn = document.createElement('td');
-    falta1Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimf1 = document.createElement('input');
-    inputBoletimf1.setAttribute('type', 'number');
-    inputBoletimf1.setAttribute('min', '0');
-    inputBoletimf1.setAttribute('step', '1');
-    inputBoletimf1.setAttribute('name', 'f1b');
-    inputBoletimf1.setAttribute('placeholder', '-');
-    inputBoletimf1.setAttribute('disabled', '');
-    inputBoletimf1.setAttribute('value', parseInt(studentObject['faltas'][1]));
-    if(studentObject['faltas'][1] == null)
-        f++;
-
-    falta1Coloumn.appendChild(inputBoletimf1);
-    row.appendChild(falta1Coloumn);
-
-    const nota1Coloumn = document.createElement('td');
-    nota1Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimn1 = document.createElement('input');
-    inputBoletimn1.setAttribute('type', 'number');
-    inputBoletimn1.setAttribute('min', '0');
-    inputBoletimn1.setAttribute('step', '0.5');
-    inputBoletimn1.setAttribute('name', 'n1b');
-    inputBoletimn1.setAttribute('placeholder', '-,-');
-    inputBoletimn1.setAttribute('disabled', '');
-    inputBoletimn1.setAttribute('value', parseFloat(studentObject['notas'][1]));
-    if(studentObject['notas'][1] == null)
-        n++;
-
-    nota1Coloumn.appendChild(inputBoletimn1);
-    row.appendChild(nota1Coloumn);
-
-    const falta2Coloumn = document.createElement('td');
-    falta2Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimf2 = document.createElement('input');
-    inputBoletimf2.setAttribute('type', 'number');
-    inputBoletimf2.setAttribute('min', '0');
-    inputBoletimf2.setAttribute('step', '1');
-    inputBoletimf2.setAttribute('name', 'f2b');
-    inputBoletimf2.setAttribute('placeholder', '-');
-    inputBoletimf2.setAttribute('disabled', '');
-    inputBoletimf2.setAttribute('value', parseInt(studentObject['faltas'][2]));
-    if(studentObject['faltas'][2] == null)
-        f++;
-
-    falta2Coloumn.appendChild(inputBoletimf2);
-    row.appendChild(falta2Coloumn);
-
-    const nota2Coloumn = document.createElement('td');
-    nota2Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimn2 = document.createElement('input');
-    inputBoletimn2.setAttribute('type', 'number');
-    inputBoletimn2.setAttribute('min', '0');
-    inputBoletimn2.setAttribute('step', '0.5');
-    inputBoletimn2.setAttribute('name', 'n2b');
-    inputBoletimn2.setAttribute('placeholder', '-,-');
-    inputBoletimn2.setAttribute('disabled', '');
-    inputBoletimn2.setAttribute('value', parseFloat(studentObject['notas'][2]));
-    if(studentObject['notas'][2] == null)
-        n++;
-
-    nota2Coloumn.appendChild(inputBoletimn2);
-    row.appendChild(nota2Coloumn);
-
-    const falta3Coloumn = document.createElement('td');
-    falta3Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimf3 = document.createElement('input');
-    inputBoletimf3.setAttribute('type', 'number');
-    inputBoletimf3.setAttribute('min', '0');
-    inputBoletimf3.setAttribute('step', '1');
-    inputBoletimf3.setAttribute('name', 'f3b');
-    inputBoletimf3.setAttribute('placeholder', '-');
-    inputBoletimf3.setAttribute('disabled', '');
-    inputBoletimf3.setAttribute('value', parseInt(studentObject['faltas'][3]));
-    if(studentObject['faltas'][3] == null)
-        f++;
-
-    falta3Coloumn.appendChild(inputBoletimf3);
-    row.appendChild(falta3Coloumn);
-
-    const nota3Coloumn = document.createElement('td');
-    nota3Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimn3 = document.createElement('input');
-    inputBoletimn3.setAttribute('type', 'number');
-    inputBoletimn3.setAttribute('min', '0');
-    inputBoletimn3.setAttribute('step', '0.5');
-    inputBoletimn3.setAttribute('name', 'n3b');
-    inputBoletimn3.setAttribute('placeholder', '-,-');
-    inputBoletimn3.setAttribute('disabled', '');
-    inputBoletimn3.setAttribute('value', parseFloat(studentObject['notas'][3]));
-    if(studentObject['notas'][3] == null)
-        n++;
-
-    nota3Coloumn.appendChild(inputBoletimn3);
-    row.appendChild(nota3Coloumn);
-
-    const falta4Coloumn = document.createElement('td');
-    falta4Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimf4 = document.createElement('input');
-    inputBoletimf4.setAttribute('type', 'number');
-    inputBoletimf4.setAttribute('min', '0');
-    inputBoletimf4.setAttribute('step', '1');
-    inputBoletimf4.setAttribute('name', 'f4b');
-    inputBoletimf4.setAttribute('placeholder', '-');
-    inputBoletimf4.setAttribute('disabled', '');
-    inputBoletimf4.setAttribute('value', parseInt(studentObject['faltas'][4]));
-    if(studentObject['faltas'][4] == null)
-        f++;
-
-    falta4Coloumn.appendChild(inputBoletimf4);
-    row.appendChild(falta4Coloumn);
-
-    const nota4Coloumn = document.createElement('td');
-    nota4Coloumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimn4 = document.createElement('input');
-    inputBoletimn4.setAttribute('type', 'number');
-    inputBoletimn4.setAttribute('min', '0');
-    inputBoletimn4.setAttribute('step', '0.5');
-    inputBoletimn4.setAttribute('name', 'n4b');
-    inputBoletimn4.setAttribute('placeholder', '-,-');
-    inputBoletimn4.setAttribute('disabled', '');
-    inputBoletimn4.setAttribute('value', parseFloat(studentObject['notas'][4]));
-    if(studentObject['notas'][4] == null)
-        n++;
-
-    nota4Coloumn.appendChild(inputBoletimn4);
-    row.appendChild(nota4Coloumn);
-
-    const faltaRecuperacaoColoumn = document.createElement('td');
-    faltaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimf5 = document.createElement('input');
-    inputBoletimf5.setAttribute('type', 'number');
-    inputBoletimf5.setAttribute('min', '0');
-    inputBoletimf5.setAttribute('step', '1');
-    inputBoletimf5.setAttribute('name', 'f5b');
-    inputBoletimf5.setAttribute('placeholder', '-');
-    inputBoletimf5.setAttribute('disabled', '');
-    inputBoletimf5.setAttribute('value', parseInt(studentObject['faltas'][5]));
-
-    faltaRecuperacaoColoumn.appendChild(inputBoletimf5);
-    row.appendChild(faltaRecuperacaoColoumn);
-
-    const notaRecuperacaoColoumn = document.createElement('td');
-    notaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
-
-    const inputBoletimn5 = document.createElement('input');
-    inputBoletimn5.setAttribute('type', 'number');
-    inputBoletimn5.setAttribute('min', '0');
-    inputBoletimn5.setAttribute('step', '0.5');
-    inputBoletimn5.setAttribute('name', 'n5b');
-    inputBoletimn5.setAttribute('placeholder', '-,-');
-    inputBoletimn5.setAttribute('disabled', '');
-    inputBoletimn5.setAttribute('value', parseFloat(studentObject['notas'][5]));
-
-    notaRecuperacaoColoumn.appendChild(inputBoletimn5);
-    row.appendChild(notaRecuperacaoColoumn);
-
-    //Condições de formatação e lógica do boletim para funcionarios
-
-    if(f > 0){
-        falta_total = '-:--';
-        situacao = 'Em andamento';
-    }else{
-        if(studentObject['faltas'][5] == null){
-            soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]);
-        }else{
-            soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]) + parseInt(studentObject['faltas'][5]);
+    if (tip_usu != 1) {
+        //Criação dos componentes na página boletim para funcionários
+        let f = 0;
+        let n = 0;
+        let falta_total;
+        let nota_total;
+        let situacao = '';
+        let soma = 0;
+        const row = document.createElement('tr');
+        if (counter % 2 == 0) {
+            row.setAttribute('class', 'linha_registros');
+        } else {
+            row.setAttribute('class', 'linha_registros2');
         }
-        falta_total = soma;
-    }
 
-    if(n > 0){
-        nota_total = '-,-';
-        situacao = 'Em andamento';
-    }else{
-        nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
-        if((nota_total < 65) && (parseFloat(studentObject['notas'][5]) != null && parseFloat(studentObject['notas'][5]) >= nota_total)){
-            nota_total = parseFloat(studentObject['notas'][5]);
+        const alunoColoumn = document.createElement('td');
+        alunoColoumn.setAttribute('class', 'registroAlunos');
+        alunoColoumn.innerHTML = "&nbsp;&nbsp;";
+        alunoColoumn.innerText += studentObject['aluno'];
+        row.appendChild(alunoColoumn);
+
+        const idReportColoumn = document.createElement('td');
+        idReportColoumn.setAttribute('style', 'display:none');
+        const inputIdBoletim = document.createElement('input');
+        inputIdBoletim.setAttribute('type', 'number');
+        inputIdBoletim.setAttribute('min', '0');
+        inputIdBoletim.setAttribute('step', '1');
+        inputIdBoletim.setAttribute('name', 'idb');
+        inputIdBoletim.setAttribute('placeholder', '-');
+        inputIdBoletim.setAttribute('disabled', '');
+        inputIdBoletim.setAttribute('value', parseInt(studentObject['id_boletim']));
+        idReportColoumn.appendChild(inputIdBoletim);
+        row.appendChild(idReportColoumn);
+
+        const falta1Coloumn = document.createElement('td');
+        falta1Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimf1 = document.createElement('input');
+        inputBoletimf1.setAttribute('type', 'number');
+        inputBoletimf1.setAttribute('min', '0');
+        inputBoletimf1.setAttribute('step', '1');
+        inputBoletimf1.setAttribute('name', 'f1b');
+        inputBoletimf1.setAttribute('placeholder', '-');
+        inputBoletimf1.setAttribute('disabled', '');
+        inputBoletimf1.setAttribute('value', parseInt(studentObject['faltas'][1]));
+        if (studentObject['faltas'][1] == null)
+            f++;
+
+        falta1Coloumn.appendChild(inputBoletimf1);
+        row.appendChild(falta1Coloumn);
+
+        const nota1Coloumn = document.createElement('td');
+        nota1Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimn1 = document.createElement('input');
+        inputBoletimn1.setAttribute('type', 'number');
+        inputBoletimn1.setAttribute('min', '0');
+        inputBoletimn1.setAttribute('step', '0.5');
+        inputBoletimn1.setAttribute('name', 'n1b');
+        inputBoletimn1.setAttribute('placeholder', '-,-');
+        inputBoletimn1.setAttribute('disabled', '');
+        inputBoletimn1.setAttribute('value', parseFloat(studentObject['notas'][1]));
+        if (studentObject['notas'][1] == null)
+            n++;
+
+        nota1Coloumn.appendChild(inputBoletimn1);
+        row.appendChild(nota1Coloumn);
+
+        const falta2Coloumn = document.createElement('td');
+        falta2Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimf2 = document.createElement('input');
+        inputBoletimf2.setAttribute('type', 'number');
+        inputBoletimf2.setAttribute('min', '0');
+        inputBoletimf2.setAttribute('step', '1');
+        inputBoletimf2.setAttribute('name', 'f2b');
+        inputBoletimf2.setAttribute('placeholder', '-');
+        inputBoletimf2.setAttribute('disabled', '');
+        inputBoletimf2.setAttribute('value', parseInt(studentObject['faltas'][2]));
+        if (studentObject['faltas'][2] == null)
+            f++;
+
+        falta2Coloumn.appendChild(inputBoletimf2);
+        row.appendChild(falta2Coloumn);
+
+        const nota2Coloumn = document.createElement('td');
+        nota2Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimn2 = document.createElement('input');
+        inputBoletimn2.setAttribute('type', 'number');
+        inputBoletimn2.setAttribute('min', '0');
+        inputBoletimn2.setAttribute('step', '0.5');
+        inputBoletimn2.setAttribute('name', 'n2b');
+        inputBoletimn2.setAttribute('placeholder', '-,-');
+        inputBoletimn2.setAttribute('disabled', '');
+        inputBoletimn2.setAttribute('value', parseFloat(studentObject['notas'][2]));
+        if (studentObject['notas'][2] == null)
+            n++;
+
+        nota2Coloumn.appendChild(inputBoletimn2);
+        row.appendChild(nota2Coloumn);
+
+        const falta3Coloumn = document.createElement('td');
+        falta3Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimf3 = document.createElement('input');
+        inputBoletimf3.setAttribute('type', 'number');
+        inputBoletimf3.setAttribute('min', '0');
+        inputBoletimf3.setAttribute('step', '1');
+        inputBoletimf3.setAttribute('name', 'f3b');
+        inputBoletimf3.setAttribute('placeholder', '-');
+        inputBoletimf3.setAttribute('disabled', '');
+        inputBoletimf3.setAttribute('value', parseInt(studentObject['faltas'][3]));
+        if (studentObject['faltas'][3] == null)
+            f++;
+
+        falta3Coloumn.appendChild(inputBoletimf3);
+        row.appendChild(falta3Coloumn);
+
+        const nota3Coloumn = document.createElement('td');
+        nota3Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimn3 = document.createElement('input');
+        inputBoletimn3.setAttribute('type', 'number');
+        inputBoletimn3.setAttribute('min', '0');
+        inputBoletimn3.setAttribute('step', '0.5');
+        inputBoletimn3.setAttribute('name', 'n3b');
+        inputBoletimn3.setAttribute('placeholder', '-,-');
+        inputBoletimn3.setAttribute('disabled', '');
+        inputBoletimn3.setAttribute('value', parseFloat(studentObject['notas'][3]));
+        if (studentObject['notas'][3] == null)
+            n++;
+
+        nota3Coloumn.appendChild(inputBoletimn3);
+        row.appendChild(nota3Coloumn);
+
+        const falta4Coloumn = document.createElement('td');
+        falta4Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimf4 = document.createElement('input');
+        inputBoletimf4.setAttribute('type', 'number');
+        inputBoletimf4.setAttribute('min', '0');
+        inputBoletimf4.setAttribute('step', '1');
+        inputBoletimf4.setAttribute('name', 'f4b');
+        inputBoletimf4.setAttribute('placeholder', '-');
+        inputBoletimf4.setAttribute('disabled', '');
+        inputBoletimf4.setAttribute('value', parseInt(studentObject['faltas'][4]));
+        if (studentObject['faltas'][4] == null)
+            f++;
+
+        falta4Coloumn.appendChild(inputBoletimf4);
+        row.appendChild(falta4Coloumn);
+
+        const nota4Coloumn = document.createElement('td');
+        nota4Coloumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimn4 = document.createElement('input');
+        inputBoletimn4.setAttribute('type', 'number');
+        inputBoletimn4.setAttribute('min', '0');
+        inputBoletimn4.setAttribute('step', '0.5');
+        inputBoletimn4.setAttribute('name', 'n4b');
+        inputBoletimn4.setAttribute('placeholder', '-,-');
+        inputBoletimn4.setAttribute('disabled', '');
+        inputBoletimn4.setAttribute('value', parseFloat(studentObject['notas'][4]));
+        if (studentObject['notas'][4] == null)
+            n++;
+
+        nota4Coloumn.appendChild(inputBoletimn4);
+        row.appendChild(nota4Coloumn);
+
+        const faltaRecuperacaoColoumn = document.createElement('td');
+        faltaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimf5 = document.createElement('input');
+        inputBoletimf5.setAttribute('type', 'number');
+        inputBoletimf5.setAttribute('min', '0');
+        inputBoletimf5.setAttribute('step', '1');
+        inputBoletimf5.setAttribute('name', 'f5b');
+        inputBoletimf5.setAttribute('placeholder', '-');
+        inputBoletimf5.setAttribute('disabled', '');
+        inputBoletimf5.setAttribute('value', parseInt(studentObject['faltas'][5]));
+
+        faltaRecuperacaoColoumn.appendChild(inputBoletimf5);
+        row.appendChild(faltaRecuperacaoColoumn);
+
+        const notaRecuperacaoColoumn = document.createElement('td');
+        notaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
+
+        const inputBoletimn5 = document.createElement('input');
+        inputBoletimn5.setAttribute('type', 'number');
+        inputBoletimn5.setAttribute('min', '0');
+        inputBoletimn5.setAttribute('step', '0.5');
+        inputBoletimn5.setAttribute('name', 'n5b');
+        inputBoletimn5.setAttribute('placeholder', '-,-');
+        inputBoletimn5.setAttribute('disabled', '');
+        inputBoletimn5.setAttribute('value', parseFloat(studentObject['notas'][5]));
+
+        notaRecuperacaoColoumn.appendChild(inputBoletimn5);
+        row.appendChild(notaRecuperacaoColoumn);
+
+        //Condições de formatação e lógica do boletim para funcionarios
+
+        if (f > 0) {
+            falta_total = '-:--';
+            situacao = 'Em andamento';
+        } else {
+            if (studentObject['faltas'][5] == null) {
+                soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]);
+            } else {
+                soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]) + parseInt(studentObject['faltas'][5]);
+            }
+            falta_total = soma;
         }
-        if(nota_total < 65 && studentObject['notas'][5] == null && soma <= 50){
-            studentObject['notas'][5] = '-,-';
-            nota_total = studentObject['notas'][5];
+
+        if (n > 0) {
+            nota_total = '-,-';
+            situacao = 'Em andamento';
+        } else {
+            nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
+            if ((nota_total < 65) && (parseFloat(studentObject['notas'][5]) != null && parseFloat(studentObject['notas'][5]) >= nota_total)) {
+                nota_total = parseFloat(studentObject['notas'][5]);
+            }
+            if (nota_total < 65 && studentObject['notas'][5] == null && soma <= 50) {
+                studentObject['notas'][5] = '-,-';
+                nota_total = studentObject['notas'][5];
+            }
         }
+
+        if ((soma <= 50 && nota_total >= 65) && (n == 0 && f == 0)) {
+            situacao = 'Aprovado';
+        } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
+            situacao = 'Reprovado';
+        } else if ((n > 0 || f > 0) || (nota_total == '-,-')) {
+            situacao = 'Em andamento';
+        }
+
+
+        const falta_finalColoumn = document.createElement('td');
+        if ((f == 0) && (soma > 50))
+            falta_finalColoumn.setAttribute('class', 'td_totais negativa');
+        else if ((f == 0) && (soma <= 50))
+            falta_finalColoumn.setAttribute('class', 'td_totais positiva');
+        falta_finalColoumn.innerText = falta_total;
+        row.appendChild(falta_finalColoumn);
+
+        const nota_finalColoumn = document.createElement('td');
+        if ((n == 0) && (nota_total < 65 && nota_total != '-,-'))
+            nota_finalColoumn.setAttribute('class', 'td_totais negativa');
+        else if ((n == 0) && (nota_total >= 65))
+            nota_finalColoumn.setAttribute('class', 'td_totais positiva');
+        else if ((n == 0) && (nota_total == '-,-'))
+            nota_finalColoumn.setAttribute('class', 'td_totais neutra');
+        nota_finalColoumn.innerText = nota_total;
+        row.appendChild(nota_finalColoumn);
+
+        const situacao_final = document.createElement('td');
+        if (situacao == 'Em andamento')
+            situacao_final.setAttribute('class', 'td_situacao neutra');
+        else if (situacao == 'Reprovado')
+            situacao_final.setAttribute('class', 'td_situacao negativa');
+        else if (situacao == 'Aprovado')
+            situacao_final.setAttribute('class', 'td_situacao positiva');
+        situacao_final.innerText = situacao;
+        row.appendChild(situacao_final);
+
+        resultBlock.appendChild(row);
     }
-
-    if ((soma <= 50 && nota_total >= 65) && (n == 0 && f == 0)){
-        situacao = 'Aprovado';
-    } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)){
-        situacao = 'Reprovado';
-    } else if ((n > 0 || f > 0) || (nota_total == '-,-')){
-        situacao = 'Em andamento';
-    }
-
-
-    const falta_finalColoumn = document.createElement('td');
-    if ((f == 0) && (soma > 50))
-        falta_finalColoumn.setAttribute('class', 'td_totais negativa');
-    else if ((f == 0) && (soma <= 50))
-        falta_finalColoumn.setAttribute('class', 'td_totais positiva');
-    falta_finalColoumn.innerText = falta_total;
-    row.appendChild(falta_finalColoumn);
-
-    const nota_finalColoumn = document.createElement('td');
-    if ((n == 0) && (nota_total < 65 && nota_total != '-,-'))
-        nota_finalColoumn.setAttribute('class', 'td_totais negativa');
-    else if ((n == 0) && (nota_total >= 65))
-        nota_finalColoumn.setAttribute('class', 'td_totais positiva');
-    else if ((n == 0) && (nota_total == '-,-'))
-        nota_finalColoumn.setAttribute('class', 'td_totais neutra');
-    nota_finalColoumn.innerText = nota_total;
-    row.appendChild(nota_finalColoumn);
-
-    const situacao_final = document.createElement('td');
-    if (situacao == 'Em andamento')
-        situacao_final.setAttribute('class', 'td_situacao neutra');
-    else if (situacao == 'Reprovado')
-        situacao_final.setAttribute('class', 'td_situacao negativa');
-    else if (situacao == 'Aprovado')
-        situacao_final.setAttribute('class', 'td_situacao positiva');    
-    situacao_final.innerText = situacao;
-    row.appendChild(situacao_final);
-
-    resultBlock.appendChild(row);
 }
 
 function makeResult(response, resultBlock, type) {
@@ -825,16 +827,16 @@ function hideButtons() {
     }
 }
 
-function clearReportTable(table){
+function clearReportTable(table) {
     let linesQuantity = table.getElementsByTagName('tr').length;
-    for (let i = linesQuantity-1; i > 1; i--) {
+    for (let i = linesQuantity - 1; i > 1; i--) {
         table.deleteRow(i);
     }
 }
 
-function toggleInfoText(status){
+function toggleInfoText(status) {
     var paragraph = document.getElementById('info_text');
-    if(status == 0){
+    if (status == 0) {
         paragraph.style.display = "none";
     } else {
         paragraph.style.display = "block";
