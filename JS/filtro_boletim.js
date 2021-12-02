@@ -8,17 +8,19 @@ const resultTable = document.getElementById("reportTable");
 let currentURL = "CRUD/Boletim/read.php?tur=none&dsc=none";
 
 if (userType == 1) {
-    //Requisição para mostrar as notas para o aluno
+    callRequest();
 } else {
     selectClass.addEventListener("change", callRequest);
     selectSubject.addEventListener("change", callRequest);
 }
 
 function callRequest() {
-    let classId = selectClass.options[selectClass.selectedIndex].value;
-    let subjectId = selectSubject.options[selectSubject.selectedIndex].value;
     let url = "CRUD/Boletim/read.php";
-    url += `?tur=${classId}&dsc=${subjectId}`;
+    if (userType != 1) {
+        let classId = selectClass.options[selectClass.selectedIndex].value;
+        let subjectId = selectSubject.options[selectSubject.selectedIndex].value;
+        url += `?tur=${classId}&dsc=${subjectId}`;
+    }
     currentURL = url;
     reportTableAsyncQuery(url, resultTable);
 }

@@ -559,7 +559,7 @@ function dadosAluno()
 
     $pdf->Cell(8.8, 0.8, utf8_decode('Nível de ensino: ' . $ensino), 1, 0, "L", 1);
     $pdf->Cell(10.15, 0.8, utf8_decode('Ano letivo: ' . $linha0['ano']), 1, 0, "L", 1);
-    $pdf->Ln(2);
+    $pdf->Ln(1);
 
 
     $pdf->SetFont('Arial', 'B', 10);

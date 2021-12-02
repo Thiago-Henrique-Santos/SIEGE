@@ -1,6 +1,6 @@
-import { converte_falta, generatePath } from './funcoes.js';
+import { converte_falta, dateFormatForInput, generatePath } from './funcoes.js';
 import { startRequest } from './ajax.js';
-import { dateFormatForInput } from './funcoes.js';
+
 
 let tip_usu = sessionStorage.getItem('tip_usu');
 let genero = sessionStorage.getItem('sx');
@@ -702,213 +702,205 @@ function printTable(studentObject, resultBlock, counter) {
         row.appendChild(situacao_final);
 
         resultBlock.appendChild(row);
-    }else{
-       //Criação dos componentes na página boletim para alunos
-       let f = 0;
-       let n = 0;
-       let falta_total;
-       let nota_total;
-       let situacao = '';
-       let soma = 0;
-       const row = document.createElement('tr');
-       if (counter % 2 == 0) {
-           row.setAttribute('class', 'linha_registros');
-       } else {
-           row.setAttribute('class', 'linha_registros2');
-       }
+    } else {
+        //Criação dos componentes na página boletim para alunos
+        let f = 0;
+        let n = 0;
+        let falta_total;
+        let nota_total;
+        let situacao = '';
+        let soma = 0;
+        const row = document.createElement('tr');
+        if (counter % 2 == 0) {
+            row.setAttribute('class', 'linha_registros');
+        } else {
+            row.setAttribute('class', 'linha_registros2');
+        }
 
-       const subjectColoumn = document.createElement('td');
-       subjectColoumn.setAttribute('class', 'registroAlunos');
-       subjectColoumn.innerHTML = "&nbsp;&nbsp;";
-       subjectColoumn.innerText += studentObject['aluno'];
-       row.appendChild(subjectColoumn);
+        const subjectColoumn = document.createElement('td');
+        subjectColoumn.setAttribute('class', 'registroAlunos');
+        subjectColoumn.innerHTML = "&nbsp;&nbsp;";
+        subjectColoumn.innerText += studentObject['disciplina'];
+        row.appendChild(subjectColoumn);
 
-       const idReportColoumn = document.createElement('td');
-       idReportColoumn.setAttribute('style', 'display:none');
-       const inputIdBoletim = document.createElement('input');
-       inputIdBoletim.setAttribute('type', 'number');
-       inputIdBoletim.setAttribute('min', '0');
-       inputIdBoletim.setAttribute('step', '1');
-       inputIdBoletim.setAttribute('name', 'idb');
-       inputIdBoletim.setAttribute('placeholder', '-');
-       inputIdBoletim.setAttribute('disabled', '');
-       inputIdBoletim.setAttribute('value', parseInt(studentObject['id_boletim']));
-       idReportColoumn.appendChild(inputIdBoletim);
-       row.appendChild(idReportColoumn);
+        const falta1Coloumn = document.createElement('td');
+        falta1Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['faltas'][1]) {
+            f++;
+            falta1Coloumn.innerText = "-:--";
+        }
+        row.appendChild(falta1Coloumn);
 
-       const falta1Coloumn = document.createElement('td');
-       falta1Coloumn.setAttribute('class', 'td_notafalta');
-       falta1Coloumn.innerText = studentObject['faltas'][1];
-       if (studentObject['faltas'][1] == null){
-           f++;
-           studentObject['faltas'][1] = '-:--';
-       }
-       row.appendChild(falta1Coloumn);
+        const nota1Coloumn = document.createElement('td');
+        nota1Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['notas'][1]) {
+            n++;
+            nota1Coloumn.innerText = "-,-";
+        } else {
+            nota1Coloumn.innerText = parseFloat(studentObject['notas'][1]);
+        }
+        row.appendChild(nota1Coloumn);
 
-       const nota1Coloumn = document.createElement('td');
-       nota1Coloumn.setAttribute('class', 'td_notafalta');
-       nota1Coloumn.innerText = studentObject['notas'][1];
-       if (studentObject['notas'][1] == null){
-           n++;
-           studentObject['notas'][1] = '-,-';
-       }
-       row.appendChild(nota1Coloumn);
+        const falta2Coloumn = document.createElement('td');
+        falta2Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['faltas'][2]) {
+            f++;
+            falta2Coloumn.innerText = "-:--";
+        }
+        row.appendChild(falta2Coloumn);
 
-       const falta2Coloumn = document.createElement('td');
-       falta2Coloumn.setAttribute('class', 'td_notafalta');
-       falta2Coloumn.innerText = studentObject['faltas'][2];
-       if (studentObject['faltas'][2] == null){
-           f++;
-           studentObject['faltas'][2] = '-:--';
-       }
-       row.appendChild(falta2Coloumn);
+        const nota2Coloumn = document.createElement('td');
+        nota2Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['notas'][2]) {
+            n++;
+            nota2Coloumn.innerText = "-,-";
+        } else {
+            nota2Coloumn.innerText = parseFloat(studentObject['notas'][2]);
+        }
+        row.appendChild(nota2Coloumn);
 
-       const nota2Coloumn = document.createElement('td');
-       nota2Coloumn.setAttribute('class', 'td_notafalta');
-       nota2Coloumn.innerText = studentObject['notas'][2];
-       if (studentObject['notas'][2] == null){
-           n++;
-           studentObject['notas'][2] = '-,-';
-       }
-       row.appendChild(nota2Coloumn);
-       
-       const falta3Coloumn = document.createElement('td');
-       falta3Coloumn.setAttribute('class', 'td_notafalta');
-       falta3Coloumn.innerText = studentObject['faltas'][3];
-       if (studentObject['faltas'][3] == null){
-           f++;
-           studentObject['faltas'][3] = '-:--';
-       }
-       row.appendChild(falta3Coloumn);
+        const falta3Coloumn = document.createElement('td');
+        falta3Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['faltas'][3]) {
+            f++;
+            falta3Coloumn.innerText = "-:--";
+        }
+        row.appendChild(falta3Coloumn);
 
-       const nota3Coloumn = document.createElement('td');
-       nota3Coloumn.setAttribute('class', 'td_notafalta');
-       nota3Coloumn.innerText = studentObject['notas'][3];
-       if (studentObject['notas'][3] == null){
-           n++;
-           studentObject['notas'][3] = '-,-';
-       }
-       row.appendChild(nota3Coloumn);
-       
-       const falta4Coloumn = document.createElement('td');
-       falta4Coloumn.setAttribute('class', 'td_notafalta');
-       falta4Coloumn.innerText = studentObject['faltas'][4];
-       if (studentObject['faltas'][4] == null){
-           f++;
-           studentObject['faltas'][4] = '-:--';
-       }
-       row.appendChild(falta4Coloumn);
+        const nota3Coloumn = document.createElement('td');
+        nota3Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['notas'][3]) {
+            n++;
+            nota3Coloumn.innerText = "-,-";
+        } else {
+            nota3Coloumn.innerText = parseFloat(studentObject['notas'][3]);
+        }
+        row.appendChild(nota3Coloumn);
 
-       const nota4Coloumn = document.createElement('td');
-       nota4Coloumn.setAttribute('class', 'td_notafalta');
-       nota4Coloumn.innerText = studentObject['notas'][4];
-       if (studentObject['notas'][4] == null){
-           n++;
-           studentObject['notas'][4] = '-,-';
-       }
-       row.appendChild(nota4Coloumn);
+        const falta4Coloumn = document.createElement('td');
+        falta4Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['faltas'][4]) {
+            f++;
+            falta4Coloumn.innerText = "-:--";
+        }
+        row.appendChild(falta4Coloumn);
 
-       const faltaRecuperacaoColoumn = document.createElement('td');
-       faltaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
-       faltaRecuperacaoColoumn.innerText = studentObject['faltas'][5];
-       if (studentObject['faltas'][5] == null){
-        studentObject['faltas'][5] = '-:--';
+        const nota4Coloumn = document.createElement('td');
+        nota4Coloumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['notas'][4]) {
+            n++;
+            nota4Coloumn.innerText = "-,-";
+        } else {
+            nota4Coloumn.innerText = parseFloat(studentObject['notas'][4]);
+        }
+        row.appendChild(nota4Coloumn);
+
+        const faltaRecuperacaoColoumn = document.createElement('td');
+        faltaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['faltas'][5]) {
+            faltaRecuperacaoColoumn.innerText = "-:--";
         }
         row.appendChild(faltaRecuperacaoColoumn);
 
-       const notaRecuperacaoColoumn = document.createElement('td');
-       notaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
-       notaRecuperacaoColoumn.innerText = studentObject['notas'][5];
-       if (studentObject['notas'][5] == null){
-        studentObject['notas'][5] = '-,-';
-       }
+        const notaRecuperacaoColoumn = document.createElement('td');
+        notaRecuperacaoColoumn.setAttribute('class', 'td_notafalta');
+        if (!studentObject['notas'][5]) {
+            notaRecuperacaoColoumn.innerText = "-,-";
+        } else {
+            notaRecuperacaoColoumn.innerText = parseFloat(studentObject['notas'][5]);
+        }
         row.appendChild(notaRecuperacaoColoumn);
 
-       //Condições de formatação e lógica do boletim para alunos
+        //Condições de formatação e lógica do boletim para alunos
 
-       if (f > 0) {
-           falta_total = '-:--';
-           situacao = 'Em andamento';
-       } else {
-           if (studentObject['faltas'][5] == null) {
-               soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]);
-           } else {
-               soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]) + parseInt(studentObject['faltas'][5]);
-           }
-           falta_total = converte_falta(soma);
-       }
+        if (f > 0) {
+            falta_total = '-:--';
+            situacao = 'Em andamento';
+        } else {
+            if (studentObject['faltas'][5] == null) {
+                soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]);
+            } else {
+                soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]) + parseInt(studentObject['faltas'][5]);
+            }
+            falta_total = converte_falta(soma);
+        }
 
-       if (n > 0) {
-           nota_total = '-,-';
-           situacao = 'Em andamento';
-       } else {
-           nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
-           if ((nota_total < 65) && (studentObject['notas'][5] != '-,-' && parseFloat(studentObject['notas'][5]) >= nota_total)) {
-               nota_total = parseFloat(studentObject['notas'][5]);
-           }
-           if (nota_total < 65 && studentObject['notas'][5] == '-,-' && soma <= 50) {
-               studentObject['notas'][5] = '-,-';
-               nota_total = studentObject['notas'][5];
-           }
-       }
+        if (n > 0) {
+            nota_total = '-,-';
+            situacao = 'Em andamento';
+        } else {
+            nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
+            if ((nota_total < 65) && (studentObject['notas'][5] != '-,-' && parseFloat(studentObject['notas'][5]) >= nota_total)) {
+                nota_total = parseFloat(studentObject['notas'][5]);
+            }
+            if (nota_total < 65 && studentObject['notas'][5] == '-,-' && soma <= 50) {
+                studentObject['notas'][5] = '-,-';
+                nota_total = studentObject['notas'][5];
+            }
+        }
 
-       if ((soma <= 50 && nota_total >= 65) && (n == 0 && f == 0)) {
-           situacao = 'Aprovado';
-       } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
-           situacao = 'Reprovado';
-       } else if ((n > 0 || f > 0) || (nota_total == '-,-')) {
-           situacao = 'Em andamento';
-       }
+        if ((soma <= 50 && nota_total >= 65) && (n == 0 && f == 0)) {
+            situacao = 'Aprovado';
+        } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
+            situacao = 'Reprovado';
+        } else if ((n > 0 || f > 0) || (nota_total == '-,-')) {
+            situacao = 'Em andamento';
+        }
 
-       if(studentObject['faltas'][1] != '-:--'){
-            studentObject['faltas'][1] = converte_falta(studentObject['faltas'][1]);
-       } 
+        if (studentObject['faltas'][1]) {
+            studentObject['faltas'][1] = converte_falta(parseInt(studentObject['faltas'][1]));
+            falta1Coloumn.innerText = studentObject['faltas'][1];
+        }
 
-       if(studentObject['faltas'][2] != '-:--'){
-            studentObject['faltas'][2] = converte_falta(studentObject['faltas'][2]);
-        } 
+        if (studentObject['faltas'][2]) {
+            studentObject['faltas'][2] = converte_falta(parseInt(studentObject['faltas'][2]));
+            falta2Coloumn.innerText = studentObject['faltas'][2];
+        }
 
-       if(studentObject['faltas'][3] != '-:--'){
-            studentObject['faltas'][3] = converte_falta(studentObject['faltas'][3]);
-        } 
+        if (studentObject['faltas'][3]) {
+            studentObject['faltas'][3] = converte_falta(parseInt(studentObject['faltas'][3]));
+            falta3Coloumn.innerText = studentObject['faltas'][3];
+        }
 
-        if(studentObject['faltas'][4] != '-:--'){
-            studentObject['faltas'][4] = converte_falta(studentObject['faltas'][4]);
-        } 
+        if (studentObject['faltas'][4]) {
+            studentObject['faltas'][4] = converte_falta(parseInt(studentObject['faltas'][4]));
+            falta4Coloumn.innerText = studentObject['faltas'][4];
+        }
 
-        if(studentObject['faltas'][5] != '-:--'){
-            studentObject['faltas'][5] = converte_falta(studentObject['faltas'][5]);
-        } 
+        if (studentObject['faltas'][5]) {
+            studentObject['faltas'][5] = converte_falta(parseInt(studentObject['faltas'][5]));
+            faltaRecuperacaoColoumn.innerText = studentObject['faltas'][5];
+        }
 
-       const falta_finalColoumn = document.createElement('td');
-       if ((f == 0) && (soma > 50))
-           falta_finalColoumn.setAttribute('class', 'td_totais negativa');
-       else if ((f == 0) && (soma <= 50))
-           falta_finalColoumn.setAttribute('class', 'td_totais positiva');
-       falta_finalColoumn.innerText = falta_total;
-       row.appendChild(falta_finalColoumn);
+        const falta_finalColoumn = document.createElement('td');
+        if ((f == 0) && (soma > 50))
+            falta_finalColoumn.setAttribute('class', 'td_totais negativa');
+        else if ((f == 0) && (soma <= 50))
+            falta_finalColoumn.setAttribute('class', 'td_totais positiva');
+        falta_finalColoumn.innerText = falta_total;
+        row.appendChild(falta_finalColoumn);
 
-       const nota_finalColoumn = document.createElement('td');
-       if ((n == 0) && (nota_total < 65 && nota_total != '-,-'))
-           nota_finalColoumn.setAttribute('class', 'td_totais negativa');
-       else if ((n == 0) && (nota_total >= 65))
-           nota_finalColoumn.setAttribute('class', 'td_totais positiva');
-       else if ((n == 0) && (nota_total == '-,-'))
-           nota_finalColoumn.setAttribute('class', 'td_totais neutra');
-       nota_finalColoumn.innerText = nota_total;
-       row.appendChild(nota_finalColoumn);
+        const nota_finalColoumn = document.createElement('td');
+        if ((n == 0) && (nota_total < 65 && nota_total != '-,-'))
+            nota_finalColoumn.setAttribute('class', 'td_totais negativa');
+        else if ((n == 0) && (nota_total >= 65))
+            nota_finalColoumn.setAttribute('class', 'td_totais positiva');
+        else if ((n == 0) && (nota_total == '-,-'))
+            nota_finalColoumn.setAttribute('class', 'td_totais neutra');
+        nota_finalColoumn.innerText = nota_total;
+        row.appendChild(nota_finalColoumn);
 
-       const situacao_final = document.createElement('td');
-       if (situacao == 'Em andamento')
-           situacao_final.setAttribute('class', 'td_situacao neutra');
-       else if (situacao == 'Reprovado')
-           situacao_final.setAttribute('class', 'td_situacao negativa');
-       else if (situacao == 'Aprovado')
-           situacao_final.setAttribute('class', 'td_situacao positiva');
-       situacao_final.innerText = situacao;
-       row.appendChild(situacao_final);
+        const situacao_final = document.createElement('td');
+        if (situacao == 'Em andamento')
+            situacao_final.setAttribute('class', 'td_situacao neutra');
+        else if (situacao == 'Reprovado')
+            situacao_final.setAttribute('class', 'td_situacao negativa');
+        else if (situacao == 'Aprovado')
+            situacao_final.setAttribute('class', 'td_situacao positiva');
+        situacao_final.innerText = situacao;
+        row.appendChild(situacao_final);
 
-       resultBlock.appendChild(row);
+        resultBlock.appendChild(row);
     }
 }
 

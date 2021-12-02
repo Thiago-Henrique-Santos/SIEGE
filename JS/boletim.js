@@ -1,17 +1,21 @@
 import { reportTableAsyncQuery } from "../modulos/filtros.js";
 import { currentURL, resultTable } from "./filtro_boletim.js";
 
-let btn_edit = document.getElementById('btn_editar');
-btn_edit.addEventListener("click", () => {toggle_disabled(false);});
+const userType = sessionStorage.getItem('tip_usu');
 
-let btn_cancel = document.getElementById('btn_cancelar');
-btn_cancel.addEventListener("click",() => {cancel(true);});
+if (userType != 1) {
+	let btn_edit = document.getElementById('btn_editar');
+	btn_edit.addEventListener("click", () => { toggle_disabled(false); });
 
-let btn_clear = document.getElementById('btn_limpar');
-btn_clear.addEventListener("click", () => {clearInputs();});
+	let btn_cancel = document.getElementById('btn_cancelar');
+	btn_cancel.addEventListener("click", () => { cancel(true); });
 
-let btn_post = document.getElementById('btn_publicar');
-btn_post.addEventListener("click", () => {postGrades()});
+	let btn_clear = document.getElementById('btn_limpar');
+	btn_clear.addEventListener("click", () => { clearInputs(); });
+
+	let btn_post = document.getElementById('btn_publicar');
+	btn_post.addEventListener("click", () => { postGrades() });
+}
 
 function toggle_disabled(bool) {
 	let input = document.getElementsByTagName('input');
@@ -26,11 +30,11 @@ function toggle_disabled(bool) {
 	botao_publicar.style.backgroundColor = "rgb(85, 84, 84)";
 	botao_publicar.style.color = "white";
 	botao_publicar.style.cursor = "pointer";
-	botao_publicar.addEventListener("mouseover", function(event){
+	botao_publicar.addEventListener("mouseover", function (event) {
 		event.target.style.textDecoration = "underline";
 		event.target.style.color = "white";
 	});
-	botao_publicar.addEventListener("mouseout", function(event){
+	botao_publicar.addEventListener("mouseout", function (event) {
 		event.target.style.textDecoration = "none";
 		event.target.style.color = "white";
 	});
@@ -60,28 +64,28 @@ function clearInputs() {
 
 	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number' && !input[i].disabled) {
-				conf = true;
+			conf = true;
 		}
 	}
 
-	if(conf){
-		confirmacao = confirm ("Você realmente deseja limpar os dados de todos os campos?");
-		if(confirmacao == true)
+	if (conf) {
+		confirmacao = confirm("Você realmente deseja limpar os dados de todos os campos?");
+		if (confirmacao == true)
 			for (let i = 0; i <= (input.length - 1); i++) {
 				if (input[i].type == 'number') {
 					input[i].value = "";
 				}
-			}	
+			}
 	}
 }
 
-function postGrades(){
+function postGrades() {
 	let btn_cancel = document.getElementById('btn_cancelar');
 	let input = document.getElementsByTagName('input');
 
 	for (let i = 0; i <= (input.length - 1); i++) {
 		if (input[i].type == 'number') {
-			if(input[i].value == '0'){
+			if (input[i].value == '0') {
 				input[i].value = '00';
 			}
 			input[i].disabled = true;
@@ -90,11 +94,11 @@ function postGrades(){
 
 	let info = [];
 	let linhas = document.querySelectorAll('#reportTable tr');
-	for(let i = 2; i < linhas.length; i++){
+	for (let i = 2; i < linhas.length; i++) {
 		let linha = linhas[i];
 		let colunas = linha.getElementsByTagName('td');
 		let linha_info = [];
-		for(let j = 1; j < colunas.length-3; j++){
+		for (let j = 1; j < colunas.length - 3; j++) {
 			let coluna = colunas[j];
 			let valor = coluna.getElementsByTagName('input')[0].value;
 			linha_info.push(valor);
@@ -104,8 +108,8 @@ function postGrades(){
 
 	let quantbole = info.length;
 	let url = `CRUD/Boletim/update.php?qtd=${quantbole}`;
-	for(let i = 0; i < quantbole; i++){
-		url+=`&idb${i}=${info[i][0]}&f1${i}=${info[i][1]}&n1${i}=${info[i][2]}&f2${i}=${info[i][3]}&n2${i}=${info[i][4]}&f3${i}=${info[i][5]}&n3${i}=${info[i][6]}&f4${i}=${info[i][7]}&n4${i}=${info[i][8]}&rf${i}=${info[i][9]}&rn${i}=${info[i][10]}`;
+	for (let i = 0; i < quantbole; i++) {
+		url += `&idb${i}=${info[i][0]}&f1${i}=${info[i][1]}&n1${i}=${info[i][2]}&f2${i}=${info[i][3]}&n2${i}=${info[i][4]}&f3${i}=${info[i][5]}&n3${i}=${info[i][6]}&f4${i}=${info[i][7]}&n4${i}=${info[i][8]}&rf${i}=${info[i][9]}&rn${i}=${info[i][10]}`;
 	}
 
 	let httpRequest = startRequest();
@@ -122,11 +126,11 @@ function postGrades(){
 
 				modal.style.display = "block";
 
-				span.onclick = function() {
+				span.onclick = function () {
 					modal.style.display = "none";
 				}
 
-				window.onclick = function(event) {
+				window.onclick = function (event) {
 					if (event.target == modal) {
 						modal.style.display = "none";
 					}
@@ -139,11 +143,11 @@ function postGrades(){
 
 				modal.style.display = "block";
 
-				span.onclick = function() {
+				span.onclick = function () {
 					modal.style.display = "none";
 				}
 
-				window.onclick = function(event) {
+				window.onclick = function (event) {
 					if (event.target == modal) {
 						modal.style.display = "none";
 					}
@@ -156,19 +160,19 @@ function postGrades(){
 
 function startRequest() {
 	let httpRequest;
-    if (window.XMLHttpRequest) {
-        httpRequest = new XMLHttpRequest();
-    } else if (window.ActiveXObject) {
-        try {
-            httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
-            try {
-                httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
-            } catch (e) { }
-        }
-    }
-    if (!httpRequest) {
-        alert("Desistindo: Não é possível criar uma instância XMLHTTP.");
-    }
-    return httpRequest;
+	if (window.XMLHttpRequest) {
+		httpRequest = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		try {
+			httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+			try {
+				httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+			} catch (e) { }
+		}
+	}
+	if (!httpRequest) {
+		alert("Desistindo: Não é possível criar uma instância XMLHTTP.");
+	}
+	return httpRequest;
 }
