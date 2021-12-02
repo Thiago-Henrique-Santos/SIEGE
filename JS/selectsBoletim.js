@@ -1,11 +1,11 @@
 import { startRequest } from '../modulos/ajax.js';
 const userType = sessionStorage.getItem('tip_usu');
 
-if (userType != 1) {
-    let httpRequest = startRequest();
-    const selectClass = document.getElementById('turmaEscolhida');
-    const selectSubject = document.getElementById('disciplinaEscolhida');
+let httpRequest = startRequest();
+const selectClass = document.getElementById('turmaEscolhida');
+const selectSubject = document.getElementById('disciplinaEscolhida');
 
+if (userType != 1) {
     selectClass.addEventListener("change", () => {
         let classId = selectClass.options[selectClass.selectedIndex].value;
         let url = "CRUD/Boletim/read_selectDisciplina.php";
