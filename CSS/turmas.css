@@ -146,3 +146,47 @@ i.i_btns {
 .nomeTurmaTitle {
   margin-left: 5px !important;
 }
+
+#icon_btn_att1 {
+  margin-left: 10px;
+}
+
+#icon_btn_att2 {
+  margin-left: 7px;
+}
+
+#icon_btn_att1:hover {
+  color: white;
+}
+
+#icon_btn_att2:hover {
+  color: white;
+}
+
+.att_disciplina {
+  background-color: rgb(178, 188, 192);
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  width: auto;
+  border: 2px solid gray;
+}
+
+.att_disciplina:hover {
+  width: auto;
+  height: 45px;
+  border-color: rgb(53, 53, 53);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.select_professor_atualizar {
+  height: 35px;
+  border-radius: 5px;
+}
+
+.disciplina_atualizar {
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+}

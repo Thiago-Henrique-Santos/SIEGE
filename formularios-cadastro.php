@@ -22,7 +22,11 @@ $data_atual = date('d/m/Y');
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
     <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
+    <link rel="stylesheet" type="text/css" href="CSS/turmas.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         function toggleSubject(id) {
             var buttons = document.querySelectorAll('button.att_disciplina');
@@ -393,25 +397,25 @@ $data_atual = date('d/m/Y');
                 echo "<ul>";
                 $i = 0;
                 while ($linha = $resultado->fetch_assoc()) {
-                    echo "<li><button id='$i' onclick='toggleSubject(this.id)' class='att_disciplina' type='button'>" . $linha['nome_disciplina'] . "</button></li>";
+                    echo "<li><button id='$i' onclick='toggleSubject(this.id)' class='att_disciplina' type='button'>" . $linha['nome_disciplina'] . "<i id='icon_btn_att1' class='fas fa-arrow-down'></i><i id='icon_btn_att2' class='far fa-hand-pointer'></i></button></li>";
                     echo "<div class='sh' style='display: none;'>";
-                    echo "&emsp;<label for='disciplina_$i' style='margin-left: 10px;' class='form-label'><u>Nome</u>:</label>";
+                    echo "&emsp;<label for='disciplina_$i' style='margin-left: 10px;margin-top: 10px;' class='form-label'><u>Nome</u>:</label>";
                     $getName = "dsc$i";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                         $valor_salvo = $_GET[$getName];
-                    echo "&nbsp;<input type='text' style='margin-left: 40px;width: 290px;' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='";
+                    echo "&nbsp;<input type='text' class='disciplina_atualizar' style='margin-left: 40px;width: 290px;' id='disciplina_$i' name='disciplina_$i' required title='Preencha o nome da disciplina' value='";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName])) {
                         echo $valor_salvo;
                     } else {
                         echo $linha['nome_disciplina'];
                     }
                     echo "'><br>";
-                    echo "&emsp;<label for='professor_$i' style='margin-left: 10px;' class='form-label'><u>Professor</u>:</label>";
+                    echo "&emsp;<label for='professor_$i' style='margin-left: 10px;margin-top: 20px;' class='form-label'><u>Professor</u>:</label>";
 
                     $getName = "prf$i";
                     if (isset($_GET[$getName]) && !empty($_GET[$getName]))
                         $valor_salvo = $_GET[$getName];
-                    echo "&nbsp;<select name='professor_$i' style='margin-left: 40px;width: 290px;' title='Selecione o nome do professor da disciplina' required>";
+                    echo "&nbsp;<select class='select_professor_atualizar' name='professor_$i' style='margin-left: 40px;width: 290px;' title='Selecione o nome do professor da disciplina' required>";
 
                     if ($linha['nome_professor'] == 'Default')
                         $linha['nome_professor'] = "--";
