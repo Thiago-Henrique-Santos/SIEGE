@@ -642,7 +642,7 @@ function printTable(studentObject, resultBlock, counter) {
             falta_total = '-:--';
             situacao = 'Em andamento';
         } else {
-            if (studentObject['faltas'][5] == null) {
+            if (!studentObject['faltas'][5]) {
                 soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]);
             } else {
                 soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]) + parseInt(studentObject['faltas'][5]);
@@ -655,12 +655,13 @@ function printTable(studentObject, resultBlock, counter) {
             situacao = 'Em andamento';
         } else {
             nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
-            if ((nota_total < 65) && (parseFloat(studentObject['notas'][5]) != null && parseFloat(studentObject['notas'][5]) >= nota_total)) {
+            if ((nota_total < 65) && (studentObject['notas'][5]) && parseFloat(studentObject['notas'][5]) >= nota_total) {
                 nota_total = parseFloat(studentObject['notas'][5]);
             }
-            if (nota_total < 65 && studentObject['notas'][5] == null && soma <= 50) {
-                studentObject['notas'][5] = '-,-';
-                nota_total = studentObject['notas'][5];
+            if (nota_total < 65 && !studentObject['notas'][5] && soma <= 50) {
+                nota_total = '-,-';
+                falta_total = '-:--';
+                situacao = 'Em recuperação';
             }
         }
 
@@ -668,7 +669,7 @@ function printTable(studentObject, resultBlock, counter) {
             situacao = 'Aprovado';
         } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
             situacao = 'Reprovado';
-        } else if ((n > 0 || f > 0) || (nota_total == '-,-')) {
+        } else if ((n > 0 || f > 0)) {
             situacao = 'Em andamento';
         }
 
@@ -698,6 +699,8 @@ function printTable(studentObject, resultBlock, counter) {
             situacao_final.setAttribute('class', 'td_situacao negativa');
         else if (situacao == 'Aprovado')
             situacao_final.setAttribute('class', 'td_situacao positiva');
+        else if (situacao == 'Em recuperação')
+            situacao_final.setAttribute('class', 'td_situacao recuperacao');
         situacao_final.innerText = situacao;
         row.appendChild(situacao_final);
 
@@ -817,7 +820,7 @@ function printTable(studentObject, resultBlock, counter) {
             falta_total = '-:--';
             situacao = 'Em andamento';
         } else {
-            if (studentObject['faltas'][5] == null) {
+            if (!studentObject['faltas'][5]) {
                 soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]);
             } else {
                 soma = parseInt(studentObject['faltas'][1]) + parseInt(studentObject['faltas'][2]) + parseInt(studentObject['faltas'][3]) + parseInt(studentObject['faltas'][4]) + parseInt(studentObject['faltas'][5]);
@@ -830,12 +833,13 @@ function printTable(studentObject, resultBlock, counter) {
             situacao = 'Em andamento';
         } else {
             nota_total = parseFloat(studentObject['notas'][1]) + parseFloat(studentObject['notas'][2]) + parseFloat(studentObject['notas'][3]) + parseFloat(studentObject['notas'][4]);
-            if ((nota_total < 65) && (studentObject['notas'][5] != '-,-' && parseFloat(studentObject['notas'][5]) >= nota_total)) {
+            if ((nota_total < 65) && (studentObject['notas'][5] && parseFloat(studentObject['notas'][5]) >= nota_total)) {
                 nota_total = parseFloat(studentObject['notas'][5]);
             }
-            if (nota_total < 65 && studentObject['notas'][5] == '-,-' && soma <= 50) {
-                studentObject['notas'][5] = '-,-';
-                nota_total = studentObject['notas'][5];
+            if (nota_total < 65 && !studentObject['notas'][5] && soma <= 50) {
+                nota_total = '-,-';
+                falta_total = '-:--';
+                situacao = 'Em recuperação';
             }
         }
 
@@ -843,31 +847,31 @@ function printTable(studentObject, resultBlock, counter) {
             situacao = 'Aprovado';
         } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
             situacao = 'Reprovado';
-        } else if ((n > 0 || f > 0) || (nota_total == '-,-')) {
+        } else if ((n > 0 || f > 0)) {
             situacao = 'Em andamento';
         }
 
-        if (studentObject['faltas'][1]) {
+        if (studentObject['faltas'][1] && studentObject['faltas'][1] != '-:--') {
             studentObject['faltas'][1] = converte_falta(parseInt(studentObject['faltas'][1]));
             falta1Coloumn.innerText = studentObject['faltas'][1];
         }
 
-        if (studentObject['faltas'][2]) {
+        if (studentObject['faltas'][2] && studentObject['faltas'][2] != '-:--') {
             studentObject['faltas'][2] = converte_falta(parseInt(studentObject['faltas'][2]));
             falta2Coloumn.innerText = studentObject['faltas'][2];
         }
 
-        if (studentObject['faltas'][3]) {
+        if (studentObject['faltas'][3] && studentObject['faltas'][3] != '-:--') {
             studentObject['faltas'][3] = converte_falta(parseInt(studentObject['faltas'][3]));
             falta3Coloumn.innerText = studentObject['faltas'][3];
         }
 
-        if (studentObject['faltas'][4]) {
+        if (studentObject['faltas'][4] && studentObject['faltas'][4] != '-:--') {
             studentObject['faltas'][4] = converte_falta(parseInt(studentObject['faltas'][4]));
             falta4Coloumn.innerText = studentObject['faltas'][4];
         }
 
-        if (studentObject['faltas'][5]) {
+        if (studentObject['faltas'][5] && studentObject['faltas'][5] != '-:--') {
             studentObject['faltas'][5] = converte_falta(parseInt(studentObject['faltas'][5]));
             faltaRecuperacaoColoumn.innerText = studentObject['faltas'][5];
         }
@@ -897,6 +901,8 @@ function printTable(studentObject, resultBlock, counter) {
             situacao_final.setAttribute('class', 'td_situacao negativa');
         else if (situacao == 'Aprovado')
             situacao_final.setAttribute('class', 'td_situacao positiva');
+        else if (situacao == 'Em recuperação')
+            situacao_final.setAttribute('class', 'td_situacao recuperacao');
         situacao_final.innerText = situacao;
         row.appendChild(situacao_final);
 

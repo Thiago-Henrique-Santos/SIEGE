@@ -269,3 +269,8 @@ input[type="number"] {
   color: rgb(128, 128, 128);
   font-weight: 500;
 }
+
+.recuperacao {
+  color: rgb(214, 175, 1);
+  font-weight: 500;
+}

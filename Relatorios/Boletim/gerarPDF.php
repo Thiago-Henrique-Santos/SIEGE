@@ -671,6 +671,8 @@ function tabelaNotas()
         }
         if ($notaFinal < 65 && $linha['notaRecuperacao'] == '-,-' && $soma <= 50) {
             $notaFinal = $linha['notaRecuperacao'];
+            $faltasTotais = $linha['faltaRecuperacao'];
+            $situacoes = 'Em recuperação';
         }
     }
 
@@ -684,7 +686,7 @@ function tabelaNotas()
             $situacoes = 'Reprovado';
         else
             $situacoes = 'Reprovada';
-    } elseif (($n > 0 || $f > 0) || ($notaFinal == '-,-')) {
+    } elseif (($n > 0 || $f > 0)) {
         $situacoes = 'Em andamento';
     }
 
@@ -788,8 +790,10 @@ function tabelaNotas()
         $pdf->SetTextColor(255, 0, 0);
     elseif ($situacoes == 'Aprovado' || $situacoes == 'Aprovada')
         $pdf->SetTextColor(0, 128, 0);
+    elseif ($situacoes == 'Em recuperação')
+        $pdf->SetTextColor(214, 175, 1);
 
-    $pdf->Cell(3, 0.7, $situacoes, 1, 0, "C", 1);
+    $pdf->Cell(3, 0.7, utf8_decode($situacoes), 1, 0, "C", 1);
     $pdf->Ln();
     $pdf->SetTextColor(0, 0, 0);
 
