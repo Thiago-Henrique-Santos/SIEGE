@@ -666,9 +666,15 @@ function printTable(studentObject, resultBlock, counter) {
         }
 
         if ((soma <= 50 && nota_total >= 65) && (n == 0 && f == 0)) {
-            situacao = 'Aprovado';
+            if(studentObject['sexo'] == 'M')
+                situacao = 'Aprovado';
+            else
+                situacao = 'Aprovada';
         } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
-            situacao = 'Reprovado';
+            if(studentObject['sexo'] == 'M')
+                situacao = 'Reprovado';
+            else
+                situacao = 'Reprovada';
         } else if ((n > 0 || f > 0)) {
             situacao = 'Em andamento';
         }
@@ -695,9 +701,9 @@ function printTable(studentObject, resultBlock, counter) {
         const situacao_final = document.createElement('td');
         if (situacao == 'Em andamento')
             situacao_final.setAttribute('class', 'td_situacao neutra');
-        else if (situacao == 'Reprovado')
+        else if (situacao == 'Reprovado' || situacao == 'Reprovada')
             situacao_final.setAttribute('class', 'td_situacao negativa');
-        else if (situacao == 'Aprovado')
+        else if (situacao == 'Aprovado' || situacao == 'Aprovada')
             situacao_final.setAttribute('class', 'td_situacao positiva');
         else if (situacao == 'Em recuperação')
             situacao_final.setAttribute('class', 'td_situacao recuperacao');
@@ -844,9 +850,15 @@ function printTable(studentObject, resultBlock, counter) {
         }
 
         if ((soma <= 50 && nota_total >= 65) && (n == 0 && f == 0)) {
-            situacao = 'Aprovado';
+            if(genero == 'M') 
+                situacao = 'Aprovado';
+            else
+                situacao = 'Aprovada';
         } else if (((soma > 50) || (nota_total < 65 && nota_total != '-,-')) && (n == 0 && f == 0)) {
-            situacao = 'Reprovado';
+            if(genero == 'M') 
+                situacao = 'Reprovado';
+            else
+                situacao = 'Reprovada';
         } else if ((n > 0 || f > 0)) {
             situacao = 'Em andamento';
         }
@@ -897,9 +909,9 @@ function printTable(studentObject, resultBlock, counter) {
         const situacao_final = document.createElement('td');
         if (situacao == 'Em andamento')
             situacao_final.setAttribute('class', 'td_situacao neutra');
-        else if (situacao == 'Reprovado')
+        else if (situacao == 'Reprovado' || situacao == 'Reprovada')
             situacao_final.setAttribute('class', 'td_situacao negativa');
-        else if (situacao == 'Aprovado')
+        else if (situacao == 'Aprovado' || situacao == 'Aprovada')
             situacao_final.setAttribute('class', 'td_situacao positiva');
         else if (situacao == 'Em recuperação')
             situacao_final.setAttribute('class', 'td_situacao recuperacao');
