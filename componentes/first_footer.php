@@ -63,10 +63,10 @@
 
 					<ul class="list-unstyled list-inline">
 						<li class="list-inline-item">
-							<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiRge26y8r0AhVwrZUCHcjsAOYQFnoECAMQAQ&url=https%3A%2F%2Fwww.facebook.com%2Fescolajuvenalbrandao%2F&usg=AOvVaw2oUj1GJVOaerVPWSpPf_Bd" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+							<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiRge26y8r0AhVwrZUCHcjsAOYQFnoECAMQAQ&url=https%3A%2F%2Fwww.facebook.com%2Fescolajuvenalbrandao%2F&usg=AOvVaw2oUj1GJVOaerVPWSpPf_Bd" target="_blank" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
 						</li>
 						<li class="list-inline-item">
-							<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjilr75y8r0AhWBrJUCHWpnBrAQFnoECAoQAQ&url=https%3A%2F%2Fwww.instagram.com%2Fescolajuvenalbrandao%2F&usg=AOvVaw3gIwfieAGalffDibtOMW5d" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+							<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjilr75y8r0AhWBrJUCHWpnBrAQFnoECAoQAQ&url=https%3A%2F%2Fwww.instagram.com%2Fescolajuvenalbrandao%2F&usg=AOvVaw3gIwfieAGalffDibtOMW5d" target="_blank" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="list-inline-item">
 							<a href="https://mail.google.com/mail/u/0/#inbox?compose=VpCqJRxbqNpbJTlHjPbPLXlkbpdKZXSvCHnfklRpsVJqsfwxbVXLTmDQvhkzNbZsxLDfKbB" target="_blank" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fa fa-envelope"></i></a>
