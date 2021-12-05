@@ -14,7 +14,7 @@
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
-  background-color: rgb(0, 0, 156);
+  background-color: #0c254b;
   font-family: Arial;
   color: white;
 }
@@ -67,7 +67,7 @@ td.registroAlunos {
 }
 
 #btn_editar {
-  background-color: darkblue;
+  background-color: #0c2b5a;
   color: white;
   width: 100px;
   height: 50px;

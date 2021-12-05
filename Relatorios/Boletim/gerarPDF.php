@@ -564,7 +564,7 @@ function dadosAluno()
 
     $pdf->SetFont('Arial', 'B', 10);
     $pdf->SetTextColor(255, 255, 255);
-    $pdf->SetFillColor(0, 0, 156);
+    $pdf->SetFillColor(12, 37, 75);
 
     $pdf->Cell(5.1, 1, '', 1, 0, "C", 1);
     $pdf->Cell(3, 1, utf8_decode('1° Bimestre'), 1, 0, "C", 1);
