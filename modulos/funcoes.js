@@ -75,4 +75,23 @@ function generatePath(basePath, key, add) {
 
 }
 
-export { generatePath };
+function dateFormatForInput(date) {
+    return date.split('/').reverse().join('-');
+}
+
+function converte_falta(aulas) {
+    let minutosTotais = aulas * 50;
+    let horas = 0;
+    let minutos = 0;
+    let i = 0;
+    for (i = minutosTotais; i >= 60; i -= 60) {
+        horas++;
+    }
+    minutos = i;
+    if (minutos == 0)
+        minutos = '00';
+    let tempoTotal = horas + ":" + minutos;
+    return tempoTotal;
+}
+
+export { generatePath, converte_falta, dateFormatForInput };

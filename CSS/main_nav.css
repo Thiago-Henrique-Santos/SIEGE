@@ -1,0 +1,272 @@
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #2f3a4f;
+  transition: all 0.5s ease;
+  z-index: 1000;
+}
+
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  background: #5e5f5f;
+  user-select: none;
+  margin-top: -27px;
+}
+
+.sidebar header a.link_hide {
+  text-decoration: none;
+}
+
+.sidebar header img {
+  width: 200px;
+  height: auto;
+}
+
+.sidebar ul.ul3 {
+  width: 100%;
+  margin-left: -32px;
+  transform: translateY(8.5%);
+}
+
+.sidebar ul.ul2 {
+  width: 100%;
+  margin-left: -32px;
+  transform: translateY(20%);
+}
+
+.sidebar ul.ul1 {
+  width: 100%;
+  margin-left: -32px;
+  transform: translateY(40%);
+}
+
+.sidebar ul li {
+  width: 250px;
+}
+
+.sidebar ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 10px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid black;
+  transition: 0.4s;
+}
+
+ul li a.link_menu {
+  background-color: #2f3a4f;
+  text-decoration: none;
+}
+
+ul li:hover a.link_menu {
+  padding-left: 40px;
+  color: gray;
+  text-decoration: underline;
+}
+
+ul li:active a.link_menu {
+  padding-left: 40px;
+  color: rgb(230, 203, 65);
+  text-decoration: underline;
+}
+
+.sidebar ul a i {
+  margin-right: 16px;
+}
+
+#check {
+  display: none;
+}
+
+label #btn,
+label #fechar_menu {
+  position: absolute;
+  cursor: pointer;
+}
+
+label div#entorno_btn {
+  z-index: 90;
+  height: 102px;
+  width: 142px;
+  left: 40px;
+  top: 0px;
+  padding: 8px 14px;
+  transition: all 0.5s ease;
+  background: rgba(255, 255, 255, 0.596);
+  position: fixed !important;
+  vertical-align: middle;
+  border-radius: 8px;
+}
+
+label #btn {
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: black;
+  padding: 6px 12px;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  background-color: lightgray;
+  border: 1px black solid;
+}
+
+label #btn:hover {
+  color: gray;
+  padding: 6px 12px;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  background-color: rgb(221, 220, 220);
+  border: 1px lightgray solid;
+}
+
+label #btn:active {
+  color: lightgray;
+  padding: 6px 12px;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  background-color: rgb(228, 226, 226);
+  border: 1px rgb(172, 172, 172) solid;
+}
+
+label #fechar_menu {
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 20px;
+  color: white;
+  padding: 4px 9px;
+  transition: all 0.5s ease;
+  background-color: gray;
+  border-radius: 0;
+}
+
+label #fechar_menu:hover {
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 20px;
+  color: rgb(228, 107, 107);
+  padding: 4px 9px;
+  transition: all 0.5s ease;
+  background-color: rgb(170, 134, 134);
+  border-radius: 0;
+}
+
+label #fechar_menu:active {
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 20px;
+  color: red;
+  padding: 4px 9px;
+  transition: all 0.5s ease;
+  background-color: rgb(170, 134, 134);
+  border-radius: 0;
+}
+
+#check:checked ~ .sidebar {
+  left: 0;
+}
+
+#check:checked ~ label #btn {
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#check:checked ~ label #fechar_menu {
+  left: 0px;
+  top: 0px;
+  width: 35px;
+  position: fixed;
+}
+
+#check:checked ~ main {
+  margin-left: 250px;
+}
+
+main {
+  transition: all 0.5s;
+}
+
+ul li.paginaAtual a {
+  background-color: white;
+  color: #2f3a4f;
+  text-decoration: none;
+}
+
+ul li.paginaAtual a:hover {
+  background-color: white;
+  color: gray;
+  padding-left: 40px;
+  text-decoration: underline;
+}
+
+ul li.paginaAtual a:active {
+  background-color: white;
+  padding-left: 40px;
+  color: rgb(230, 203, 65);
+  text-decoration: underline;
+}
+
+.sidebar ul a.no_border {
+  font-size: 20px;
+  color: white;
+  padding-left: 10px;
+  border-top: none !important;
+  border-bottom: none !important;
+  transition: 0.4s;
+  transform: translateY(120%);
+}
+
+.sidebar ul a.no_border span.nm_btn {
+  position: absolute;
+  text-align: center;
+  height: auto;
+  margin-left: 0px;
+  margin-top: -15px;
+  margin-right: 10px;
+}
+
+.ctr_btn_sair {
+  height: 0px;
+  margin-top: 25px;
+}
+
+.sidebar ul a.no_border button.btn_sair {
+  background-color: rgb(218, 24, 24);
+  border: none;
+  width: 100px;
+  height: 38px;
+  color: white;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  width: 100px;
+  height: 38px;
+}
+
+.sidebar ul a.no_border button.btn_sair:hover {
+  transition: 0.4s;
+  background-color: rgb(173, 23, 23);
+  border: 1.5px black solid;
+  color: white;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+}
+
+.sidebar ul a.no_border button.btn_sair img.img_logout {
+  height: auto;
+  margin-left: 40px;
+  margin-top: -35px;
+  width: 20px;
+}

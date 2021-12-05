@@ -1,0 +1,17 @@
+.sites {
+  border-width: 0.1px !important;
+  background-color: white !important;
+  border-radius: 17px 17px 17px 17px !important;
+}
+
+.sites:hover {
+  border-width: 0.1px;
+  background-color: white;
+  border-radius: 17px 17px 17px 17px;
+  box-shadow: 2px 2px 2px 1px rgba(122, 122, 122, 0.719);
+}
+
+.img_tools {
+  width: 170px;
+  height: auto;
+}

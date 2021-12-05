@@ -1,0 +1,93 @@
+i.i_btns {
+  margin-left: 7px;
+}
+
+.updateUserButton {
+  background-color: rgb(70, 50, 255);
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.updateUserButton:hover {
+  text-decoration: underline;
+}
+
+.deleteUserButton {
+  background-color: rgb(255, 50, 50);
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.deleteUserButton:hover {
+  text-decoration: underline;
+}
+
+#busca_resultado {
+  background-color: white;
+  height: auto;
+  width: 100% !important;
+}
+
+.registerContainer {
+  border: 1px solid black !important;
+  border-radius: 10px !important;
+  margin-bottom: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 380px !important;
+  height: 388.2px !important;
+  position: relative;
+}
+
+.listBlock {
+  list-style-type: disc;
+}
+
+.registerButtonsBlock {
+  width: 378px;
+  background-color: rgb(180, 180, 180);
+  display: flex !important;
+  text-align: center !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 55px;
+  margin-left: 0px !important;
+  margin-bottom: 0px !important;
+  border-top: 1px solid gray;
+  border-radius: 0px 0px 10px 10px;
+  position: absolute;
+  bottom: 0 !important;
+}
+
+.listItemBlockName {
+  width: 378px;
+  height: auto;
+  font-size: 14.75px !important;
+  border-bottom: 1px solid gray;
+  padding: 5.5px;
+  margin-left: -82px !important;
+  margin-top: -10px !important;
+  margin-bottom: 20px !important;
+  background-color: rgb(231, 231, 231);
+  list-style-type: none !important;
+  text-align: center !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.listItemBlock {
+  line-break: normal !important;
+  font-size: 14px;
+  padding: 2px;
+  text-align: left;
+}

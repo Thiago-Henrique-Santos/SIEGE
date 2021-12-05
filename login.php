@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+$jaLogado = validaLoginNaSessao();
+if ($jaLogado) {
+    header ("Location: pagina_inicial.php");
+}
+
+function validaLoginNaSessao(){
+    $validado = 1;
+
+    $validado = (isset($_SESSION['campo_email']) && !empty($_SESSION['campo_email'])) ? $validado*1 : $validado*0;
+    $validado = (isset($_SESSION['campo_senha']) && !empty($_SESSION['campo_senha'])) ? $validado*1 : $validado*0;
+    $validado = (isset($_SESSION['tip_usu']) && !empty($_SESSION['tip_usu'])) ? $validado*1 : $validado*0;
+    $validado = (isset($_SESSION['sx']) && !empty($_SESSION['sx'])) ? $validado*1 : $validado*0;
+
+    $validado = (bool)$validado;
+    return $validado;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,10 +26,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icon_siege.png"/>
     <title>SIEGE - Login</title>
     <link rel="stylesheet" type="text/css" href="CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="CSS/login.css">
     <link rel="stylesheet" type="text/css" href="CSS/texto.css">
+    <link rel="stylesheet" type="text/css" href="CSS/modulos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
@@ -47,7 +70,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer class="container-fluid" style="margin-top: 5px">
         <p> SIEGE - Sistema Informativo E Gerenciamento Escolar </p>
     </footer>
 </body>

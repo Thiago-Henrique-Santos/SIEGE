@@ -1,0 +1,76 @@
+.user {
+  vertical-align: middle;
+}
+
+.user .label_filtrosUsuarios {
+  color: black;
+  margin-top: -50px;
+}
+
+.user .label_filtrosUsuarios:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.user .label_filtrosTurmas {
+  color: black;
+  margin-top: -50px;
+  margin-right: 20px;
+}
+
+.user .label_filtrosTurmas:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.user .cargoFiltro {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.user .serieFiltro {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.btn_relatorioPDF {
+  background-color: gray;
+  border: none;
+  height: 43px;
+  border-radius: 15px;
+  width: 150px;
+  margin-right: 20px;
+}
+
+.btn_relatorioPDF:hover {
+  background-color: lightgray;
+  font-weight: bold;
+  transition: 0.2s;
+  box-shadow: 0 0 3px 3px rgba(185, 185, 185, 0.795);
+}
+
+.select_relatoriosPDF {
+  text-align: center;
+  border-radius: 5px;
+  width: auto;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.options_validos {
+  background-color: rgb(223, 239, 250);
+  cursor: pointer;
+}
+
+.ignorar {
+  background-color: gray;
+  cursor: default;
+}
+
+.img_relatorio {
+  margin-left: 10px;
+  height: 27px;
+  width: auto;
+}

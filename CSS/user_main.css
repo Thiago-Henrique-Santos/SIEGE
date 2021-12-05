@@ -2,67 +2,165 @@
 * Tags Semânticas**
 ******************/
 main {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: column nowrap;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 nav {
-    width: 100%;
-    height: 50px;
-    background-color: #676869;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+  width: 100%;
+  height: 65px;
+  background-color: #2f3a4f;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 /**************************
 * Demais conteúdos gerais *
 **************************/
 div.flex-container {
-    writing-mode: horizontal-tb;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+  writing-mode: horizontal-tb;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 /**********************
 * Estilização do Menu *
 ***********************/
 nav img {
-    width: 150px;
-    height: auto;
+  width: 175px;
+  height: auto;
 }
 
 nav ul {
-    width: calc(100% - 300px);
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
+  width: calc(100% - 300px);
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
 }
 
 nav ul li {
-    padding: 20px;
+  padding: 20px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 nav ul li a:hover {
-    color: white;
-    font-size: 20px;
-    text-decoration: underline;
+  color: rgb(182, 182, 182);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
+}
+
+nav ul li a:active {
+  color: rgb(230, 203, 65);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
 }
 
 nav div.preenche-final {
-    width: 150px;
-    height: 100%;
+  width: 150px;
+  height: 100%;
+}
+
+.btn_sair {
+  background-color: rgb(218, 24, 24);
+  border: none;
+  width: 100px;
+  height: 38px;
+  color: white;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.btn_sair:hover {
+  transition: 0.2s;
+  background-color: rgb(173, 23, 23);
+  border: 1px black solid;
+  color: white;
+}
+
+.img_logout {
+  height: auto;
+  width: 20px;
+  vertical-align: middle;
+  margin: 0 auto 0 auto;
+  margin-top: -5px;
+  margin-left: 3px;
+}
+
+.outraPagina {
+  background-color: #2f3a4f;
+  border: none !important;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.outraPagina:hover {
+  background-color: #2f3a4f;
+  color: rgb(182, 182, 182);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.2s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.outraPagina:active {
+  background-color: #2f3a4f;
+  color: rgb(230, 203, 65);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paginaAtual {
+  height: 67px;
+  width: auto;
+  font-size: 20px;
+  background-color: white;
+  color: #2f3a4f;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paginaAtual:hover {
+  color: rgb(182, 182, 182);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.2s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.paginaAtual:active {
+  color: rgb(230, 203, 65);
+  font-size: 20px;
+  text-decoration: underline;
+  transition: 0.1s;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }

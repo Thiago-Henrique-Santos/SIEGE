@@ -1,0 +1,61 @@
+@font-face {
+  font-family: ChalkItUp;
+  src: url(../Fontes/DJBChalkItUp.ttf);
+}
+
+section div.menu {
+  font-family: "Arial black";
+  font-size: 25px;
+}
+
+section div.menu ul.nav {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+section div.menu ul.nav li.nav-item {
+  padding: 20px;
+  display: inline-flex;
+}
+
+section div.menu ul.nav li.nav-item a.nav-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+section div.menu ul.nav li.nav-item a.nav-link:hover {
+  color: rgb(182, 182, 182) !important;
+  transition: 0.3s !important;
+}
+
+section div.menu ul.nav li.nav-item a.nav-link:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%) scaleX(0);
+  -webkit-transform: translateX(-50%) scaleX(0);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(230, 203, 65);
+  -webkit-transition: transform 250ms;
+  transition: transform 250ms;
+}
+
+section div.menu ul.nav li.nav-item a.nav-link:hover:after {
+  -webkit-transform: translateX(-50%) scaleX(1);
+  transform: translateX(-50%) scaleX(1);
+}
+
+section div.menu ul.nav li.nav-item a.nav-link:active {
+  color: rgb(230, 203, 65) !important;
+}

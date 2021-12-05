@@ -11,7 +11,7 @@
 
     $sql = "DROP DATABASE siege";
     if($conexao->query($sql) === TRUE)
-        echo "Banco de dados SIEGE excluido com sucesso!";
+        echo "Banco de dados SIEGE excluido com sucesso!<br>";
     else    
         echo "Erro excluindo o banco de dados SIEGE: " . $conexao->error;
 

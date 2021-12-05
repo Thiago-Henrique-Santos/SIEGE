@@ -82,7 +82,7 @@
                 $resultado = $conexao->query($sql);
                 if ($resultado->num_rows > 0) {
                     while ($dados = $resultado->fetch_assoc()) {
-                        if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano'] && $_POST['professor']==$dados['id_professor']) {
+                        if ($_POST['nome_disciplina']==$dados['nome'] && $_POST['ano']==$dados['ano']) {
                             foreach ($turmas as $turma) {
                                 if ($turma == $dados['id_turma']) {
                                     $msgErro[5] = "Já existe um cadastro de disciplina igual ao que você inseriu.";
@@ -90,64 +90,6 @@
                                 }
                             }
                         }
-                    }
-                }
-            }
-            break;
-        case "bimestre":
-            if (!isset($_POST['numero']) || $_POST['numero']=="none") {
-                $msgErro[1] = "<br> * Você não identificou qual bimestre está cadastrando.";
-                $cadastroCorreto = false;
-            }
-
-            if (!isset($_POST['data_inicial'])) {
-                $msgErro[2] = "<br> * Você não especificou o início do bimestre.";
-                $cadastroCorreto = false;
-            }
-
-            if (!isset($_POST['data_final'])) {
-                $msgErro[3] = "<br> * Você não especificou o fim do bimestre.";
-                $cadastroCorreto = false;
-            }
-
-            if($_POST['data_inicial'] >= $_POST['data_final']){
-                $msgErro[4] = "A data final do bimestre está antes ou no mesmo dia da data inicial.";
-                $cadastroCorreto = false;
-            }
-
-            $sql = "SELECT numero, dataTermino FROM bimestre";
-            $resultado = $conexao->query($sql);
-            if ($resultado->num_rows > 0) {
-                while($dados = $resultado->fetch_assoc()) {
-                    if ($dados['numero'] < $_POST['numero']){
-                        if ($_POST['data_inicial'] <= $dados['dataTermino']) {
-                            $msgErro[5] = "A data inicial deste bimestre está interferindo com a data de término de um bimestre anterior.";
-                            $cadastroCorreto = false;
-                        }
-                    }
-                }
-            }
-
-            $sql = "SELECT numero, dataInicio FROM bimestre";
-            $resultado = $conexao->query($sql);
-            if ($resultado->num_rows > 0) {
-                while($dados = $resultado->fetch_assoc()) {
-                    if ($dados['numero'] > $_POST['numero']){
-                        if ($_POST['data_final'] >= $dados['dataInicio']) {
-                            $msgErro[6] = "A data final deste bimestre está interferindo com a data incial de um próximo bimestre.";
-                            $cadastroCorreto = false;
-                        }
-                    }
-                }
-            }
-
-            $sql = "SELECT numero FROM bimestre";
-            $resultado = $conexao->query($sql);
-            if ($resultado->num_rows > 0) {
-                while ($dados = $resultado->fetch_assoc()) {
-                    if ($_POST['numero']==$dados['numero']) {
-                        $msgErro[7] = "Esse bimestre já foi cadastrado.";
-                        $cadastroCorreto = false;
                     }
                 }
             }
@@ -162,7 +104,7 @@
                 if (!isset($_GET['att'])) {
                     header ("Location: ../../CRUD/Turma/create.php?nm=$nm&sr=$sr");
                 } else {
-                    $linkagem  = "Location: ../../CRUD/Turma/update.php?nm=$nm&sr=$sr";
+                    $linkagem  = "Location: ../../CRUD/Turma/update.php?idtf=" . $_GET['idtf'] . "&nm=$nm&sr=$sr";
                     if (isset($_POST['quant_disciplina'])) {
                         $quantidade = (int) $_POST['quant_disciplina'];
                         for ($i = 0; $i < $quantidade; $i++){
@@ -173,7 +115,7 @@
                             $getName   = "professor_$i";
                             $linkagem .= "&prf$i=".$_POST[$getName];
                         }
-                        $linkagem .= "&quant=$i&idtf=".$_GET['idtf'];
+                        $linkagem .= "&quant=$i";
                     }
                     header($linkagem);
                 }
@@ -194,12 +136,6 @@
                     $idtf = $_GET['idtf'];
                     header ("Location: ../../CRUD/Disciplina/update.php?nm=$nm&prf=$prof&idtf=$idtf");
                 }
-                break;
-            case "bimestre":
-                $nmr = $_POST['numero'];
-                $dti = $_POST['data_inicial'];
-                $dtf = $_POST['data_final'];
-                header ("Location: ../../CRUD/Bimestre/create.php?nmr=$nmr&dti=$dti&dtf=$dtf");
                 break;
         }
     } else {
@@ -237,12 +173,6 @@
                     $i++;
                 }
                 header ("Location: ../../formularios-cadastro.php?id=disciplina&tfm=cadastrar&nm=$nm&ano=$ano&prf=$prof$linkTurmas&enm=$msgErro[1]&eano=$msgErro[2]&eprf=$msgErro[3]&etur=$msgErro[4]&jcd=$msgErro[5]");
-                break;
-            case "bimestre":
-                $nmr = $_POST['numero'];
-                $dti = $_POST['data_inicial'];
-                $dtf = $_POST['data_final'];
-                header ("Location: ../../formularios-cadastro.php?id=bimestre&tfm=cadastrar&nmr=$nmr&dti=$dti&dtf=$dtf&enmr=$msgErro[1]&edti=$msgErro[2]&edtf=$msgErro[3]&dtinv=$msgErro[4]&dtic=$msgErro[5]&dtfc=$msgErro[6]&jcd=$msgErro[7]");
                 break;
         }
     }
