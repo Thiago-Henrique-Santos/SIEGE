@@ -36,13 +36,13 @@
 			<div id=div_contato class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
 				<h5 class="text-uppercase mb-4 font-weight-bold text-warning" >Contato</h5>
 				<p>
-					<i class="fas fa-home mr-3"></i>Rua Engenheiro Américo Guidi Filho, 48 - Centro, Ouro Fino - MG
+					<i class="fas fa-home mr-3"></i><br>Rua Engenheiro Américo Guidi Filho, 48 - Centro, Ouro Fino - MG
 				</p>
 				<p>
-					<i class="fas fa-envelope mr-3"></i>escola.55964@educacao.mg.gov.br
+					<i class="fas fa-envelope mr-3"></i><br>escola.55964@educacao.mg.gov.br
 				</p>
 				<p>
-					<i class="fas fa-phone mr-3"></i>(35) 3441-1247
+					<i class="fas fa-phone mr-3"></i><br>(35) 3441-1247
 				</p>
 			</div>
 			
