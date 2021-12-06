@@ -25,6 +25,12 @@ a.link_acesso_rapido:hover {
   color: white;
 }
 
+a.link_acesso_rapido:active {
+  text-decoration: underline !important;
+  color: rgb(255, 193, 7);
+  transition: 0.25s;
+}
+
 #btn_facebook,
 #btn_instagram,
 #btn_email {
