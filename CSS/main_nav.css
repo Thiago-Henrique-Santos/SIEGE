@@ -6,6 +6,8 @@
   background: #2f3a4f;
   transition: all 0.5s ease;
   z-index: 1000;
+  top: 0;
+  margin-top: 0px;
 }
 
 .sidebar header {
@@ -15,7 +17,6 @@
   line-height: 70px;
   background: #5e5f5f;
   user-select: none;
-  margin-top: -27px;
 }
 
 .sidebar header a.link_hide {
@@ -245,7 +246,7 @@ ul li.paginaAtual a:active {
 
 .ctr_btn_sair3 {
   height: 0px;
-  margin-top: 10px;
+  margin-top: 3.5%;
 }
 
 .sidebar ul a.no_border button.btn_sair {
@@ -258,6 +259,7 @@ ul li.paginaAtual a:active {
   text-align: center;
   width: 100px;
   height: 38px;
+  margin-bottom: 0px;
 }
 
 .sidebar ul a.no_border button.btn_sair:hover {

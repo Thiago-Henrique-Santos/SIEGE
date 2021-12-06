@@ -12,6 +12,7 @@ if ($_SESSION['tip_usu'] == 3) {
     echo "</div>";
     echo "<div class='quick-links'>";
     echo "<ul>";
+    echo "<li class='quick-items'><a href='pagina_inicial.php'><span class='links_footer'>Página inicial</span></a></li>";
     echo "<li class='quick-items'><a href='cadastrar.php'><span class='links_footer'>Cadastrar</span></a></li>";
     echo "<li class='quick-items'><a href='ferramentas.php'><span class='links_footer'>Ferramentas</span></a></li>";
     echo "<li class='quick-items'><a href='usuarios.php'><span class='links_footer'>Usuários</span></a></li>";
@@ -38,6 +39,7 @@ if ($_SESSION['tip_usu'] == 3) {
     echo "</div>";
     echo "<div class='quick-links'>";
     echo "<ul>";
+    echo "<li class='quick-items'><a href='pagina_inicial.php'><span class='links_footer'>Página inicial</span></a></li>";
     echo "<li class='quick-items'><a href='ferramentas.php'><span class='links_footer'>Ferramentas</span></a></li>";
     echo "<li class='quick-items'><a href='usuarios.php'><span class='links_footer'>Usuários</span></a></li>";
     echo "<li class='quick-items'><a href='turmas.php'><span class='links_footer'>Turmas</span></a></li>";
@@ -63,6 +65,7 @@ if ($_SESSION['tip_usu'] == 3) {
     echo "</div>";
     echo "<div class='quick-links'>";
     echo "<ul>";
+    echo "<li class='quick-items'><a href='pagina_inicial.php'><span class='links_footer'>Página inicial</span></a></li>";
     echo "<li class='quick-items'><a href='usuarios.php'><span class='links_footer'>Pessoas</span></a></li>";
     echo "<li class='quick-items'><a href='turmas.php'><span class='links_footer'>Turma</span></a></li>";
     echo "<li class='quick-items'><a href='boletim.php'><span class='links_footer'>Boletim</span></a></li>";
