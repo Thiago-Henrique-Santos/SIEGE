@@ -19,13 +19,13 @@
         <a class="nav-link text-white" href="index.php">Início</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#conquistas">Conquistas</a>
+        <a class="nav-link text-white" href="index.php#conquistas">Conquistas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#boas_praticas">Boas Práticas</a>
+        <a class="nav-link text-white" href="index.php#boas_praticas">Boas Práticas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#editais">Editais</a>
+        <a class="nav-link text-white" href="index.php#editais">Editais</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="como_acessar.php">Como acessar</a>

@@ -17,13 +17,13 @@
 					<a class='link_acesso_rapido' href="index.php" class="text-white" style="text-decoration: none;">Início</a>
 				</p>
 				<p>
-					<a class='link_acesso_rapido' href="#conquistas" class="text-white" style="text-decoration: none;">Conquistas</a>
+					<a class='link_acesso_rapido' href="index.php#conquistas" class="text-white" style="text-decoration: none;">Conquistas</a>
 				</p>
 				<p>
-					<a class='link_acesso_rapido' href="#boas_praticas" class="text-white" style="text-decoration: none;">Boas Práticas</a>
+					<a class='link_acesso_rapido' href="index.php#boas_praticas" class="text-white" style="text-decoration: none;">Boas Práticas</a>
 				</p>
 				<p>
-					<a class='link_acesso_rapido' href="#editais" class="text-white" style="text-decoration: none;">Editais</a>
+					<a class='link_acesso_rapido' href="index.php#editais" class="text-white" style="text-decoration: none;">Editais</a>
 				</p>
 				<p>
 					<a class='link_acesso_rapido' href="como_acessar.php" class="text-white" style="text-decoration: none;">Como Acessar</a>
