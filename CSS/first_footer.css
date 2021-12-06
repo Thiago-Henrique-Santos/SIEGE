@@ -1,16 +1,38 @@
 #rodape_site {
-    background-color: #2f3a4f;
-    margin-top: 30px;
+  background-color: #2f3a4f;
+  margin-top: 30px;
 }
 
 #div_escola {
-    text-align: left;
+  text-align: left;
 }
 
 #div_acesso {
-    text-align: center;
+  text-align: center;
 }
 
 #div_contato {
-    text-align: left;
+  text-align: left;
+}
+
+a.link_acesso_rapido {
+  color: white;
+  text-decoration: none;
+}
+
+a.link_acesso_rapido:hover {
+  text-decoration: underline !important;
+  color: white;
+}
+
+#btn_facebook,
+#btn_instagram,
+#btn_email {
+  color: white;
+}
+
+#btn_facebook:hover,
+#btn_instagram:hover,
+#btn_email:hover {
+  color: rgb(255, 193, 7);
 }

@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: ChalkItUp;
   src: url(../Fontes/DJBChalkItUp.ttf);
