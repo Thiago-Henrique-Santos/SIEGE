@@ -67,7 +67,7 @@
 									<img src="img/capa-cidadania.jpg" class="card-img-top" alt="...">
 									<h5 class="card-title"> Educação para a vida</h5>
 									<p class="card-text">Confira os projetos da Escola Estadual Professor Juvenal Brandão voltados para desenvolvimento de alunos mais conscientes e responsáveis.</p>
-									<a href="cidadania.php" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="saiba_mais.php?materia=EducacaoParaAVida" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
@@ -77,7 +77,7 @@
 									<img src="img/premio-transform.jpg" class="card-img-top" alt="...">
 									<h5 class="card-title">Prêmio Escola Transformação</h5>
 									<p class="card-text">A Escola Estadual Professor Juvenal Brandão está entre as escolas vencedoras da 1ª edição do Prêmio Escola Transformação, realizado pela Secretaria de Educação de Minas Gerais.</p>
-									<a href="#" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="saiba_mais.php?materia=PremioEscolaTransformacao" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
@@ -87,7 +87,7 @@
 									<img src="img/ideb.jpg" class="card-img-top" alt="...">
 									<h5 class="card-title">IDEB 2019: Juvenal Brandão ultrapassa meta</h5>
 									<p class="card-text">A escola conquistou nota 7.2 para os anos iniciais e 5.6 para os anos finais no IDEB 2019, ultrapassando a meta definida para 2021 e 2019 respectivamente. Uma conquista de toda a comunidade escolar!</p>
-									<a href="#" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="saiba_mais.php?materia=IDEB2019" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
@@ -97,7 +97,7 @@
 									<img src="img/saber1.jpg" class="card-img-top" alt="...">
 									<h5 class="card-title">Premiação Gincana do Saber</h5>
 									<p class="card-text">A escola foi premiada e reconhecida ao conquistar o primeiro lugar Regional e o primeiro lugar Municipal da competição sobre direitos e deveres. </p>
-									<a href="gincanadosaber.php" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="saiba_mais.php?materia=PremiacaoGincanaDoSaber" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>

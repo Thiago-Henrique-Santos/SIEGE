@@ -29,7 +29,7 @@
         <main>
             <div style="width: 100%; height: 50px; display: flex; 
             flex-flow: row nowrap; justify-content: center;">
-                <h1 class="titulo-principal"> Sobre a equipe e o projeto </h1>
+                <h1 class="titulo-principal"> Sobre a escola </h1>
             </div>
         </main>
     </div>
