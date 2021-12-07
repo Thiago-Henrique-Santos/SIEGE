@@ -1,0 +1,41 @@
+#todas_estaticas {
+  margin-left: 20px;
+  width: 90%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 3px;
+}
+
+.card {
+  height: auto;
+}
+
+.card-body {
+  height: 540px;
+}
+
+.card-title {
+  margin-top: 8px;
+}
+
+.card-text {
+  height: 60px;
+}
+
+.btn_saiba_mais:hover {
+  background-color: #101044 !important;
+  transition: 0.25s;
+}
+
+.btn_saiba_mais:active {
+  font-weight: 500 !important;
+  transition: 0.15s !important;
+}
+
+#mapa {
+  width: auto;
+  height: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+}

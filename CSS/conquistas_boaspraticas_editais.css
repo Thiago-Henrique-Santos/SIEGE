@@ -1,0 +1,32 @@
+.first_text {
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 45px;
+}
+
+.text_individuais {
+  margin-top: 40px !important;
+  margin-bottom: 40px;
+}
+
+#section_acontecimentos {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: auto;
+  height: auto;
+}
+
+.card {
+  height: auto;
+  width: 100%;
+}
+
+.card-title {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+}
