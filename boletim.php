@@ -183,12 +183,10 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
         <center>
             <?php
-            //tr = linha, td = coluna
             //Tabela na visão de gerenciadores e professores
             echo "<table id='reportTable' style='margin-top: 55px'>";
             if ($_SESSION['tip_usu'] != 1) {
 
-                //Parte Fixa abaixo
                 echo "<tr class='titulo_tabela'>";
                 echo "<td class='td_aluno'></td>";
                 echo "<td colspan='2' class='td_bimestre'>";
@@ -278,8 +276,6 @@ if (!isset($_SESSION['campo_email']) || empty($_SESSION['campo_email'])) {
 
                 echo "</tr>";
             } else {
-                //Parte Fixa abaixo
-                //Parte Fixa abaixo
                 echo "<tr class='titulo_tabela'>";
                 echo "<td class='td_aluno'></td>";
                 echo "<td colspan='2' class='td_bimestre'>";
