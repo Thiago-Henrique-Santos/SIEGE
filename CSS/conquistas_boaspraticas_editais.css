@@ -30,3 +30,9 @@
 .card-text {
   text-align: center;
 }
+
+.passo_a_passo {
+  width: 65%;
+  height: auto;
+  margin-top: 10px;
+}
