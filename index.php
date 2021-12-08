@@ -58,7 +58,7 @@
 						</a>
 			</section>
 			<br><br>
-			<h3> CONQUISTAS </h3>
+			<h3 id='conquistas' style='margin-left: 45px;'> Conquistas </h3>
 			<center>
 				<section id='todas_estaticas'>
 					<div class="row">
@@ -82,20 +82,23 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6">
-							<div class="card">
-								<div class="card-body">
-									<img src="img/saber1.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Premiação Gincana do Saber</h5>
-									<p class="card-text">A escola foi premiada e reconhecida ao conquistar o primeiro lugar Regional e o primeiro lugar Municipal da competição sobre direitos e deveres. </p>
-									<a href="saiba_mais.php?materia=PremiacaoGincanaDoSaber" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+
+						<center>
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-body">
+										<img src="img/saber1.jpg" class="card-img-top" alt="...">
+										<h5 class="card-title">Premiação Gincana do Saber</h5>
+										<p class="card-text">A escola foi premiada e reconhecida ao conquistar o primeiro lugar Regional e o primeiro lugar Municipal da competição sobre direitos e deveres. </p>
+										<a href="saiba_mais.php?materia=PremiacaoGincanaDoSaber" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									</div>
 								</div>
 							</div>
-						</div>
+						</center>
 					</div>
 				</section>
 			</center>
-			<h3> BOAS PRÁTICAS</h3>
+			<h3 id='boas_praticas' style='margin-left: 45px;margin-top: 30px;'> Boas Práticas</h3>
 			<center>
 				<section id='todas_estaticas'>
 					<div class="row">
@@ -109,7 +112,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-body">
