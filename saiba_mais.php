@@ -9,7 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/logo_juvenal.png" />
     <?php
-    $materia = $_GET['materia'];
+    if (isset($_GET['materia'])) {
+        $materia = $_GET['materia'];
+    } else {
+        $materia = false;
+    }
+
     switch ($materia) {
         case 'EducacaoParaAVida':
             echo "<title> Educação para a Vida </title>";
