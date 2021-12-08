@@ -55,4 +55,14 @@
         return $tempoTotal;
     }
 
+    function mensagem_alerta ($img_src, $titulo, $paragrafo) {
+        echo "<center>
+            <img class='alerta' src='".$img_src."'>
+            <h1 class='alerta'>$titulo</p>
+            <div class='alerta'>
+                <p class='alerta'>$paragrafo</p>
+            </div>
+        </center>";
+    }
+
 ?>
