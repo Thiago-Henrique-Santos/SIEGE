@@ -17,6 +17,13 @@
   height: auto;
 }
 
+#section_acontecimentos2 {
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+  height: auto;
+}
+
 .card {
   height: auto;
   width: 100%;
