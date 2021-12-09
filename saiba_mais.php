@@ -503,7 +503,7 @@ include('modulos/funcoes.php');
                 default:
                     $img = "img/estudante.png";
                     $titulo = "Matéria não encontrada!";
-                    $paragrafo = "Parece que você tentou acessar uma matéria inexisteste!
+                    $paragrafo = "Parece que você tentou acessar uma matéria inexistente!
                     Por favor, volte à página inicial e clique em " . '"' . "SABER
                     MAIS" . '"' . " no bloco da matéria que deseja ler por completo.";
                     mensagem_alerta($img, $titulo, $paragrafo);

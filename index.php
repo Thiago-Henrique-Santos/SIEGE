@@ -160,20 +160,20 @@
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-body">
-									<img src="img/#.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Título</h5>
-									<p class="card-text">Descrição</p>
-									<a href="ArquivosPDF/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<img src="Documentos/leilao1.jpg" class="card-img-top" style='height:70%;' alt="...">
+									<h5 class="card-title">Aviso de Licitação na Modalidade Leilão</h5>
+									<p class="card-text">A Direção da Escola Estadual Professor Juvenal Brandão, comunica que realizou leilão de equipamentos e materiais diversos no estado de conservação em que se encontram.</p>
+									<a href="https://www.facebook.com/198889310593696/posts/1150305635452054/?sfnsn=wiwspmo" target="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-body">
-									<img src="img/#jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Título</h5>
-									<p class="card-text">Descrição</p>
-									<a href="ArquivosPDF/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<img src="Documentos/edital1_2.jpeg" class="card-img-top" style='height:70%;' alt="...">
+									<h5 class="card-title">10º Edital de Divulgação de vaga para Contratação Temporária/Convocação</h5>
+									<p class="card-text">A Escola Estadual Professor Juvenal Brandão, por meio deste edital, procura professores de LIBRAS para contratação.</p>
+									<a href="Documentos/edital1_1.jpeg" target="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970;margin-top:-32px;">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
