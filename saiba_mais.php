@@ -24,6 +24,30 @@
             echo "<title> Gincana do Saber </title>";
             break;
 
+        case 'PremioTransformacao':
+            echo "<title> Escola Tansformação</title>";
+            break;
+
+        case 'SAEB':
+            echo "<title> SAEB </title>";
+            break;
+
+        case 'IDEB2019':
+            echo "<title> IDEB 2019 </title>";
+            break;
+
+        case 'FeiraCiencias':
+            echo "<title> Feira de Ciências </title>";
+            break;
+
+        case 'Desfile':
+            echo "<title> Dia da Independência </title>";
+            break;
+        
+        case 'Horta':
+            echo "<title> Horta na Escola </title>";
+            break;
+
         default:
             echo "<title> Ops... </title>";
             break;
@@ -187,7 +211,6 @@
                         <p class='first_text'>A E.E. Professor Juvenal Brandão conquistou nos últimos anos o primeiro lugar Municipal e Regional da Gincana do Saber. A Gincana do Saber é um jogo entre escolas, de perguntas e respostas, de caráter educativo e não competitivo, em que todos saem ganhando conhecimento sobre a Constituição Federal de uma forma divertida, através da publicação Constituição em Miúdos.</p>
 
                         <div class=row>
-                            <center>
                                 <div class=col-sm-6>
                                     <div class=card mb-3>
                                         <div class=card>
@@ -199,21 +222,17 @@
                                         </div>
                                     </div>
                                 </div>
-                            </center>
-
-                            <center>
                                 <div class=col-sm-6>
                                     <div class=card mb-3>
                                         <div class=card>
                                             <div class=card-body>
                                                 <img src=img/saber2.jpg class=card-img-top alt=...>
                                                 <h5 class=card-title>Premiação Municipal 2019</h5>
-                                                <p class=card-text>Os alunos Kelvin e Maria Luísa representaram a escola na fase municipal e obtiveram êxito.</p>
+                                                <p class=card-text>Os alunos Kelvin e Maria Luísa representaram a escola na fase municipal.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </center>
                             <p class='text_individuais'> Liderados pelo professor Flávio, os alunos ficaram por semanas estudando e treinando. Com muito trabalho e dedicação, as duplas se sairam muito bem, ultrapassando as pontuações concorrentes e conquistando os primeiros lugares na gincana.
                                 A Escola Estadual Professor Juvenal Brandão parabeniza e reconhece o esforço feito pelos alunos e pelo professor! </p>
                         </div>
@@ -288,8 +307,173 @@
                             </section>";            
                             break;
 
+                            case 'Horta':
+                                echo "<div style=width: 100%; height: 50px; display: flex; 
+                                flex-flow: row nowrap; justify-content: center;>
+                                    <h1 class=titulo-principal> Horta na Escola: um recurso didático </h1>
+                                </div>
+            
+                                <section id='section_acontecimentos'>
+                                    <p class='first_text'>Todos os anos na educação integral, a escola tende a desenvolver o projeto Horta na Escola, 
+                                    que tem como objetivo aproximar a criança à uma alimentação saudável e à prática de cultivo de produtos orgânicos, 
+                                    mostrando que eles são capazes de plantar, cultivar,  colher e preparar aquele alimento. Geralmente, essa atividade 
+                                    é desenvolvida com a Educação Integral, uma vez que esses alunos ficam na escola durante os dois turnos, ou seja, desde 
+                                    cedo até tarde. O projeto também visa despertar a consciência ambiental e habilidades voltadas para práticas específicas 
+                                    de plantio para cada tipo de vegetal. A horta sempre é desenvolvida sob responsabilidade do professor de Orientação de Estudos 
+                                    e o ASB de Pequenos Reparos, o manejo é feito no terreno da escola e a manutenção é feita pelos educandos. 
+                                    </p>
+                                 
+                                    <div class=row>
+                                            <div class=col-sm-6>
+                                                <div class=card mb-3>
+                                                    <div class=card>
+                                                        <div class=card-body>
+                                                            <img src=img/horta1.jpg class=card-img-top alt=...>
+                                                            <p class=card-text>Foto do plantio de Hortaliças.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class=col-sm-6>
+                                                <div class=card mb-3>
+                                                    <div class=card>
+                                                        <div class=card-body>
+                                                        <img src=img/horta2.jpg class=card-img-top alt=...>
+                                                        <p class=card-text>Foto dos alunos na colheita das Hortaliças.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </section>";            
+                                break;
+
+                                case 'FeiraCiencias':
+                                    echo "<div style=width: 100%; height: 50px; display: flex; 
+                                    flex-flow: row nowrap; justify-content: center;>
+                                        <h1 class=titulo-principal> Feira de Ciências e Conhecimentos Diversos </h1>
+                                    </div>
                 
-                
+                                    <section id='section_acontecimentos'>
+                                        <p class='first_text'>A Feira de Ciências é um evento anual da escola e um marco pedagógico, 
+                                        uma vez que é aberta para a comunidade escolar e há troca entre experiências na área de Ciências. 
+                                        Além disso, tem a participação de todas as faixas etárias, do segundo ao nono ano.
+                                        Esse evento visa expor o que cada turma ou grupo de alunos achou interessante entre os conteúdos 
+                                        estudados ao longo do ano. O evento contribui para uma aprendizagem de práticas científicas que estão 
+                                        inseridas no nosso dia a dia e por vezes passam despercebidas; e estimula a criatividade e curiosidade 
+                                        dos alunos. Outro benefício é o desenvolvimento de habilidades interpessoais, afinal, os educandos devem 
+                                        trabalhar em equipe.
+                                        </p>
+                                     
+                                        <div class=row>
+                                                <div class=col-sm-6>
+                                                    <div class=card mb-3>
+                                                        <div class=card>
+                                                            <div class=card-body>
+                                                                <img src=img/feira1.jpg class=card-img-top alt=...>
+                                                                <p class=card-text>Alunos apresentam seus projetos voltados para o tema 'Insetos'.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=col-sm-6>
+                                                    <div class=card mb-3>
+                                                        <div class=card>
+                                                            <div class=card-body>
+                                                            <img src=img/feira2.jpg class=card-img-top alt=...>
+                                                            <p class=card-text>Alunos apresentando seus projetos voltados para o tema 'Sistema Solar'.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <p class='first_text'>Todos os projetos são desenvolvidos sob a responsabilidade de todos os professores orientadores, 
+                                        e claro, com o professor de Ciências a frente de todos os grupos como coordenador. 
+                                        É imensamente gratificante ver que, a cada ano, as crianças têm melhorado suas exposições e os familiares estão mais 
+                                        engajados no auxílio no desenvolvimento dos projetos, assim, fortalecendo o vínculo familiar com a escola. 
+                                        </p>
+                                    </section>";            
+                                    break;
+                                    
+                                    case 'Desfile':
+                                        echo "<div style=width: 100%; height: 50px; display: flex; 
+                                        flex-flow: row nowrap; justify-content: center;>
+                                            <h1 class=titulo-principal> Dia da Independência e Civismo </h1>
+                                        </div>
+                    
+                                        <section id='section_acontecimentos'>
+                                            <p class='first_text'>AA escola trabalha valores voltados ao civismo e a crença de que para haver um Brasil melhor, 
+                                            precisamos ser brasileiros melhores - desde o 2° ano do Ensino Fundamental. 
+                                            Os alunos estudam a Constituição através da Gincana do Saber, praticam o respeito e amor à pátria no momento cívico, 
+                                            onde hasteiam a bandeira e cantam o Hino Nacional.
+                                            Contando com uma fanfarra - o que já é tradição, afinal, está presente nos desfiles desde sua fundação - e com alunos 
+                                            de todos os anos escolares, a escola participa anualmente do Desfile de 7 de Setembro em comemoração a Independência do Brasil.
+                                            </p>
+                                         
+                                            <div class=row>
+                                                    <div class=col-sm-6>
+                                                        <div class=card mb-3>
+                                                            <div class=card>
+                                                                <div class=card-body>
+                                                                    <img src=img/desfile2.jpg class=card-img-top alt=...>
+                                                                    <p class=card-text>Tempos atuais: Desfile de 7 de Setembro</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-6>
+                                                        <div class=card mb-3>
+                                                            <div class=card>
+                                                                <div class=card-body>
+                                                                <img src=img/desfile3.jpg class=card-img-top alt=...>
+                                                                <p class=card-text>Tempos passados: Desfile de 7 de Setembro</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-6>
+                                                        <div class=card mb-3>
+                                                            <div class=card>
+                                                                <div class=card-body>
+                                                                <img src=img/desfile4.jpg class=card-img-top alt=...>
+                                                                <p class=card-text>Tempos atuais: Desfile de 7 de Setembro</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-6>
+                                                        <div class=card mb-3>
+                                                            <div class=card>
+                                                                <div class=card-body>
+                                                                <img src=img/desfile5.jpg class=card-img-top alt=...>
+                                                                <p class=card-text>Tempos passados: Desfile de 7 de Setembro</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-6>
+                                                        <div class=card mb-3>
+                                                            <div class=card>
+                                                                <div class=card-body>
+                                                                <img src=img/desfile6.jpg class=card-img-top alt=...>
+                                                                <p class=card-text>Tempos atuais: Desfile de 7 de Setembro</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-6>
+                                                        <div class=card mb-3>
+                                                            <div class=card>
+                                                                <div class=card-body>
+                                                                <img src=img/desfile7.jpg class=card-img-top alt=...>
+                                                                <p class=card-text>Tempos atuais: Desfile de 7 de Setembro</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </section>";            
+                                        break;
                 default:
                     $img = "img/estudante.png";
                     $titulo = "Matéria não encontrada!";

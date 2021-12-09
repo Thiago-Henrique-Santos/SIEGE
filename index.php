@@ -133,8 +133,8 @@
 							<div class="card">
 								<div class="card-body">
 									<img src="img/desfile1-capa.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Dia da Independência e valorização da cultura Brasileira</h5>
-									<p class="card-text">Entendendo que as crianças de hoje são os adultos do amanhã, a escola trabalha valores voltados a valorização da cultura Brasileira; e também participa do Desfile anual de 7 de Setembro em comemoração ao Dia da Indepêndecia.</p>
+									<h5 class="card-title">Dia da Independência e civismo</h5>
+									<p class="card-text">Entendendo que as crianças de hoje são os adultos do amanhã, a escola trabalha valores voltados ao civismo e amor a pátria, também participa anualmente do desfile de 7 de Setembro em comemoração ao Dia da Indepêndecia.</p>
 									<a href="saiba_mais.php?materia=Desfile" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
@@ -143,7 +143,7 @@
 							<div class="card">
 								<div class="card-body">
 									<img src="img/horta1.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Horta na escola: um recurso didático</h5>
+									<h5 class="card-title">Horta na Escola: um recurso didático</h5>
 									<p class="card-text"> Revitalizando uma prática do período de fundação, a Juvenal Brandão tem desenvolvido uma horta nas dependências da escola, a fim de trabalhar apectos sociais e ambientais com os alunos.</p>
 									<a href="saiba_mais.php?materia=Horta" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
