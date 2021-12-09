@@ -153,6 +153,33 @@
 					</div>
 				</section>
 			</center>
+			<h3 id='editais' style='margin-left: 5%; margin-top:50px; margin-bottom:15px;'> Editais</h3>
+			<center>
+				<section id='todas_estaticas'>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<img src="img/#.jpg" class="card-img-top" alt="...">
+									<h5 class="card-title">Título</h5>
+									<p class="card-text">Descrição</p>
+									<a href="nomeDaPastaDeArquivosPdf/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+							<div class="card-body">
+									<img src="img/#jpg" class="card-img-top" alt="...">
+									<h5 class="card-title">Título</h5>
+									<p class="card-text">Descrição</p>
+									<a href="nomeDaPastaDeArquivosPdf/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</center>
 			<br><br>
 			<section id='mapa'>
 				<div class="field field-name-como-chegar field-type-ds field-label-above">

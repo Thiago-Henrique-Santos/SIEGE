@@ -474,6 +474,30 @@
                                             </div>
                                         </section>";            
                                         break;
+                                        case 'IDEB2019':
+                                            echo "<div style=width: 100%; height: 50px; display: flex; 
+                                            flex-flow: row nowrap; justify-content: center;>
+                                                <h1 class=titulo-principal> Feira de Ciências e Conhecimentos Diversos </h1>
+                                            </div>
+                        
+                                            <section id='section_acontecimentos'>
+                                                <p class='first_text'>Queremos celebrar com toda Comunidade Escolar os resultados obtidos no IDEB 2019. 
+                                                São frutos do excelente trabalho do corpo docente, da dedicação dos alunos e da união das famílias com a 
+                                                escola. Estamos no caminho certo! Nossas crianças merecem um ensino de qualidade. Quanto orgulho em vestir 
+                                                a camisa dessa equipe e fazer parte da família Juvenal Brandão.
+                                                </p>
+                                        
+                                                <p class='first_text'>
+                                                O Índice de Desenvolvimento da Educação Básica é um indicador criado pelo governo federal para medir a qualidade do 
+                                                ensino nas escolas públicas. O último IDEB, realizado em 2019, declara a nota do Brasil sendo 5,7 nos anos iniciais, 
+                                                4,6 nos anos finais e 3,9 no Ensino Médio da educação pública.
+                                                <br>
+                                                A escola Estadual Professor Juvenal Brandão esteve acima da média brasileira e das metas estabelecidas. 
+                                                Para os anos iniciais, em 2019, ultrapassamos a meta de 2021 (6.9), recebendo uma nota de 7.2. Enquanto para os anos finais, 
+                                                no mesmo ano, ultrapassamos a meta estabelecida(5.5), com a nota 5.6.
+                                                </p>
+                                            </section>";            
+                                            break;
                 default:
                     $img = "img/estudante.png";
                     $titulo = "Matéria não encontrada!";
