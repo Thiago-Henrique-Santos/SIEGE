@@ -219,11 +219,76 @@
                         </div>
                     </section>";            
                     break;
+                    case 'SAEB':
+                        echo "<div style=width: 100%; height: 50px; display: flex; 
+                        flex-flow: row nowrap; justify-content: center;>
+                            <h1 class=titulo-principal> Desde 2007 acima da meta no SAEB </h1>
+                        </div>
+    
+                        <section id='section_acontecimentos'>
+                            <p class='first_text'>A E.E. Professor Juvenal Brandão vem, desde 2007, ultrapassando a meta no Sistema de Avaliação da Educação Básica. Os resultados supreendem e o reconhecimento vai para toda a comunidade escolar que se empenha em formar alunos mais capacitados e cidadãos mais participativos.</p>
+    
+                            <div class=row>
+                                <center>
+                                    <div class=col-sm-6>
+                                        <div class=card mb-3>
+                                            <div class=card>
+                                                <div class=card-body>
+                                                    <img src=img/saebiniciais.jpeg class=card-img-top alt=...>
+                                                    <p class=card-text>Grade de notas dos anos iniciais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </center>
+    
+                                <center>
+                                    <div class=col-sm-6>
+                                        <div class=card mb-3>
+                                            <div class=card>
+                                                <div class=card-body>
+                                                    <img src=img/saebfinais.jpeg class=card-img-top alt=...>
+                                                    <p class=card-text>Grade de notas do anos finais</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </center>
+                                <p class='text_individuais'> 'O Sistema de Avaliação da Educação Básica (Saeb) é um conjunto de avaliações externas em larga escala que permite ao Inep realizar um diagnóstico da educação básica brasileira e de fatores que podem interferir no desempenho do estudante. Por meio de testes e questionários, aplicados a cada dois anos na rede pública e em uma amostra da rede privada, o Saeb reflete os níveis de aprendizagem demonstrados pelos estudantes avaliados, explicando esses resultados a partir de uma série de informações contextuais.
+                                O Saeb permite que as escolas e as redes municipais e estaduais de ensino avaliem a qualidade da educação oferecida aos estudantes. O resultado da avaliação é um indicativo da qualidade do ensino brasileiro e oferece subsídios para a elaboração, o monitoramento e o aprimoramento de políticas educacionais com base em evidências.' </p>
+                            </div>
+                        </section>";            
+                        break;
 
-                case 'PremioEscolaTransformacao':
-                    #código do conteúdo
-                    #...
-                    break;
+                        case 'PremioTransformacao':
+                            echo "<div style=width: 100%; height: 50px; display: flex; 
+                            flex-flow: row nowrap; justify-content: center;>
+                                <h1 class=titulo-principal> Prêmio Escola Transformação </h1>
+                            </div>
+        
+                            <section id='section_acontecimentos'>
+                                <p class='first_text'>A Secretaria de Estado de Educação de Minas Gerais (SEE/MG) divulgou a lista com as unidades de ensino que se classificaram na primeira etapa do Prêmio Escola Transformação. E com muita alegria, comunicamos que estamos entre as escolas vencedoras dessa 1ª edição! Nossa escola se destacou positivamente e representa Ouro Fino e a SRE de Pouso Alegre com muita honra. Destacamos que isso é possível graças ao trabalho árduo te todos os servidores da instituição, que diariamente se esforçam para que todos os estudantes sejam atendidos, buscando sempre o engajamento de toda a família. A esses profissionais (Professores, supervisores e equipe do administrativo), nossa admiração! Aos familiares e estudantes agradecemos pela confiança e parceria. Nesse momento tão atípico a conexão entre escola e família prevaleceu! Gratidão a 'família Juvenal Brandão'!</p>
+        
+                                <div class=row>
+                                    <center>
+                                        <div class=col-sm-6>
+                                            <div class=card mb-3>
+                                                <div class=card>
+                                                    <div class=card-body>
+                                                        <img src=img/cidadania6.jpg class=card-img-top alt=...>
+                                                        <p class=card-text>Encontros virtuais para realização de projetos durante o período de pandemia.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </center>
+
+                                    <p class='text_individuais'> 'O Prêmio Escola Transformação tem o objetivo de reconhecer publicamente as práticas e experiências exitosas das unidades escolares no processo de melhoria da qualidade do ensino. É destinado às escolas que ofertam etapas de ensino regular - ensino fundamental, ensino fundamental em tempo integral, ensino médio propedêutico, ensino médio em tempo integral propedêutico e ensino médio em tempo integral profissional.' </p>
+                                </div>
+                            </section>";            
+                            break;
+
+                
                 
                 default:
                     $img = "img/estudante.png";

@@ -58,7 +58,7 @@
 						</a>
 			</section>
 			<br><br>
-			<h3 id='conquistas' style='margin-left: 45px;'> Conquistas </h3>
+			<h3> CONQUISTAS </h3>
 			<center>
 				<section id='todas_estaticas'>
 					<div class="row">
@@ -68,7 +68,7 @@
 									<img src="img/premio-transform.jpg" class="card-img-top" alt="...">
 									<h5 class="card-title">Prêmio Escola Transformação</h5>
 									<p class="card-text">A Escola Estadual Professor Juvenal Brandão está entre as escolas vencedoras da 1ª edição do Prêmio Escola Transformação, realizado pela Secretaria de Educação de Minas Gerais.</p>
-									<a href="saiba_mais.php?materia=PremioEscolaTransformacao" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="saiba_mais.php?materia=PremioTransformacao" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
@@ -82,23 +82,30 @@
 								</div>
 							</div>
 						</div>
-
-						<center>
-							<div class="col-sm-6">
-								<div class="card">
-									<div class="card-body">
-										<img src="img/saber1.jpg" class="card-img-top" alt="...">
-										<h5 class="card-title">Premiação Gincana do Saber</h5>
-										<p class="card-text">A escola foi premiada e reconhecida ao conquistar o primeiro lugar Regional e o primeiro lugar Municipal da competição sobre direitos e deveres. </p>
-										<a href="saiba_mais.php?materia=PremiacaoGincanaDoSaber" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
-									</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<img src="img/gincana.png" class="card-img-top" alt="...">
+									<h5 class="card-title">Premiação Gincana do Saber</h5>
+									<p class="card-text">A escola foi premiada e reconhecida ao conquistar o primeiro lugar Regional e o primeiro lugar Municipal da competição sobre direitos e deveres. </p>
+									<a href="saiba_mais.php?materia=PremiacaoGincanaDoSaber" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
-						</center>
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<img src="img/saeb.png" class="card-img-top" alt="...">
+									<h5 class="card-title">Desde 2007 acima da meta no SAEB</h5>
+									<p class="card-text"> Notas da Escola Estadual Professor Juvenal Brandão ultrapassam a meta no Sistema de Avaliação da Educação Básica desde 2007. </p>
+									<a href="saiba_mais.php?materia=SAEB" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
 			</center>
-			<h3 id='boas_praticas' style='margin-left: 45px;margin-top: 30px;'> Boas Práticas</h3>
+			<h3> BOAS PRÁTICAS</h3>
 			<center>
 				<section id='todas_estaticas'>
 					<div class="row">
@@ -112,34 +119,33 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-body">
-									<img src="img/premio-transform.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Prêmio Escola Transformação</h5>
-									<p class="card-text">A Escola Estadual Professor Juvenal Brandão está entre as escolas vencedoras da 1ª edição do Prêmio Escola Transformação, realizado pela Secretaria de Educação de Minas Gerais.</p>
-									<a href="saiba_mais.php?materia=PremioEscolaTransformacao" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<img src="img/feira1.jpg" class="card-img-top" alt="...">
+									<h5 class="card-title">Feira de Ciências e Conhecimentos Diversos</h5>
+									<p class="card-text">Anualmente a escola promove a Feira de Conhecimentos com trabalhos realizados e apresentados pelos alunos.</p>
+									<a href="saiba_mais.php?materia=FeiraCiencias" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-body">
-									<img src="img/ideb.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">IDEB 2019: Juvenal Brandão ultrapassa meta</h5>
-									<p class="card-text">A escola conquistou nota 7.2 para os anos iniciais e 5.6 para os anos finais no IDEB 2019, ultrapassando a meta definida para 2021 e 2019 respectivamente. Uma conquista de toda a comunidade escolar!</p>
-									<a href="saiba_mais.php?materia=IDEB2019" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<img src="img/desfile1-capa.jpg" class="card-img-top" alt="...">
+									<h5 class="card-title">Dia da Independência e valorização da cultura Brasileira</h5>
+									<p class="card-text">Entendendo que as crianças de hoje são os adultos do amanhã, a escola trabalha valores voltados a valorização da cultura Brasileira; e também participa do Desfile anual de 7 de Setembro em comemoração ao Dia da Indepêndecia.</p>
+									<a href="saiba_mais.php?materia=Desfile" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-body">
-									<img src="img/saber1.jpg" class="card-img-top" alt="...">
-									<h5 class="card-title">Premiação Gincana do Saber</h5>
-									<p class="card-text">A escola foi premiada e reconhecida ao conquistar o primeiro lugar Regional e o primeiro lugar Municipal da competição sobre direitos e deveres. </p>
-									<a href="saiba_mais.php?materia=PremiacaoGincanaDoSaber" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<img src="img/horta1.jpg" class="card-img-top" alt="...">
+									<h5 class="card-title">Horta na escola: um recurso didático</h5>
+									<p class="card-text"> Revitalizando uma prática do período de fundação, a Juvenal Brandão tem desenvolvido uma horta nas dependências da escola, a fim de trabalhar apectos sociais e ambientais com os alunos.</p>
+									<a href="saiba_mais.php?materia=Horta" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
