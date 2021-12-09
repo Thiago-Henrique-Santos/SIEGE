@@ -58,7 +58,7 @@
 						</a>
 			</section>
 			<br><br>
-			<h3> CONQUISTAS </h3>
+			<h3 id='conquistas' style='margin-left: 5%; margin-top:10px; margin-bottom:15px;'> Conquistas </h3>
 			<center>
 				<section id='todas_estaticas'>
 					<div class="row">
@@ -105,7 +105,8 @@
 					</div>
 				</section>
 			</center>
-			<h3> BOAS PRÁTICAS</h3>
+
+			<h3 id='boas_praticas' style='margin-left: 5%; margin-top:50px; margin-bottom:15px;'> Boas Práticas</h3>
 			<center>
 				<section id='todas_estaticas'>
 					<div class="row">
