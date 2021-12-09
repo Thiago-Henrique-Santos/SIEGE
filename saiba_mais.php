@@ -1,10 +1,11 @@
 <?php
-    include('modulos/funcoes.php');
+include('modulos/funcoes.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="img/logo_juvenal.png" />
@@ -43,7 +44,7 @@
         case 'Desfile':
             echo "<title> Dia da Independência </title>";
             break;
-        
+
         case 'Horta':
             echo "<title> Horta na Escola </title>";
             break;
@@ -65,15 +66,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    
-<div class="flex-container">
-    <?php
-    include('componentes/first_nav.php');
-    ?>
 
-    <main>
+<body>
+
+    <div class="flex-container">
         <?php
+        include('componentes/first_nav.php');
+        ?>
+
+        <main>
+            <?php
             switch ($materia) {
                 case 'EducacaoParaAVida':
                     echo "<div style='width: 100%; height: 50px; display: flex; flex-flow: row nowrap; justify-content: center;'>
@@ -236,10 +238,10 @@
                             <p class='text_individuais'> Liderados pelo professor Flávio, os alunos ficaram por semanas estudando e treinando. Com muito trabalho e dedicação, as duplas se sairam muito bem, ultrapassando as pontuações concorrentes e conquistando os primeiros lugares na gincana.
                                 A Escola Estadual Professor Juvenal Brandão parabeniza e reconhece o esforço feito pelos alunos e pelo professor! </p>
                         </div>
-                    </section>";            
+                    </section>";
                     break;
-                    case 'SAEB':
-                        echo "<div style=width: 100%; height: 50px; display: flex; 
+                case 'SAEB':
+                    echo "<div style=width: 100%; height: 50px; display: flex; 
                         flex-flow: row nowrap; justify-content: center;>
                             <h1 class=titulo-principal> Desde 2007 acima da meta no SAEB </h1>
                         </div>
@@ -276,11 +278,11 @@
                                 <p class='text_individuais'> 'O Sistema de Avaliação da Educação Básica (Saeb) é um conjunto de avaliações externas em larga escala que permite ao Inep realizar um diagnóstico da educação básica brasileira e de fatores que podem interferir no desempenho do estudante. Por meio de testes e questionários, aplicados a cada dois anos na rede pública e em uma amostra da rede privada, o Saeb reflete os níveis de aprendizagem demonstrados pelos estudantes avaliados, explicando esses resultados a partir de uma série de informações contextuais.
                                 O Saeb permite que as escolas e as redes municipais e estaduais de ensino avaliem a qualidade da educação oferecida aos estudantes. O resultado da avaliação é um indicativo da qualidade do ensino brasileiro e oferece subsídios para a elaboração, o monitoramento e o aprimoramento de políticas educacionais com base em evidências.' </p>
                             </div>
-                        </section>";            
-                        break;
+                        </section>";
+                    break;
 
-                        case 'PremioTransformacao':
-                            echo "<div style=width: 100%; height: 50px; display: flex; 
+                case 'PremioTransformacao':
+                    echo "<div style=width: 100%; height: 50px; display: flex; 
                             flex-flow: row nowrap; justify-content: center;>
                                 <h1 class=titulo-principal> Prêmio Escola Transformação </h1>
                             </div>
@@ -304,11 +306,11 @@
 
                                     <p class='text_individuais'> 'O Prêmio Escola Transformação tem o objetivo de reconhecer publicamente as práticas e experiências exitosas das unidades escolares no processo de melhoria da qualidade do ensino. É destinado às escolas que ofertam etapas de ensino regular - ensino fundamental, ensino fundamental em tempo integral, ensino médio propedêutico, ensino médio em tempo integral propedêutico e ensino médio em tempo integral profissional.' </p>
                                 </div>
-                            </section>";            
-                            break;
+                            </section>";
+                    break;
 
-                            case 'Horta':
-                                echo "<div style=width: 100%; height: 50px; display: flex; 
+                case 'Horta':
+                    echo "<div style=width: 100%; height: 50px; display: flex; 
                                 flex-flow: row nowrap; justify-content: center;>
                                     <h1 class=titulo-principal> Horta na Escola: um recurso didático </h1>
                                 </div>
@@ -345,11 +347,11 @@
                                                 </div>
                                             </div>
                                     </div>
-                                </section>";            
-                                break;
+                                </section>";
+                    break;
 
-                                case 'FeiraCiencias':
-                                    echo "<div style=width: 100%; height: 50px; display: flex; 
+                case 'FeiraCiencias':
+                    echo "<div style=width: 100%; height: 50px; display: flex; 
                                     flex-flow: row nowrap; justify-content: center;>
                                         <h1 class=titulo-principal> Feira de Ciências e Conhecimentos Diversos </h1>
                                     </div>
@@ -392,11 +394,11 @@
                                         É imensamente gratificante ver que, a cada ano, as crianças têm melhorado suas exposições e os familiares estão mais 
                                         engajados no auxílio no desenvolvimento dos projetos, assim, fortalecendo o vínculo familiar com a escola. 
                                         </p>
-                                    </section>";            
-                                    break;
-                                    
-                                    case 'Desfile':
-                                        echo "<div style=width: 100%; height: 50px; display: flex; 
+                                    </section>";
+                    break;
+
+                case 'Desfile':
+                    echo "<div style=width: 100%; height: 50px; display: flex; 
                                         flex-flow: row nowrap; justify-content: center;>
                                             <h1 class=titulo-principal> Dia da Independência e Civismo </h1>
                                         </div>
@@ -472,12 +474,12 @@
                                                         </div>
                                                     </div>
                                             </div>
-                                        </section>";            
-                                        break;
-                                        case 'IDEB2019':
-                                            echo "<div style=width: 100%; height: 50px; display: flex; 
+                                        </section>";
+                    break;
+                case 'IDEB2019':
+                    echo "<div style=width: 100%; height: 50px; display: flex; 
                                             flex-flow: row nowrap; justify-content: center;>
-                                                <h1 class=titulo-principal> Feira de Ciências e Conhecimentos Diversos </h1>
+                                                <h1 class=titulo-principal> IDEB 2019: Juvenal Brandão ultrapassa meta </h1>
                                             </div>
                         
                                             <section id='section_acontecimentos'>
@@ -496,23 +498,24 @@
                                                 Para os anos iniciais, em 2019, ultrapassamos a meta de 2021 (6.9), recebendo uma nota de 7.2. Enquanto para os anos finais, 
                                                 no mesmo ano, ultrapassamos a meta estabelecida(5.5), com a nota 5.6.
                                                 </p>
-                                            </section>";            
-                                            break;
+                                            </section>";
+                    break;
                 default:
                     $img = "img/estudante.png";
                     $titulo = "Matéria não encontrada!";
                     $paragrafo = "Parece que você tentou acessar uma matéria inexisteste!
-                    Por favor, volte à página inicial e clique em ".'"'."SABER
-                    MAIS".'"'." no bloco da matéria que deseja ler por completo.";
+                    Por favor, volte à página inicial e clique em " . '"' . "SABER
+                    MAIS" . '"' . " no bloco da matéria que deseja ler por completo.";
                     mensagem_alerta($img, $titulo, $paragrafo);
                     break;
             }
-        ?>
-        </div>
+            ?>
+    </div>
     </main>
-</div>
-<?php
+    </div>
+    <?php
     include('componentes/first_footer.php');
-?>
+    ?>
 </body>
+
 </html>

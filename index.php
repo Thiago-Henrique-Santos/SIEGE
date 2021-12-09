@@ -163,17 +163,17 @@
 									<img src="img/#.jpg" class="card-img-top" alt="...">
 									<h5 class="card-title">Título</h5>
 									<p class="card-text">Descrição</p>
-									<a href="nomeDaPastaDeArquivosPdf/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="ArquivosPDF/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="card">
-							<div class="card-body">
+								<div class="card-body">
 									<img src="img/#jpg" class="card-img-top" alt="...">
 									<h5 class="card-title">Título</h5>
 									<p class="card-text">Descrição</p>
-									<a href="nomeDaPastaDeArquivosPdf/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
+									<a href="ArquivosPDF/nomeDoArquivoPdf.pdf" terget="_blank" class="btn btn-primary btn_saiba_mais" style="background-color: #191970">SABER MAIS</a>
 								</div>
 							</div>
 						</div>
