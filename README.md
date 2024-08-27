@@ -62,25 +62,6 @@ O **SIEGE** (Informative and Management School System) é um sistema acadêmico 
 - **Gestão:** Navegue pelas diferentes seções para gerenciar usuários, turmas, disciplinas, e notas.
 - **Consulta:** Alunos e professores podem consultar as informações relevantes através de suas contas.
 
-## **Contribuição**
-
-Contribuições são bem-vindas! Se você deseja contribuir com o projeto, siga as etapas abaixo:
-
-1. Faça um fork do repositório.
-2. Crie uma branch para a sua feature ou correção de bug:
-   ```bash
-   git checkout -b minha-feature
-   ```
-3. Commit suas alterações:
-   ```bash
-   git commit -m 'Adiciona minha nova feature'
-   ```
-4. Faça o push para a branch:
-   ```bash
-   git push origin minha-feature
-   ```
-5. Abra um Pull Request.
-
-## **Licença**
+<!-- ## **Licença** -->
 
 <!-- Este projeto é licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais informações. -->
