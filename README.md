@@ -1,6 +1,6 @@
 # **SIEGE (Sistema Informativo e Gerenciamento Escolar)**
 
-O **SIEGE** (Informative and Management School System) é um sistema acadêmico projetado para facilitar a comunicação entre a escola e os pais, permitindo que o boletim dos alunos seja enviado remotamente. Além disso, ele proporciona funcionalidades de gestão escolar, permitindo que diretores, professores e alunos interajam com o sistema de acordo com suas permissões.
+O **SIEGE** (Sistema Informativo e Gerenciamento Escolar) é um sistema acadêmico projetado para facilitar a comunicação entre a escola e os pais, permitindo que o boletim dos alunos seja enviado remotamente. Além disso, ele proporciona funcionalidades de gestão escolar, permitindo que diretores, professores e alunos interajam com o sistema de acordo com suas permissões.
 
 ## **Funcionalidades**
 
